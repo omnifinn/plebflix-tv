@@ -1,0 +1,90 @@
+[
+  {
+    "channel": "international",
+    "title": "300-page iPhone bill",
+    "query": "iPhone bill 300 pages iJustine",
+    "match": "iPhone bill|300",
+    "year": 2007,
+    "signals": ["a", "b", "c", "d"],
+    "why": "iJustine unboxed AT&T's 300-page iPhone bill and the clip pushed the carrier to change the format.",
+    "tags": ["youtube", "gadget"],
+    "creator": "iJustine"
+  },
+  {
+    "channel": "international",
+    "title": "Ain't Nobody Got Time for That",
+    "query": "Sweet Brown ain't nobody got time for that",
+    "match": "Sweet Brown|time for that",
+    "year": 2012,
+    "signals": ["a", "b", "c", "d"],
+    "why": "Kimberly Wilkins' local-news interview became a catchphrase and a pile of remixes.",
+    "tags": ["news", "remix"],
+    "creator": "Kimberly Wilkins"
+  },
+  {
+    "channel": "international",
+    "title": "Bus Uncle",
+    "query": "Bus Uncle Hong Kong original",
+    "match": "Bus Uncle",
+    "year": 2006,
+    "signals": ["a", "b", "c", "d"],
+    "why": "A phone-camera argument on a Hong Kong bus was one of YouTube's first subtitled local scandals.",
+    "tags": ["phone-camera"],
+    "creator": "unknown uploader"
+  },
+  {
+    "channel": "international",
+    "title": "Diet Coke and Mentos",
+    "query": "The Extreme Diet Coke and Mentos Experiments",
+    "match": "Mentos",
+    "year": 2006,
+    "signals": ["a", "b", "c", "e"],
+    "why": "EepyBird's fountain film turned a dorm trick into a format other people copied for years.",
+    "tags": ["stunt"],
+    "creator": "EepyBird"
+  },
+  {
+    "channel": "international",
+    "title": "Where the Hell is Matt",
+    "query": "Where the Hell is Matt 2006",
+    "match": "Where the Hell is Matt",
+    "year": 2006,
+    "signals": ["a", "b", "c", "d"],
+    "why": "Matt Harding's dance in front of landmarks was a homemade travelogue the blogs passed around.",
+    "tags": ["travel"],
+    "creator": "Matt Harding"
+  },
+  {
+    "channel": "international",
+    "title": "JK Wedding Entrance Dance",
+    "query": "JK Wedding Entrance Dance",
+    "match": "Wedding Entrance",
+    "year": 2009,
+    "signals": ["a", "b", "c", "d"],
+    "why": "A wedding party's processional to Forever became the template for a thousand copies.",
+    "tags": ["wedding", "home-video"],
+    "creator": "Jill and Kevin"
+  },
+  {
+    "channel": "international",
+    "title": "Will It Blend",
+    "query": "Will It Blend iPhone",
+    "match": "Will It Blend",
+    "year": 2006,
+    "signals": ["a", "b", "c", "e"],
+    "why": "Blendtec's iPhone smoothie was an early web ad that people mailed around as a stunt.",
+    "tags": ["stunt"],
+    "creator": "Blendtec"
+  },
+  {
+    "channel": "international",
+    "title": "lonelygirl15",
+    "query": "lonelygirl15 first video",
+    "match": "lonelygirl15|Bree",
+    "year": 2006,
+    "signals": ["a", "b", "c", "e"],
+    "why": "The Bree vlog invented the fake-amateur YouTube serial, then the blogs found the production.",
+    "tags": ["vlog"],
+    "creator": "Mesh Flinders"
+  }
+]

@@ -1,0 +1,14 @@
+/channels/*
+  Cache-Control: public, max-age=60
+
+/styles.css
+  Cache-Control: public, max-age=300
+
+/app.js
+  Cache-Control: public, max-age=300
+
+/schedule.js
+  Cache-Control: public, max-age=300
+
+/fonts/*
+  Cache-Control: public, max-age=86400

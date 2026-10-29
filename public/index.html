@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <title>Plebflix — real human slop</title>
+    <meta name="description" content="Plebflix — real human slop" />
+    <meta property="og:title" content="Plebflix — real human slop" />
+    <meta property="og:description" content="Plebflix — real human slop" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://plebflix.com/" />
+    <meta name="theme-color" content="#e7b08c" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="room">
+      <div class="glow" aria-hidden="true"></div>
+      <div class="lamp" aria-hidden="true">
+        <div class="shade"></div>
+        <div class="neck"></div>
+        <div class="stand"></div>
+      </div>
+      <div class="plant" aria-hidden="true">
+        <div class="leaf leaf-a"></div>
+        <div class="leaf leaf-b"></div>
+        <div class="leaf leaf-c"></div>
+        <div class="pot"></div>
+      </div>
+      <h1 class="sr">Plebflix — real human slop</h1>
+      <main class="set">
+        <section class="tv" aria-label="Television">
+          <div class="bezel">
+            <div class="brand-row">
+              <span class="brand">PLEBTRON</span>
+              <span class="brand-sub">COLOR</span>
+              <span class="led" id="power-led" title="Power"></span>
+            </div>
+            <div class="screen" id="screen">
+              <div class="stage" id="stage">
+                <img id="poster" alt="" />
+                <div id="yt"></div>
+                <iframe
+                  id="embed"
+                  title="Embedded video"
+                  hidden
+                  playsinline
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                ></iframe>
+                <div id="swf" hidden></div>
+                <div class="card" id="card" hidden>
+                  <div class="bars" aria-hidden="true">
+                    <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                  </div>
+                  <p class="card-mark" id="card-mark">PLEBFLIX</p>
+                  <p class="card-sub" id="card-sub">NO SIGNAL</p>
+                </div>
+                <canvas id="snow" width="160" height="120" aria-hidden="true"></canvas>
+              </div>
+              <div class="shield" id="shield"></div>
+              <div class="osd" id="osd">
+                <div class="osd-top">
+                  <span id="osd-ch">CH 01</span>
+                  <button type="button" class="live-pill" id="live-pill">LIVE</button>
+                  <span id="osd-clock">00:00</span>
+                </div>
+                <p class="osd-vote" id="osd-vote" hidden></p>
+                <div class="osd-bottom">
+                  <span id="osd-mode">PLAY ▶</span>
+                  <span id="osd-title">Tracking…</span>
+                  <a class="osd-source" id="osd-source" target="_blank" rel="noopener noreferrer" hidden>SOURCE</a>
+                </div>
+                <button type="button" class="sound-hint" id="sound-hint">Tap for sound</button>
+              </div>
+              <div class="scanlines" aria-hidden="true"></div>
+              <div class="glass" aria-hidden="true"></div>
+              <div class="glitch" id="glitch" aria-hidden="true"></div>
+            </div>
+            <div class="speaker-row" aria-hidden="true">
+              <span class="grille"></span>
+              <span class="window" id="bezel-ch">01 SUOMI</span>
+              <span class="grille"></span>
+            </div>
+          </div>
+        </section>
+        <section class="cabinet" aria-label="VHS deck">
+          <p class="nameplate">Plebflix — real human slop</p>
+          <div class="deck">
+            <div class="lcd" aria-live="polite">
+              <div class="lcd-row">
+                <span id="lcd-ch">CH 01</span>
+                <span id="lcd-mode">PLAY</span>
+                <span id="lcd-clock">00:00</span>
+              </div>
+              <div class="lcd-title" id="lcd-title">—</div>
+            </div>
+            <div class="slot" aria-hidden="true"></div>
+            <div class="transport">
+              <button type="button" class="key rec" id="btn-rec" aria-label="Record a recommendation">
+                <span class="dot"></span>REC
+              </button>
+              <button type="button" class="key" id="btn-rew" aria-label="Rewind">REW</button>
+              <button type="button" class="key play" id="btn-play" aria-label="Play">PLAY</button>
+              <button type="button" class="key" id="btn-fwd" aria-label="Fast forward">FWD</button>
+              <button type="button" class="key" id="btn-pause" aria-label="Pause">PAUSE</button>
+              <button type="button" class="key" id="btn-stop" aria-label="Stop">STOP</button>
+            </div>
+            <div class="tuner">
+              <button type="button" class="key small" id="btn-ch-down" aria-label="Previous channel">CH−</button>
+              <span id="tuner-name">SUOMI</span>
+              <button type="button" class="key small" id="btn-ch-up" aria-label="Next channel">CH+</button>
+            </div>
+            <div class="remote" aria-label="Vote on the tape that is on">
+              <button type="button" class="key thumb" id="btn-up" aria-label="Thumbs up">
+                <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+                  <path fill="currentColor" d="M2 10h4v11H2V10zm6.2 0 3.1-7.1A2.4 2.4 0 0 1 13.5 1.5c1.4 0 2.4 1.1 2.4 2.4V8H21c1.2 0 2.1 1.1 1.9 2.3l-1.4 8A2 2 0 0 1 19.5 20H8.2V10z"/>
+                </svg>
+                UP
+              </button>
+              <button type="button" class="key thumb down" id="btn-down" aria-label="Thumbs down">
+                <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+                  <path fill="currentColor" d="M2 10h4v11H2V10zm6.2 0 3.1-7.1A2.4 2.4 0 0 1 13.5 1.5c1.4 0 2.4 1.1 2.4 2.4V8H21c1.2 0 2.1 1.1 1.9 2.3l-1.4 8A2 2 0 0 1 19.5 20H8.2V10z"/>
+                </svg>
+                DOWN
+              </button>
+            </div>
+          </div>
+          <div class="shelf">
+            <button type="button" class="tape" data-channel="suomi" id="tape-suomi">
+              <span class="spines">SUOMI</span>
+              <span class="reels" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="tape" data-channel="international" id="tape-international">
+              <span class="spines">INTL</span>
+              <span class="reels" aria-hidden="true"></span>
+            </button>
+          </div>
+        </section>
+      </main>
+      <a class="library" href="/RESOURCES.md">Tape library</a>
+    </div>
+
+    <dialog id="rec-dialog" aria-labelledby="rec-title">
+      <form id="rec-form">
+        <p class="stamp">REC</p>
+        <h2 id="rec-title">File a tape</h2>
+        <p class="lede">
+          Paste the original link, the year it came out, and why it is a classic. At least three signals. A librarian checks the embed before it airs.
+        </p>
+        <label>
+          Video link
+          <input name="url" type="url" required maxlength="500" placeholder="https://… or a Wayback snapshot" autocomplete="off" />
+        </label>
+        <label>
+          Channel
+          <select name="channel">
+            <option value="suomi">01 Suomi</option>
+            <option value="international">02 International</option>
+          </select>
+        </label>
+        <label>
+          Title
+          <input name="title" type="text" maxlength="160" autocomplete="off" />
+        </label>
+        <label>
+          Year
+          <input name="year" type="number" required inputmode="numeric" min="1970" step="1" placeholder="2004" />
+        </label>
+        <label>
+          Why
+          <input name="why" type="text" required maxlength="200" autocomplete="off" placeholder="One line on why it is a classic." />
+        </label>
+        <fieldset class="signals">
+          <legend>Signals — pick at least three</legend>
+          <label><input type="checkbox" name="signal" value="a" /> (a) Born online</label>
+          <label><input type="checkbox" name="signal" value="b" /> (b) Spread widely</label>
+          <label><input type="checkbox" name="signal" value="c" /> (c) Still quoted or recognized</label>
+          <label><input type="checkbox" name="signal" value="d" /> (d) Amateur or DIY</label>
+          <label><input type="checkbox" name="signal" value="e" /> (e) Defined its scene</label>
+        </fieldset>
+        <label>
+          Note
+          <textarea name="note" maxlength="500" rows="2" placeholder="Optional. A credit or a caveat."></textarea>
+        </label>
+        <label class="hp">
+          Company
+          <input name="company" type="text" tabindex="-1" autocomplete="off" />
+        </label>
+        <p class="form-status" id="form-status" role="status"></p>
+        <div class="form-actions">
+          <button type="button" class="key" id="rec-cancel">EJECT</button>
+          <button type="submit" class="key rec" id="rec-submit"><span class="dot"></span>FILE</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script type="module" src="/app.js"></script>
+    <noscript>Plebflix needs JavaScript to run the deck.</noscript>
+  </body>
+</html>

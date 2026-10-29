@@ -1,0 +1,439 @@
+{
+  "id": "suomi",
+  "number": 1,
+  "name": "Suomi",
+  "tagline": "From Riemurasia nights to Euroviisut.",
+  "items": [
+    {
+      "id": "b5mies",
+      "title": "B5mies",
+      "year": 1999,
+      "source": "youtube",
+      "embedId": "f-lnF5eNFFY",
+      "duration": 141,
+      "note": "The surviving upload is from 30 Mar 2015. The uploader calls the ballad a 1999 piece.",
+      "credit": "https://www.youtube.com/watch?v=f-lnF5eNFFY",
+      "signals": [
+        "a",
+        "c",
+        "d",
+        "e"
+      ],
+      "why": "A homemade 1999 net ballad about Finnish Babylon 5 fans, still the name of that scene.",
+      "original_url": "https://www.youtube.com/watch?v=f-lnF5eNFFY"
+    },
+    {
+      "id": "kahen-kilon-siika",
+      "title": "Kahden kilon siika",
+      "year": 2008,
+      "source": "youtube",
+      "embedId": "SlIw7GiHUkc",
+      "duration": 107,
+      "note": "The fishing story that swam out of Finnish message boards in 2008.",
+      "credit": "https://www.youtube.com/watch?v=SlIw7GiHUkc",
+      "signals": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "why": "A homemade fishing story that spread from Finnish message boards and is still quoted.",
+      "original_url": "https://www.youtube.com/watch?v=SlIw7GiHUkc"
+    },
+    {
+      "id": "sandstorm",
+      "title": "Sandstorm",
+      "year": 1999,
+      "source": "youtube",
+      "embedId": "y6120QOlsfU",
+      "duration": 233,
+      "note": "Darude's official video, still the unofficial anthem of every loading bar.",
+      "credit": "https://www.youtube.com/watch?v=y6120QOlsfU",
+      "signals": [
+        "b",
+        "c",
+        "e"
+      ],
+      "why": "Darude's official video. The track still defines a loading-screen scene.",
+      "original_url": "https://www.youtube.com/watch?v=y6120QOlsfU"
+    },
+    {
+      "id": "ismo-seppo-pyorailee",
+      "title": "Ismo ja Seppo pyöräilee",
+      "year": 2009,
+      "source": "youtube",
+      "embedId": "C_j3VK81csw",
+      "duration": 449,
+      "note": "A fan edit of the Salatut elämät uncles. The year is the upload era, not a TV premiere.",
+      "credit": "https://www.youtube.com/watch?v=C_j3VK81csw",
+      "signals": [
+        "b",
+        "c",
+        "d",
+        "e"
+      ],
+      "why": "A fan edit of a TV soap. The uncles are still quoted, and the edits are a scene of their own.",
+      "original_url": "https://www.youtube.com/watch?v=C_j3VK81csw"
+    },
+    {
+      "id": "freestyler",
+      "title": "Freestyler",
+      "year": 1999,
+      "source": "youtube",
+      "embedId": "ymNFyxvIdaM",
+      "duration": 293,
+      "note": "Bomfunk MC's official video.",
+      "credit": "https://www.youtube.com/watch?v=ymNFyxvIdaM",
+      "signals": [
+        "b",
+        "c",
+        "e"
+      ],
+      "why": "Bomfunk MC's official video, still recognized and still the dance people mime.",
+      "original_url": "https://www.youtube.com/watch?v=ymNFyxvIdaM"
+    },
+    {
+      "id": "aromipesa",
+      "title": "Aromipesä",
+      "year": 2007,
+      "source": "youtube",
+      "embedId": "jmgAFo3mmNI",
+      "duration": 234,
+      "note": "The Flash cartoon. 2007 is a flash-era estimate, not a verified premiere.",
+      "credit": "https://www.youtube.com/watch?v=jmgAFo3mmNI",
+      "signals": [
+        "a",
+        "b",
+        "d",
+        "e"
+      ],
+      "why": "A homemade Finnish Flash cartoon from that corner of the local web. 2007 is an era estimate.",
+      "original_url": "https://www.youtube.com/watch?v=jmgAFo3mmNI"
+    },
+    {
+      "id": "ievan-polkka",
+      "title": "Ievan polkka",
+      "year": 1995,
+      "source": "youtube",
+      "embedId": "hqthspSKZV8",
+      "duration": 165,
+      "note": "Loituma's kantele recording. The leek-spin meme used this audio later.",
+      "credit": "https://www.youtube.com/watch?v=hqthspSKZV8",
+      "signals": [
+        "b",
+        "c",
+        "e"
+      ],
+      "why": "Loituma's recording. The leek-spin meme is why people still recognize it.",
+      "original_url": "https://www.youtube.com/watch?v=hqthspSKZV8"
+    },
+    {
+      "id": "irc-galleria",
+      "title": "Da IRC-Galleria",
+      "year": 2007,
+      "source": "youtube",
+      "embedId": "hBYHsyWOfno",
+      "duration": 231,
+      "note": "A tour of the photo-gallery years. 2007 is the site's peak era, not a verified upload date.",
+      "credit": "https://www.youtube.com/watch?v=hBYHsyWOfno",
+      "signals": [
+        "a",
+        "b",
+        "d",
+        "e"
+      ],
+      "why": "A homemade tour of IRC-Galleria, the photo site that defined a Finnish teen web scene. 2007 is the peak era.",
+      "original_url": "https://www.youtube.com/watch?v=hBYHsyWOfno"
+    },
+    {
+      "id": "stp-ismo-seppo",
+      "title": "STP — Ismo ja Seppo",
+      "year": 2009,
+      "source": "youtube",
+      "embedId": "DXJewlkQ8wg",
+      "duration": 175,
+      "note": "Another Ismo ja Seppo fan cut from the late 2000s.",
+      "credit": "https://www.youtube.com/watch?v=DXJewlkQ8wg",
+      "signals": [
+        "b",
+        "c",
+        "d"
+      ],
+      "why": "Another homemade cut of the same uncles, still passed around.",
+      "original_url": "https://www.youtube.com/watch?v=DXJewlkQ8wg"
+    },
+    {
+      "id": "lordi-eurovision",
+      "title": "Hard Rock Hallelujah",
+      "year": 2006,
+      "source": "youtube",
+      "embedId": "gAh9NRGNhUU",
+      "duration": 199,
+      "note": "Lordi's winning Eurovision performance, Athens 2006.",
+      "credit": "https://www.youtube.com/watch?v=gAh9NRGNhUU",
+      "signals": [
+        "b",
+        "c",
+        "e"
+      ],
+      "why": "The 2006 Eurovision win. Finland still forwards the monster performance.",
+      "original_url": "https://www.youtube.com/watch?v=gAh9NRGNhUU"
+    },
+    {
+      "id": "ismo-seppo-saunassa",
+      "title": "Ismo ja Seppo saunassa",
+      "year": 2009,
+      "source": "youtube",
+      "embedId": "KgRO8xbR6xE",
+      "duration": 63,
+      "note": "The sauna installment of the Ismo ja Seppo edits.",
+      "credit": "https://www.youtube.com/watch?v=KgRO8xbR6xE",
+      "signals": [
+        "b",
+        "c",
+        "d"
+      ],
+      "why": "The sauna cut of the fan-edited uncles, still recognized.",
+      "original_url": "https://www.youtube.com/watch?v=KgRO8xbR6xE"
+    },
+    {
+      "id": "kummeli-artisti-maksaa",
+      "title": "Artisti maksaa",
+      "year": 1994,
+      "source": "youtube",
+      "embedId": "-xz-KEs6NSI",
+      "duration": 397,
+      "note": "Kummeli: Speedy ja Saku collect the appearance fee.",
+      "credit": "https://www.youtube.com/watch?v=-xz-KEs6NSI",
+      "signals": [
+        "b",
+        "c",
+        "e"
+      ],
+      "why": "A Kummeli sketch people still quote when someone gets paid.",
+      "original_url": "https://www.youtube.com/watch?v=-xz-KEs6NSI"
+    },
+    {
+      "id": "vintiot-marko",
+      "title": "Ravintolapäällikkö Marko",
+      "year": 1994,
+      "source": "youtube",
+      "embedId": "4cECWEOiTfs",
+      "duration": 129,
+      "note": "Vintiöt, and a restaurant manager named Marko.",
+      "credit": "https://www.youtube.com/watch?v=4cECWEOiTfs",
+      "signals": [
+        "b",
+        "c",
+        "e"
+      ],
+      "why": "Vintiöt's Marko, a sketch the Finnish web still recites.",
+      "original_url": "https://www.youtube.com/watch?v=4cECWEOiTfs"
+    },
+    {
+      "id": "siskonpeti-markku",
+      "title": "Siskonpeti — Markku",
+      "year": 1995,
+      "source": "youtube",
+      "embedId": "ROCYqCl4WR4",
+      "duration": 101,
+      "note": "The sketch show's Markku.",
+      "credit": "https://www.youtube.com/watch?v=ROCYqCl4WR4",
+      "signals": [
+        "b",
+        "c",
+        "e"
+      ],
+      "why": "The sketch show's Markku, still a quote.",
+      "original_url": "https://www.youtube.com/watch?v=ROCYqCl4WR4"
+    },
+    {
+      "id": "studio-julmahuvi",
+      "title": "Studio Julmahuvi — Sleeping",
+      "year": 1998,
+      "source": "youtube",
+      "embedId": "uSjkhUjnWwU",
+      "duration": 146,
+      "note": "Julmahuvi, with English subtitles on this upload.",
+      "credit": "https://www.youtube.com/watch?v=uSjkhUjnWwU",
+      "signals": [
+        "b",
+        "c",
+        "e"
+      ],
+      "why": "Julmahuvi, a cult sketch show people still pass around.",
+      "original_url": "https://www.youtube.com/watch?v=uSjkhUjnWwU"
+    },
+    {
+      "id": "spede-kavely",
+      "title": "Spede-kävely",
+      "year": 2000,
+      "source": "youtube",
+      "embedId": "B7Rt0CLf_ao",
+      "duration": 271,
+      "note": "Uutisvuoto's Spede walk, from a 2000 broadcast.",
+      "credit": "https://www.youtube.com/watch?v=B7Rt0CLf_ao",
+      "signals": [
+        "b",
+        "c",
+        "e"
+      ],
+      "why": "Uutisvuoto's Spede walk, from a 2000 broadcast, still recognized on sight.",
+      "original_url": "https://www.youtube.com/watch?v=B7Rt0CLf_ao"
+    },
+    {
+      "id": "team-ahma",
+      "title": "Oon oikeesti tyhmä",
+      "year": 2012,
+      "source": "youtube",
+      "embedId": "thSt5QMkh38",
+      "duration": 113,
+      "note": "Team Ahma. The year is approximate.",
+      "credit": "https://www.youtube.com/watch?v=thSt5QMkh38",
+      "signals": [
+        "a",
+        "b",
+        "d"
+      ],
+      "why": "A homemade sports-commentary bit that got passed around. The year is approximate.",
+      "original_url": "https://www.youtube.com/watch?v=thSt5QMkh38"
+    },
+    {
+      "id": "haapavesi",
+      "title": "Haapavesi",
+      "year": 2011,
+      "source": "youtube",
+      "embedId": "JFCeEUimG54",
+      "duration": 217,
+      "note": "Justimusfilms. The year is approximate.",
+      "credit": "https://www.youtube.com/watch?v=JFCeEUimG54",
+      "signals": [
+        "a",
+        "b",
+        "d",
+        "e"
+      ],
+      "why": "Justimusfilms, a DIY comedy channel that defined a Finnish YouTube scene. The year is approximate.",
+      "original_url": "https://www.youtube.com/watch?v=JFCeEUimG54"
+    },
+    {
+      "id": "itse-valtiaat",
+      "title": "Itse valtiaat",
+      "year": 2001,
+      "source": "youtube",
+      "embedId": "MItEwLj9QQ0",
+      "duration": 66,
+      "note": "The political puppet show's intro.",
+      "credit": "https://www.youtube.com/watch?v=MItEwLj9QQ0",
+      "signals": [
+        "b",
+        "c",
+        "e"
+      ],
+      "why": "The political puppet show. People still quote the intro.",
+      "original_url": "https://www.youtube.com/watch?v=MItEwLj9QQ0"
+    },
+    {
+      "id": "uuno-juna",
+      "title": "Uuno Turhapuro — polkupyörä junassa",
+      "year": 1984,
+      "source": "youtube",
+      "embedId": "HALaLOsinhQ",
+      "duration": 145,
+      "note": "Uuno takes a bicycle on the train. The scene year is approximate.",
+      "credit": "https://www.youtube.com/watch?v=HALaLOsinhQ",
+      "signals": [
+        "b",
+        "c",
+        "e"
+      ],
+      "why": "Uuno on the train, a scene people still impersonate. The scene year is approximate.",
+      "original_url": "https://www.youtube.com/watch?v=HALaLOsinhQ"
+    },
+    {
+      "id": "pulttibois",
+      "title": "Pulttibois — käkikello",
+      "year": 1990,
+      "source": "youtube",
+      "embedId": "FlQ4bQBITx8",
+      "duration": 279,
+      "note": "Heikki ja Kaija and the cuckoo clock.",
+      "credit": "https://www.youtube.com/watch?v=FlQ4bQBITx8",
+      "signals": [
+        "b",
+        "c",
+        "e"
+      ],
+      "why": "Pulttibois and the cuckoo clock, a sketch people still recognize.",
+      "original_url": "https://www.youtube.com/watch?v=FlQ4bQBITx8"
+    },
+    {
+      "id": "vesku-biljardi",
+      "title": "Vesku Show — Biljardi",
+      "year": 1988,
+      "source": "youtube",
+      "embedId": "LpPys5FAasY",
+      "duration": 275,
+      "note": "Vesa-Matti Loiri at the pool table.",
+      "credit": "https://www.youtube.com/watch?v=LpPys5FAasY",
+      "signals": [
+        "b",
+        "c",
+        "e"
+      ],
+      "why": "Vesa-Matti Loiri at the pool table, still recognized on sight.",
+      "original_url": "https://www.youtube.com/watch?v=LpPys5FAasY"
+    },
+    {
+      "id": "haissa",
+      "title": "Häissä",
+      "year": 2011,
+      "source": "youtube",
+      "embedId": "OZ5PUSgFF6g",
+      "duration": 399,
+      "note": "Jare & VilleGalle with Märkä-Simo. The wedding video. Year is approximate.",
+      "credit": "https://www.youtube.com/watch?v=OZ5PUSgFF6g",
+      "signals": [
+        "b",
+        "c",
+        "e"
+      ],
+      "why": "The wedding video people kept forwarding. The year is approximate.",
+      "original_url": "https://www.youtube.com/watch?v=OZ5PUSgFF6g"
+    },
+    {
+      "id": "aina-mun-pitaa",
+      "title": "Aina mun pitää",
+      "year": 2015,
+      "source": "youtube",
+      "embedId": "v4Y0HOPL5GU",
+      "duration": 105,
+      "note": "Pertti Kurikan Nimipäivät at Eurovision 2015.",
+      "credit": "https://www.youtube.com/watch?v=v4Y0HOPL5GU",
+      "signals": [
+        "b",
+        "c",
+        "e"
+      ],
+      "why": "The 2015 Eurovision performance people kept forwarding and still recognize.",
+      "original_url": "https://www.youtube.com/watch?v=v4Y0HOPL5GU"
+    },
+    {
+      "id": "timantit",
+      "title": "Timantit on ikuisia",
+      "year": 2013,
+      "source": "youtube",
+      "embedId": "81Ejyr-ddgw",
+      "duration": 219,
+      "note": "Cheek, official video.",
+      "credit": "https://www.youtube.com/watch?v=81Ejyr-ddgw",
+      "signals": [
+        "b",
+        "c",
+        "e"
+      ],
+      "why": "Cheek's official video, widely shared and still recognized.",
+      "original_url": "https://www.youtube.com/watch?v=81Ejyr-ddgw"
+    }
+  ]
+}
