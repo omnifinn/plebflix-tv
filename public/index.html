@@ -1,202 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <title>Plebflix — real human slop</title>
-    <meta name="description" content="Plebflix — real human slop" />
-    <meta property="og:title" content="Plebflix — real human slop" />
-    <meta property="og:description" content="Plebflix — real human slop" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://plebflix.com/" />
-    <meta name="theme-color" content="#e7b08c" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="/styles.css" />
-  </head>
-  <body>
-    <div class="room">
-      <div class="glow" aria-hidden="true"></div>
-      <div class="lamp" aria-hidden="true">
-        <div class="shade"></div>
-        <div class="neck"></div>
-        <div class="stand"></div>
-      </div>
-      <div class="plant" aria-hidden="true">
-        <div class="leaf leaf-a"></div>
-        <div class="leaf leaf-b"></div>
-        <div class="leaf leaf-c"></div>
-        <div class="pot"></div>
-      </div>
-      <h1 class="sr">Plebflix — real human slop</h1>
-      <main class="set">
-        <section class="tv" aria-label="Television">
-          <div class="bezel">
-            <div class="brand-row">
-              <span class="brand">PLEBTRON</span>
-              <span class="brand-sub">COLOR</span>
-              <span class="led" id="power-led" title="Power"></span>
-            </div>
-            <div class="screen" id="screen">
-              <div class="stage" id="stage">
-                <img id="poster" alt="" />
-                <div id="yt"></div>
-                <iframe
-                  id="embed"
-                  title="Embedded video"
-                  hidden
-                  playsinline
-                  allow="autoplay; fullscreen; picture-in-picture"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                ></iframe>
-                <div id="swf" hidden></div>
-                <div class="card" id="card" hidden>
-                  <div class="bars" aria-hidden="true">
-                    <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-                  </div>
-                  <p class="card-mark" id="card-mark">PLEBFLIX</p>
-                  <p class="card-sub" id="card-sub">NO SIGNAL</p>
-                </div>
-                <canvas id="snow" width="160" height="120" aria-hidden="true"></canvas>
-              </div>
-              <div class="shield" id="shield"></div>
-              <div class="osd" id="osd">
-                <div class="osd-top">
-                  <span id="osd-ch">CH 01</span>
-                  <button type="button" class="live-pill" id="live-pill">LIVE</button>
-                  <span id="osd-clock">00:00</span>
-                </div>
-                <p class="osd-vote" id="osd-vote" hidden></p>
-                <div class="osd-bottom">
-                  <span id="osd-mode">PLAY ▶</span>
-                  <span id="osd-title">Tracking…</span>
-                  <a class="osd-source" id="osd-source" target="_blank" rel="noopener noreferrer" hidden>SOURCE</a>
-                </div>
-                <button type="button" class="sound-hint" id="sound-hint">Tap for sound</button>
-              </div>
-              <div class="scanlines" aria-hidden="true"></div>
-              <div class="glass" aria-hidden="true"></div>
-              <div class="glitch" id="glitch" aria-hidden="true"></div>
-            </div>
-            <div class="speaker-row" aria-hidden="true">
-              <span class="grille"></span>
-              <span class="window" id="bezel-ch">01 SUOMI</span>
-              <span class="grille"></span>
-            </div>
-          </div>
-        </section>
-        <section class="cabinet" aria-label="VHS deck">
-          <p class="nameplate">Plebflix — real human slop</p>
-          <div class="deck">
-            <div class="lcd" aria-live="polite">
-              <div class="lcd-row">
-                <span id="lcd-ch">CH 01</span>
-                <span id="lcd-mode">PLAY</span>
-                <span id="lcd-clock">00:00</span>
-              </div>
-              <div class="lcd-title" id="lcd-title">—</div>
-            </div>
-            <div class="slot" aria-hidden="true"></div>
-            <div class="transport">
-              <button type="button" class="key rec" id="btn-rec" aria-label="Record a recommendation">
-                <span class="dot"></span>REC
-              </button>
-              <button type="button" class="key" id="btn-rew" aria-label="Rewind">REW</button>
-              <button type="button" class="key play" id="btn-play" aria-label="Play">PLAY</button>
-              <button type="button" class="key" id="btn-fwd" aria-label="Fast forward">FWD</button>
-              <button type="button" class="key" id="btn-pause" aria-label="Pause">PAUSE</button>
-              <button type="button" class="key" id="btn-stop" aria-label="Stop">STOP</button>
-            </div>
-            <div class="tuner">
-              <button type="button" class="key small" id="btn-ch-down" aria-label="Previous channel">CH−</button>
-              <span id="tuner-name">SUOMI</span>
-              <button type="button" class="key small" id="btn-ch-up" aria-label="Next channel">CH+</button>
-            </div>
-            <div class="remote" aria-label="Vote on the tape that is on">
-              <button type="button" class="key thumb" id="btn-up" aria-label="Thumbs up">
-                <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
-                  <path fill="currentColor" d="M2 10h4v11H2V10zm6.2 0 3.1-7.1A2.4 2.4 0 0 1 13.5 1.5c1.4 0 2.4 1.1 2.4 2.4V8H21c1.2 0 2.1 1.1 1.9 2.3l-1.4 8A2 2 0 0 1 19.5 20H8.2V10z"/>
-                </svg>
-                UP
-              </button>
-              <button type="button" class="key thumb down" id="btn-down" aria-label="Thumbs down">
-                <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
-                  <path fill="currentColor" d="M2 10h4v11H2V10zm6.2 0 3.1-7.1A2.4 2.4 0 0 1 13.5 1.5c1.4 0 2.4 1.1 2.4 2.4V8H21c1.2 0 2.1 1.1 1.9 2.3l-1.4 8A2 2 0 0 1 19.5 20H8.2V10z"/>
-                </svg>
-                DOWN
-              </button>
-            </div>
-          </div>
-          <div class="shelf">
-            <button type="button" class="tape" data-channel="suomi" id="tape-suomi">
-              <span class="spines">SUOMI</span>
-              <span class="reels" aria-hidden="true"></span>
-            </button>
-            <button type="button" class="tape" data-channel="international" id="tape-international">
-              <span class="spines">INTL</span>
-              <span class="reels" aria-hidden="true"></span>
-            </button>
-          </div>
-        </section>
-      </main>
-      <a class="library" href="/RESOURCES.md">Tape library</a>
-    </div>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Plebflix TV — real human slop</title>
+<!-- share:begin -->
+<!-- share:end -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap">
+<link rel="preload" href="/fonts/vt323-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/styles/tokens.css">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body data-channel="international">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <filter id="fx-chroma" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+    <feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" result="r"/>
+    <feOffset in="r" dx="-3" dy="0" result="r2"/>
+    <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0" result="gb"/>
+    <feOffset in="gb" dx="2" dy="0" result="gb2"/>
+    <feBlend in="r2" in2="gb2" mode="screen"/>
+  </filter>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true"><symbol id="i-rew" viewBox="0 0 24 24"><path d="M11.5 5.5v13L2.5 12z"/><path d="M21.5 5.5v13l-9-6.5z"/></symbol><symbol id="i-play" viewBox="0 0 24 24"><path d="M6 4.2v15.6L19.5 12z"/></symbol><symbol id="i-pause" viewBox="0 0 24 24"><rect x="5.5" y="4.5" width="4.6" height="15" rx=".6"/><rect x="13.9" y="4.5" width="4.6" height="15" rx=".6"/></symbol><symbol id="i-stop" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="1"/></symbol><symbol id="i-fwd" viewBox="0 0 24 24"><path d="M2.5 5.5v13l9-6.5z"/><path d="M12.5 5.5v13l9-6.5z"/></symbol><symbol id="i-prev" viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="3" height="13"/><path d="M20.5 5.5v13L8 12z"/></symbol><symbol id="i-next" viewBox="0 0 24 24"><rect x="17.5" y="5.5" width="3" height="13"/><path d="M3.5 5.5v13L16 12z"/></symbol><symbol id="i-rec" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7.5"/></symbol><symbol id="i-eject" viewBox="0 0 24 24"><path d="M12 4.5 20 13.5H4z"/><rect x="4" y="16" width="16" height="3.5" rx=".5"/></symbol><symbol id="i-thumb-up" viewBox="0 0 24 24"><path d="M2.5 10h4v11h-4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1zM8 10.2 11.7 2.9c.3-.6.9-.9 1.5-.9 1.3 0 2.3 1.1 2.1 2.4L14.7 8.5H20c1.4 0 2.4 1.3 2.1 2.6l-1.7 7.7A2.6 2.6 0 0 1 17.9 21H8z"/></symbol><symbol id="i-thumb-down" viewBox="0 0 24 24"><g transform="rotate(180 12 12)"><path d="M2.5 10h4v11h-4a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1zM8 10.2 11.7 2.9c.3-.6.9-.9 1.5-.9 1.3 0 2.3 1.1 2.1 2.4L14.7 8.5H20c1.4 0 2.4 1.3 2.1 2.6l-1.7 7.7A2.6 2.6 0 0 1 17.9 21H8z"/></g></symbol><symbol id="i-source" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></symbol><symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M3 12h16M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></symbol><symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"/></symbol><symbol id="i-speaker" viewBox="0 0 24 24"><path d="M3 9h4l5-4.5v15L7 15H3z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol><symbol id="i-grip" viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="2"/><rect x="4" y="11" width="16" height="2"/><rect x="4" y="16" width="16" height="2"/></symbol><symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.4"/></symbol><symbol id="i-archive-temple" viewBox="0 0 24 24"><path d="M12 2 2 7v2h20V7z"/><rect x="4" y="10.5" width="2.4" height="8"/><rect x="8.5" y="10.5" width="2.4" height="8"/><rect x="13.1" y="10.5" width="2.4" height="8"/><rect x="17.6" y="10.5" width="2.4" height="8"/><rect x="2" y="19.5" width="20" height="2.5"/></symbol><symbol id="i-archive-wayback" viewBox="0 0 24 24"><rect x="2" y="4" width="1.6" height="16"/><rect x="5" y="4" width="3" height="16"/><rect x="9.4" y="4" width="1.2" height="16"/><rect x="12" y="4" width="2.6" height="16"/><rect x="16" y="4" width="1.2" height="16"/><rect x="18.6" y="4" width="3.4" height="16"/></symbol><symbol id="i-archive-pandora" viewBox="0 0 24 24"><path d="M3 8 12 3l9 5z"/><rect x="3" y="9" width="18" height="1.6"/><rect x="5" y="11.6" width="2" height="6.4"/><rect x="9" y="11.6" width="2" height="6.4"/><rect x="13" y="11.6" width="2" height="6.4"/><rect x="17" y="11.6" width="2" height="6.4"/><rect x="3" y="19" width="18" height="2"/></symbol><symbol id="i-archive-link" viewBox="0 0 24 24"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3.2-3.2a4.5 4.5 0 0 0-6.4-6.4L11.8 5.8M14 10a4.5 4.5 0 0 0-6.4 0l-3.2 3.2a4.5 4.5 0 0 0 6.4 6.4l1.4-1.4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol><symbol id="i-archive-layers" viewBox="0 0 24 24"><path d="M12 3 22 7.5 12 12 2 7.5z"/><path d="M4.4 10.9 12 14.3l7.6-3.4L22 12l-10 4.5L2 12z"/><path d="M4.4 15.4 12 18.8l7.6-3.4L22 16.5 12 21 2 16.5z"/></symbol><symbol id="i-archive-globe" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9.2"/><ellipse cx="12" cy="12" rx="4" ry="9.2"/><path d="M2.8 12h18.4M4.2 7h15.6M4.2 17h15.6"/></g></symbol></svg>
+<div class="app">
 
-    <dialog id="rec-dialog" aria-labelledby="rec-title">
-      <form id="rec-form">
-        <p class="stamp">REC</p>
-        <h2 id="rec-title">File a tape</h2>
-        <p class="lede">
-          Paste the original link, the year it came out, and why it is a classic. At least three signals. A librarian checks the embed before it airs.
-        </p>
-        <label>
-          Video link
-          <input name="url" type="url" required maxlength="500" placeholder="https://… or a Wayback snapshot" autocomplete="off" />
-        </label>
-        <label>
-          Channel
-          <select name="channel">
-            <option value="suomi">01 Suomi</option>
-            <option value="international">02 International</option>
-          </select>
-        </label>
-        <label>
-          Title
-          <input name="title" type="text" maxlength="160" autocomplete="off" />
-        </label>
-        <label>
-          Year
-          <input name="year" type="number" required inputmode="numeric" min="1970" step="1" placeholder="2004" />
-        </label>
-        <label>
-          Why
-          <input name="why" type="text" required maxlength="200" autocomplete="off" placeholder="One line on why it is a classic." />
-        </label>
-        <fieldset class="signals">
-          <legend>Signals — pick at least three</legend>
-          <label><input type="checkbox" name="signal" value="a" /> (a) Born online</label>
-          <label><input type="checkbox" name="signal" value="b" /> (b) Spread widely</label>
-          <label><input type="checkbox" name="signal" value="c" /> (c) Still quoted or recognized</label>
-          <label><input type="checkbox" name="signal" value="d" /> (d) Amateur or DIY</label>
-          <label><input type="checkbox" name="signal" value="e" /> (e) Defined its scene</label>
-        </fieldset>
-        <label>
-          Note
-          <textarea name="note" maxlength="500" rows="2" placeholder="Optional. A credit or a caveat."></textarea>
-        </label>
-        <label class="hp">
-          Company
-          <input name="company" type="text" tabindex="-1" autocomplete="off" />
-        </label>
-        <p class="form-status" id="form-status" role="status"></p>
-        <div class="form-actions">
-          <button type="button" class="key" id="rec-cancel">EJECT</button>
-          <button type="submit" class="key rec" id="rec-submit"><span class="dot"></span>FILE</button>
+  <!-- ═════════ PLAYER WINDOW ═════════ -->
+  <section class="win win--player" aria-label="Plebflix TV player">
+    <header class="win__bar player__bar">
+      <h1 class="brand">
+        <img class="brand__img brand__img--intl" src="/brand/wordmark-intl.svg" alt="Plebflix TV" width="202" height="32">
+        <img class="brand__img brand__img--suomi" src="/brand/wordmark-suomi.svg" alt="Plebflix TV" width="202" height="32">
+        <span class="sr-only">Plebflix — real human slop</span>
+      </h1>
+      <div class="search" id="search" role="search">
+        <input id="search-q" type="search" placeholder="Search tapes… (e.g. siika, numa, 2005)" autocomplete="off" spellcheck="false" aria-label="Search tapes" aria-autocomplete="list" aria-controls="search-list" aria-expanded="false" role="combobox">
+        <ul class="search__list" id="search-list" role="listbox" hidden></ul>
+      </div>
+      <span class="player__spacer"></span>
+      <div class="skins">
+        <button type="button" class="key key--sm skins__btn" id="skin-btn" aria-haspopup="menu" aria-expanded="false" title="Skins">SKIN</button>
+        <ul class="skins__menu" id="skin-menu" role="menu" hidden></ul>
+      </div>
+      <button type="button" class="lamp lamp--top" data-state="live" title="Back to live">LIVE</button>
+      <div class="win__studs" aria-hidden="true"><span class="stud"></span><span class="stud"></span><span class="stud"></span></div>
+    </header>
+
+    <nav class="tuner" id="tuner" aria-label="TV and channel">
+      <div class="tv" id="tv-switch" role="radiogroup" aria-label="TV"></div>
+      <div class="chsel">
+        <button type="button" class="key chsel__step" id="ch-down" aria-label="Previous channel">CH&minus;</button>
+        <div class="chsel__list" id="ch-list" role="radiogroup" aria-label="Channel"></div>
+        <button type="button" class="key chsel__step" id="ch-up" aria-label="Next channel">CH+</button>
+      </div>
+      <button type="button" class="key key--golive" id="btn-live" data-state="live" title="Back to the live broadcast">● LIVE</button>
+      <span class="chsel__now" id="ch-now" aria-live="polite"></span>
+      <button type="button" class="key key--sm click-toggle" id="click-toggle" aria-pressed="true" title="Button click sound">CLICK</button>
+    </nav>
+
+    <div class="player__body">
+      <div class="crt">
+        <div class="crt__glass" id="screen">
+          <div class="stage" id="stage">
+            <img id="poster" alt="" hidden>
+            <video id="vid" playsinline muted preload="auto" hidden></video>
+            <div id="yt"></div>
+            <iframe id="embed" title="Embedded video" hidden allow="autoplay; fullscreen; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            <div id="swf" hidden></div>
+            <div class="card" id="card" hidden>
+              <img class="card__ident card__ident--intl" src="/brand/ident-intl.svg" alt="">
+              <img class="card__ident card__ident--suomi" src="/brand/ident-suomi.svg" alt="">
+              <div class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="card__text">
+                <p class="card-mark" id="card-mark">PLEBFLIX</p>
+                <p class="card-sub" id="card-sub">NO SIGNAL</p>
+              </div>
+            </div>
+            <canvas id="snow" width="160" height="120" aria-hidden="true"></canvas>
+          </div>
+          <div class="fx-layer" aria-hidden="true">
+            <canvas id="fx-grain" width="192" height="108"></canvas>
+            <div class="fxl-scan"></div>
+            <div class="fxl-track"></div>
+            <div class="fxl-curve"></div>
+          </div>
+          <div class="shield" id="shield"></div>
+          <div class="glitch" id="glitch" aria-hidden="true"></div>
+          <div class="osd">
+            <button type="button" class="lamp osd__live" data-state="live" title="Back to live">LIVE</button>
+            <span class="osd__ch lcd-text" id="osd-ch">CH 02</span>
+            <p class="osd__vote lcd-text" id="osd-vote" role="status" hidden></p>
+            <button class="sound-hint" id="sound-hint" type="button"><svg aria-hidden="true"><use href="#i-speaker"/></svg>Tap for sound</button>
+          </div>
         </div>
-      </form>
-    </dialog>
+        <span class="crt__badge" aria-hidden="true">PLEBTRON</span>
+      </div>
 
-    <script type="module" src="/app.js"></script>
-    <noscript>Plebflix needs JavaScript to run the deck.</noscript>
-  </body>
+      <div class="source-row">
+        <a class="pill" id="source" href="/RESOURCES.md" target="_blank" rel="noopener noreferrer">
+          <svg aria-hidden="true"><use href="#i-source"/></svg><b>SOURCE</b> · <span id="source-host">—</span>
+        </a>
+      </div>
+
+      <div class="lcd lcd-text player__lcd">
+        <div class="lcd__row1">
+          <button type="button" class="lamp lcd__live" data-state="live" title="Back to live">LIVE</button>
+          <span class="lcd__ch" id="lcd-ch">CH 02 INTL</span>
+          <span class="lcd__clock lcd-ghost" data-ghost="88:88:88" id="lcd-clock">00:00:00</span>
+          <span class="lcd__year lcd-cell" id="lcd-year">----</span>
+        </div>
+        <div class="marquee" id="marquee" aria-hidden="true"><span class="marquee__track"><span>TUNING…</span><span>TUNING…</span></span></div>
+        <p class="sr-only" aria-live="polite" id="announce"></p>
+        <div class="lcd__row3">
+          <span class="lcd__mode" id="lcd-mode" title="Playback mode">LIVE</span>
+          <div class="progress scrub" id="scrub" role="slider" tabindex="0" aria-label="Seek within the tape" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="00:00" style="--p:0%"><div class="scrub__track"><div class="progress__fill" id="progress"></div></div><div class="scrub__thumb" aria-hidden="true"></div><div class="scrub__tip" id="scrub-tip" aria-hidden="true" hidden>00:00</div></div>
+          <span class="lcd__tc" id="lcd-tc">00:00 / 00:00</span>
+        </div>
+      </div>
+
+      <div class="transport">
+        <div class="transport__keys" role="toolbar" aria-label="Transport">
+          <button type="button" class="key" id="btn-prev" aria-label="Previous tape"><svg aria-hidden="true"><use href="#i-prev"/></svg><span>Back</span></button>
+          <button type="button" class="key" id="btn-rew" aria-pressed="false" aria-label="Rewind"><svg aria-hidden="true"><use href="#i-rew"/></svg><span>Rew</span></button>
+          <button type="button" class="key key--play" id="btn-play" aria-pressed="true" aria-label="Play"><svg aria-hidden="true"><use href="#i-play"/></svg><span>Play</span></button>
+          <button type="button" class="key key--pause" id="btn-pause" aria-pressed="false" aria-label="Pause"><svg aria-hidden="true"><use href="#i-pause"/></svg><span>Pause</span></button>
+          <button type="button" class="key" id="btn-stop" aria-pressed="false" aria-label="Stop"><svg aria-hidden="true"><use href="#i-stop"/></svg><span>Stop</span></button>
+          <button type="button" class="key" id="btn-fwd" aria-pressed="false" aria-label="Fast forward"><svg aria-hidden="true"><use href="#i-fwd"/></svg><span>Fwd</span></button>
+          <button type="button" class="key" id="btn-next" aria-label="Next tape"><svg aria-hidden="true"><use href="#i-next"/></svg><span>Skip</span></button>
+          <button type="button" class="key key--mode" id="btn-mode" data-mode="live" aria-label="Playback mode: Live. Click for Loop." title="Playback mode: LIVE → LOOP → SHUFFLE"><span class="mode__icon" aria-hidden="true">((•))</span><span class="mode__label" id="mode-label">LIVE</span></button>
+          <button type="button" class="key key--rec" id="btn-rec" aria-pressed="false" aria-haspopup="dialog" aria-label="Record — suggest a tape"><svg aria-hidden="true"><use href="#i-rec"/></svg><span>Rec</span></button>
+        </div>
+        <span class="transport__div" aria-hidden="true"></span>
+        <div class="vote" role="group" aria-label="Vote on the tape that is on">
+          <button type="button" class="key key--vote" id="btn-up" aria-pressed="false" aria-label="Thumbs up"><svg aria-hidden="true"><use href="#i-thumb-up"/></svg><span>Up</span></button>
+          <div class="vote__tally lcd lcd-text" id="tally" role="img" aria-label="No votes yet"><span>▲ <b id="tally-up">0</b></span><span>▼ <b id="tally-down">0</b></span></div>
+          <button type="button" class="key key--vote" id="btn-down" aria-pressed="false" aria-label="Thumbs down"><svg aria-hidden="true"><use href="#i-thumb-down"/></svg><span>Down</span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ SIDE COLUMN ═════════ -->
+  <div class="side">
+    <section class="win win--schedule" aria-labelledby="sched-title">
+      <header class="win__bar">
+        <button class="win__toggle" type="button" aria-expanded="false" aria-controls="sched-body">
+          <svg class="win__grip" aria-hidden="true"><use href="#i-grip"/></svg>
+          <h2 class="win__title win__title--full" id="sched-title">Schedule<span class="sep">•</span><span id="sched-ch">CH 02 International</span></h2>
+          <span class="win__title win__title--peek">Up next<span class="sep">•</span><span class="peek__lcd" id="peek">—</span></span>
+          <svg class="win__chev" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+        </button>
+        <div class="win__studs"><button type="button" class="stud" data-shade aria-label="Shade schedule window"></button><span class="stud" aria-hidden="true"></span><span class="stud" aria-hidden="true"></span></div>
+      </header>
+      <div class="sched__wrap" id="sched-body">
+        <p class="sched__tagline" id="sched-tagline">The ones you emailed to the whole lab.</p>
+        <div class="well sched__well lcd-text"><ol class="sched" id="sched" aria-label="Schedule"></ol></div>
+        <p class="sched__foot" id="sched-foot">— TAPES · LIVE LOOP · ALL TIMES LOCAL</p>
+      </div>
+    </section>
+
+    <section class="win win--eq" aria-labelledby="eq-title" id="eqwin" data-view="eq">
+      <header class="win__bar">
+        <button class="win__toggle" type="button" aria-expanded="false" aria-controls="eq-body">
+          <svg class="win__grip" aria-hidden="true"><use href="#i-grip"/></svg>
+          <h2 class="win__title" id="eq-title">Equalizer</h2>
+          <svg class="win__chev" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+        </button>
+        <div class="win__studs" aria-hidden="true"><span class="stud"></span><span class="stud"></span><span class="stud"></span></div>
+      </header>
+      <div class="eq__wrap" id="eq-body">
+        <div class="aeq__top">
+          <button type="button" class="key key--sm" id="aeq-on" aria-pressed="true">On</button>
+          <button type="button" class="key key--sm" id="aeq-auto" aria-pressed="false">Auto</button>
+          <select class="aeq__preset" id="aeq-preset" aria-label="EQ preset"></select>
+          <button type="button" class="key key--sm aeq__view" id="aeq-view" aria-pressed="false" title="Flip between equalizer and visualizer">VIS</button>
+        </div>
+        <div class="well eq__well lcd-text aeq__vis" id="aeq-vis-well" hidden><canvas id="aeq-vis" width="300" height="64" title="Click to cycle: bars · scope · off" aria-label="Visualizer, click to change mode"></canvas><span class="aeq__mode" id="aeq-mode">BARS</span></div>
+        <div class="aeq__bands" id="aeq-bands"></div>
+        <p class="aeq__note" id="aeq-note">EQ shapes the self-hosted tapes. Embedded fallbacks play untouched.</p>
+      </div>
+    </section>
+
+    <section class="win win--fx" aria-labelledby="fx-title" id="fxwin">
+      <header class="win__bar">
+        <button class="win__toggle" type="button" aria-expanded="false" aria-controls="fx-body">
+          <svg class="win__grip" aria-hidden="true"><use href="#i-grip"/></svg>
+          <h2 class="win__title" id="fx-title">FX<span class="sep">•</span>Picture</h2>
+          <svg class="win__chev" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+        </button>
+        <div class="win__studs" aria-hidden="true"><span class="stud"></span><span class="stud"></span><span class="stud"></span></div>
+      </header>
+      <div class="eq__wrap" id="fx-body">
+        <div class="eq__controls"><div class="faders" id="faders"></div></div>
+        <div class="fx" id="fx-toggles" role="group" aria-label="Picture tweaks"></div>
+        <div class="fx fx--keys">
+          <button type="button" class="key key--sm is-lit" id="fx-on" aria-pressed="true">On</button>
+          <button type="button" class="key key--sm" id="fx-rnd">Rnd</button>
+          <button type="button" class="key key--sm" id="fx-reset">Reset</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ═════════ PRESERVED BY ═════════ -->
+  <section class="win win--shelf" aria-labelledby="shelf-title">
+    <header class="win__bar">
+      <button class="win__toggle" type="button" aria-expanded="false" aria-controls="shelf-body">
+        <svg class="win__grip" aria-hidden="true"><use href="#i-grip"/></svg>
+        <h2 class="win__title win__title--full" id="shelf-title">Preserved by<span class="sep">•</span>Web archives we link to</h2>
+        <span class="win__title win__title--peek">Preserved by<span class="sep">•</span><span class="peek__ui">Internet Archive, Wayback Machine, WebCite…</span></span>
+        <svg class="win__chev" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+      </button>
+      <div class="win__studs"><button type="button" class="stud" data-shade aria-label="Shade archive window"></button><span class="stud" aria-hidden="true"></span><span class="stud" aria-hidden="true"></span></div>
+    </header>
+    <div class="shelf__body" id="shelf-body">
+      <ul class="shelf">
+        <li><a class="plaque" href="https://archive.org/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-archive-temple"/></svg>Internet Archive</a></li>
+        <li><a class="plaque" href="https://web.archive.org/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-archive-wayback"/></svg>Wayback Machine</a></li>
+        <li><a class="plaque" href="https://pandora.nla.gov.au/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-archive-pandora"/></svg>PANDORA / Trove</a></li>
+        <li><a class="plaque" href="https://www.webcitation.org/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-archive-link"/></svg>WebCite</a></li>
+        <li><a class="plaque" href="https://arquivo.pt/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-archive-layers"/></svg>Arquivo.pt</a></li>
+        <li><a class="plaque" href="https://en.wikipedia.org/wiki/Internet_Memory_Foundation" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-archive-globe"/></svg>Internet Memory Foundation</a></li>
+        <li class="shelf__more"><a href="/RESOURCES.md">Full library <svg aria-hidden="true"><use href="#i-arrow-right"/></svg></a></li>
+      </ul>
+      <p class="shelf__note">Every tape links to its original upload or a Wayback snapshot.</p>
+    </div>
+  </section>
+
+  <footer class="foot">Plebflix — real human slop <span>·</span> Add a tape with REC <span>·</span> Clips are archived for preservation and credited to their original creators — ask for removal any time (REC or <a href="https://github.com/omnifinn/plebflix-tv/issues/new?title=Takedown%20request" target="_blank" rel="noopener">a GitHub issue</a>). Every tape links to its original source.</footer>
+</div>
+
+<!-- ═════════ REC DIALOG ═════════ -->
+<dialog class="win win--dialog rec" id="rec-dialog" aria-labelledby="rec-title">
+  <form class="rec__form" id="rec-form" novalidate>
+    <header class="win__bar">
+      <span class="rec__dot" aria-hidden="true"></span>
+      <h2 class="win__title" id="rec-title">REC<span class="sep">—</span>suggest a tape</h2>
+      <span class="win__groove" aria-hidden="true"></span>
+      <div class="win__studs"><button type="button" class="stud" id="rec-close" aria-label="Close"></button></div>
+    </header>
+    <div class="rec__body">
+      <div class="lcd lcd-text rec__status" aria-live="polite"><span class="rec__status-led" id="rec-led"></span><span id="form-status">INSERT TAPE · PASTE THE ORIGINAL LINK</span></div>
+      <label class="field field--lcd"><span class="field__label">Video link</span>
+        <input name="url" type="url" required maxlength="500" placeholder="YouTube, Vimeo, archive.org, Wayback, any page with the video…" autocomplete="off" spellcheck="false">
+        <span class="field__echo" id="host-echo">HOST · —</span>
+      </label>
+      <fieldset class="field"><legend class="field__label">Channel</legend>
+        <div class="rocker rocker--block" role="radiogroup" aria-label="Channel">
+          <label class="rocker__seg rocker__seg--suomi" aria-checked="false"><input type="radio" name="channel" value="suomi" class="sr-only">01 Suomi</label>
+          <label class="rocker__seg rocker__seg--intl" aria-checked="true"><input type="radio" name="channel" value="international" checked class="sr-only">02 International</label>
+        </div>
+      </fieldset>
+      <div class="rec__grid">
+        <label class="field"><span class="field__label">Title</span><input name="title" type="text" maxlength="160" autocomplete="off"></label>
+        <label class="field field--year"><span class="field__label">Year</span><input name="year" type="number" required inputmode="numeric" min="1970" step="1" placeholder="2004"></label>
+      </div>
+      <label class="field"><span class="field__label">Why <i>optional</i></span><input name="why" type="text" maxlength="200" autocomplete="off" placeholder="One line on why it is a classic."></label>
+      <fieldset class="field signals"><legend class="field__label">Signals — tick what applies (3 of 5 makes a classic) <span class="signals__count" id="sig-count">0/3</span></legend>
+        <label class="sig"><input type="checkbox" name="signal" value="a"><span>(a) Born online</span></label>
+        <label class="sig"><input type="checkbox" name="signal" value="b"><span>(b) Spread widely</span></label>
+        <label class="sig"><input type="checkbox" name="signal" value="c"><span>(c) Still quoted or recognized</span></label>
+        <label class="sig"><input type="checkbox" name="signal" value="d"><span>(d) Amateur or DIY</span></label>
+        <label class="sig"><input type="checkbox" name="signal" value="e"><span>(e) Defined its scene</span></label>
+      </fieldset>
+      <label class="field"><span class="field__label">Your name <i>optional</i></span><input name="submitter" type="text" maxlength="60" autocomplete="nickname" placeholder="So we can credit you"></label>
+      <label class="field"><span class="field__label">Note <i>optional</i></span><textarea name="note" maxlength="500" rows="2" placeholder="A credit or a caveat."></textarea></label>
+      <label class="hp" aria-hidden="true">Company <input name="company" type="text" tabindex="-1" autocomplete="off"></label>
+    </div>
+    <footer class="rec__actions">
+      <p class="rec__fine">A librarian vets every tape and opens it as a GitHub pull request.</p>
+      <button type="button" class="key key--wide" id="rec-cancel"><svg aria-hidden="true"><use href="#i-eject"/></svg><span>Eject</span></button>
+      <button type="submit" class="key key--wide key--rec" id="rec-submit" disabled><svg aria-hidden="true"><use href="#i-rec"/></svg><span>Rec</span></button>
+    </footer>
+  </form>
+</dialog>
+
+<script type="module" src="/app.js"></script>
+<script type="module" src="/fx.js"></script>
+<script type="module" src="/audio.js"></script>
+<script type="module" src="/search.js"></script>
+<script type="module" src="/skins.js"></script>
+  <script type="module" src="/tactile.js"></script>
+<noscript><p class="foot">Plebflix needs JavaScript to run the deck.</p></noscript>
+</body>
 </html>

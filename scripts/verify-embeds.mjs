@@ -1,6 +1,6 @@
 import { readdir, readFile } from "node:fs/promises";
 
-const files = (await readdir("channels")).filter((name) => name.endsWith(".json")).sort();
+const files = (await readdir("channels")).filter((name) => name.endsWith(".json") && name !== "categories.json").sort();
 let failed = 0;
 for (const name of files) {
   const doc = JSON.parse(await readFile(`channels/${name}`, "utf8"));

@@ -17,12 +17,18 @@
   "assets": {
     "directory": "./dist/assets",
     "binding": "ASSETS",
-    "run_worker_first": ["/api/*"]
+    "run_worker_first": ["/api/*", "/media/*", "/suomi", "/suomi/"]
   },
+  "ratelimits": [
+    { "name": "REC_RL", "namespace_id": "4101", "simple": { "limit": 3, "period": 60 } },
+    { "name": "VOTE_RL", "namespace_id": "4102", "simple": { "limit": 30, "period": 60 } },
+    { "name": "PLAY_RL", "namespace_id": "4103", "simple": { "limit": 30, "period": 60 } }
+  ],
   "d1_databases": [
     {
       "binding": "DB",
       "database_name": "plebflix-tv",
+      "database_id": "bc743ec1-07f3-422b-bb5a-972aa6507996",
       "migrations_dir": "migrations",
       "remote": false
     }

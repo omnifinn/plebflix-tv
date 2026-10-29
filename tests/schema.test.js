@@ -84,7 +84,7 @@ test("sources.json lists real shelves", async () => {
 });
 
 test("checked-in channels validate", async () => {
-  const files = (await readdir("channels")).filter((name) => name.endsWith(".json"));
+  const files = (await readdir("channels")).filter((name) => name.endsWith(".json") && name !== "categories.json");
   assert.ok(files.includes("suomi.json"));
   assert.ok(files.includes("international.json"));
   for (const name of files) {

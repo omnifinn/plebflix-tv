@@ -1,7 +1,7 @@
 import { readdir, readFile } from "node:fs/promises";
 import { validateChannel, validateSources } from "../lib/schema.mjs";
 
-const files = (await readdir("channels")).filter((name) => name.endsWith(".json")).sort();
+const files = (await readdir("channels")).filter((name) => name.endsWith(".json") && name !== "categories.json").sort();
 if (!files.length) {
   console.error("No channel files in channels/");
   process.exit(1);

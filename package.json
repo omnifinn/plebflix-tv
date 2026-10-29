@@ -12,6 +12,10 @@
     "verify-embeds": "node scripts/verify-embeds.mjs",
     "curate": "node scripts/curate.mjs",
     "ingest": "node scripts/ingest.mjs",
+    "candidates": "node scripts/candidates.mjs",
+    "deploy:prepare": "node scripts/deploy.mjs prepare",
+    "deploy:upload": "node scripts/deploy.mjs upload",
+    "deploy:verify": "node scripts/deploy.mjs verify",
     "test": "node --test --test-concurrency=1",
     "typecheck": "tsc --noEmit"
   },

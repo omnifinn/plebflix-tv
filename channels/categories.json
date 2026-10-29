@@ -1,0 +1,1133 @@
+{
+  "note": "Channels are universal categories; the language is a separate TV switch (International / Suomi). A tape lives in suomi.json or international.json (its language) and is assigned here to one or more categories. Channel x language combinations with no tapes stay off the dial.",
+  "channels": [
+    {
+      "id": "mtv",
+      "short": {
+        "suomi": "MTV",
+        "international": "MTV"
+      },
+      "name": {
+        "suomi": "Musiikkivideot",
+        "international": "Music videos"
+      },
+      "tagline": {
+        "suomi": "Musiikkivideot, jotka netti teki kuuluisiksi.",
+        "international": "Music videos the internet made famous."
+      }
+    },
+    {
+      "id": "komedia",
+      "short": {
+        "suomi": "KOMEDIA",
+        "international": "COMEDY"
+      },
+      "name": {
+        "suomi": "Komedia",
+        "international": "Comedy"
+      },
+      "tagline": {
+        "suomi": "Lyhyttä hauskaa, jaettu modeemiajoista asti.",
+        "international": "Short funny stuff, passed around since dial-up."
+      }
+    },
+    {
+      "id": "asiaa",
+      "short": {
+        "suomi": "ASIAA",
+        "international": "TALK"
+      },
+      "name": {
+        "suomi": "Asiaa",
+        "international": "Talk"
+      },
+      "tagline": {
+        "suomi": "Haastatteluja ja ihmisiä, joilla on asiaa.",
+        "international": "Talk, interviews and people with something to say."
+      }
+    },
+    {
+      "id": "dokkarit",
+      "short": {
+        "suomi": "DOKKARIT",
+        "international": "DOCS"
+      },
+      "name": {
+        "suomi": "Dokkarit",
+        "international": "Documentaries"
+      },
+      "tagline": {
+        "suomi": "Pidemmät dokumentaariset nauhat.",
+        "international": "Longer documentary-style tapes."
+      }
+    },
+    {
+      "id": "visailut",
+      "short": {
+        "suomi": "VISAILUT",
+        "international": "GAME SHOWS"
+      },
+      "name": {
+        "suomi": "Visailut",
+        "international": "Game shows"
+      },
+      "tagline": {
+        "suomi": "Visailuhetket, jotka levisivät netissä.",
+        "international": "Game-show moments that went viral."
+      }
+    },
+    {
+      "id": "memes",
+      "short": {
+        "suomi": "MEEMIT",
+        "international": "MEMES"
+      },
+      "name": {
+        "suomi": "Meemit",
+        "international": "Memes"
+      },
+      "tagline": {
+        "suomi": "Meemit ja kuvamakrot, luupattuna.",
+        "international": "Memes and image macros, looped."
+      }
+    },
+    {
+      "id": "animaatio",
+      "short": {
+        "suomi": "ANIMAATIO",
+        "international": "ANIMATION"
+      },
+      "name": {
+        "suomi": "Animaatio",
+        "international": "Animation"
+      },
+      "tagline": {
+        "suomi": "Flash-piirretyt ja varhainen nettianimaatio.",
+        "international": "Flash cartoons and early web animation."
+      }
+    },
+    {
+      "id": "gaming",
+      "short": {
+        "suomi": "PELIT",
+        "international": "GAMING"
+      },
+      "name": {
+        "suomi": "Pelit",
+        "international": "Gaming"
+      },
+      "tagline": {
+        "suomi": "Pelit, machinima ja pelaajaraivo.",
+        "international": "Games, machinima and gamer rage."
+      }
+    },
+    {
+      "id": "elaimet",
+      "short": {
+        "suomi": "ELÄIMET",
+        "international": "ANIMALS"
+      },
+      "name": {
+        "suomi": "Eläimet",
+        "international": "Animals"
+      },
+      "tagline": {
+        "suomi": "Kissoja, koiria, pandoja ja yksi kala.",
+        "international": "Cats, dogs, pandas, chipmunks and one fish."
+      }
+    },
+    {
+      "id": "fails",
+      "short": {
+        "suomi": "MOKAT",
+        "international": "FAILS"
+      },
+      "name": {
+        "suomi": "Mokat",
+        "international": "Fails"
+      },
+      "tagline": {
+        "suomi": "Meni pieleen, kameralla, ikuisesti.",
+        "international": "It went wrong, on camera, forever."
+      }
+    }
+  ],
+  "assign": {
+    "b5mies": [
+      "mtv"
+    ],
+    "kahen-kilon-siika": [
+      "asiaa",
+      "elaimet",
+      "komedia"
+    ],
+    "ismo-seppo-pyorailee": [
+      "komedia"
+    ],
+    "aromipesa": [
+      "dokkarit",
+      "asiaa",
+      "komedia"
+    ],
+    "irc-galleria": [
+      "dokkarit",
+      "komedia"
+    ],
+    "ismo-seppo-saunassa": [
+      "komedia"
+    ],
+    "kummeli-artisti-maksaa": [
+      "komedia"
+    ],
+    "studio-julmahuvi": [
+      "komedia"
+    ],
+    "hyvaa-puuta": [
+      "asiaa",
+      "komedia"
+    ],
+    "smc-lahiorotat": [
+      "mtv"
+    ],
+    "smc-hoodrats": [
+      "mtv"
+    ],
+    "ismon-supervanukas": [
+      "komedia"
+    ],
+    "tonnin-seteli": [
+      "komedia"
+    ],
+    "kokkinurkkaus": [
+      "komedia",
+      "fails"
+    ],
+    "mauri-perala": [
+      "komedia",
+      "asiaa"
+    ],
+    "es-laulu": [
+      "mtv"
+    ],
+    "evoluutiomies-lelutuokio": [
+      "komedia"
+    ],
+    "era-koira": [
+      "elaimet",
+      "dokkarit"
+    ],
+    "kylla-muksu-tietaa": [
+      "asiaa",
+      "komedia"
+    ],
+    "uliuli": [
+      "mtv"
+    ],
+    "pertus": [
+      "asiaa"
+    ],
+    "jupe-laamanen": [
+      "asiaa"
+    ],
+    "avaruuskulttuuri": [
+      "dokkarit",
+      "komedia"
+    ],
+    "kimi-ice-cream": [
+      "asiaa",
+      "komedia"
+    ],
+    "nykanen-karhuvaara": [
+      "asiaa"
+    ],
+    "numa-numa": [
+      "mtv"
+    ],
+    "badgers": [
+      "animaatio",
+      "elaimet"
+    ],
+    "star-wars-kid": [
+      "fails",
+      "komedia"
+    ],
+    "peanut-butter-jelly-time": [
+      "animaatio",
+      "mtv"
+    ],
+    "keyboard-cat": [
+      "elaimet",
+      "mtv"
+    ],
+    "dramatic-chipmunk": [
+      "elaimet"
+    ],
+    "leeroy-jenkins": [
+      "gaming",
+      "fails"
+    ],
+    "charlie-bit-my-finger": [
+      "komedia",
+      "fails"
+    ],
+    "all-your-base": [
+      "gaming",
+      "animaatio"
+    ],
+    "llama-song": [
+      "animaatio",
+      "mtv"
+    ],
+    "hampster-dance": [
+      "animaatio",
+      "elaimet"
+    ],
+    "leekspin": [
+      "animaatio",
+      "mtv"
+    ],
+    "chocolate-rain": [
+      "mtv"
+    ],
+    "evolution-of-dance": [
+      "mtv",
+      "komedia"
+    ],
+    "salad-fingers": [
+      "animaatio"
+    ],
+    "charlie-the-unicorn": [
+      "animaatio",
+      "komedia"
+    ],
+    "potter-puppet-pals": [
+      "komedia"
+    ],
+    "shoes": [
+      "mtv",
+      "komedia"
+    ],
+    "daft-hands": [
+      "mtv"
+    ],
+    "ok-go": [
+      "mtv"
+    ],
+    "end-of-ze-world": [
+      "animaatio"
+    ],
+    "we-like-the-moon": [
+      "animaatio",
+      "mtv"
+    ],
+    "magical-trevor": [
+      "animaatio"
+    ],
+    "narwhals": [
+      "animaatio",
+      "elaimet"
+    ],
+    "amazing-horse": [
+      "animaatio",
+      "elaimet"
+    ],
+    "trololo": [
+      "mtv"
+    ],
+    "rickroll": [
+      "mtv"
+    ],
+    "me-at-the-zoo": [
+      "elaimet",
+      "asiaa"
+    ],
+    "leave-britney-alone": [
+      "asiaa"
+    ],
+    "david-after-dentist": [
+      "asiaa",
+      "komedia"
+    ],
+    "technoviking": [
+      "mtv"
+    ],
+    "double-rainbow": [
+      "asiaa"
+    ],
+    "bed-intruder": [
+      "mtv",
+      "asiaa"
+    ],
+    "hobbits": [
+      "mtv",
+      "komedia"
+    ],
+    "caramelldansen": [
+      "mtv",
+      "animaatio"
+    ],
+    "free-hugs": [
+      "dokkarit"
+    ],
+    "sneezing-panda": [
+      "elaimet"
+    ],
+    "zombie-kid": [
+      "asiaa",
+      "komedia"
+    ],
+    "afro-ninja": [
+      "fails"
+    ],
+    "boom-goes-the-dynamite": [
+      "fails",
+      "asiaa"
+    ],
+    "miss-teen-usa": [
+      "fails",
+      "visailut",
+      "asiaa"
+    ],
+    "ultimate-showdown": [
+      "animaatio",
+      "mtv"
+    ],
+    "yatta": [
+      "mtv",
+      "komedia"
+    ],
+    "duck-song": [
+      "animaatio",
+      "elaimet"
+    ],
+    "funtwo-canon": [
+      "mtv"
+    ],
+    "ken-lee": [
+      "mtv",
+      "fails",
+      "visailut"
+    ],
+    "angry-german-kid": [
+      "gaming",
+      "fails"
+    ],
+    "over-9000": [
+      "animaatio",
+      "gaming"
+    ],
+    "titanic-flute": [
+      "mtv",
+      "fails"
+    ],
+    "tunak-tunak": [
+      "mtv"
+    ],
+    "crazy-frog": [
+      "mtv",
+      "animaatio"
+    ],
+    "trogdor": [
+      "animaatio"
+    ],
+    "epic-sax-guy": [
+      "mtv"
+    ],
+    "llamas-with-hats": [
+      "animaatio",
+      "komedia"
+    ],
+    "where-is-matt": [
+      "mtv",
+      "dokkarit"
+    ],
+    "pork-and-beans": [
+      "mtv"
+    ],
+    "mean-kitty": [
+      "mtv",
+      "elaimet"
+    ],
+    "back-dorm-boys": [
+      "mtv",
+      "komedia"
+    ],
+    "autotune-news-1": [
+      "mtv",
+      "komedia"
+    ],
+    "surprised-kitty": [
+      "elaimet"
+    ],
+    "evian-roller-babies": [
+      "mtv"
+    ],
+    "dancing-baby": [
+      "animaatio"
+    ],
+    "hampster-dance-video": [
+      "animaatio",
+      "elaimet"
+    ],
+    "this-is-sparta-remix": [
+      "mtv"
+    ],
+    "pants-on-the-ground": [
+      "mtv",
+      "visailut"
+    ],
+    "burnt-face-man": [
+      "animaatio",
+      "komedia"
+    ],
+    "ninja-cat": [
+      "elaimet"
+    ],
+    "miku-ievan-polkka": [
+      "mtv",
+      "animaatio"
+    ],
+    "lonelygirl15": [
+      "asiaa",
+      "dokkarit"
+    ],
+    "trollface": [
+      "memes"
+    ],
+    "o-rly": [
+      "memes",
+      "elaimet"
+    ],
+    "lolcats": [
+      "memes",
+      "elaimet"
+    ],
+    "disaster-girl": [
+      "memes"
+    ],
+    "philosoraptor": [
+      "memes"
+    ],
+    "y-u-no": [
+      "memes"
+    ],
+    "success-kid": [
+      "memes"
+    ],
+    "am-irk": [
+      "mtv",
+      "komedia",
+      "memes"
+    ],
+    "am-irk-ajankohtainen-kakkonen": [
+      "dokkarit",
+      "asiaa"
+    ],
+    "julmahuvi-roudasta-rospuuttoon": [
+      "komedia"
+    ],
+    "julmahuvi-studiokeskustelu": [
+      "komedia"
+    ],
+    "julmahuvi-ameno": [
+      "komedia",
+      "mtv"
+    ],
+    "julmahuvi-nukkumistempaus": [
+      "komedia"
+    ],
+    "julmahuvi-uutiset-neuvottelut": [
+      "komedia",
+      "asiaa"
+    ],
+    "ihmebantu-anteeksi-sain-viestin": [
+      "komedia",
+      "memes"
+    ],
+    "ihmebantu-moikkaaminen": [
+      "komedia"
+    ],
+    "ihmebantu-korvanappi": [
+      "komedia"
+    ],
+    "ihmebantu-mummo": [
+      "komedia"
+    ],
+    "ihmebantu-sairaalalaulajat": [
+      "komedia"
+    ],
+    "ihmebantu-kakka": [
+      "komedia"
+    ],
+    "ihmebantu-pieru": [
+      "komedia"
+    ],
+    "ihmebantu-samaan-tahtiin": [
+      "komedia"
+    ],
+    "kummeli-rapakymppi": [
+      "komedia",
+      "visailut"
+    ],
+    "kummeli-kreikkalainen-tarjoilija": [
+      "komedia"
+    ],
+    "kummeli-ei-lainata": [
+      "komedia"
+    ],
+    "kummeli-potilas-saarinen": [
+      "komedia"
+    ],
+    "kummeli-kenkakauppiaat": [
+      "komedia"
+    ],
+    "kummeli-opettaja": [
+      "komedia",
+      "memes"
+    ],
+    "kummeli-koistinen": [
+      "komedia"
+    ],
+    "kummeli-mursu": [
+      "komedia",
+      "memes"
+    ],
+    "kummeli-kylakauppa": [
+      "komedia"
+    ],
+    "karpo-teinit-tupakkaostoksilla": [
+      "asiaa",
+      "dokkarit"
+    ],
+    "karpo-paskaa-jarveen": [
+      "asiaa",
+      "dokkarit"
+    ],
+    "karpo-helppoheikin-anatomia": [
+      "asiaa",
+      "dokkarit"
+    ],
+    "remonttireiska-ionit": [
+      "dokkarit",
+      "asiaa",
+      "komedia",
+      "memes"
+    ],
+    "remonttireiska-oover": [
+      "dokkarit",
+      "asiaa",
+      "komedia"
+    ],
+    "uuno-olitkos-nukkumassa": [
+      "komedia",
+      "memes"
+    ],
+    "voittopotti-juontaja": [
+      "visailut",
+      "fails",
+      "komedia"
+    ],
+    "onnenpyora-porkka-mokat": [
+      "visailut",
+      "fails"
+    ],
+    "onnenpyora-blondi": [
+      "visailut",
+      "fails",
+      "komedia"
+    ],
+    "pepe-willberg-tietovisa": [
+      "visailut",
+      "memes"
+    ],
+    "miljonaari-youtube-supertahti": [
+      "visailut"
+    ],
+    "kymppitonni-kahdeksan-ihmetta": [
+      "visailut",
+      "komedia"
+    ],
+    "ala-tuu-kurkistelee": [
+      "komedia",
+      "memes"
+    ],
+    "teiniuhoamista": [
+      "komedia",
+      "memes"
+    ],
+    "evoluutiomies-kauppareissu": [
+      "animaatio",
+      "komedia"
+    ],
+    "nippon-kazauwa": [
+      "komedia",
+      "memes"
+    ],
+    "paka-intti-animaatio": [
+      "animaatio",
+      "komedia"
+    ],
+    "paka-2": [
+      "animaatio",
+      "komedia"
+    ],
+    "nyt-vituttaa": [
+      "memes",
+      "asiaa"
+    ],
+    "juon-vetta": [
+      "memes",
+      "komedia"
+    ],
+    "tama-on-vetta": [
+      "memes",
+      "animaatio"
+    ],
+    "taistelu-jaska-1": [
+      "animaatio",
+      "komedia"
+    ],
+    "taistelu-jaska-pilot": [
+      "animaatio",
+      "komedia"
+    ],
+    "hevosmiesten-kilta-1": [
+      "komedia",
+      "memes"
+    ],
+    "seppo-kimmo-atlanta": [
+      "asiaa",
+      "komedia"
+    ],
+    "mita-saisi-olla-saatana": [
+      "komedia",
+      "memes"
+    ],
+    "keuruu-ylikersantti": [
+      "komedia",
+      "fails"
+    ],
+    "masa-teurastaja-lanit": [
+      "mtv",
+      "gaming"
+    ],
+    "rap-mummo-eila": [
+      "mtv",
+      "komedia"
+    ],
+    "ismo-seppo-homobaarissa": [
+      "komedia"
+    ],
+    "ismo-seppo-metsalla": [
+      "komedia"
+    ],
+    "mtv3-kymmenen-uutiset-moka": [
+      "fails",
+      "asiaa"
+    ],
+    "mtv3-loppukevennys-moka": [
+      "fails"
+    ],
+    "yle-kamera-hukassa": [
+      "fails"
+    ],
+    "grape-lady": [
+      "fails",
+      "komedia"
+    ],
+    "boxxy": [
+      "memes"
+    ],
+    "dont-tase-me-bro": [
+      "memes",
+      "asiaa"
+    ],
+    "bush-shoe": [
+      "memes",
+      "asiaa"
+    ],
+    "diet-coke-mentos": [
+      "komedia"
+    ],
+    "jizz-in-my-pants": [
+      "mtv",
+      "komedia"
+    ],
+    "susan-boyle": [
+      "mtv"
+    ],
+    "asdfmovie": [
+      "animaatio",
+      "komedia"
+    ],
+    "asdfmovie2": [
+      "animaatio",
+      "komedia"
+    ],
+    "husky-i-love-you": [
+      "elaimet"
+    ],
+    "best-cry-ever": [
+      "komedia",
+      "memes"
+    ],
+    "nintendo-64-kid": [
+      "gaming",
+      "memes"
+    ],
+    "basshunter-dota": [
+      "mtv",
+      "gaming"
+    ],
+    "charlie-the-unicorn-2": [
+      "animaatio"
+    ],
+    "crichton-leprechaun": [
+      "memes",
+      "komedia"
+    ],
+    "go-bwaaah": [
+      "fails"
+    ],
+    "scary-car-commercial": [
+      "memes",
+      "fails"
+    ],
+    "shoop-da-whoop": [
+      "memes",
+      "animaatio"
+    ],
+    "kitty-cat-dance": [
+      "elaimet",
+      "mtv"
+    ],
+    "greatest-freakout-ever": [
+      "komedia",
+      "fails"
+    ],
+    "stalking-cat": [
+      "elaimet"
+    ],
+    "noah-photo-everyday": [
+      "dokkarit"
+    ],
+    "fred-goes-swimming": [
+      "komedia"
+    ],
+    "what-is-love-roxbury": [
+      "mtv",
+      "memes"
+    ],
+    "zidane-headbutt": [
+      "memes"
+    ],
+    "danny-macaskill": [
+      "dokkarit"
+    ],
+    "skateboarding-dog": [
+      "elaimet"
+    ],
+    "sleepwalking-dog": [
+      "elaimet",
+      "fails"
+    ],
+    "bruce-lee-ping-pong": [
+      "komedia"
+    ],
+    "will-it-blend-iphone": [
+      "komedia"
+    ],
+    "obama-girl": [
+      "mtv",
+      "komedia"
+    ],
+    "virtual-barber-shop": [
+      "memes"
+    ],
+    "ding-fries-are-done": [
+      "memes",
+      "mtv"
+    ],
+    "scraper-bike": [
+      "mtv"
+    ],
+    "rappin-for-jesus": [
+      "mtv",
+      "komedia"
+    ],
+    "chum-drum-bedrum": [
+      "mtv",
+      "memes"
+    ],
+    "jesus-is-my-friend": [
+      "mtv"
+    ],
+    "animator-vs-animation": [
+      "animaatio"
+    ],
+    "mudkip": [
+      "memes",
+      "gaming"
+    ],
+    "fabulous-secret-powers": [
+      "mtv",
+      "memes",
+      "animaatio"
+    ],
+    "you-are-a-pirate": [
+      "memes",
+      "mtv"
+    ],
+    "why-is-the-rum-gone": [
+      "memes",
+      "mtv"
+    ],
+    "horribly-slow-murderer": [
+      "komedia"
+    ],
+    "lazy-sunday": [
+      "mtv",
+      "komedia"
+    ],
+    "jk-wedding-dance": [
+      "mtv"
+    ],
+    "bus-uncle": [
+      "komedia",
+      "asiaa"
+    ],
+    "otters-holding-hands": [
+      "elaimet"
+    ],
+    "battle-at-kruger": [
+      "elaimet",
+      "dokkarit"
+    ],
+    "christian-the-lion": [
+      "elaimet",
+      "dokkarit"
+    ],
+    "the-landlord": [
+      "komedia"
+    ],
+    "shining-recut": [
+      "komedia",
+      "memes"
+    ],
+    "bubb-rubb": [
+      "memes",
+      "komedia"
+    ],
+    "ui-juma": [
+      "komedia",
+      "fails"
+    ],
+    "dj-ibusal-pilalla": [
+      "mtv",
+      "komedia"
+    ],
+    "jonnet-suora-lahetys": [
+      "fails",
+      "memes",
+      "asiaa"
+    ],
+    "kissa-putkessa": [
+      "elaimet",
+      "komedia"
+    ],
+    "lissut-pissikset": [
+      "komedia"
+    ],
+    "kimis-hobby": [
+      "asiaa",
+      "komedia",
+      "memes"
+    ],
+    "yee": [
+      "memes",
+      "animaatio"
+    ],
+    "winning-songify": [
+      "mtv",
+      "memes"
+    ],
+    "cant-hug-every-cat": [
+      "mtv",
+      "elaimet"
+    ],
+    "arrow-in-the-knee": [
+      "gaming",
+      "memes"
+    ],
+    "facebook-parenting": [
+      "asiaa"
+    ],
+    "substitute-teacher": [
+      "komedia"
+    ],
+    "grumpy-cat-original": [
+      "elaimet",
+      "memes"
+    ],
+    "husky-no": [
+      "elaimet"
+    ],
+    "annoying-orange": [
+      "animaatio",
+      "komedia"
+    ],
+    "antoine-dodson": [
+      "asiaa",
+      "memes"
+    ],
+    "kummeli-naapuri": [
+      "komedia"
+    ],
+    "timo-jutila-eteenpain": [
+      "komedia",
+      "memes"
+    ],
+    "bb-niko-synttarit": [
+      "komedia",
+      "memes"
+    ],
+    "what-what": [
+      "mtv",
+      "memes"
+    ],
+    "kitten-surprise": [
+      "elaimet"
+    ],
+    "backflip-into-jeans": [
+      "komedia",
+      "fails"
+    ],
+    "ytp-wilford-brimley": [
+      "memes"
+    ],
+    "boom-headshot": [
+      "gaming",
+      "memes"
+    ],
+    "spirit-of-christmas": [
+      "animaatio"
+    ],
+    "ronald-get-down": [
+      "memes",
+      "mtv"
+    ],
+    "the-fox": [
+      "mtv",
+      "elaimet"
+    ],
+    "gangnam-style": [
+      "mtv"
+    ],
+    "harlem-shake": [
+      "mtv",
+      "memes"
+    ],
+    "friday": [
+      "mtv"
+    ],
+    "honey-badger": [
+      "elaimet",
+      "komedia"
+    ],
+    "nyan-cat": [
+      "animaatio",
+      "mtv",
+      "memes"
+    ],
+    "dumb-ways-to-die": [
+      "animaatio",
+      "mtv"
+    ],
+    "russian-unicorn": [
+      "mtv",
+      "komedia"
+    ],
+    "fenton": [
+      "elaimet",
+      "fails"
+    ],
+    "aint-nobody-got-time": [
+      "asiaa",
+      "memes"
+    ],
+    "chuck-testa": [
+      "komedia",
+      "memes"
+    ],
+    "ultimate-dog-tease": [
+      "elaimet",
+      "komedia"
+    ],
+    "stonehenge": [
+      "mtv",
+      "komedia"
+    ],
+    "doge": [
+      "memes"
+    ],
+    "grumpy-cat": [
+      "memes",
+      "elaimet"
+    ],
+    "bad-luck-brian": [
+      "memes"
+    ],
+    "team-ahma": [
+      "komedia"
+    ],
+    "haapavesi": [
+      "komedia"
+    ],
+    "haissa": [
+      "komedia",
+      "fails"
+    ],
+    "mopoauto": [
+      "mtv"
+    ],
+    "nuoret-hurjat": [
+      "komedia",
+      "memes"
+    ],
+    "ei-viddu-make": [
+      "memes",
+      "komedia"
+    ],
+    "joni-2012": [
+      "komedia"
+    ],
+    "ylilauta-nelonen": [
+      "asiaa",
+      "dokkarit",
+      "memes"
+    ],
+    "frontside-ollie": [
+      "mtv"
+    ],
+    "raptori-oi-beibi": [
+      "mtv"
+    ],
+    "spurdo-sparde": [
+      "memes"
+    ]
+  },
+  "all": {
+    "short": {
+      "suomi": "KAIKKI",
+      "international": "ALL"
+    },
+    "name": {
+      "suomi": "Kaikki",
+      "international": "All tapes"
+    },
+    "tagline": {
+      "suomi": "Koko suomihylly sekaisin.",
+      "international": "The whole international shelf, shuffled."
+    }
+  }
+}

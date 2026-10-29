@@ -1,7 +1,13 @@
 /channels/*
   Cache-Control: public, max-age=60
 
+/sources.json
+  Cache-Control: public, max-age=300
+
 /styles.css
+  Cache-Control: public, max-age=300
+
+/styles/*
   Cache-Control: public, max-age=300
 
 /app.js
@@ -12,3 +18,17 @@
 
 /fonts/*
   Cache-Control: public, max-age=86400
+
+/textures/*
+  Cache-Control: public, max-age=86400
+
+/brand/*
+  Cache-Control: public, max-age=86400
+
+/site.webmanifest
+  Content-Type: application/manifest+json
+  Cache-Control: public, max-age=86400
+
+/media/*
+  Cache-Control: public, max-age=86400
+  Accept-Ranges: bytes

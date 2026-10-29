@@ -4,7 +4,7 @@ A 24/7 living-room broadcast of classic internet videos. Two channels share one 
 
 What counts as a classic is in `CLASSIC.md`: at least ten years old, and at least three of the five signals. Every card has an `original_url`. The glass shows it as SOURCE. Playback stays embedded in the tube (YouTube IFrame API, archive.org, Vimeo, or Ruffle for a `.swf` whose license allows it).
 
-Nothing is rehosted. `sources.json` lists the shelves a suggestion may cite, including the Wayback Machine and archive.org. `RESOURCES.md` prints them.
+Tapes are archived: every clip is transcoded to a small MP4 and served from plebflix.com (`/media/...`) so it can't vanish, with the original embed as fallback and `original_url` always shown as SOURCE. Those files are not in git. See [Self-hosted media](#self-hosted-media). `LIBRARIAN.md` is the daily routine: where votes and submissions live, how to vet a tape, how to run `scripts/ingest.mjs`, and how to deploy with `scripts/deploy.mjs`. `sources.json` lists the shelves a suggestion may cite, including the Wayback Machine and archive.org. `RESOURCES.md` prints them.
 
 ## Watch it locally
 
@@ -25,6 +25,10 @@ PLAY, PAUSE, REW, FWD, STOP, and REC sit on the deck. CH+ / CH− and the tapes 
 - `dist/assets/` — the static site, including `channels/` and `RESOURCES.md`
 
 `wrangler.jsonc` points `main` at `dist/worker.js` and the assets binding at `dist/assets/`. A Wrangler deploy and a Cloudflare API upload use those same paths. The script is module syntax. Compatibility date is `2026-10-29`.
+
+## Share cards
+
+`share.config.json` is the one place for share cards, favicons, and theme-color tags, for International and for Suomi. `lib/share-head.mjs` writes the `<!-- share:begin/end -->` block in `index.html` and the `/suomi` page from it. Swap the files in `public/` (and `public/suomi/`), bump `version` so X, WhatsApp, and iMessage refetch, then build and deploy. Edit the config, not the generated tags.
 
 ## Deploy
 
@@ -67,6 +71,8 @@ npm run dev
 ```
 
 `remote` is `false` on the D1 binding, so `wrangler dev` uses that local database. If `DB` is missing at runtime, vote routes return HTTP 503: “The tape deck has no vote shelf. Create the D1 database plebflix-tv, bind it as DB, and apply migrations.” If `GITHUB_TOKEN` is missing, REC returns HTTP 503: “The tape deck has no GitHub token. Set the GITHUB_TOKEN Worker secret and recommendations will open a pull request.”
+
+The production deploy does not use a Wrangler login. `LIBRARIAN.md` has the steps: `node scripts/deploy.mjs prepare` (build, then refuse if a tape’s file is missing from `media/`), run the connector session it prints, `node scripts/deploy.mjs upload`, publish, then `node scripts/deploy.mjs verify`.
 
 ## Worker configuration
 
@@ -119,24 +125,48 @@ The stats file is `{ "suomi": { "b5mies": { "up": 1, "down": 0, "impressions": 4
 
 `--pr` needs `GITHUB_TOKEN` (and `GITHUB_REPO`, which defaults to `omnifinn/plebflix-tv`). Without the token it prints the report and does not open a pull request. With the token, and with at least one drop, it opens a pull request against the default branch that removes those tapes and regenerates `RESOURCES.md`.
 
-## Ingest
+## Self-hosted media
 
-`npm run ingest` reads `candidates/*.json`. A candidate needs `channel`, `year`, `signals` (at least three), `why`, and either a YouTube `embedId` or a `query`. A `match` regular expression has to hit the title yt-dlp returns, so a search cannot file a lookalike. The script then plays the embed in headless Chrome through the YouTube IFrame API, inside a page that sends a referrer. A bare embed URL is not the check: YouTube answers that with error 153.
+`scripts/ingest.mjs` downloads (yt-dlp / curl), transcodes (ffmpeg: H.264/AAC, ≤480p, ≤24 MiB, faststart) and files a tape:
+
+```bash
+node scripts/ingest.mjs --channel suomi --url URL --title T --year 2006 --signals a,b,d --why "…"
+node scripts/ingest.mjs --channel international --file clip.mov --title T --year 2005 --signals a,b,c --why "…"
+node scripts/ingest.mjs --channel international --image meme.jpg --title Doge --year 2013 --signals a,b,c --why "…"   # 7 s loop
+node scripts/ingest.mjs --backfill | --check
+```
+
+Files go to `media/<channel>/<id>.mp4` (gitignored, or `$PLEBFLIX_MEDIA`), `npm run build` copies them into `dist/assets/media`.
+They are Worker static assets (R2 is not enabled on the account; 25 MiB per file). Static assets answer `Range` with a full 200, which breaks seeking, so `/media/*` runs through the Worker (`run_worker_first`): `lib/range.mjs` puts each file in the edge cache once and lets `caches.default.match` answer ranges with 206, with an in-Worker slicer as fallback. The media files never go in git, so keep `media/` on the deploying machine: a deploy re-sends the full manifest and `deploy prepare` refuses if a tape's file is missing.
+The player prefers `item.media` in a `<video>` and falls back to the embed. On load it goes straight to LIVE, the shared
+wall-clock broadcast of the current channel. The TV language defaults from the visitor's country (`/api/geo` reads
+`request.cf.country`: Suomi in Finland, International elsewhere); `?tv=suomi`, `#suomi`/`#suomi-komedia` or the saved
+choice in localStorage win. Channels are categories (CH 1 = all tapes, then MTV, Komedia, Asiaa, Dokkarit, Visailut,
+Meemit, Animaatio, Pelit, Eläimet, Mokat); the TV switch picks the language and the names follow it.
+The mode key cycles LIVE → LOOP (repeat this tape) → SHUFFLE (random, no repeats until all have played). Skip, back,
+a schedule click or scrubbing in LIVE drop you into a personal timeshift; GO LIVE returns to the broadcast. Deploys: `scripts/deploy.mjs` and `LIBRARIAN.md`.
+
+REC now stores suggestions in D1 `submissions` (migration `0002_submissions.sql`, 8 per IP per hour); the daily librarian
+routine vets them and opens the pull requests, so the Worker needs no GitHub token.
+
+## Candidate checks
+
+`npm run candidates` (formerly `ingest`) reads `candidates/*.json`. A candidate needs `channel`, `year`, `signals` (at least three), `why`, and either a YouTube `embedId` or a `query`. A `match` regular expression has to hit the title yt-dlp returns, so a search cannot file a lookalike. The script then plays the embed in headless Chrome through the YouTube IFrame API, inside a page that sends a referrer. A bare embed URL is not the check: YouTube answers that with error 153.
 
 The control tape is Rick Astley, `dQw4w9WgXcQ`. If that does not play, the script exits and does not edit the shelf. If YouTube answers with a sign-in wall, the checker records `bot` and also leaves the shelf alone. Error 150 from that wall is not the owner disabling the embed.
 
 ```bash
-npm run ingest -- --limit 20
-npm run ingest -- --recheck
-npm run ingest -- --drop-dead
-npm run ingest -- --pending
+npm run candidates -- --limit 20
+npm run candidates -- --recheck
+npm run candidates -- --drop-dead
+npm run candidates -- --pending
 ```
 
 `--recheck` reports which current YouTube ids fail to play. `--drop-dead` removes those failures after the control plays, and leaves the calibration tapes in place. `--pending` gives a playing REC row a duration and takes it off `pending`. yt-dlp is expected at `~/.local/bin/yt-dlp` or `$YT_DLP`. Chrome is `/usr/bin/google-chrome` or `$CHROME`. Signals are whatever the candidate file says. The script does not invent them.
 
 ## Channels
 
-`channels/suomi.json` and `channels/international.json` are the source of truth. `RESOURCES.md` is generated from them.
+`channels/suomi.json` and `channels/international.json` are the source of truth. `channels/categories.json` maps tapes onto the category channels; the build turns it into `channels/index.json` (the TV × channel lineup) plus one JSON per category. `RESOURCES.md` is generated from them.
 
 Each item:
 
@@ -178,4 +208,4 @@ npm run verify-embeds     # oEmbed / archive.org metadata, needs a network
 
 `.github/workflows/validate.yml` runs on pull requests and on pushes to `main`. It regenerates Worker types with `--check`, then runs the tests, the schema check, the `RESOURCES.md` diff, the typecheck, and the build. It does not deploy.
 
-Fonts under `public/fonts/` are the SIL Open Font License (VT323 and Special Elite). See `DESIGN.md` for the visual system.
+Fonts under `public/fonts/` are SIL Open Font License 1.1 (VT323, Silkscreen, Chakra Petch; licences next to the files). IBM Plex Sans and Mono load unmodified from Google Fonts. See `DESIGN.md` for the visual system.

@@ -1,12 +1,15 @@
 # What counts as an internet classic
 
-Plebflix plays clips that already lived a life online. A famous song, a TV premiere, or a new upload is not enough.
+Plebflix TV is an archive of internet video culture up to 2013. A tape is on air only if it **became popular online as an internet meme or viral video**, however it was first released: a homemade upload, a Flash cartoon, or a TV, film or game-show clip that people spread, remixed and quoted on the web.
 
 ## The hard rule
 
-The original release year is required, and it has to be at least ten years ago. The validator computes that as `current UTC year − 10`. In 2026 the latest year that passes is 2016. A later year fails even if every other field is filled in.
+1. **Viral or meme status online.** There must be evidence it spread on the web: a Know Your Meme, Wikipedia or meemi.info entry, a Riemurasia/board history, a place in viral compilations, mass views or remixes. "Old", "famous" or "Finnish" is not enough.
+2. **Peak spread in 2013 or earlier** (older than 2014). The online peak, not the release, decides. A 1984 film scene that went viral in 2007 passes; a 2012 viral passes; a 2014 or later viral does not.
+3. **Originals only.** Use the original upload or broadcast. A remix, fan edit, compilation or cartoon version is allowed only when that remix itself is what went viral (e.g. the Sparta remix, Hobbits to Isengard), and the card's `note` says so.
+4. Still off the shelf: plain music or audio tracks, ordinary songs and official music videos that were never memes, TV or film content that never went viral online, and anything picked only because it is old or Finnish.
 
-Older is preferred. Pre-2010 is the heart of the shelf. Pre-YouTube, meaning before 2005, gets extra weight when two candidates are otherwise equal. That preference is editorial. It is not a second number in the JSON.
+The `year` field is the original release year: 2013 or earlier, and at least ten years ago (`min(2013, current UTC year − 10)`).
 
 ## The five signals
 

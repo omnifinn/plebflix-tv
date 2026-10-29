@@ -1,7 +1,7 @@
 import { readFile, readdir, writeFile } from "node:fs/promises";
 import { renderResources } from "../lib/resources-md.mjs";
 
-const files = (await readdir("channels")).filter((name) => name.endsWith(".json")).sort();
+const files = (await readdir("channels")).filter((name) => name.endsWith(".json") && name !== "categories.json").sort();
 const channels = [];
 for (const name of files) {
   channels.push(JSON.parse(await readFile(`channels/${name}`, "utf8")));
