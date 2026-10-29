@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.wrangler/
+.dev.vars
+*.log
+.DS_Store
+candidates/.cache.json
+candidates/rejected.jsonl
+media/
+.handoff/

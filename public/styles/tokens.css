@@ -1,0 +1,382 @@
+/* ==========================================================================
+   Plebflix TV — "PLEBAMP" skin · tokens + reference components
+   Plain CSS, no build step. Paths assume this file lives at /css/tokens.css
+   with fonts in /fonts/ and textures in /textures/ (adjust to your public/).
+   Sections:  1 fonts · 2 tokens · 3 Suomi theme · 4 base · 5 components
+   ========================================================================== */
+
+/* 1 ─ FONTS ────────────────────────────────────────────────────────────────
+   Self-hosted Latin subsets (woff2) — all SIL OFL 1.1, licences in /fonts/OFL-*.txt.
+   Google Fonts alternative (one request, same families):
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@1,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Silkscreen&family=VT323&display=swap" rel="stylesheet">
+   (Note: "IBM Plex Sans Mono" is not a family — the mono companion is IBM Plex Mono.) */
+/* IBM Plex Sans / Mono are NOT self-hosted (IBM reserves the "Plex" name for modified files);
+   index.html loads the unmodified families from Google Fonts. */
+@font-face { font-family: "VT323"; src: url("../fonts/vt323-latin.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Silkscreen"; src: url("../fonts/silkscreen-latin.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Chakra Petch"; src: url("../fonts/chakra-petch-700i-latin.woff2") format("woff2"); font-weight: 700; font-style: italic; font-display: swap; }
+
+/* 2 ─ TOKENS ────────────────────────────────────────────────────────────── */
+:root {
+  color-scheme: dark;
+
+  /* chrome */
+  --desk: #0B0D10;
+  --desk-lift: #14171B;
+  --panel: #2B3036;
+  --panel-hi: #4A525B;
+  --panel-lo: #16191D;
+  --panel-sheen: #B8BEC6;
+  --rivet: #5E6670;
+  --ink: #E9ECEF;
+  --ink-dim: #9AA3AD;
+  --line: #0B0D10;                       /* 1px outer outline on every window / key */
+
+  /* LCD — International (green phosphor) */
+  --lcd-bg: #050A06;
+  --lcd: #7CFF6B;
+  --lcd-soft: #C8F5C0;                   /* schedule titles: calmer than full phosphor */
+  --lcd-mid: #3E8F45;
+  --lcd-ghost: #11261A;
+  --lcd-glow: rgba(124, 255, 107, .35);
+
+  /* accents */
+  --amber: #FFB547;
+  --rec: #E5322B;
+  --rec-hot: #FF4A3D;
+  --channel-accent: var(--amber);        /* rocker active segment, tag chips */
+  --key-lit: var(--amber);               /* LED slit + lit key glyph/label */
+  --marker: #FF8A1F;                     /* ▶ on the inverse "now" schedule row */
+  --fader-cap: var(--amber);             /* EQ slider knob stripe */
+
+  /* type */
+  --font-lcd: "VT323", "IBM Plex Mono", ui-monospace, monospace;
+  --font-pixel: "Silkscreen", "VT323", monospace;
+  --font-ui: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --font-brand: "Chakra Petch", "IBM Plex Sans", sans-serif;
+
+  --fs-micro: 8px;      /* Silkscreen only: 8 / 16px multiples */
+  --fs-caption: 11px;   /* key captions, window titles (desktop) */
+  --fs-ui: 13px;        /* schedule rows, plaques */
+  --fs-body: 14px;
+  --fs-lcd-s: 22px;     /* VT323 status row */
+  --fs-lcd-m: 26px;
+  --fs-lcd-l: 40px;     /* VT323 marquee */
+  --fs-lcd-xl: 46px;    /* VT323 clock */
+
+  /* radii */
+  --r-win: 7px;
+  --r-well: 5px;
+  --r-key: 6px;
+  --r-crt: 18px;
+  --r-glass: 14px;
+  --r-pill: 999px;
+
+  /* spacing (4px grid) */
+  --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 20px; --s-6: 24px; --s-8: 32px;
+  --gutter: 12px;
+
+  /* bevels (outer = raised, inset = sunken well) */
+  --bevel-raised: inset 1px 1px 0 rgba(255,255,255,.16), inset -1px -1px 0 rgba(0,0,0,.5);
+  --bevel-sunken: inset 1px 1px 0 rgba(0,0,0,.6), inset -1px -1px 0 rgba(255,255,255,.07);
+  --shadow-win: 0 1px 0 rgba(255,255,255,.04), 0 14px 34px rgba(0,0,0,.55);
+  --shadow-key: 0 2px 0 var(--line), 0 4px 10px rgba(0,0,0,.45);
+  --shadow-key-pressed: 0 1px 0 var(--line), 0 1px 3px rgba(0,0,0,.4);
+
+  /* glows */
+  --glow-text: 0 0 6px var(--lcd-glow), 0 0 14px var(--lcd-glow);
+  --glow-amber: 0 0 6px rgba(255,181,71,.55), 0 0 14px rgba(255,181,71,.25);
+  --glow-rec: 0 0 6px rgba(255,74,61,.7), 0 0 14px rgba(255,74,61,.35);
+
+  /* textures — NOTE: a url() inside a custom property resolves against the stylesheet
+     that *uses* var(), so only use these inside this file (or switch to root-absolute paths). */
+  --tex-brushed: url("../textures/brushed-overlay.png");
+  --tex-grip: url("../textures/titlebar-grip.svg");
+  --tex-lcd: url("../textures/lcd-overlay.svg");
+  --tex-scan: url("../textures/crt-scanlines.svg");
+  --tex-dots: url("../textures/desk-dotgrid.svg");
+
+  /* layout */
+  --app-max: 1344px;
+  --side-w: 452px;      /* schedule + EQ column; 340px at 1100–1279 */
+  --key-w: 72px; --key-h: 66px;
+  --dock-h: 132px;      /* mobile thumb dock, excl. safe-area */
+
+  /* breakpoints (reference only — custom props can't be used in @media)
+     desktop ≥1100 · compact desktop 1100–1279 · tablet 720–1099 · mobile <720 */
+
+  /* motion */
+  --t-fast: 90ms; --t-med: 250ms;
+  --ease-key: cubic-bezier(.2,.8,.2,1);
+}
+
+/* 3 ─ SUOMI THEME (CH 01) — swap only these; chrome stays identical ─────── */
+[data-channel="suomi"] {
+  --lcd-bg: #04080D;
+  --lcd: #6FD8FF;
+  --lcd-soft: #C4ECFF;
+  --lcd-mid: #2E7FA8;
+  --lcd-ghost: #0C1E2B;
+  --lcd-glow: rgba(111, 216, 255, .35);
+  --channel-accent: #2F6BFF;
+  --key-lit: #4C8DFF;
+  --marker: #1F55E0;
+  --fader-cap: #4C8DFF;
+}
+
+/* 4 ─ BASE ──────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; min-height: 100svh;
+  background: var(--tex-dots), radial-gradient(1200px 700px at 50% 35%, var(--desk-lift), var(--desk) 70%), var(--desk);
+  color: var(--ink); font: 400 var(--fs-body)/1.45 var(--font-ui);
+}
+:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; box-shadow: 0 0 0 4px var(--desk); }
+button { font: inherit; color: inherit; }
+.sr-only { position: absolute !important; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.lcd-text, .lcd-text * { transition: color var(--t-med) ease, text-shadow var(--t-med) ease, background-color var(--t-med) ease; }
+
+/* 5 ─ COMPONENTS ────────────────────────────────────────────────────────── */
+
+/* 5.1 Window chrome: brushed panel + bevel + striped titlebar ------------- */
+.win {
+  position: relative;
+  background: var(--tex-brushed), linear-gradient(180deg, #30363D 0%, var(--panel) 30%, #262A30 100%);
+  border: 1px solid var(--line);
+  border-radius: var(--r-win);
+  box-shadow: var(--bevel-raised), var(--shadow-win);
+}
+.win__bar {
+  display: flex; align-items: center; gap: var(--s-2);
+  height: 32px; padding: 0 var(--s-2) 0 var(--s-3);
+  border-bottom: 1px solid rgba(0,0,0,.45);
+  background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,0));
+  border-radius: var(--r-win) var(--r-win) 0 0;
+  user-select: none;
+}
+.win__grip { width: 14px; height: 14px; color: var(--ink-dim); flex: none; }
+.win__title { margin: 0; font: 500 12.5px/1 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.win__title .sep { color: var(--ink-dim); margin: 0 .4em; }
+/* Winamp groove that fills the titlebar between title and studs */
+.win__groove { flex: 1; height: 8px; min-width: 12px; background: var(--tex-grip); opacity: .55; border-radius: 1px; }
+.win__studs { display: flex; gap: 6px; flex: none; }
+.stud {
+  width: 13px; height: 13px; padding: 0; border: 0; border-radius: 50%;
+  background: radial-gradient(circle at 38% 32%, #C9CED4 0, #7A838D 35%, #2B3036 100%);
+  box-shadow: 0 0 0 1px var(--panel-lo), 0 1px 1px rgba(0,0,0,.6);
+}
+button.stud { cursor: pointer; }
+.win__body { padding: var(--s-3); }
+.win[data-shaded="true"] > :not(.win__bar) { display: none; }   /* windowshade */
+
+/* 5.2 Wells (sunken LCD / screen surrounds) ------------------------------- */
+.well { background: var(--lcd-bg); border: 1px solid var(--line); border-radius: var(--r-well); box-shadow: var(--bevel-sunken), inset 0 0 18px rgba(0,0,0,.65); }
+
+/* 5.3 LCD panel with glow, ghost segments and marquee --------------------- */
+.lcd {
+  position: relative; overflow: hidden; isolation: isolate;
+  padding: var(--s-2) var(--s-4) var(--s-3);
+  background: radial-gradient(120% 140% at 50% 0%, color-mix(in srgb, var(--lcd) 7%, var(--lcd-bg)), var(--lcd-bg) 60%);
+  border: 1px solid var(--line); border-radius: var(--r-well);
+  box-shadow: var(--bevel-sunken), inset 0 0 22px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.04);
+  color: var(--lcd); font-family: var(--font-lcd); text-shadow: var(--glow-text);
+}
+.lcd::after { /* pixel grid + scanline overlay */
+  content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background: var(--tex-lcd); opacity: .9; mix-blend-mode: multiply;
+}
+.lcd__dim { color: var(--lcd-mid); text-shadow: none; }
+.lcd-ghost { position: relative; display: inline-block; }
+.lcd-ghost::before { /* unlit segments, e.g. data-ghost="88:88:88" */
+  content: attr(data-ghost); position: absolute; inset: 0; z-index: -1;
+  color: var(--lcd-ghost); text-shadow: none;
+}
+.lcd-cell { border: 1px solid color-mix(in srgb, var(--lcd) 45%, transparent); border-radius: 3px; padding: 0 .35em; box-shadow: inset 0 0 8px color-mix(in srgb, var(--lcd) 12%, transparent); }
+
+.marquee { overflow: hidden; white-space: nowrap; font-size: var(--fs-lcd-l); line-height: 1; letter-spacing: .04em; text-transform: uppercase; }
+.marquee__track { display: inline-flex; animation: marquee var(--marquee-dur, 18s) linear infinite; }
+.marquee__track > span { padding-right: .6em; }
+.marquee:hover .marquee__track, .marquee:focus-within .marquee__track { animation-play-state: paused; }
+.marquee--static .marquee__track { animation: none; }
+.marquee--static .marquee__track > span + span { display: none; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+/* --marquee-dur = (track width / 2) / 40px·s⁻¹ — set from JS once fonts load */
+
+.progress { /* segmented LCD progress bar */
+  position: relative; height: 14px; border: 1px solid color-mix(in srgb, var(--lcd) 55%, transparent); border-radius: 2px; padding: 2px;
+}
+.progress__fill {
+  height: 100%; width: var(--p, 0%);
+  background: repeating-linear-gradient(90deg, var(--lcd) 0 5px, transparent 5px 7px);
+  box-shadow: 0 0 6px var(--lcd-glow);
+}
+.progress::before { content: ""; position: absolute; inset: 2px; background: repeating-linear-gradient(90deg, var(--lcd-ghost) 0 5px, transparent 5px 7px); z-index: -1; }
+
+/* 5.4 On-air lamp ---------------------------------------------------------- */
+.lamp { display: inline-flex; align-items: center; gap: .45em; font: var(--fs-lcd-s)/1 var(--font-lcd); letter-spacing: .06em; color: var(--ink); text-shadow: none; }
+.lamp::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--rec-hot); box-shadow: var(--glow-rec); animation: lamp 1s steps(1, end) infinite; }
+.lamp[data-state="timeshift"] { color: var(--amber); }
+.lamp[data-state="timeshift"]::before { background: var(--amber); box-shadow: var(--glow-amber); animation: none; }
+@keyframes lamp { 50% { opacity: .55; } }
+
+/* 5.5 EQ / spectrum — CSS only, decorative (aria-hidden) ------------------
+   Markup per bar: <i class="eq__col" style="--h:.8;--d:.9s;--dl:-.3s"><b class="eq__bar"><b class="eq__fill"></b></b><b class="eq__peak"></b></i>
+   Only transforms animate (compositor-friendly). Segments are a static mask on the column, so they never squash. */
+.eq { display: flex; align-items: flex-end; gap: 4px; height: 100%; padding: 12px 12px 8px; }
+.eq__col { position: relative; flex: 1; height: calc(var(--h, .8) * 100%); }
+.eq__bar {
+  position: absolute; inset: 0; overflow: hidden;
+  background: var(--lcd-ghost);
+  -webkit-mask: repeating-linear-gradient(0deg, #000 0 3px, transparent 3px 4px);
+          mask: repeating-linear-gradient(0deg, #000 0 3px, transparent 3px 4px);
+}
+.eq__fill {
+  position: absolute; inset: 0;
+  background: linear-gradient(0deg, var(--lcd-mid), var(--lcd) 85%);
+  animation: eq-bar var(--d, 1s) ease-in-out var(--dl, 0s) infinite alternate;
+}
+.eq__peak { position: absolute; inset: 0; animation: eq-peak var(--d, 1s) ease-out var(--dl, 0s) infinite alternate; }
+.eq__peak::before { content: ""; position: absolute; left: 0; right: 0; top: -5px; height: 3px; background: color-mix(in srgb, var(--lcd) 65%, #fff); box-shadow: 0 0 6px var(--lcd-glow); }
+@keyframes eq-bar  { 0% { transform: translateY(80%); } 35% { transform: translateY(4%); } 60% { transform: translateY(42%); } 100% { transform: translateY(18%); } }
+@keyframes eq-peak { 0% { transform: translateY(55%); } 35% { transform: translateY(0); } 60% { transform: translateY(8%); } 100% { transform: translateY(14%); } }
+.eq[data-state="flat"] .eq__fill { animation: none; transform: translateY(96%); }   /* PAUSE / STOP / ident */
+.eq[data-state="flat"] .eq__peak { animation: none; transform: translateY(92%); transition: transform 1.2s ease-in; }
+@media (prefers-reduced-motion: reduce) {
+  .eq__fill { animation: none; transform: translateY(35%); }
+  .eq__peak { animation: none; transform: translateY(28%); }
+  .marquee__track { animation: none; }
+  .marquee__track > span { overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+  .marquee__track > span + span { display: none; }
+  .lamp::before { animation: none; }
+  .lcd-text, .lcd-text * { transition: none; }
+}
+
+/* 5.6 Beveled key (transport, votes, small keys) --------------------------
+   States: rest · :hover · :active / .is-pressed (momentary) · [aria-pressed="true"] / .is-lit (latched, LED slit)
+   Markup: <button class="key" aria-label="Play"><svg><use href="#i-play"/></svg><span>PLAY</span></button> */
+.key {
+  --face-top: #49515A; --face-bot: #24292E; --glyph: var(--ink);
+  position: relative; display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+  min-width: 44px; min-height: 44px; width: var(--key-w); height: var(--key-h); padding: 0 var(--s-2);
+  color: var(--glyph); font: 600 var(--fs-caption)/1 var(--font-ui); letter-spacing: .08em; text-transform: uppercase;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.13) 0, rgba(255,255,255,.03) 42%, rgba(0,0,0,0) 43%),
+    linear-gradient(180deg, var(--face-top), var(--face-bot));
+  border: 1px solid var(--line); border-radius: var(--r-key);
+  box-shadow: var(--bevel-raised), var(--shadow-key);
+  cursor: pointer; -webkit-tap-highlight-color: transparent;
+  transition: transform var(--t-fast) var(--ease-key), box-shadow var(--t-fast), filter var(--t-fast);
+}
+.key svg { width: 22px; height: 22px; fill: currentColor; flex: none; }
+.key:hover, .key.is-hover { --face-top: #58616B; --face-bot: #2A3036; }
+.key:active, .key.is-pressed, .key[aria-pressed="true"], .key.is-lit {
+  transform: translateY(1px);
+  --face-top: #1C2024; --face-bot: #2B3036;
+  box-shadow: inset 1px 1px 0 rgba(0,0,0,.55), inset -1px -1px 0 rgba(255,255,255,.07), inset 0 2px 6px rgba(0,0,0,.5), var(--shadow-key-pressed);
+}
+.key[aria-pressed="true"], .key.is-lit {
+  --glyph: var(--key-lit);
+  border-color: color-mix(in srgb, var(--key-lit) 55%, var(--line));
+  text-shadow: 0 0 8px color-mix(in srgb, var(--key-lit) 60%, transparent);
+}
+.key[aria-pressed="true"] svg, .key.is-lit svg { filter: drop-shadow(0 0 4px color-mix(in srgb, var(--key-lit) 70%, transparent)); }
+.key[aria-pressed="true"]::before, .key.is-lit::before { /* LED slit */
+  content: ""; position: absolute; top: 5px; left: 22%; right: 22%; height: 3px; border-radius: 2px;
+  background: var(--key-lit); box-shadow: 0 0 6px var(--key-lit), 0 0 12px color-mix(in srgb, var(--key-lit) 50%, transparent);
+}
+.key--rec { --face-top: #F0443C; --face-bot: #A91F1A; --glyph: #fff; }
+.key--rec:hover, .key--rec.is-hover { --face-top: #FF5A4E; --face-bot: #B8241E; }
+.key--rec:active, .key--rec.is-pressed { --face-top: #9E1C17; --face-bot: #D02B24; }
+.key--rec[aria-pressed="true"], .key--rec.is-lit { --face-top: #9E1C17; --face-bot: #D02B24; --glyph: #fff; --key-lit: var(--rec-hot); border-color: #5A0F0C; }
+.key--rec[aria-pressed="true"] svg, .key--rec.is-lit svg { color: #FFE3E0; filter: drop-shadow(0 0 5px var(--rec-hot)); animation: lamp 1s steps(1,end) infinite; }
+/* vote keys latch in phosphor, not amber */
+.key--vote[aria-pressed="true"], .key--vote.is-lit { --key-lit: var(--lcd); }
+.key--sm { width: auto; height: 32px; min-height: 32px; padding: 0 10px; font-size: 10px; flex-direction: row; }
+.key--wide { width: auto; flex-direction: row; gap: 10px; padding: 0 var(--s-4); }
+.key:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .key { transition: none; } .key--rec.is-lit svg, .key--rec[aria-pressed="true"] svg { animation: none; } }
+
+/* 5.7 Channel rocker (role=radiogroup) ------------------------------------ */
+.rocker {
+  display: inline-flex; padding: 3px; gap: 0;
+  background: var(--panel-lo); border: 1px solid var(--line); border-radius: var(--r-key);
+  box-shadow: var(--bevel-sunken);
+}
+.rocker__seg {
+  position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+  height: 30px; padding: 0 var(--s-4); border: 1px solid var(--line);
+  font: 500 12px/1 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink);
+  background: linear-gradient(180deg, rgba(255,255,255,.1), rgba(255,255,255,0) 50%), linear-gradient(180deg, #49515A, #2A2F35);
+  box-shadow: var(--bevel-raised); cursor: pointer;
+}
+.rocker__seg::after { content: ""; position: absolute; inset: -7px -1px; } /* ≥44px hit area on desktop */
+.rocker__seg:first-child { border-radius: 4px 0 0 4px; }
+.rocker__seg:last-child  { border-radius: 0 4px 4px 0; border-left: 0; }
+.rocker__seg[aria-checked="true"] {
+  box-shadow: inset 1px 1px 0 rgba(0,0,0,.6), inset 0 3px 8px rgba(0,0,0,.55);
+}
+.rocker__seg[aria-checked="true"]::before { /* LED square */
+  content: ""; width: 8px; height: 8px; border-radius: 1px; background: currentColor; box-shadow: 0 0 6px currentColor;
+}
+.rocker__seg--intl[aria-checked="true"] {
+  color: var(--amber); border-color: #5A3E12; text-shadow: var(--glow-amber);
+  background: linear-gradient(180deg, #2A1E0B, #1B140A);
+}
+.rocker__seg--suomi[aria-checked="true"] {
+  color: #F2F6FF; border-color: #102A6E; text-shadow: 0 0 8px rgba(111,170,255,.6);
+  background: linear-gradient(180deg, #2459DB, #1A3FA3);
+}
+.rocker__seg--suomi[aria-checked="true"]::before { background: #9CC4FF; box-shadow: 0 0 6px #6FA8FF; }
+.rocker__seg:not([aria-checked="true"]):hover, .rocker__seg.is-hover:not([aria-checked="true"]) { background: linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,0) 50%), linear-gradient(180deg, #56606A, #30363D); }
+
+/* 5.8 Schedule rows -------------------------------------------------------- */
+.sched { list-style: none; margin: 0; padding: 6px; font: 500 var(--fs-ui)/1 var(--font-mono); }
+.sched__row {
+  position: relative; display: grid; grid-template-columns: 58px 1fr 46px 42px; align-items: center; column-gap: 8px;
+  min-height: 31px; padding: 0 10px; border-radius: 2px; color: var(--lcd-soft);
+}
+.sched__time { color: var(--lcd); }
+.sched__year, .sched__dur { color: var(--lcd-soft); opacity: .8; text-align: right; }
+.sched__title { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.sched__row--past { opacity: .45; }
+.sched__row--now {
+  background: var(--lcd); color: var(--lcd-bg); box-shadow: 0 0 12px var(--lcd-glow);
+  font-weight: 600;
+}
+.sched__row--now .sched__time, .sched__row--now .sched__year, .sched__row--now .sched__dur { color: var(--lcd-bg); opacity: 1; }
+.sched__row--now .sched__title::before { content: "▶"; color: var(--marker); margin-right: 8px; }
+.sched__row--now::after { /* live progress hairline */
+  content: ""; position: absolute; left: 68px; right: 104px; bottom: 4px; height: 2px;
+  background: linear-gradient(90deg, var(--lcd-bg) var(--p, 40%), color-mix(in srgb, var(--lcd-bg) 25%, transparent) var(--p, 40%));
+}
+.sched__row:not(.sched__row--now):hover { background: color-mix(in srgb, var(--lcd) 8%, transparent); }
+@media (max-width: 719px) { .sched__row { min-height: 44px; } }
+
+/* 5.9 Source pill, plaques, sound hint ------------------------------------ */
+.pill {
+  display: inline-flex; align-items: center; gap: 8px; height: 26px; padding: 0 var(--s-4);
+  font: 400 12px/1 var(--font-mono); color: var(--ink-dim); text-decoration: none; letter-spacing: .02em;
+  background: linear-gradient(180deg, #1A1E22, #23282D); border: 1px solid var(--line); border-radius: 4px;
+  box-shadow: var(--bevel-sunken);
+}
+.pill b { font-weight: 500; color: var(--ink); letter-spacing: .1em; }
+.pill svg { width: 14px; height: 14px; color: var(--ink); }
+.pill:hover { color: var(--ink); }
+.plaque {
+  display: inline-flex; align-items: center; gap: 12px; height: 48px; padding: 0 18px;
+  font: 500 var(--fs-ui)/1.1 var(--font-ui); color: var(--ink); text-decoration: none;
+  background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,0) 45%), linear-gradient(180deg, #3A4148, #262B31);
+  border: 1px solid var(--line); border-radius: var(--r-key); box-shadow: var(--bevel-raised), 0 2px 0 var(--line);
+}
+.plaque svg { width: 26px; height: 26px; fill: currentColor; flex: none; }
+.plaque:hover { background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,0) 45%), linear-gradient(180deg, #46505A, #2C3238); }
+.sound-hint {
+  display: inline-flex; align-items: center; gap: 10px; height: 36px; padding: 0 18px; border-radius: var(--r-pill);
+  font: 500 12px/1 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink);
+  background: rgba(11,13,16,.72); border: 1px solid rgba(255,255,255,.18); backdrop-filter: blur(4px); cursor: pointer;
+}
+.sound-hint svg { width: 18px; height: 18px; fill: currentColor; }

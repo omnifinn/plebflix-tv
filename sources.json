@@ -1,0 +1,189 @@
+{
+  "shelves": [
+    {
+      "id": "internet-archive",
+      "name": "Internet Archive",
+      "url": "https://archive.org/",
+      "hosts": ["archive.org", "www.archive.org"],
+      "about": "Video items and web captures. A details, embed, or download URL can play inside the set."
+    },
+    {
+      "id": "wayback",
+      "name": "Wayback Machine",
+      "url": "https://web.archive.org/",
+      "hosts": ["web.archive.org"],
+      "about": "Snapshots of pages that are gone. A filed snapshot is a lead until someone attaches a playable embed."
+    },
+    {
+      "id": "pandora",
+      "name": "PANDORA",
+      "url": "https://pandora.nla.gov.au/",
+      "hosts": ["pandora.nla.gov.au"],
+      "links": [
+        {
+          "label": "Overview",
+          "url": "https://pandora.nla.gov.au/overview.html"
+        }
+      ],
+      "about": "Australia's web archive. The overview says the collection is now in Trove."
+    },
+    {
+      "id": "trove",
+      "name": "Trove",
+      "url": "https://trove.nla.gov.au/",
+      "hosts": ["trove.nla.gov.au"],
+      "links": [
+        {
+          "label": "Website viewer",
+          "url": "https://trove.nla.gov.au/website-viewer"
+        },
+        {
+          "label": "Archived websites",
+          "url": "https://trove.nla.gov.au/search/category/websites"
+        }
+      ],
+      "about": "National Library of Australia. PANDORA's captures are in the Australian Web Archive here."
+    },
+    {
+      "id": "australian-web-archive",
+      "name": "Australian Web Archive",
+      "url": "https://webarchive.nla.gov.au/",
+      "hosts": ["webarchive.nla.gov.au"],
+      "about": "The webarchive host for Trove's archived websites."
+    },
+    {
+      "id": "webcite",
+      "name": "WebCite",
+      "url": "https://www.webcitation.org/",
+      "hosts": ["www.webcitation.org", "webcitation.org"],
+      "links": [
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/WebCite"
+        }
+      ],
+      "about": "The site still answers. The service itself is retired; the Wikipedia page says what it was."
+    },
+    {
+      "id": "internet-memory",
+      "name": "Internet Memory Foundation",
+      "url": "https://en.wikipedia.org/wiki/Internet_Memory_Foundation",
+      "hosts": [],
+      "links": [
+        {
+          "label": "Wayback snapshot of the site",
+          "url": "https://web.archive.org/web/20190104014745/http://internetmemory.org/en/"
+        },
+        {
+          "label": "Collection at Arquivo.pt",
+          "url": "https://arquivo.pt/InternetMemory/"
+        }
+      ],
+      "about": "Defunct in 2018. The organisation's own site no longer resolves. Wikipedia, a Wayback snapshot, and the Arquivo.pt collection are the records."
+    },
+    {
+      "id": "arquivo",
+      "name": "Arquivo.pt",
+      "url": "https://arquivo.pt/InternetMemory/",
+      "hosts": ["arquivo.pt"],
+      "about": "Portuguese web archive. It holds the Internet Memory Foundation collection."
+    },
+    {
+      "id": "cyberfeminism-index",
+      "name": "Cyberfeminism Index",
+      "url": "https://cyberfeminismindex.com/",
+      "hosts": ["cyberfeminismindex.com"],
+      "links": [
+        {
+          "label": "Inventory Press book",
+          "url": "https://www.inventorypress.com/product/cyberfeminism-index"
+        }
+      ],
+      "about": "Mindy Seu's index of cyberfeminist sites, and the Inventory Press book."
+    },
+    {
+      "id": "inventory-press",
+      "name": "Inventory Press",
+      "url": "https://www.inventorypress.com/product/cyberfeminism-index",
+      "hosts": ["www.inventorypress.com"],
+      "about": "Publisher page for the Cyberfeminism Index book."
+    },
+    {
+      "id": "clir",
+      "name": "CLIR",
+      "url": "https://www.clir.org/",
+      "hosts": ["www.clir.org", "clir.org"],
+      "links": [
+        {
+          "label": "Preserving Digital Information (Waters and Garrett, 1996)",
+          "url": "https://www.clir.org/pubs/reports/pub63/"
+        },
+        {
+          "label": "PDF",
+          "url": "https://www.clir.org/wp-content/uploads/sites/6/pub63watersgarrett.pdf"
+        }
+      ],
+      "about": "Council on Library and Information Resources. The 1996 task-force report is the archiving document."
+    },
+    {
+      "id": "kahle",
+      "name": "Preserving the Internet",
+      "url": "https://www.scientificamerican.com/article/preserving-the-internet/",
+      "hosts": ["www.scientificamerican.com"],
+      "about": "Brewster Kahle, Scientific American, March 1997."
+    },
+    {
+      "id": "archiving-websites",
+      "name": "Archiving Websites",
+      "url": "https://www.facetpublishing.co.uk/page/detail/archiving-websites/?k=9781856049009",
+      "hosts": ["www.facetpublishing.co.uk"],
+      "about": "Adrian Brown, Facet Publishing, 2006 edition."
+    },
+    {
+      "id": "personal-archiving",
+      "name": "Personal Archiving",
+      "url": "https://books.infotoday.com/Ebooks/379_Personal-Archiving-Preserving-Our-Digital-Heritage.htm",
+      "hosts": ["books.infotoday.com"],
+      "about": "Donald T. Hawkins, editor. Information Today, 2013."
+    },
+    {
+      "id": "digital-dark-age",
+      "name": "Averting the Digital Dark Age",
+      "url": "https://muse.jhu.edu/book/123276",
+      "hosts": ["muse.jhu.edu", "www.ianmilligan.ca"],
+      "links": [
+        {
+          "label": "Author's books page",
+          "url": "https://www.ianmilligan.ca/books/"
+        }
+      ],
+      "about": "Ian Milligan, Johns Hopkins University Press, 2024. The MUSE page is the open-access copy."
+    },
+    {
+      "id": "wikipedia",
+      "name": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Main_Page",
+      "hosts": ["wikipedia.org"],
+      "subdomains": true,
+      "links": [
+        {
+          "label": "www.wikipedia.org",
+          "url": "https://www.wikipedia.org/"
+        }
+      ],
+      "about": "Articles on the clips, the memes, and the archives above."
+    }
+  ],
+  "finds": [
+    {
+      "title": "Riemurasia, December 2006",
+      "url": "https://web.archive.org/web/20061216055748/http://www.riemurasia.net:80/",
+      "note": "A verified Wayback snapshot of the Finnish humor site. Nothing from the site is on the loop."
+    },
+    {
+      "title": "Riemurasia banner, September 2011",
+      "url": "https://web.archive.org/web/20110902184408/http://www.riemurasia.net/bannerit/RR_kultamulkku.swf",
+      "note": "A captured site-banner SWF. It is an advertisement, not a programme, and the license is unknown, so it is not embedded."
+    }
+  ]
+}

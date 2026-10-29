@@ -1,0 +1,28 @@
+{
+  "name": "plebflix-tv",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A 24/7 living-room broadcast of classic internet videos.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/dev.mjs",
+    "validate": "node scripts/validate.mjs",
+    "resources": "node scripts/resources.mjs",
+    "verify-embeds": "node scripts/verify-embeds.mjs",
+    "curate": "node scripts/curate.mjs",
+    "ingest": "node scripts/ingest.mjs",
+    "candidates": "node scripts/candidates.mjs",
+    "deploy:prepare": "node scripts/deploy.mjs prepare",
+    "deploy:upload": "node scripts/deploy.mjs upload",
+    "deploy:verify": "node scripts/deploy.mjs verify",
+    "test": "node --test --test-concurrency=1",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261023.1",
+    "esbuild": "^0.25.10",
+    "typescript": "^5.9.2",
+    "wrangler": "^4.43.0"
+  }
+}
