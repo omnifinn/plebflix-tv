@@ -1,35 +1,27 @@
 {
   "name": "Plebflix TV",
-  "short_name": "Plebflix TV",
-  "description": "Plebflix — real human slop. 24/7 OG internet TV.",
+  "short_name": "Plebflix",
+  "description": "24/7 OG internet TV. Real human slop.",
   "start_url": "/",
-  "scope": "/",
   "display": "standalone",
   "background_color": "#0B0D10",
   "theme_color": "#0B0D10",
   "icons": [
     {
-      "src": "/icon-192.png",
+      "src": "/icon-192.png?v=3",
       "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any"
+      "type": "image/png"
     },
     {
-      "src": "/icon-512.png",
+      "src": "/icon-512.png?v=3",
       "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any"
+      "type": "image/png"
     },
     {
-      "src": "/icon-maskable-512.png",
+      "src": "/icon-maskable-512.png?v=3",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
-    },
-    {
-      "src": "/favicon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml"
     }
   ]
 }
