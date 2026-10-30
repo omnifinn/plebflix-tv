@@ -1,6 +1,6 @@
 {
-  "_readme": "One place for every share card, favicon and theme-color tag. Swap files in public/ (and public/suomi/), bump `version` (e.g. 3) so X/WhatsApp/iMessage refetch, then build + deploy. index.html's <!-- share:begin/end --> block and the /suomi page are both rendered from this file.",
-  "version": 2,
+  "_readme": "One place for every share card, favicon and theme-color tag. Swap files in public/, bump `version` (e.g. 4) so X/WhatsApp/iMessage refetch, then build + deploy. index.html's <!-- share:begin/end --> block and the /suomi page are both rendered from this file. v3 (30 Oct 2026): Iris's approved card + 'Record P' favicon; /suomi shares the main card and icons.",
+  "version": 3,
   "origin": "https://plebflix.com",
   "icons": {
     "ico": "/favicon.ico",
@@ -8,36 +8,30 @@
     "png32": "/favicon-32.png",
     "png16": "/favicon-16.png",
     "appleTouch": "/apple-touch-icon.png",
-    "manifest": "/site.webmanifest"
+    "manifest": "/site.webmanifest",
+    "icoSizes": "16x16 32x32 48x48"
   },
   "intl": {
     "path": "/",
     "lang": "en",
     "themeColor": "#0B0D10",
-    "title": "Plebflix TV — real human slop",
+    "title": "Plebflix TV · real human slop",
     "description": "Plebflix — real human slop. 24/7 OG internet TV: live channels of early-web videos and memes, International and Suomi.",
-    "ogDescription": "24/7 OG internet TV. Badgers, Numa Numa, Leeroy Jenkins, Keyboard Cat and the rest of the early web, live on a wall-clock schedule.",
+    "ogDescription": "24/7 live TV of the early internet. Real human slop.",
     "twitterDescription": "24/7 OG internet TV. The early web, live.",
     "image": "/og-image.png",
     "imageWidth": 1200,
     "imageHeight": 630,
-    "imageAlt": "A late-90s style brushed-metal media player showing a webcam meme on a CRT screen, with a green LCD reading PLEBFLIX TV ★ REAL HUMAN SLOP, next to the Plebflix TV wordmark.",
-    "twitterImageAlt": "Plebflix TV: a brushed-metal media player with a CRT screen and green LCD marquee, real human slop."
+    "imageAlt": "A 3D late-90s media player skinned as Plebflix TV, playing 'Me at the zoo'",
+    "twitterImageAlt": "A 3D late-90s media player skinned as Plebflix TV, playing 'Me at the zoo' (Jawed Karim & Yakov Lapitsky, CC BY 3.0)."
   },
   "suomi": {
     "path": "/suomi",
     "lang": "fi",
     "themeColor": "#04080D",
-    "iconSvg": "/suomi/favicon.svg",
-    "manifest": "/suomi/site.webmanifest",
     "title": "Plebflix TV · Suomi — real human slop",
     "description": "24/7 OG-netti-TV. Kahen kilon siika, B5mies, Ismo ja Seppo, Kummeli ja muu varhainen suomiweb, livenä seinäkellon tahdissa.",
     "ogDescription": "24/7 OG-netti-TV. Kahen kilon siika, B5mies, Ismo ja Seppo, Kummeli ja muu varhainen suomiweb, livenä seinäkellon tahdissa.",
-    "twitterDescription": "24/7 OG-netti-TV. Varhainen suomiweb, livenä.",
-    "image": "/og-image-suomi.png",
-    "imageWidth": 1200,
-    "imageHeight": 630,
-    "imageAlt": "Plebflix TV Suomi: harjattua metallia oleva mediasoitin, CRT-ruutu ja jäänsininen LCD, real human slop.",
-    "twitterImageAlt": "Plebflix TV Suomi: mediasoitin, CRT-ruutu ja jäänsininen LCD."
+    "twitterDescription": "24/7 OG-netti-TV. Varhainen suomiweb, livenä."
   }
 }

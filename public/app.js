@@ -1218,12 +1218,7 @@ function applyChannelChrome() {
   const m = META.get(channelId) || {};
   if ($("ch-now")) $("ch-now").textContent = `CH ${pad(m.number || 1)} · ${m.name || ""}`;
   document.body.dataset.kind = m.kind === "category" ? "category" : "lang";
-  const icon = $("favicon-svg");
-  if (icon) {
-    // Keep whatever ?v= the share block was built with (share.config.json version).
-    const v = new URL(icon.href, location.href).search;
-    icon.href = (lang === "suomi" ? "/suomi/favicon.svg" : "/favicon.svg") + v;
-  }
+  // Both TVs share one tab icon (share.config.json v3), so only the theme colour follows the TV.
   const theme = document.querySelector('meta[name="theme-color"]');
   if (theme) theme.content = lang === "suomi" ? "#04080D" : "#0B0D10";
   lastSchedKey = "";
