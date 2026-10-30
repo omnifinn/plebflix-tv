@@ -2,6 +2,19 @@
 
 Newest first. One entry per decision: date · who · decision · why · source.
 
+## 2026-10-30 · Niko (via Page) · Page committed and pushed Claude's staged work as 4336ac4; Claude reviewed it and keeps it
+- **Decision:** Page (Niko's Grok Bot) committed the audit + broadcast work that was staged in this checkout, rebased it on
+  its own PRs #2 and #3 (Iris's v5 share card, four favicon states), resolved `public/app.js` (both `syncFavicon` calls,
+  the new `lcd-mode` text, the schedule.js imports) and pushed `4336ac4` to `origin/main`. Review: 67/67 tests, typecheck,
+  `npm run validate`, `RESOURCES.md` check, build and media check all pass on that tree; the share-head script is
+  same-origin under the CSP; nothing to revert. Live plebflix.com is still `4bbf326` (unchanged). Page now talks to this
+  session only in this terminal. The deploy waits for the Cloudflare token for the account that owns plebflix.com (the
+  Mac's wrangler login sees only `omnifinn`).
+- **Why:** Niko (quoted by Page): *"clicking on the video still does not pause it even though i told you both i wanted it
+  like that. please tell claude to deploy all updates."* The click-to-pause is in `4336ac4` and verified locally; the
+  live site has not received a deploy since before the request.
+- **Source:** Page's message in this terminal, 2026-10-30, with Niko's OK; `git log origin/main`.
+
 ## 2026-10-30 · Niko · LIVE is one broadcast for everyone; Skip = CONTINUOUS, REW/FWD = TIMESHIFT; PAUSE and the glass toggle
 - **Decision:** the live view is the same tape at the same second for every viewer of a channel. Skip/Back, a schedule
   row or a search hit put the deck on CONTINUOUS (the programme plays on from the tape you picked); REW, FWD and the
