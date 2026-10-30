@@ -68,3 +68,13 @@ test("cold cache answers at once and fills the cache behind", async () => {
   await Promise.all(waits);
   assert.deepEqual(puts, ["https://x/media/a.mp4"]);
 });
+
+test("suffix zero and inverted ranges are unsatisfiable, garbage is ignored", async () => {
+  assert.equal(parseRange("bytes=-0", 1000), "unsatisfiable");
+  assert.equal(parseRange("bytes=5-2", 1000), null); // invalid spec: ignored, full 200
+  assert.equal(parseRange("bytes=99999999999999999999-", 1000), "unsatisfiable");
+  assert.equal(parseRange("bytes=abc", 1000), null);
+  assert.equal(parseRange("bytes=0-0,5-9", 1000), null);
+  assert.deepEqual(parseRange("bytes=-100", 1000), { start: 900, end: 999 });
+  assert.deepEqual(parseRange("bytes=990-5000", 1000), { start: 990, end: 999 });
+});

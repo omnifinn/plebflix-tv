@@ -1,0 +1,10 @@
+{
+  "note": "How each channel airs. Format: LIBRARIAN.md 'Schedule definitions'. Times are UTC (Helsinki = UTC+2 in winter, UTC+3 in summer). A channel id is 'suomi' / 'international' (CH 1, all tapes) or '<lang>-<category>' (e.g. 'suomi-komedia'); a category channel without its own block takes its TV's block. Validate with: npm run validate",
+  "defaults": {
+    "order": "seeded",
+    "hold_out_hours": 6,
+    "ident_seconds": 8,
+    "slots": []
+  },
+  "channels": {}
+}

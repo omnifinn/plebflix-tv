@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { extractEmbed, handleRecommend, resetLimiterForTests } from "../lib/recommend.mjs";
+import { extractEmbed, handleRecommend, resetLimiterForTests } from "./recommend.mjs";
 
 const repo = {
   id: "suomi",

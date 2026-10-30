@@ -354,6 +354,14 @@ button.stud { cursor: pointer; }
   background: linear-gradient(90deg, var(--lcd-bg) var(--p, 40%), color-mix(in srgb, var(--lcd-bg) 25%, transparent) var(--p, 40%));
 }
 .sched__row:not(.sched__row--now):hover { background: color-mix(in srgb, var(--lcd) 8%, transparent); }
+/* the row this viewer is on while off the broadcast (CONTINUOUS / TIMESHIFT / PAUSE); the inverse row stays ON AIR */
+.sched__row--here:not(.sched__row--now) { outline: 1px solid var(--marker); outline-offset: -1px; color: var(--lcd); opacity: 1; }
+.sched__row--here:not(.sched__row--now) .sched__title::before { content: "▷"; color: var(--marker); margin-right: 8px; }
+.sched__row--here:not(.sched__row--now)::after {
+  content: ""; position: absolute; left: 68px; right: 104px; bottom: 4px; height: 2px;
+  background: linear-gradient(90deg, var(--marker) var(--p, 0%), color-mix(in srgb, var(--marker) 25%, transparent) var(--p, 0%));
+}
+.sched__day { display: flex; justify-content: space-between; padding: 8px 10px 4px; font: 500 11px/1 var(--font-mono); letter-spacing: .08em; color: var(--lcd-mid); }
 @media (max-width: 719px) { .sched__row { min-height: 44px; } }
 
 /* 5.9 Source pill, plaques, sound hint ------------------------------------ */

@@ -26,9 +26,10 @@ VT323 (LCDs), Silkscreen (8px décor), Chakra Petch 700 italic (wordmark, outlin
 ## Behaviour notes
 
 - The screen fits the 16:9 embed by height (pillarbox, never crop). Idents use `brand/ident-{intl,suomi}.svg`; STOP shows colour bars + NO SIGNAL.
-- LCD marquee: `TITLE ★ YEAR ★ NOW PLAYING ★`; lamps read LIVE / PAUSE / TIMESHIFT ±mm:ss / STOP. Exactly one transport key is latched.
-- Schedule rows are real local wall-clock times from `schedule.js`; footer count = tapes on air in `channels/*.json`.
+- LCD marquee: `TITLE ★ YEAR ★ NOW PLAYING ★`; lamps read LIVE / PAUSE (−mm:ss behind live) / TIMESHIFT ±mm:ss (REW, FWD, scrubber) / CONTINUOUS (Skip, Back, schedule row, search) / LOOP / SHUFFLE / STOP. Exactly one transport key is latched; PAUSE pressed again plays on.
+- Schedule window = the UTC day's programme guide at local wall-clock times (`schedule.js`), a date divider at local midnight; inverse row = ON AIR on the shared clock (click → GO LIVE), amber-outlined row = this viewer when off the broadcast; the well scrolls and follows the row that matters unless the viewer scrolled it in the last 20 s; footer count = tapes airing today. It stays readable during STOP.
 - Tally = `/api/stats` (yesterday's snapshot) + this viewer's fresh vote.
 - SOURCE pill links each tape's `original_url`; Wayback links read `host (Wayback, year)`.
-- REC dialog validates the host against the embed hosts + `sources.json` shelves and posts to `POST /api/recommend` (503 with a clear message while `GITHUB_TOKEN` is unset).
+- REC dialog is one field: a pasted link files itself (`POST /api/recommend` → D1 `submissions`, channel = the TV that is on). The host echo shows known shelves from `sources.json`. 503 "The tape shelf is offline" while `DB` is unbound.
+- A click on the glass pauses; the next click plays on (or wakes a stopped set). Buttons on the OSD keep their own meaning.
 - Reduced motion: no marquee, static EQ, steady LEDs, no snow/glitch.

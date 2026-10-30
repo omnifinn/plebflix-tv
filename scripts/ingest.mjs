@@ -8,15 +8,24 @@
 //   node scripts/ingest.mjs --channel suomi --image ./meme.jpg|URL --title ... (30 s looping meme tape)
 //   node scripts/ingest.mjs --backfill [--channel suomi] [--force]   (archive every catalog tape lacking media)
 //   node scripts/ingest.mjs --check                                   (list catalog tapes whose media file is missing)
+// A new tape gets `added: <UTC day>` and joins the daily schedule from the next UTC day (LIBRARIAN.md).
 import { spawnSync } from "node:child_process";
 import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync, rmSync, readdirSync, copyFileSync } from "node:fs";
 import path from "node:path";
 import os from "node:os";
+import { fileURLToPath } from "node:url";
 
-const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 export const MEDIA_DIR = process.env.PLEBFLIX_MEDIA || path.join(ROOT, "media");
-const YTDLP = process.env.YT_DLP || `${os.homedir()}/.local/bin/yt-dlp`;
-const FONT = process.env.PLEBFLIX_FONT || "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf";
+// yt-dlp: $YT_DLP, else ~/.local/bin/yt-dlp (the old deploy box), else whatever is on PATH (brew install yt-dlp).
+const YTDLP = process.env.YT_DLP || [`${os.homedir()}/.local/bin/yt-dlp`].find((f) => existsSync(f)) || "yt-dlp";
+// A bold sans for the meme strip: $PLEBFLIX_FONT, else the first of these that exists (Linux, then macOS).
+const FONT = process.env.PLEBFLIX_FONT || [
+  "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+  "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
+  "/Library/Fonts/Arial Bold.ttf",
+  "/System/Library/Fonts/Helvetica.ttc",
+].find((f) => existsSync(f)) || "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf";
 const MAX_BYTES = 24 * 1024 * 1024; // Workers static assets cap is 25 MiB per file
 const MEME_SECONDS = 7;
 
@@ -53,6 +62,25 @@ export function download(url, workdir) {
   const file = (r.stdout || "").trim().split("\n").pop();
   if (r.status !== 0 || !file || !existsSync(file)) throw new Error(`download failed: ${(r.stderr || "").trim().split("\n").pop()}`);
   return file;
+}
+
+/** What the link says about itself (yt-dlp JSON): title, upload year, duration, uploader, canonical page. null when unknown. */
+export function probeSource(url) {
+  const r = run(YTDLP, ["--no-warnings", "--no-playlist", "--skip-download", "-j", url], { allowFail: true });
+  if (r.status !== 0 || !r.stdout) return null;
+  try {
+    const j = JSON.parse(r.stdout.trim().split("\n")[0]);
+    const date = String(j.upload_date || j.release_date || "");
+    return {
+      title: typeof j.title === "string" ? j.title.trim().slice(0, 160) : "",
+      year: /^\d{8}$/.test(date) ? Number(date.slice(0, 4)) : undefined,
+      duration: Number(j.duration) || 0,
+      uploader: typeof j.uploader === "string" ? j.uploader.trim().slice(0, 80) : "",
+      page: typeof j.webpage_url === "string" ? j.webpage_url : url,
+    };
+  } catch {
+    return null;
+  }
 }
 
 function drawtextEsc(s) { return String(s).replace(/\\/g, "\\\\").replace(/:/g, "\\:").replace(/'/g, "\u2019").replace(/%/g, "\\%"); }
@@ -163,6 +191,8 @@ function addOrUpdate(channel, fields, opts) {
   item.original_url = item.original_url || src || opts.image || "";
   item.credit = item.credit || item.original_url;
   item.note = item.note || "";
+  // The UTC day the tape was filed. It airs from the next day, so every open tab builds the same lineup.
+  if (isNew) item.added = item.added || new Date().toISOString().slice(0, 10);
   archiveItem(channel, item, opts);
   if (isNew) doc.items.push(item);
   saveChannel(channel, doc);
@@ -200,15 +230,26 @@ async function main() {
     signals: flag("--signals")?.split(",").map((s) => s.trim()), why: flag("--why"), note: flag("--note"),
     original_url: flag("--original"), credit: flag("--credit"),
   };
-  if (!fields.title) throw new Error("--title is required");
-  if (!fields.year || fields.year > Math.min(2013, new Date().getUTCFullYear() - 10)) console.warn("warning: --year must be 2013 or earlier (viral peak 2013 or earlier) to pass the classifier");
-  if (!fields.signals || fields.signals.length < 3) console.warn("warning: needs at least three of signals a-e");
   const opts = { srcUrl: flag("--url"), file: flag("--file"), image: flag("--image"), force: has("--force") };
   if (!opts.srcUrl && !opts.file && !opts.image) throw new Error("give --url, --file or --image");
+  // A REC card is only a link: ask the link for its title, year and creator when they were not given.
+  if (opts.srcUrl && (!fields.title || !fields.year || !fields.original_url)) {
+    const meta = probeSource(opts.srcUrl);
+    if (meta) {
+      fields.title ||= meta.title || undefined;
+      fields.year ||= meta.year;
+      fields.original_url ||= meta.page;
+      if (meta.uploader && !fields.note) fields.note = `Uploaded by ${meta.uploader}; archived copy, credit to the original creators.`;
+      console.error(`from the link: "${meta.title}" (${meta.year ?? "year unknown"}, ${Math.round(meta.duration)} s, ${meta.uploader || "uploader unknown"})`);
+    }
+  }
+  if (!fields.title) throw new Error("--title is required (the link did not say)");
+  if (!fields.year || fields.year > Math.min(2013, new Date().getUTCFullYear() - 10)) console.warn("warning: --year must be 2013 or earlier (viral peak 2013 or earlier) to pass the classifier");
+  if (!fields.signals || fields.signals.length < 3) console.warn("warning: needs at least three of signals a-e");
   const item = addOrUpdate(channel, fields, opts);
   console.log(JSON.stringify(item, null, 2));
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
   main().catch((e) => { console.error(e.message); process.exit(1); });
 }

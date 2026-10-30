@@ -1,5 +1,5 @@
 import { syncFavicon } from "./favicon-mode.js";
-import { buildBroadcast, dayKey, liveSeconds, spotAt, shiftFromLive, totalDuration } from "./schedule.js";
+import { buildBroadcast, dayKey, dayStartSeconds, liveItems, liveSeconds, resolveDefinition, spotAt, shiftFromLive, totalDuration, DAY_SECONDS } from "./schedule.js";
 
 /* Plebflix TV — PLEBAMP skin (design: Iris). Rocker order follows the design: International, then Suomi. */
 let ORDER = ["international", "suomi"];
@@ -27,8 +27,18 @@ const impressed = new Set();
 /** Votes this viewer cast after the stats snapshot was taken, so the tally moves at once. */
 const freshVotes = {};
 let broadcastCache = null;
+/** channels/schedule.json: how each channel airs (order, hold-out, idents, fixed slots). */
+let scheduleDoc = null;
+/** `build` from channels/index.json: names the catalog + schedule + generator this tab holds. */
+let buildStamp = "";
 let channelId = "international";
 let mode = "live";
+/**
+ * Why the deck is off the broadcast clock while mode is "timeshift": "seek" (REW, FWD, the scrubber, a resumed
+ * pause — the lamp reads TIMESHIFT ±mm:ss, you are still on the broadcast, shifted) or "skip" (Skip/Back, a
+ * schedule row, search — CONTINUOUS: the programme plays on from the tape you picked). GO LIVE clears it.
+ */
+let shiftKind = "";
 let anchorPos = 0;
 let anchorWall = 0;
 let pausePos = 0;
@@ -75,21 +85,38 @@ const snow = $("snow");
 const snowCtx = snow.getContext("2d", { alpha: false });
 let snowTimer = 0;
 
-function wallSec() {
-  return Math.floor(Date.now() / 1000);
+/** Device clock minus the server clock, applied only when they disagree by more than three seconds. */
+let clockSkew = 0;
+/** The broadcast clock. Timers that only pace this browser keep using Date.now(). */
+const now = () => Date.now() + clockSkew;
+function noteServerClock(response) {
+  const server = Date.parse(response?.headers?.get("date") || "");
+  if (!server) return;
+  const skew = server + 500 - Date.now(); // the Date header is whole seconds; +500 ms is the expected truncation
+  clockSkew = Math.abs(skew) > 3000 ? skew : 0;
 }
+
+function wallSec() {
+  return Math.floor(now() / 1000);
+}
+
+const randomId = () =>
+  crypto.randomUUID?.() || [...crypto.getRandomValues(new Uint8Array(16))].map((b) => b.toString(16).padStart(2, "0")).join("");
+let memoryViewerId = "";
 
 function viewerId() {
   const key = "plebflix-viewer";
   try {
     let id = localStorage.getItem(key);
     if (!id) {
-      id = crypto.randomUUID();
+      id = randomId();
       localStorage.setItem(key, id);
     }
     return id;
   } catch {
-    return "local-viewer";
+    // Storage blocked: a random id for this page load, never one id shared by every such viewer.
+    memoryViewerId ||= randomId();
+    return memoryViewerId;
   }
 }
 
@@ -102,10 +129,52 @@ function savedVotes() {
   }
 }
 
+/**
+ * The UTC day the stats snapshot in statsMap is for. The day's lineup is drawn from the votes cast before that
+ * day began (the Worker freezes that snapshot), so every viewer who holds it builds the same programme. A fetch
+ * that fails or arrives late is retried / accepted: the lineup rebuilds once and the deck joins everyone else.
+ */
+let statsDay = "";
+let statsPending = null;
+/** language id → the day its snapshot in statsMap is for */
+const statsLoaded = {};
+async function pullStats(day, ids = LANGS) {
+  await Promise.all(
+    ids.map(async (id) => {
+      try {
+        const response = await fetch(`/api/stats?channel=${id}&day=${day}`);
+        noteServerClock(response);
+        if (!response.ok) return;
+        const body = await response.json();
+        if (body?.items && typeof body.items === "object" && !Array.isArray(body.items)) {
+          statsMap[id] = body.items;
+          statsLoaded[id] = day;
+        }
+      } catch {
+        /* retried by ensureStats; until then the day airs unweighted */
+      }
+    }),
+  );
+}
+function ensureStats() {
+  if (!statsDay || statsPending) return;
+  const missing = LANGS.filter((id) => statsLoaded[id] !== statsDay);
+  if (!missing.length) return;
+  statsPending = pullStats(statsDay, missing).finally(() => {
+    statsPending = null;
+  });
+}
+
 function playlist(id = channelId) {
   const channel = channels.get(id);
   if (!channel) return [];
-  const day = dayKey(Date.now());
+  const day = dayKey(now());
+  if (statsDay && day !== statsDay) {
+    // Midnight UTC: today's snapshot now includes yesterday's votes. Switch days at once (so a failed fetch is
+    // retried by ensureStats instead of every tick) and pull the new snapshot; the lineup rebuilds when it lands.
+    statsDay = day;
+    ensureStats();
+  }
   const stats = statsFor(statsMap, id);
   const sig = JSON.stringify(stats);
   if (!broadcastCache || broadcastCache.id !== id || broadcastCache.day !== day || broadcastCache.sig !== sig) {
@@ -113,7 +182,7 @@ function playlist(id = channelId) {
       id,
       day,
       sig,
-      items: buildBroadcast(channel, Date.now(), stats),
+      items: buildBroadcast(channel, now(), stats, resolveDefinition(scheduleDoc, id)),
     };
   }
   return broadcastCache.items;
@@ -123,17 +192,18 @@ function position() {
   const items = playlist();
   if (!items.length || mode === "stopped") return 0;
   if (mode === "paused") return pausePos;
-  if (mode === "live") return liveSeconds(items, Date.now());
+  if (mode === "live") return liveSeconds(items, now());
   const total = totalDuration(items);
   const elapsed = wallSec() - anchorWall;
   return ((anchorPos + elapsed) % total + total) % total;
 }
 
-function setTimeshift(seconds) {
+function setTimeshift(seconds, kind = shiftKind || "seek") {
   const total = totalDuration(playlist()) || 1;
   anchorPos = ((seconds % total) + total) % total;
   anchorWall = wallSec();
   mode = "timeshift";
+  shiftKind = kind;
   brokenHold = false;
 }
 
@@ -141,6 +211,7 @@ function goLive() {
   shuffleRun = false;
   lastClip = null;
   mode = "live";
+  shiftKind = "";
   brokenHold = false;
   streak = 0;
 }
@@ -245,7 +316,7 @@ function updateChrome(spot) {
   const items = playlist();
   const total = totalDuration(items);
   const here = mode === "stopped" ? 0 : position();
-  const delta = total ? shiftFromLive(here, liveSeconds(items, Date.now()), total) : 0;
+  const delta = total ? shiftFromLive(here, liveSeconds(items, now()), total) : 0;
 
   document.body.dataset.channel = langOf();
   $("osd-ch").textContent = `CH ${number}`;
@@ -279,12 +350,14 @@ function updateChrome(spot) {
   }
   $("lcd-tc").textContent = `${tc(dur ? offset : 0)} / ${tc(dur)}`;
 
-  // lamps
+  // lamps: LIVE (on the clock) · PAUSE −mm:ss · TIMESHIFT ±mm:ss (REW/FWD) · CONTINUOUS (skipped) · LOOP / SHUFFLE · STOP
+  const shift = `${delta >= 0 ? "+" : "−"}${tc(delta < 0 ? -delta : delta)}`;
   if (mode === "stopped") setLamps("stopped", "STOP");
   else if (mode === "live" && !seekingDir) setLamps("live", "LIVE");
-  else if (mode === "paused" && Math.abs(delta) < 2) setLamps("timeshift", "PAUSE");
+  else if (mode === "paused") setLamps("timeshift", Math.abs(delta) < 2 ? "PAUSE" : `PAUSE ${shift}`);
   else if (mode === "timeshift" && playMode !== "live") setLamps("timeshift", playMode.toUpperCase());
-  else setLamps("timeshift", `TIMESHIFT ${delta >= 0 ? "+" : "−"}${tc(delta < 0 ? -delta : delta)}`);
+  else if (mode === "timeshift" && shiftKind === "skip" && !seekingDir) setLamps("timeshift", "CONTINUOUS");
+  else setLamps("timeshift", `TIMESHIFT ${shift}`);
 
   paintMode();
   // transport latches: exactly one mode key
@@ -302,8 +375,9 @@ function updateChrome(spot) {
     pause.querySelector("use").setAttribute("href", playing ? "#i-pause" : "#i-play");
     pause.querySelector("span").textContent = playing ? "Pause" : "Play";
   } else {
+    // desktop: PAUSE latches; pressing it again plays on
     pause.setAttribute("aria-pressed", String(latched === "pause"));
-    pause.setAttribute("aria-label", "Pause");
+    pause.setAttribute("aria-label", latched === "pause" ? "Paused — press again to play on" : "Pause");
     pause.querySelector("use").setAttribute("href", "#i-pause");
     pause.querySelector("span").textContent = "Pause";
   }
@@ -343,7 +417,7 @@ function modeWord() {
   if (seekingDir < 0) return "REW";
   if (seekingDir > 0) return "FWD";
   if (mode === "paused") return "PAUSED";
-  if (mode === "timeshift") return playMode === "loop" ? "LOOP" : playMode === "shuffle" ? "SHUFFLE" : "TIMESHIFT";
+  if (mode === "timeshift") return playMode === "loop" ? "LOOP" : playMode === "shuffle" ? "SHUFFLE" : shiftKind === "skip" ? "CONTINUOUS" : "TIMESHIFT";
   return "NOW PLAYING";
 }
 
@@ -358,63 +432,120 @@ function upcomingClip(items, index) {
 const escapeHtml = (text) =>
   String(text).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 
-/** Schedule window: last clip, the one on now, and what airs next, at real local wall-clock times. */
+/**
+ * Schedule window: the whole UTC day's programme at local wall-clock times, like a TV guide. The inverse row is
+ * ON AIR on the shared clock (click it to join the broadcast); an outlined row is where this viewer is while off
+ * the broadcast (CONTINUOUS, TIMESHIFT, PAUSE). Rows are built once per channel and day; ticks only move markers.
+ */
+let schedRows = [];
+let schedLiveIndex = -1;
+let schedHereIndex = -1;
+let schedFollowed = null;
+let schedScrolledAt = 0;
+let schedAutoScrollUntil = 0;
+const dayLabel = (epochMs) => new Date(epochMs).toLocaleDateString(undefined, { weekday: "short", day: "numeric", month: "numeric" }).toUpperCase();
+
 function renderSchedule(spot) {
   const channel = channels.get(channelId);
   const items = playlist();
   const list = $("sched");
   $("sched-ch").textContent = `CH ${channelNumber()} ${channel?.name || ""}`;
   $("sched-tagline").textContent = channel?.tagline || "";
-  const count = (channel?.items || []).filter((item) => item.status !== "pending" && item.duration > 0).length;
-  $("sched-foot").textContent = `${count} TAPES · LIVE LOOP · ALL TIMES LOCAL`;
 
-  if (!items.length || !spot || mode === "stopped") {
-    const key = `${channelId}:empty:${mode}`;
-    if (key !== lastSchedKey) {
-      lastSchedKey = key;
-      list.innerHTML = `<li class="sched__empty">${mode === "stopped" ? "NO SIGNAL — PRESS PLAY" : "NO TAPE"}</li>`;
+  if (!items.length) {
+    if (lastSchedKey !== `${channelId}:empty`) {
+      lastSchedKey = `${channelId}:empty`;
+      schedRows = [];
+      list.innerHTML = `<li class="sched__empty">NO TAPE</li>`;
       $("peek").textContent = "—";
+      $("sched-foot").textContent = "0 TAPES · ALL TIMES LOCAL";
     }
     return;
   }
-  const now = Date.now();
-  const total = totalDuration(items);
-  const key = `${channelId}:${broadcastCache?.day}:${spot.index}:${Math.floor((now - spot.offset * 1000) / 60000)}`;
+  const at0 = now();
+  const dayStartMs = dayStartSeconds(at0) * 1000;
+  const key = `${channelId}:${broadcastCache?.day}:${items.length}`;
   if (key !== lastSchedKey) {
     lastSchedKey = key;
-    // epoch ms at which a playlist offset airs, as seen from this viewer's current position
-    const base = now - spot.offset * 1000;
-    const rows = [];
-    // one past clip
-    for (let back = 1, at = spot.start; back < items.length && rows.length < 1; back += 1) {
-      const index = (spot.index - back + items.length) % items.length;
-      at -= items[index].duration;
-      if (items[index].kind !== "ident") rows.push({ item: items[index], when: base + (at - spot.start) * 1000, state: "past", at });
-    }
-    if (spot.item.kind !== "ident") rows.push({ item: spot.item, when: base, state: "now", at: spot.start });
-    let at = spot.start + spot.item.duration;
-    for (let step = 1; step < items.length && rows.length < 16; step += 1) {
-      const item = items[(spot.index + step) % items.length];
-      if (item.kind !== "ident") rows.push({ item, when: base + (at - spot.start) * 1000, state: "", at });
+    schedLiveIndex = -1;
+    schedHereIndex = -1;
+    schedFollowed = null;
+    const lang = langOf() === "suomi" ? ' lang="fi"' : "";
+    const html = [];
+    schedRows = new Array(items.length).fill(null);
+    let at = 0;
+    let lastDay = "";
+    items.forEach((item, index) => {
+      if (item.kind !== "ident" && at < DAY_SECONDS) {
+        const when = dayStartMs + at * 1000;
+        const day = dayLabel(when);
+        if (day !== lastDay) {
+          lastDay = day;
+          html.push(`<li class="sched__day" aria-hidden="true"><span>${escapeHtml(day)}</span><span>CH ${channelNumber()}</span></li>`);
+        }
+        html.push(
+          `<li class="sched__row" data-at="${at}" data-index="${index}" tabindex="0" role="button" title="Play ${escapeHtml(item.title)}">` +
+            `<span class="sched__time">${hhmm(when)}</span><span class="sched__title"${lang}>${escapeHtml(item.title)}</span>` +
+            `<span class="sched__year">${escapeHtml(item.year ?? "")}</span><span class="sched__dur">${fmt(item.duration)}</span></li>`,
+        );
+      }
       at += item.duration;
-      if (at - spot.start > total) break;
-    }
-    const lang = channelId === "suomi" ? ' lang="fi"' : "";
-    list.innerHTML = rows
-      .map(
-        ({ item, when, state, at }) =>
-          `<li class="sched__row${state ? ` sched__row--${state}` : ""}" data-at="${at}" tabindex="0" role="button" title="Play ${escapeHtml(item.title)}"${state === "now" ? ' aria-current="true"' : ""}>` +
-          `<span class="sched__time">${hhmm(when)}</span><span class="sched__title"${lang}>${escapeHtml(item.title)}</span>` +
-          `<span class="sched__year">${escapeHtml(item.year ?? "")}</span><span class="sched__dur">${fmt(item.duration)}</span></li>`,
-      )
-      .join("");
-    const next = rows.find((row) => !row.state);
-    $("peek").textContent = next ? `${hhmm(next.when)}  ${next.item.title}  ${next.item.year ?? ""}` : "—";
+    });
+    list.innerHTML = html.join("");
+    for (const li of list.querySelectorAll(".sched__row")) schedRows[Number(li.dataset.index)] = li;
+    $("sched-foot").textContent = `${liveItems(channel, at0).length} TAPES · TODAY'S PROGRAMME · ALL TIMES LOCAL`;
     if (lang) $("peek").setAttribute("lang", "fi");
     else $("peek").removeAttribute("lang");
   }
-  const nowRow = list.querySelector(".sched__row--now");
-  if (nowRow && spot.item.duration) nowRow.style.setProperty("--p", `${Math.min(100, (spot.offset / spot.item.duration) * 100).toFixed(1)}%`);
+
+  // ON AIR: the broadcast's own position, whatever this deck is doing.
+  const liveSpot = spotAt(items, liveSeconds(items, at0));
+  const liveIndex = liveSpot ? liveSpot.index : -1;
+  if (liveIndex !== schedLiveIndex) {
+    const rewound = schedLiveIndex < 0 || schedLiveIndex > liveIndex;
+    const from = rewound ? 0 : schedLiveIndex;
+    for (let index = from; index < liveIndex; index += 1) schedRows[index]?.classList.add("sched__row--past");
+    if (rewound) for (let index = liveIndex; index < schedRows.length; index += 1) schedRows[index]?.classList.remove("sched__row--past");
+    const was = schedRows[schedLiveIndex];
+    if (was) {
+      was.classList.remove("sched__row--now");
+      was.removeAttribute("aria-current");
+    }
+    const row = schedRows[liveIndex];
+    if (row) {
+      row.classList.add("sched__row--now");
+      row.classList.remove("sched__row--past");
+      row.setAttribute("aria-current", "true");
+    }
+    schedLiveIndex = liveIndex;
+    let next = liveIndex + 1;
+    while (next < items.length && !schedRows[next]) next += 1;
+    const nextRow = schedRows[next];
+    $("peek").textContent = nextRow ? `${hhmm(dayStartMs + Number(nextRow.dataset.at) * 1000)}  ${items[next].title}  ${items[next].year ?? ""}` : "—";
+  }
+  // HERE: this viewer, when off the broadcast.
+  const hereIndex = spot && mode !== "stopped" && mode !== "live" ? spot.index : -1;
+  if (hereIndex !== schedHereIndex) {
+    schedRows[schedHereIndex]?.classList.remove("sched__row--here");
+    schedRows[hereIndex]?.classList.add("sched__row--here");
+    schedHereIndex = hereIndex;
+  }
+  // progress hairlines: the broadcast's on the ON AIR row, this viewer's on the outlined row
+  const liveRow = schedRows[liveIndex];
+  if (liveRow && liveSpot.item.duration) liveRow.style.setProperty("--p", `${Math.min(100, (liveSpot.offset / liveSpot.item.duration) * 100).toFixed(1)}%`);
+  const hereRow = hereIndex >= 0 ? schedRows[hereIndex] : null;
+  if (hereRow && hereRow !== liveRow && spot.item.duration) hereRow.style.setProperty("--p", `${Math.min(100, (spot.offset / spot.item.duration) * 100).toFixed(1)}%`);
+  followRow(hereRow || liveRow, list);
+}
+
+/** Keep the row that matters near the top of the well, unless the viewer scrolled the guide in the last 20 s. */
+function followRow(row, list) {
+  if (!row || row === schedFollowed) return;
+  const well = list.parentElement;
+  if (!well || !well.clientHeight || Date.now() - schedScrolledAt < 20000) return;
+  schedFollowed = row;
+  schedAutoScrollUntil = Date.now() + 400;
+  well.scrollTop = Math.max(0, row.offsetTop - list.offsetTop - row.offsetHeight * 1.5);
 }
 
 function showCard(text) {
@@ -441,7 +572,6 @@ function showIdent(item) {
   card.classList.add("ident");
   $("card-mark").textContent = item.title || "PLEBFLIX";
   $("card-sub").textContent = item.line || "STATION ID";
-  streak = 0;
   playerKind = "ident";
 }
 
@@ -609,7 +739,9 @@ function playVideo(item, offset, gen, onEnded) {
   vid.onerror = () => {
     if (gen !== loadGen) return;
     brokenMedia.add(item.media);
-    vid.hidden = true;
+    // Clear the deck so loadCurrent(true) reloads this spot through the embed instead of re-seeking the dead file.
+    stopVideo();
+    playerKind = "";
     if (onEnded) onEnded();
     else loadCurrent(true);
   };
@@ -715,7 +847,6 @@ async function playSwf(item, gen) {
 
 function onReady(event) {
   player = event?.target || player;
-  streak = 0;
   if (mode === "paused") player?.pauseVideo?.();
   if (soundOn) {
     player?.unMute?.();
@@ -733,7 +864,10 @@ function onState(event) {
   if (!currentPlayer(event)) return;
   const playing = window.YT?.PlayerState?.PLAYING;
   const ended = window.YT?.PlayerState?.ENDED;
-  if (event.data === playing) $("poster").style.opacity = "0";
+  if (event.data === playing) {
+    $("poster").style.opacity = "0";
+    streak = 0;
+  }
   if (event.data === ended && mode !== "paused" && mode !== "stopped") advance("end");
 }
 
@@ -757,7 +891,7 @@ async function loadCurrent(force) {
     return;
   }
   updateChrome(spot);
-  const key = `${channelId}:${broadcastCache?.day || dayKey(Date.now())}:${spot.index}`;
+  const key = `${channelId}:${broadcastCache?.day || dayKey(now())}:${spot.index}:${spot.item.id}`;
   if (spot.item.kind === "ident") {
     if (key === loadedKey && !force) return;
     loadedKey = key;
@@ -887,6 +1021,17 @@ function advance(reason) {
     showCard("SIGNAL LOST");
     return;
   }
+  if (reason === "error" && mode === "live") {
+    // The embed refused. Hold a card until the shared clock crosses into the next tape: skipping ahead here would
+    // put this viewer on a timeshift of their own.
+    stopVideo();
+    destroyYoutube();
+    hideEmbed();
+    destroySwf();
+    $("poster").hidden = true;
+    showCard("NO SIGNAL");
+    return;
+  }
   if (reason === "error") {
     streak += 1;
     hideCard();
@@ -909,6 +1054,26 @@ function advance(reason) {
   }
   const spot = spotAt(items, mode === "paused" ? pausePos : position());
   if (!spot) return;
+  if (reason === "end") {
+    if (mode === "live") {
+      // The file ran out a moment before the broadcast clock does (durations are whole seconds). Cover the last
+      // frame and let tick() cross the boundary on the shared clock; jumping ahead would turn LIVE into a timeshift.
+      $("poster").style.opacity = "1";
+      return;
+    }
+    if (playMode === "loop" && spot.item.kind !== "ident") {
+      setTimeshift(spot.start);
+      loadCurrent(true);
+      return;
+    }
+    if (playMode === "shuffle") {
+      const pick = nextShuffleStart(items);
+      if (pick !== null) {
+        seekTo(pick);
+        return;
+      }
+    }
+  }
   const next = (spot.index + 1) % items.length;
   let start = 0;
   for (let i = 0; i < next; i += 1) start += items[i].duration;
@@ -922,12 +1087,15 @@ function nudge(delta) {
   const items = playlist();
   const total = totalDuration(items);
   if (!total) return;
-  const base = mode === "paused" ? pausePos : mode === "timeshift" ? position() : liveSeconds(items, Date.now());
+  const base = mode === "paused" ? pausePos : mode === "timeshift" ? position() : liveSeconds(items, now());
   const next = ((base + delta) % total + total) % total;
   shuffleRun = false;
+  userSeeked = true; // a deck seek, not a tape ending by itself: LOOP and SHUFFLE must not snap back
+  lastClip = null;
   hideCard();
+  shiftKind = "seek"; // REW / FWD / arrows: still the broadcast, shifted in time
   if (mode === "paused") pausePos = next;
-  else setTimeshift(next);
+  else setTimeshift(next, "seek");
   glitch();
   loadCurrent(true);
 }
@@ -961,6 +1129,11 @@ function bindSeek(id, dir) {
   });
   button.addEventListener("pointerup", stopSeek);
   button.addEventListener("pointercancel", stopSeek);
+  button.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    event.preventDefault();
+    nudge(dir * 15);
+  });
 }
 
 // Plays are queued and sent in one small batch (every 6 tapes, after 90 s, or when the tab hides),
@@ -988,7 +1161,7 @@ addEventListener("pagehide", () => flushPlays(true));
 
 function noteImpression(item) {
   if (!item || item.kind === "ident") return;
-  const stamp = `${dayKey(Date.now())}:${homeOf(item)}:${item.id}`;
+  const stamp = `${dayKey(now())}:${homeOf(item)}:${item.id}`;
   if (impressed.has(stamp)) return;
   impressed.add(stamp);
   playQueue.push({ itemId: item.id, channel: homeOf(item) });
@@ -1077,7 +1250,7 @@ function onPlay() {
   if (mode === "paused") {
     const items = playlist();
     const total = totalDuration(items);
-    const delta = total ? Math.abs(shiftFromLive(pausePos, liveSeconds(items, Date.now()), total)) : 0;
+    const delta = total ? Math.abs(shiftFromLive(pausePos, liveSeconds(items, now()), total)) : 0;
     if (delta <= 2) goLive();
     else setTimeshift(pausePos);
     player?.playVideo?.();
@@ -1299,7 +1472,10 @@ function paintMode() {
   }
   if ($("mode-label")) $("mode-label").textContent = label;
   syncFavicon(mode, playMode);
-  if ($("lcd-mode")) $("lcd-mode").textContent = playMode === "live" && mode === "timeshift" ? "LIVE·TS" : label;
+  if ($("lcd-mode")) {
+    $("lcd-mode").textContent =
+      playMode !== "live" ? label : mode === "timeshift" ? (shiftKind === "skip" ? "CONTINUOUS" : "TIMESHIFT") : mode === "paused" ? "PAUSE" : "LIVE";
+  }
 }
 function cycleMode() {
   playMode = PLAY_MODES[(PLAY_MODES.indexOf(playMode) + 1) % PLAY_MODES.length];
@@ -1352,7 +1528,7 @@ function tick() {
   userSeeked = false;
   if (spot.item.kind !== "ident") lastClip = { index: spot.index, start: spot.start, duration: spot.item.duration, id: spot.item.id };
   else if (playMode === "live") lastClip = null;
-  const key = `${channelId}:${broadcastCache?.day || dayKey(Date.now())}:${spot.index}`;
+  const key = `${channelId}:${broadcastCache?.day || dayKey(now())}:${spot.index}:${spot.item.id}`;
   if (key !== loadedKey) loadCurrent(false);
   else {
     updateChrome(spot);
@@ -1402,25 +1578,12 @@ function wireRec() {
   const submit = $("rec-submit");
   const urlInput = form.querySelector("input[name=url]");
   const echo = $("host-echo");
-  const signals = $$("input[name=signal]", form);
-  const radios = $$("input[name=channel]", form);
-  const yearInput = form.querySelector("input[name=year]");
-  const cutoff = () => new Date().getUTCFullYear() - 10;
-  if (yearInput) yearInput.max = String(cutoff());
 
-  const syncSignals = () => {
-    const n = signals.filter((box) => box.checked).length;
-    $("sig-count").textContent = `${n}/3`;
-    submit.disabled = submit.dataset.busy === "1";
-  };
-  const syncRadios = () => {
-    for (const label of $$(".rocker--block .rocker__seg", form)) {
-      label.setAttribute("aria-checked", String(Boolean(label.querySelector("input:checked"))));
-    }
-  };
+  // One field. The librarian works out title, year, channel and signals from the link itself.
   const syncEcho = () => {
     const value = urlInput.value.trim();
     const verdict = value ? hostVerdict(value) : null;
+    submit.disabled = submit.dataset.busy === "1" || !verdict;
     if (!value) {
       echo.textContent = "HOST · —";
       delete echo.dataset.ok;
@@ -1433,19 +1596,21 @@ function wireRec() {
     echo.append(badge);
     echo.dataset.ok = String(Boolean(verdict?.ok));
   };
-
-  signals.forEach((box) => box.addEventListener("change", syncSignals));
-  radios.forEach((radio) => radio.addEventListener("change", syncRadios));
   urlInput.addEventListener("input", syncEcho);
+  // Dropping a link is the whole gesture: a pasted URL files itself.
+  urlInput.addEventListener("paste", () => {
+    setTimeout(() => {
+      syncEcho();
+      if (!submit.disabled && hostVerdict(urlInput.value)) form.requestSubmit();
+    }, 0);
+  });
 
   const open = () => {
-    for (const radio of radios) radio.checked = radio.value === channelId;
-    syncRadios();
-    syncSignals();
     syncEcho();
     setRecStatus("INSERT TAPE · PASTE A LINK TO A 10+ YEAR OLD CLASSIC");
     dialog.showModal();
     $("btn-rec").setAttribute("aria-pressed", "true");
+    urlInput.focus();
   };
   $("btn-rec").addEventListener("click", open);
   $("rec-cancel").addEventListener("click", () => dialog.close());
@@ -1458,11 +1623,8 @@ function wireRec() {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     const data = Object.fromEntries(new FormData(form));
-    const picked = signals.filter((box) => box.checked).map((box) => box.value);
-    const year = Number(data.year);
     const verdict = hostVerdict(data.url || "");
     if (!verdict) return setRecStatus("THAT LINK WON'T PLAY · USE A FULL https:// URL", "error");
-    if (!Number.isInteger(year) || year < 1970 || year > cutoff()) return setRecStatus(`THE YEAR HAS TO BE ${cutoff()} OR EARLIER`, "error");
 
     submit.dataset.busy = "1";
     submit.disabled = true;
@@ -1471,34 +1633,12 @@ function wireRec() {
       const response = await fetch("/api/recommend", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({
-          url: data.url,
-          channel: data.channel,
-          title: data.title,
-          year,
-          why: data.why,
-          signals: picked,
-          note: data.note,
-          submitter: data.submitter,
-          company: data.company,
-        }),
+        body: JSON.stringify({ url: data.url, channel: langOf(), company: data.company }),
       });
       const body = await response.json().catch(() => ({}));
-      if (typeof body.prUrl === "string" && body.prUrl.startsWith("https://github.com/")) {
-        const number = body.prUrl.match(/\/pull\/(\d+)/)?.[1];
-        setRecStatus(`TAPE FILED ✓ ${number ? `PR #${number}` : ""} `);
-        const link = document.createElement("a");
-        link.href = body.prUrl;
-        link.target = "_blank";
-        link.rel = "noopener";
-        link.textContent = "OPEN";
-        $("form-status").append(link);
-      } else if (body.ok) {
+      if (body.ok) {
         setRecStatus(String(body.message || "Tape received ✓"));
         form.reset();
-        for (const radio of radios) radio.checked = radio.value === data.channel;
-        syncRadios();
-        syncEcho();
       } else {
         setRecStatus(String(body.error || "THE DECK JAMMED").toUpperCase(), "error");
       }
@@ -1506,7 +1646,7 @@ function wireRec() {
       setRecStatus("THE DECK JAMMED BEFORE IT REACHED THE SHELF", "error");
     } finally {
       delete submit.dataset.busy;
-      syncSignals();
+      syncEcho();
     }
   });
 }
@@ -1516,7 +1656,8 @@ function wire() {
   $("btn-down").addEventListener("click", () => castVote("down"));
   $("btn-play").addEventListener("click", onPlay);
   $("btn-pause").addEventListener("click", () => {
-    if (mobileQuery.matches && (mode === "paused" || mode === "stopped")) onPlay();
+    // PAUSE twice releases it; on mobile the key doubles as PLAY from STOP as well.
+    if (mode === "paused" || (mobileQuery.matches && mode === "stopped")) onPlay();
     else onPause();
   });
   $("btn-stop").addEventListener("click", onStop);
@@ -1526,6 +1667,12 @@ function wire() {
   wireTuner();
   for (const lamp of $$("button.lamp")) lamp.addEventListener("click", backToLive);
   $("sound-hint").addEventListener("click", unlockSound);
+  // The glass is the biggest key on the deck: a tap pauses, the next tap plays on (or wakes a stopped set).
+  $("screen").addEventListener("click", (event) => {
+    if (event.target.closest("button, a, input, [role=button]")) return;
+    if (mode === "live" || mode === "timeshift") onPause();
+    else onPlay();
+  });
 
   // windowshade (desktop studs) + accordions (mobile titlebars)
   for (const stud of $$("[data-shade]")) {
@@ -1545,8 +1692,16 @@ function wire() {
   }
 
   wireRec();
+  $("sched").parentElement?.addEventListener(
+    "scroll",
+    () => {
+      if (Date.now() > schedAutoScrollUntil) schedScrolledAt = Date.now();
+    },
+    { passive: true },
+  );
 
   document.addEventListener("keydown", (event) => {
+    if (event.defaultPrevented) return; // the scrubber or a schedule row already used this key
     if (document.querySelector("dialog[open]")) return;
     if (event.metaKey || event.ctrlKey || event.altKey) return;
     const tag = document.activeElement?.tagName;
@@ -1557,8 +1712,13 @@ function wire() {
       else onPlay();
     } else if (event.key === "ArrowLeft") nudge(-15);
     else if (event.key === "ArrowRight") nudge(15);
-    else if (event.key === "ArrowUp") stepChannel(1);
-    else if (event.key === "ArrowDown") stepChannel(-1);
+    else if (event.key === "ArrowUp") {
+      event.preventDefault();
+      stepChannel(1);
+    } else if (event.key === "ArrowDown") {
+      event.preventDefault();
+      stepChannel(-1);
+    }
     else if (event.key === "s" || event.key === "S") onStop();
     else if (event.key === "r" || event.key === "R") $("btn-rec").click();
   });
@@ -1621,7 +1781,7 @@ function jumpToTop() {
   const target = topTapeId(channelId);
   const total = totalDuration(items);
   if (!target || !total) return goLive();
-  const live = liveSeconds(items, Date.now());
+  const live = liveSeconds(items, now());
   let start = 0;
   let best = null;
   for (const item of items) {
@@ -1659,6 +1819,63 @@ function playIntro() {
   setTimeout(finishIntro, 12000);
 }
 
+/**
+ * channels/index.json → META / SHORT / ORDER, every channel document, channels/schedule.json. `fresh` revalidates
+ * with the server (a deploy changed the build stamp under this tab). Throws when no language shelf loaded.
+ */
+async function loadCatalog(fresh) {
+  const init = fresh ? { cache: "no-cache" } : undefined;
+  const getJson = (url) => fetch(url, init).then((response) => (response.ok ? response.json() : null)).catch(() => null);
+  const index = (await getJson("/channels/index.json")) || { channels: LANGS.map((id) => ({ id, lang: id, cat: "all", number: 1, short: SHORT[id], kind: "all", name: id })) };
+  const order = index.channels.map((c) => c.id);
+  const [docs, sched] = await Promise.all([Promise.all(order.map((id) => getJson(`/channels/${id}.json`))), getJson("/channels/schedule.json")]);
+  const next = new Map();
+  order.forEach((id, i) => {
+    const m = index.channels[i];
+    if (!docs[i] || !Array.isArray(docs[i].items)) return; // a channel that did not load is left off the dial
+    next.set(id, { ...docs[i], name: m.name || docs[i].name, tagline: m.tagline || docs[i].tagline, number: m.number, lang: m.lang });
+  });
+  if (!LANGS.some((id) => next.has(id))) throw new Error("no channel loaded");
+  META.clear();
+  for (const c of index.channels) {
+    META.set(c.id, c);
+    SHORT[c.id] = c.short || c.id.toUpperCase();
+  }
+  channels.clear();
+  for (const [id, doc] of next) channels.set(id, doc);
+  ORDER = order.filter((id) => channels.has(id));
+  scheduleDoc = sched;
+  buildStamp = typeof index.build === "string" ? index.build : "";
+  broadcastCache = null;
+  lastSchedKey = "";
+}
+
+/** A deploy changed the shelf or the schedule under this tab: re-read the data and put the deck on the shared programme. */
+async function refreshCatalog() {
+  try {
+    await loadCatalog(true);
+  } catch {
+    return; // keep what we have; the next poll tries again
+  }
+  if (!channels.has(channelId)) channelId = channels.has(langOf()) ? langOf() : ORDER[0];
+  if ($("tuner")) delete $("tuner").dataset.lang; // rebuild the dial
+  applyChannelChrome();
+  loadedKey = "";
+  if (mode === "stopped") updateChrome(null);
+  else loadCurrent(true);
+}
+
+const POLL_MS = 5 * 60 * 1000;
+let lastPoll = Date.now();
+/** Every five minutes while the tab is visible: did a deploy change the catalog, the schedule or the generator? */
+async function pollBuild() {
+  lastPoll = Date.now();
+  const index = await fetch("/channels/index.json", { cache: "no-cache" })
+    .then((response) => (response.ok ? response.json() : null))
+    .catch(() => null);
+  if (index && typeof index.build === "string" && index.build !== buildStamp) await refreshCatalog();
+}
+
 async function boot() {
   buildEq();
   fetch("/sources.json")
@@ -1668,17 +1885,7 @@ async function boot() {
     })
     .catch(() => {});
   try {
-    const lineup = await fetch("/channels/index.json").then((r) => (r.ok ? r.json() : { channels: LANGS.map((id, i) => ({ id, lang: id, cat: "all", number: 1, short: SHORT[id], kind: "all", name: id })) }));
-    ORDER = lineup.channels.map((c) => c.id);
-    for (const c of lineup.channels) {
-      META.set(c.id, c);
-      SHORT[c.id] = c.short || c.id.toUpperCase();
-    }
-    const docs = await Promise.all(ORDER.map((id) => fetch(`/channels/${id}.json`).then((response) => response.json())));
-    ORDER.forEach((id, i) => {
-      const m = META.get(id);
-      channels.set(id, { ...docs[i], name: m.name || docs[i].name, tagline: m.tagline || docs[i].tagline, number: m.number, lang: m.lang });
-    });
+    await loadCatalog(false);
   } catch {
     showCard("NO TAPE");
     setMarquee("NO TAPE ★ THE SHELF DIDN'T LOAD ★");
@@ -1686,34 +1893,12 @@ async function boot() {
   }
   channelId = await initialChannel();
   applyChannelChrome();
-  let acceptStats = true;
-  const pullStats = Promise.all(
-    LANGS.map(async (id) => {
-      try {
-        const response = await fetch(`/api/stats?channel=${id}&day=${dayKey(Date.now())}`);
-        if (!response.ok || !acceptStats) return;
-        const body = await response.json();
-        if (acceptStats && body?.items && typeof body.items === "object" && !Array.isArray(body.items)) {
-          statsMap[id] = body.items;
-        }
-      } catch {
-        /* the day still airs, unweighted */
-      }
-    }),
-  );
-  const tomorrow = dayKey(Date.now() + 86400000);
-  const pullTop = Promise.all(
-    LANGS.map(async (id) => {
-      try {
-        const response = await fetch(`/api/stats?channel=${id}&day=${tomorrow}`);
-        if (response.ok) topStats[id] = (await response.json())?.items || {};
-      } catch {
-        /* curated pick */
-      }
-    }),
-  );
-  await Promise.race([Promise.all([pullStats, pullTop]), new Promise((resolve) => setTimeout(resolve, 1500))]);
-  acceptStats = false;
+  // The day's programme is drawn from the vote snapshot the Worker froze at midnight UTC. Wait for it (a few
+  // seconds at most) so the first tape is already the shared one; a late or failed answer is retried by
+  // ensureStats and the lineup rebuilds once when it lands.
+  statsDay = dayKey(now());
+  await Promise.race([pullStats(statsDay), new Promise((resolve) => setTimeout(resolve, 4000))]);
+  statsDay = dayKey(now());
   broadcastCache = null;
   wire();
   glitch();
@@ -1728,6 +1913,13 @@ async function boot() {
   paintMode();
   tick();
   setInterval(tick, 250);
+  setInterval(ensureStats, 30000);
+  setInterval(() => {
+    if (document.visibilityState === "visible") pollBuild();
+  }, POLL_MS);
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible" && Date.now() - lastPoll > POLL_MS) pollBuild();
+  });
 }
 
 boot();
@@ -1743,12 +1935,17 @@ export function seekTo(pos, opts = {}) {
     stopVideo();
   }
   const next = ((pos % total) + total) % total;
+  if (mode === "stopped") snow.classList.remove("on"); // a quiet seek out of STOP would otherwise play under static
   shuffleRun = Boolean(opts.shuffle);
   userSeeked = true;
   lastClip = null;
   hideCard();
+  // Skip, Back, a schedule row, search, the scrubber: the programme plays on from here (CONTINUOUS). A scrub
+  // inside the tape that is on stays a timeshift.
+  const kind = opts.seek ? "seek" : "skip";
+  shiftKind = kind;
   if (mode === "paused") pausePos = next;
-  else setTimeshift(next);
+  else setTimeshift(next, kind);
   if (!opts.quiet) glitch();
   loadCurrent(true);
 }
@@ -1803,7 +2000,7 @@ function scrubTo(frac, commit) {
   $("scrub").style.setProperty("--p", `${(frac * 100).toFixed(2)}%`);
   $("lcd-tc").textContent = `${tc(frac * spot.item.duration)} / ${tc(spot.item.duration)}`;
   showTip(frac);
-  if (commit) seekTo(spot.start + frac * spot.item.duration, { quiet: true, shuffle: shuffleRun });
+  if (commit) seekTo(spot.start + frac * spot.item.duration, { quiet: true, shuffle: shuffleRun, seek: true });
 }
 /** Hover / drag time preview above the scrubber. */
 function showTip(frac) {
@@ -1818,8 +2015,13 @@ function hideTip() {
   const tip = $("scrub-tip");
   if (tip) tip.hidden = true;
 }
+/** Category ids (mtv, komedia, …) of the channels that carry this tape. */
+function categoriesOf(item) {
+  const cats = ORDER.filter((id) => META.get(id)?.kind === "category" && (channels.get(id)?.items || []).some((entry) => entry.id === item.id)).map((id) => META.get(id).cat);
+  return [...new Set(cats)];
+}
 function announceTape(item) {
-  window.dispatchEvent(new CustomEvent("plebflix:tape", { detail: { item, channel: channelId } }));
+  window.dispatchEvent(new CustomEvent("plebflix:tape", { detail: { item, channel: channelId, cat: META.get(channelId)?.cat || "all", cats: categoriesOf(item) } }));
 }
 /** Play a tape by id: stay on this channel if it carries it, else go to the tape's language channel. */
 export function playTape(id) {
@@ -1859,7 +2061,9 @@ window.plebflix = {
   playTape,
   skip: (d) => skip(d),
   catalog: () => ORDER.map((id) => ({ id, name: channels.get(id)?.name, short: SHORT[id], items: channels.get(id)?.items || [] })),
-  state: () => ({ mode, channelId, spot: currentSpot(), introActive }),
+  state: () => ({ mode, channelId, spot: currentSpot(), introActive, build: buildStamp, shift: shiftKind }),
+  /** Re-read channels/*.json now if a deploy changed them (the librarian's check after a deploy; the deck does it every 5 min). */
+  refresh: () => pollBuild(),
 };
 function wireNav() {
   $("btn-next").addEventListener("click", () => skip(1));
@@ -1870,6 +2074,7 @@ function wireNav() {
     if (!row) return;
     if (event.type === "keydown" && event.key !== "Enter" && event.key !== " ") return;
     event.preventDefault();
+    if (row.classList.contains("sched__row--now")) return backToLive(); // the programme that is on: join the broadcast
     if (mode === "stopped") mode = "live";
     seekTo(Number(row.dataset.at));
   };
@@ -1910,6 +2115,6 @@ function wireNav() {
     const d = event.key === "ArrowRight" ? 5 : event.key === "ArrowLeft" ? -5 : 0;
     if (!d) return;
     event.preventDefault();
-    seekTo(spot.start + Math.min(spot.item.duration - 1, Math.max(0, spot.offset + d)), { quiet: true, shuffle: shuffleRun });
+    seekTo(spot.start + Math.min(spot.item.duration - 1, Math.max(0, spot.offset + d)), { quiet: true, shuffle: shuffleRun, seek: true });
   });
 }

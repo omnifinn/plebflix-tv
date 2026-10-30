@@ -1,20 +1,43 @@
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  Content-Security-Policy: script-src 'self' blob: https://www.youtube.com https://s.ytimg.com https://unpkg.com 'wasm-unsafe-eval'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'
+
 /channels/*
   Cache-Control: public, max-age=60
 
 /sources.json
   Cache-Control: public, max-age=300
 
+# Scripts and styles are referenced with ?v=<content hash> from index.html (scripts/build.mjs), so they can live
+# in the browser cache until the shell asks for a new version.
 /styles.css
-  Cache-Control: public, max-age=300
+  Cache-Control: public, max-age=31536000, immutable
 
 /styles/*
-  Cache-Control: public, max-age=300
+  Cache-Control: public, max-age=31536000, immutable
 
 /app.js
-  Cache-Control: public, max-age=300
+  Cache-Control: public, max-age=31536000, immutable
 
 /schedule.js
-  Cache-Control: public, max-age=300
+  Cache-Control: public, max-age=31536000, immutable
+
+/fx.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/audio.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/search.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/skins.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/tactile.js
+  Cache-Control: public, max-age=31536000, immutable
 
 /fonts/*
   Cache-Control: public, max-age=86400

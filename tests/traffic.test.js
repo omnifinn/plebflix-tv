@@ -20,7 +20,8 @@ test("stats are served from the edge cache after the first read", async () => {
   let reads = 0;
   const store = { ...memoryStore(), async stats() { reads += 1; return {}; } };
   const env = { VOTE_STORE: store, STATS_CACHE: cache };
-  const url = "https://plebflix.test/api/stats?channel=suomi&day=2026-10-01";
+  const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10); // a frozen day inside the served window
+  const url = `https://plebflix.test/api/stats?channel=suomi&day=${yesterday}`;
   const a = await handleStats(new Request(url), env);
   const b = await handleStats(new Request(url), env);
   assert.equal(a.headers.get("x-stats-cache"), "miss");

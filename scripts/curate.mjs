@@ -131,7 +131,7 @@ async function openRemovalPr(token, repo, plans) {
   const ref = await gh(`/repos/${repo}/git/ref/heads/${encodeURIComponent(baseBranch)}`);
   const baseSha = ref.object.sha;
   const commit = await gh(`/repos/${repo}/git/commits/${baseSha}`);
-  const names = (await readdir("channels")).filter((name) => name.endsWith(".json") && name !== "categories.json").sort();
+  const names = (await readdir("channels")).filter((name) => name.endsWith(".json") && name !== "categories.json" && name !== "schedule.json").sort();
   const docs = [];
   for (const name of names) {
     const file = await gh(`/repos/${repo}/contents/channels/${name}?ref=${encodeURIComponent(baseBranch)}`);

@@ -15,7 +15,7 @@ npm run dev
 
 `npm run dev` builds, then runs `wrangler dev`. The set is at <http://localhost:8787>.
 
-PLAY, PAUSE, REW, FWD, STOP, and REC sit on the deck. CH+ / CH− and the tapes on the shelf switch between Suomi and International. PAUSE, REW, and FWD timeshift this browser only. PLAY, after a timeshift, returns to LIVE, and so does the LIVE pill on the screen. STOP is snow and a test card.
+PLAY, PAUSE, REW, FWD, STOP, and REC sit on the deck. CH+ / CH− and the tapes on the shelf switch between Suomi and International. LIVE is one broadcast: everyone on a channel sees the same tape at the same second, so a friend can tune in to the same show. PAUSE holds this browser (press it again, click the glass again, or Space, to play on). REW and FWD put this browser on TIMESHIFT (the broadcast, shifted). Skip, Back, a schedule row or a search hit put it on CONTINUOUS (the programme plays on from the tape you picked). PLAY, GO LIVE and the LIVE lamp return to the broadcast. STOP is snow and a test card; the programme guide stays readable.
 
 ## Build output
 
@@ -32,7 +32,20 @@ PLAY, PAUSE, REW, FWD, STOP, and REC sit on the deck. CH+ / CH− and the tapes 
 
 ## Deploy
 
-There is no GitHub Action that deploys. Run this from a machine logged into the Cloudflare account that owns the zone. `npm run build` has to come first. It is what produces the Worker script and the assets folder.
+There is no GitHub Action that deploys: the tapes (`media/`, 1.9 GiB) are not in git, and a static-asset deploy publishes exactly the files in `dist/assets`, so a deploy from a machine without `media/` would take every tape off the air. Deploy from a machine that holds `media/` and a credential for the Cloudflare account pinned in `wrangler.jsonc` (`account_id`, the account that owns plebflix.com). Push `main` to GitHub first; CI (`validate.yml`) is the gate.
+
+```bash
+set -a; source ~/.config/cloudflare/plebflix-tv.env; set +a   # CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID
+npm ci && npm run build
+node scripts/ingest.mjs --check                                # every tape has its file in media/
+npx wrangler d1 migrations apply plebflix-tv --remote          # new migrations first; the code expects the columns
+npx wrangler deploy
+node scripts/deploy.mjs verify
+```
+
+`media/` can be rebuilt from the live site: every catalog `media` and `poster` path is served at `https://plebflix.com/media/...`. Optional secret: `npx wrangler secret put IP_SALT` (any long random string) salts the stored address hashes on votes and submissions.
+
+First-time setup on a fresh account, for the record:
 
 ```bash
 npm ci
@@ -41,11 +54,10 @@ npx wrangler login
 npx wrangler d1 create plebflix-tv
 ```
 
-`npx wrangler d1 create plebflix-tv` prints a `database_id`. Paste that UUID onto the `d1_databases` entry in `wrangler.jsonc`. The database name stays `plebflix-tv`. The binding stays `DB`. `migrations_dir` is `migrations`. The migration file is `migrations/0001_votes.sql` (tables `votes` and `impressions`).
+`npx wrangler d1 create plebflix-tv` prints a `database_id`. Paste that UUID onto the `d1_databases` entry in `wrangler.jsonc`. The database name stays `plebflix-tv`. The binding stays `DB`. `migrations_dir` is `migrations`: `0001_votes.sql` (tables `votes` and `impressions`), `0002_submissions.sql` (REC submissions), `0003_votes_ip.sql` (address hash on votes).
 
 ```bash
 npx wrangler d1 migrations apply plebflix-tv --remote
-npx wrangler secret put GITHUB_TOKEN
 npx wrangler deploy
 ```
 
@@ -57,10 +69,10 @@ npx wrangler deploy
 | `dist/worker.js` | The script `main` points at. |
 | `dist/assets/` | Assets directory. Binding `ASSETS`. |
 | `plebflix-tv` | D1 database name. Binding `DB`. |
-| `migrations/0001_votes.sql` | The migration to apply before votes will stick. |
-| `GITHUB_TOKEN` | Secret. REC and `npm run curate -- --pr` need it. It is not in the repo. |
-| `GITHUB_REPO` | Var, already set to `omnifinn/plebflix-tv`. |
-| `RATE_LIMIT` | Optional KV namespace. Without it, rate limits stay in memory on each isolate. |
+| `migrations/*.sql` | Apply before votes and REC will stick. |
+| `IP_SALT` | Optional secret. Salts the address hashes stored on votes and submissions. |
+| `GITHUB_REPO`, `GITHUB_TOKEN` | Shell variables for `npm run curate -- --pr` only (repo defaults to `omnifinn/plebflix-tv`). The Worker never talks to GitHub and has no such bindings. |
+| `RATE_LIMIT` | Optional KV namespace. Without it, the per-isolate limiter stays in memory; the Rate Limiting bindings (`REC_RL`, `VOTE_RL`, `PLAY_RL`) count at the edge either way. |
 | `plebflix.com`, `www.plebflix.com` | Custom domains in `wrangler.jsonc`. |
 
 For local play, apply the same migration to the local database and start the set:
@@ -70,9 +82,9 @@ npx wrangler d1 migrations apply plebflix-tv --local
 npm run dev
 ```
 
-`remote` is `false` on the D1 binding, so `wrangler dev` uses that local database. If `DB` is missing at runtime, vote routes return HTTP 503: “The tape deck has no vote shelf. Create the D1 database plebflix-tv, bind it as DB, and apply migrations.” If `GITHUB_TOKEN` is missing, REC returns HTTP 503: “The tape deck has no GitHub token. Set the GITHUB_TOKEN Worker secret and recommendations will open a pull request.”
+`remote` is `false` on the D1 binding, so `wrangler dev` uses that local database. If `DB` is missing at runtime, vote routes return HTTP 503: “The tape deck has no vote shelf. Create the D1 database plebflix-tv, bind it as DB, and apply migrations.” and REC returns 503 “The tape shelf is offline.”
 
-The production deploy does not use a Wrangler login. `LIBRARIAN.md` has the steps: `node scripts/deploy.mjs prepare` (build, then refuse if a tape’s file is missing from `media/`), run the connector session it prints, `node scripts/deploy.mjs upload`, publish, then `node scripts/deploy.mjs verify`.
+`LIBRARIAN.md` is the daily routine (vet REC rows in D1, ingest, deploy). `scripts/deploy.mjs prepare|upload` is the older token-less path through a Cloudflare connector; `scripts/deploy.mjs verify` still smoke-checks the live site after any deploy.
 
 ## Worker configuration
 
@@ -81,32 +93,34 @@ The Worker name is `plebflix-tv`. Custom domains on the existing zone: `plebflix
 | Binding | What it is |
 | --- | --- |
 | `ASSETS` | Static assets from `dist/assets`. `/api/*` runs the Worker first. |
-| `GITHUB_REPO` | `omnifinn/plebflix-tv`, a var already in `wrangler.jsonc`. |
-| `GITHUB_TOKEN` | Secret. `npx wrangler secret put GITHUB_TOKEN`. Locally, put it in `.dev.vars` (gitignored). An empty value is treated as missing. |
-| `RATE_LIMIT` | Optional KV. Without it, limits live in memory on the isolate. A shared limit needs a KV namespace bound as `RATE_LIMIT`. REC, votes, and play counts use different key prefixes. |
+| `REC_RL`, `VOTE_RL`, `PLAY_RL` | Rate Limiting bindings (free): per address, per Cloudflare location, per minute. |
+| `RATE_LIMIT` | Optional KV. Without it, the per-isolate limiter lives in memory. REC, votes, and play counts use different key prefixes. |
 | `DB` | D1 database. The name is `plebflix-tv`. The binding is `DB`. Migrations live in `migrations/`. |
+| `IP_SALT` | Optional secret. Without it the address hashes use a fixed salt. |
 
-`POST /api/recommend` files a suggestion. If `GITHUB_TOKEN` is missing, the route returns HTTP 503 and the deck says: “The tape deck has no GitHub token. Set the GITHUB_TOKEN Worker secret and recommendations will open a pull request.”
+`POST /api/recommend` files a suggestion into the D1 `submissions` table (status `pending`). Nothing reaches GitHub from the Worker; the librarian routine vets the row and opens the pull request. Every API response also carries the `_headers` security headers (`X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy`, and a `Content-Security-Policy` that allows scripts only from this origin, YouTube's IFrame API and unpkg for Ruffle).
 
 ## Votes
 
 The remote under the channel keys is two thumbs. They vote on the tape that is on, including after a timeshift. A station ident is not a tape. The OSD flashes `UP ▲`, `DOWN ▼`, `ALREADY VOTED`, `NOT A TAPE`, or `VOTE FAILED`.
 
-One vote per tape per browser. The id is `localStorage` key `plebflix-viewer` (a UUID). The choice is remembered in `plebflix-votes`. The Worker also rate-limits by IP: 60 votes an hour, and 600 play counts an hour. The IP is not stored. Creating the D1 database `plebflix-tv` and applying `migrations/0001_votes.sql` is in [Deploy](#deploy).
+One vote per tape per browser. The id is `localStorage` key `plebflix-viewer` (a UUID). The choice is remembered in `plebflix-votes`. The Worker also rate-limits by address (`VOTE_RL`: 30 a minute; `PLAY_RL`: 30 a minute, each up to 20 plays), and caps one address at 5 votes per tape whatever viewer ids it invents (IPv6 counts as its /64). The address itself is not stored: votes and submissions keep a salted SHA-256 of it (`IP_SALT`). Creating the D1 database `plebflix-tv` and applying `migrations/0001_votes.sql` is in [Deploy](#deploy).
 
 | Route | |
 | --- | --- |
 | `POST /api/vote` | `{ itemId, channel, vote: "up" or "down", viewerId }`. A second vote on the same tape returns 409 `ALREADY VOTED`. |
 | `POST /api/impression` | `{ itemId, channel, viewerId }`. The set sends this once per tape per viewer per UTC day, when the tape actually starts. |
-| `GET /api/stats?channel=suomi&day=YYYY-MM-DD` | `{ items: { [id]: { up, down, net, wilson, impressions } } }`. Only rows with `created_at` before that UTC midnight. `wilson` is the lower bound of the Wilson score interval at z = 1.96. `net` is up minus down. |
+| `GET /api/stats?channel=suomi&day=YYYY-MM-DD` | `{ items: { [id]: { up, down, net, wilson, impressions } } }`. Only rows with `created_at` before that UTC midnight. `day` may be any date from seven days ago to tomorrow (anything else is 400: every other day would be an uncached table scan). `wilson` is the lower bound of the Wilson score interval at z = 1.96. `net` is up minus down. |
 
 The day’s lineup uses that snapshot, so votes cast today change tomorrow’s draw, and every viewer who received the snapshot is on the same tape.
 
 ## The day’s lineup
 
-The broadcast is one UTC day, built from the channel, the date, and the stats from before midnight. A seeded shuffle draws clips by weight, then holds each clip out for six hours. A short shelf cannot fill that window, so the deck falls back to the least-recently aired quarter and keeps going. An eight-second station ident airs between clips. It is drawn on the glass. It is not an embed.
+The broadcast is one UTC day, built from the channel, the date, the stats from before midnight and the channel's block in `channels/schedule.json` (`order` seeded or catalog, `hold_out_hours`, `ident_seconds`, fixed UTC `slots`; format in `LIBRARIAN.md`). With the defaults a seeded shuffle draws clips by weight, then holds each clip out for six hours. A short shelf cannot fill that window, so the deck falls back to the least-recently aired quarter and keeps going. An eight-second station ident airs between clips. It is drawn on the glass. It is not an embed. A fixed slot lands at its second: the gap before it is filled with tapes that fit, then a longer ident.
 
-Viewers who never reach `/api/stats` share the unweighted day with each other. The set waits up to a second and a half for stats, then ignores a late reply so the picture does not jump.
+A tape with `added: YYYY-MM-DD` joins the programme from the next UTC day. The set waits up to four seconds for stats and keeps retrying a failed fetch every 30 s; a late reply rebuilds the lineup once so this viewer joins everyone else. Open tabs poll `channels/index.json` every five minutes and re-read the shelves when its `build` stamp changed, so a deploy does not leave old tabs on an old programme.
+
+The schedule window is the day's programme guide: every tape of the UTC day at local wall-clock times, the inverse row ON AIR, an outlined row where this viewer is when off the broadcast. Clicking the ON AIR row joins the broadcast; any other row plays on from there (CONTINUOUS).
 
 Under eight votes a tape weighs about 1, a little more when it has been shown fewer than two times, plus a small bump for a year before 2005 and a smaller one before 2010. At eight votes or more the weight is `0.25 + wilson × 1.9`, plus that same bump. A poor score airs less often. It is not banned.
 
@@ -130,7 +144,7 @@ The stats file is `{ "suomi": { "b5mies": { "up": 1, "down": 0, "impressions": 4
 `scripts/ingest.mjs` downloads (yt-dlp / curl), transcodes (ffmpeg: H.264/AAC, ≤480p, ≤24 MiB, faststart) and files a tape:
 
 ```bash
-node scripts/ingest.mjs --channel suomi --url URL --title T --year 2006 --signals a,b,d --why "…"
+node scripts/ingest.mjs --channel suomi --url URL --signals a,b,d --why "…"            # title + year from the link (yt-dlp), or pass --title/--year
 node scripts/ingest.mjs --channel international --file clip.mov --title T --year 2005 --signals a,b,c --why "…"
 node scripts/ingest.mjs --channel international --image meme.jpg --title Doge --year 2013 --signals a,b,c --why "…"   # 7 s loop
 node scripts/ingest.mjs --backfill | --check
@@ -143,8 +157,9 @@ wall-clock broadcast of the current channel. The TV language defaults from the v
 `request.cf.country`: Suomi in Finland, International elsewhere); `?tv=suomi`, `#suomi`/`#suomi-komedia` or the saved
 choice in localStorage win. Channels are categories (CH 1 = all tapes, then MTV, Komedia, Asiaa, Dokkarit, Visailut,
 Meemit, Animaatio, Pelit, Eläimet, Mokat); the TV switch picks the language and the names follow it.
-The mode key cycles LIVE → LOOP (repeat this tape) → SHUFFLE (random, no repeats until all have played). Skip, back,
-a schedule click or scrubbing in LIVE drop you into a personal timeshift; GO LIVE returns to the broadcast. Deploys: `scripts/deploy.mjs` and `LIBRARIAN.md`.
+The mode key cycles LIVE → LOOP (repeat this tape) → SHUFFLE (random, no repeats until all have played). REW, FWD and
+the scrubber put you on TIMESHIFT ±mm:ss; Skip, Back, a schedule click or a search hit on CONTINUOUS; GO LIVE returns to
+the broadcast. Deploys: `scripts/deploy.mjs` and `LIBRARIAN.md`.
 
 REC now stores suggestions in D1 `submissions` (migration `0002_submissions.sql`, 8 per IP per hour); the daily librarian
 routine vets them and opens the pull requests, so the Worker needs no GitHub token.
@@ -166,7 +181,7 @@ npm run candidates -- --pending
 
 ## Channels
 
-`channels/suomi.json` and `channels/international.json` are the source of truth. `channels/categories.json` maps tapes onto the category channels; the build turns it into `channels/index.json` (the TV × channel lineup) plus one JSON per category. `RESOURCES.md` is generated from them.
+`channels/suomi.json` and `channels/international.json` are the source of truth. `channels/categories.json` maps tapes onto the category channels; `channels/schedule.json` says how each channel airs; the build turns them into `channels/index.json` (the TV × channel lineup, with a `build` stamp) plus one JSON per category. `RESOURCES.md` is generated from them. Content changes touch only these files and `media/` (`LIBRARIAN.md` §0 has the format and the validation command); the player code never embeds a title or a time.
 
 Each item:
 
@@ -181,6 +196,9 @@ Each item:
 | `source` | `youtube`, `archive.org`, `vimeo`, or `other`. |
 | `embedId` | YouTube id, archive.org identifier, Vimeo id, or (for `other`) the page URL. A licensed `.swf` URL is allowed when `license` is set. |
 | `duration` | Seconds. One UTC day’s lineup is drawn from these, not played as a fixed loop. |
+| `added` | `YYYY-MM-DD` (UTC), the day the tape was filed. It airs from the next UTC day. Set by `ingest.mjs` / `batch.mjs`; required on a hand-written row. |
+| `media`, `poster`, `media_bytes` | The self-hosted file (`/media/<lang>/<id>.mp4`), its poster and size, written by `ingest.mjs`. |
+| `media_source` | Optional http(s) URL `ingest.mjs --backfill` downloads from when the original will not. |
 | `note` | Short credit or context. |
 | `credit` | Optional http(s) link. |
 | `license` | Optional. `cc0`, `cc-by`, `cc-by-sa`, or `public-domain`. Required before a `.swf` may play in Ruffle. |
@@ -192,12 +210,12 @@ Each item:
 
 Press REC, or edit a channel file and open a pull request.
 
-The card is headed “File a tape.” It asks for a video link (YouTube, Vimeo, Internet Archive, Wayback, or another shelf in `sources.json`), a channel, a title, the original year, a one-line why, and at least three signals. An optional note sits under that. Submit calls `POST /api/recommend`. The Worker checks the origin, the body size, a honeypot field, and a per-IP rate limit, validates the URL and the classic rule, and refuses duplicates. It then opens a pull request on this repo that appends a `pending` item and regenerates `RESOURCES.md`. The pull request body includes a checklist for the five signals. The dialog shows the PR link.
+The card is one field: paste a link (YouTube, Vimeo, Internet Archive, Wayback, or any page with the video) and it files itself. The deck sends the TV that is on as the channel. Submit calls `POST /api/recommend`. The Worker checks the origin, the body size, a honeypot field, and a per-address rate limit (8 an hour), validates the URL, folds duplicates, and stores the row in D1 `submissions` as `pending`. The librarian routine (`LIBRARIAN.md`) takes title, year and duration from the link (`yt-dlp`), judges the signals, ingests the tape, and opens the pull request.
 
 Before you push a hand-edited list:
 
 ```bash
-npm run validate          # schema
+npm run validate          # shelves, categories.json, schedule.json, sources.json
 npm run resources         # rewrite RESOURCES.md
 npm run verify-embeds     # oEmbed / archive.org metadata, needs a network
 ```

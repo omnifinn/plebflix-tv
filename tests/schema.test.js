@@ -84,7 +84,7 @@ test("sources.json lists real shelves", async () => {
 });
 
 test("checked-in channels validate", async () => {
-  const files = (await readdir("channels")).filter((name) => name.endsWith(".json") && name !== "categories.json");
+  const files = (await readdir("channels")).filter((name) => name.endsWith(".json") && name !== "categories.json" && name !== "schedule.json");
   assert.ok(files.includes("suomi.json"));
   assert.ok(files.includes("international.json"));
   for (const name of files) {
@@ -108,4 +108,67 @@ test("checked-in channels validate", async () => {
   assert.equal(leeroy.embedId, "mLyOj_QD4a4");
   assert.equal(leeroy.year, 2005);
   assert.ok(leeroy.signals.length >= 3);
+});
+
+test("added must be a real UTC day; media and media_source are shaped", () => {
+  const doc = sample();
+  doc.items[0].added = "2026-10-30";
+  doc.items[0].media = "/media/suomi/sandstorm.mp4";
+  doc.items[0].media_source = "https://archive.org/download/x/y.mp4";
+  assert.equal(validateChannel(doc, "suomi").ok, true);
+  doc.items[0].added = "2026-13-01";
+  assert.equal(validateChannel(doc, "suomi").ok, false);
+  doc.items[0].added = "yesterday";
+  assert.equal(validateChannel(doc, "suomi").ok, false);
+  doc.items[0].added = "2026-10-30";
+  doc.items[0].media = "media/suomi/sandstorm.mp4";
+  assert.match(validateChannel(doc, "suomi").errors.join("\n"), /media must look like/);
+});
+
+test("schedule.json: slots must name a tape on the shelf, at distinct UTC minutes, with room before the next", async () => {
+  const { validateSchedule } = await import("../lib/schema.mjs");
+  const catalogs = { suomi: sample(), international: { ...sample(), id: "international", items: [{ ...sample().items[0], id: "numa", title: "Numa", duration: 120 }] } };
+  const categories = { channels: [{ id: "mtv", short: "MTV", name: "Music" }, { id: "komedia", short: "COMEDY", name: "Comedy" }], assign: { sandstorm: ["mtv"], numa: ["mtv"] } };
+  assert.equal(validateSchedule({ defaults: { order: "seeded", hold_out_hours: 6, ident_seconds: 8, slots: [] }, channels: {} }, catalogs, categories).ok, true);
+  const good = { channels: { suomi: { slots: [{ at: "19:00", tape: "sandstorm" }] }, "international-mtv": { order: "catalog", slots: [{ at: "06:00", tape: "numa" }] } } };
+  assert.equal(validateSchedule(good, catalogs, categories).ok, true);
+  const errors = (doc) => {
+    const result = validateSchedule(doc, catalogs, categories);
+    return result.ok ? "" : result.errors.join("\n");
+  };
+  assert.match(errors({ channels: { suomi: { slots: [{ at: "19:00", tape: "numa" }] } } }), /not on the suomi shelf/);
+  assert.match(errors({ channels: { suomi: { slots: [{ at: "7:00", tape: "sandstorm" }] } } }), /HH:MM/);
+  assert.match(errors({ channels: { suomi: { slots: [{ at: "19:00", tape: "sandstorm" }, { at: "19:00", tape: "sandstorm" }] } } }), /used twice/);
+  assert.match(errors({ channels: { suomi: { slots: [{ at: "19:00", tape: "sandstorm" }, { at: "19:02", tape: "sandstorm" }] } } }), /runs into the next slot/);
+  assert.match(errors({ channels: { "suomi-komedia": { slots: [{ at: "19:00", tape: "sandstorm" }] } } }), /not assigned to komedia/);
+  assert.match(errors({ channels: { bogus: {} } }), /not a channel/);
+  assert.match(errors({ channels: { suomi: { order: "random" } } }), /seeded.*catalog/);
+  assert.match(errors({ channels: { suomi: { ident_seconds: 0 } } }), /ident_seconds/);
+  assert.match(errors({ channels: { suomi: { hold_out_hours: 48 } } }), /hold_out_hours/);
+  assert.match(errors({ channels: { suomi: { colour: "red" } } }), /not a schedule field/);
+  assert.match(errors({ extra: 1 }), /not a schedule.json field/);
+});
+
+test("categories.json: every tape is assigned to known categories, and nothing else is", async () => {
+  const { validateCategories } = await import("../lib/schema.mjs");
+  const catalogs = { suomi: sample() };
+  const ok = { channels: [{ id: "mtv", short: { suomi: "MTV", international: "MTV" }, name: { suomi: "M", international: "M" } }], assign: { sandstorm: ["mtv"] } };
+  assert.equal(validateCategories(ok, catalogs).ok, true);
+  const errors = (doc) => {
+    const result = validateCategories(doc, catalogs);
+    return result.ok ? "" : result.errors.join("\n");
+  };
+  assert.match(errors({ ...ok, assign: {} }), /missing tape "sandstorm"/);
+  assert.match(errors({ ...ok, assign: { sandstorm: ["mtv"], ghost: ["mtv"] } }), /not a tape/);
+  assert.match(errors({ ...ok, assign: { sandstorm: ["nope"] } }), /known category ids/);
+  assert.match(errors({ ...ok, channels: [{ id: "MTV" }] }), /lowercase slug/);
+});
+
+test("checked-in categories.json and schedule.json validate", async () => {
+  const { validateCategories, validateSchedule } = await import("../lib/schema.mjs");
+  const read = async (f) => JSON.parse(await readFile(f, "utf8"));
+  const catalogs = { suomi: await read("channels/suomi.json"), international: await read("channels/international.json") };
+  const categories = await read("channels/categories.json");
+  assert.deepEqual(validateCategories(categories, catalogs), { ok: true });
+  assert.deepEqual(validateSchedule(await read("channels/schedule.json"), catalogs, categories), { ok: true });
 });

@@ -1,6 +1,9 @@
-import { classicCutoff, validateChannel } from "./schema.mjs";
-import { renderResources } from "./resources-md.mjs";
-import { createRateLimiter } from "./rate-limit.mjs";
+// LEGACY (moved from lib/ on 2026-10-30): the REC route that opened a GitHub pull request straight from the
+// Worker. Replaced by lib/submissions.mjs (REC → D1 `submissions`, the librarian opens the PR). Kept with its
+// test for the link parsing it still documents; nothing in src/ imports it.
+import { classicCutoff, validateChannel } from "../lib/schema.mjs";
+import { renderResources } from "../lib/resources-md.mjs";
+import { createRateLimiter } from "../lib/rate-limit.mjs";
 import sources from "../sources.json" with { type: "json" };
 
 const CHANNELS = ["suomi", "international"];

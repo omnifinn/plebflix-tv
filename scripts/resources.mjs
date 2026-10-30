@@ -1,7 +1,9 @@
 import { readFile, readdir, writeFile } from "node:fs/promises";
 import { renderResources } from "../lib/resources-md.mjs";
 
-const files = (await readdir("channels")).filter((name) => name.endsWith(".json") && name !== "categories.json").sort();
+// The shelves only: categories.json and schedule.json describe the channels, they hold no tapes.
+const META_FILES = new Set(["categories.json", "schedule.json"]);
+const files = (await readdir("channels")).filter((name) => name.endsWith(".json") && !META_FILES.has(name)).sort();
 const channels = [];
 for (const name of files) {
   channels.push(JSON.parse(await readFile(`channels/${name}`, "utf8")));

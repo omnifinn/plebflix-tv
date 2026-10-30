@@ -112,7 +112,7 @@ async function upload(sessionFile) {
   const headers = fs.readFileSync(path.join(ASSETS, "_headers"), "utf8");
   const metadata = {
     main_module: "worker.js", compatibility_date: "2026-10-29", compatibility_flags: [],
-    bindings: [{ type: "d1", name: "DB", id: DB_ID }, { type: "plain_text", name: "GITHUB_REPO", text: "omnifinn/plebflix-tv" }, { type: "assets", name: "ASSETS" },
+    bindings: [{ type: "d1", name: "DB", id: DB_ID }, { type: "assets", name: "ASSETS" },
       // Free edge rate limits (Workers Rate Limiting binding): per IP, per Cloudflare location, per 60 s.
       { type: "ratelimit", name: "REC_RL", namespace_id: "4101", simple: { limit: 3, period: 60 } },
       { type: "ratelimit", name: "VOTE_RL", namespace_id: "4102", simple: { limit: 30, period: 60 } },
@@ -134,7 +134,7 @@ async function upload(sessionFile) {
 
 async function verify() {
   const base = process.env.PLEBFLIX_URL || "https://plebflix.com";
-  for (const p of ["/", "/app.js", "/channels/suomi.json", "/media/intro/winamp-intro.mp4", "/api/stats?channel=suomi"]) {
+  for (const p of ["/", "/app.js", "/channels/suomi.json", "/media/suomi/b5mies.mp4", "/api/stats?channel=suomi"]) {
     const r = await fetch(base + p, { headers: p.startsWith("/media") ? { Range: "bytes=0-1023" } : {} });
     console.log(r.status, p, r.headers.get("content-type"), r.headers.get("content-range") || "");
   }

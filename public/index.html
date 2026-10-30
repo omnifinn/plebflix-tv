@@ -130,7 +130,7 @@
           <button type="button" class="key" id="btn-fwd" aria-pressed="false" aria-label="Fast forward"><svg aria-hidden="true"><use href="#i-fwd"/></svg><span>Fwd</span></button>
           <button type="button" class="key" id="btn-next" aria-label="Next tape"><svg aria-hidden="true"><use href="#i-next"/></svg><span>Skip</span></button>
           <button type="button" class="key key--mode" id="btn-mode" data-mode="live" aria-label="Playback mode: Live. Click for Loop." title="Playback mode: LIVE → LOOP → SHUFFLE"><span class="mode__icon" aria-hidden="true">((•))</span><span class="mode__label" id="mode-label">LIVE</span></button>
-          <button type="button" class="key key--rec" id="btn-rec" aria-pressed="false" aria-haspopup="dialog" aria-label="Record — suggest a tape"><svg aria-hidden="true"><use href="#i-rec"/></svg><span>Rec</span></button>
+          <button type="button" class="key key--rec" id="btn-rec" aria-pressed="false" aria-haspopup="dialog" aria-label="Record — drop a link to a tape"><svg aria-hidden="true"><use href="#i-rec"/></svg><span>Rec</span></button>
         </div>
         <span class="transport__div" aria-hidden="true"></span>
         <div class="vote" role="group" aria-label="Vote on the tape that is on">
@@ -242,35 +242,15 @@
       <div class="win__studs"><button type="button" class="stud" id="rec-close" aria-label="Close"></button></div>
     </header>
     <div class="rec__body">
-      <div class="lcd lcd-text rec__status" aria-live="polite"><span class="rec__status-led" id="rec-led"></span><span id="form-status">INSERT TAPE · PASTE THE ORIGINAL LINK</span></div>
+      <div class="lcd lcd-text rec__status" aria-live="polite"><span class="rec__status-led" id="rec-led"></span><span id="form-status">INSERT TAPE · PASTE A LINK</span></div>
       <label class="field field--lcd"><span class="field__label">Video link</span>
-        <input name="url" type="url" required maxlength="500" placeholder="YouTube, Vimeo, archive.org, Wayback, any page with the video…" autocomplete="off" spellcheck="false">
+        <input name="url" type="url" required maxlength="500" placeholder="YouTube, Vimeo, archive.org, Wayback, any page with the video…" autocomplete="off" spellcheck="false" inputmode="url" enterkeyhint="send">
         <span class="field__echo" id="host-echo">HOST · —</span>
       </label>
-      <fieldset class="field"><legend class="field__label">Channel</legend>
-        <div class="rocker rocker--block" role="radiogroup" aria-label="Channel">
-          <label class="rocker__seg rocker__seg--suomi" aria-checked="false"><input type="radio" name="channel" value="suomi" class="sr-only">01 Suomi</label>
-          <label class="rocker__seg rocker__seg--intl" aria-checked="true"><input type="radio" name="channel" value="international" checked class="sr-only">02 International</label>
-        </div>
-      </fieldset>
-      <div class="rec__grid">
-        <label class="field"><span class="field__label">Title</span><input name="title" type="text" maxlength="160" autocomplete="off"></label>
-        <label class="field field--year"><span class="field__label">Year</span><input name="year" type="number" required inputmode="numeric" min="1970" step="1" placeholder="2004"></label>
-      </div>
-      <label class="field"><span class="field__label">Why <i>optional</i></span><input name="why" type="text" maxlength="200" autocomplete="off" placeholder="One line on why it is a classic."></label>
-      <fieldset class="field signals"><legend class="field__label">Signals — tick what applies (3 of 5 makes a classic) <span class="signals__count" id="sig-count">0/3</span></legend>
-        <label class="sig"><input type="checkbox" name="signal" value="a"><span>(a) Born online</span></label>
-        <label class="sig"><input type="checkbox" name="signal" value="b"><span>(b) Spread widely</span></label>
-        <label class="sig"><input type="checkbox" name="signal" value="c"><span>(c) Still quoted or recognized</span></label>
-        <label class="sig"><input type="checkbox" name="signal" value="d"><span>(d) Amateur or DIY</span></label>
-        <label class="sig"><input type="checkbox" name="signal" value="e"><span>(e) Defined its scene</span></label>
-      </fieldset>
-      <label class="field"><span class="field__label">Your name <i>optional</i></span><input name="submitter" type="text" maxlength="60" autocomplete="nickname" placeholder="So we can credit you"></label>
-      <label class="field"><span class="field__label">Note <i>optional</i></span><textarea name="note" maxlength="500" rows="2" placeholder="A credit or a caveat."></textarea></label>
       <label class="hp" aria-hidden="true">Company <input name="company" type="text" tabindex="-1" autocomplete="off"></label>
     </div>
     <footer class="rec__actions">
-      <p class="rec__fine">A librarian vets every tape and opens it as a GitHub pull request.</p>
+      <p class="rec__fine">That's all. The librarian finds the title, the year and the rest, vets it, and opens it as a GitHub pull request.</p>
       <button type="button" class="key key--wide" id="rec-cancel"><svg aria-hidden="true"><use href="#i-eject"/></svg><span>Eject</span></button>
       <button type="submit" class="key key--wide key--rec" id="rec-submit" disabled><svg aria-hidden="true"><use href="#i-rec"/></svg><span>Rec</span></button>
     </footer>

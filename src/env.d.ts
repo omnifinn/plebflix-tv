@@ -21,4 +21,6 @@ interface RecommendationKv {
 interface Env {
   GITHUB_TOKEN?: string;
   RATE_LIMIT?: RecommendationKv;
+  /** Optional secret: salts the stored address hashes on votes and submissions. */
+  IP_SALT?: string;
 }

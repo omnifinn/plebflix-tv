@@ -180,7 +180,8 @@ function build() {
 let lastTape = null;
 function autoPick(detail) {
   if (!state.auto || !detail?.item) return;
-  const cats = [detail.channel, ...(detail.item.channels || [])];
+  // Category ids come from the deck (`cat` = the channel on now, `cats` = every category that carries the tape).
+  const cats = [detail.cat, ...(detail.cats || []), detail.channel, ...(detail.item.channels || [])];
   const hit = cats.map((c) => AUTO[c]).find(Boolean) || "Flat";
   if (hit !== state.preset) setPreset(hit);
 }

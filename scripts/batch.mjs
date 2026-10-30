@@ -71,7 +71,7 @@ for (const e of plan) {
   if (e.tags) item.tags = e.tags;
   const at = doc.items.findIndex((i) => i.id === e.id);
   if (at >= 0) doc.items[at] = { ...doc.items[at], ...item };
-  else doc.items.push(item);
+  else doc.items.push({ ...item, added: new Date().toISOString().slice(0, 10) }); // airs from the next UTC day
   if (e.cats?.length) cats.assign[e.id] = [...new Set([...(cats.assign[e.id] || []), ...e.cats])];
   filed += 1;
 }

@@ -1,18 +1,17 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "plebflix-tv",
+  // The account that owns plebflix.com (the "PC account"). Not the Mac OAuth default (omnifinn 141fee…).
+  "account_id": "f7b1f5882ab68d7dfd785ad6942b2db2",
   "main": "./dist/worker.js",
   "compatibility_date": "2026-10-29",
-  "workers_dev": true,
+  "workers_dev": false,
   "upload_source_maps": false,
   "observability": {
     "enabled": true,
     "traces": {
       "enabled": true
     }
-  },
-  "vars": {
-    "GITHUB_REPO": "omnifinn/plebflix-tv"
   },
   "assets": {
     "directory": "./dist/assets",

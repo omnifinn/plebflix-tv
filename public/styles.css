@@ -79,7 +79,7 @@
 .win--schedule { flex: 1; display: flex; flex-direction: column; min-height: 0; }
 .sched__wrap { flex: 1; display: flex; flex-direction: column; min-height: 0; padding: 0 10px 0; }
 .sched__tagline { margin: 8px 4px 8px; font: italic 400 13px/1.2 var(--font-ui); color: var(--ink-dim); }
-.sched__well { -webkit-mask: linear-gradient(#000 88%, transparent); mask: linear-gradient(#000 88%, transparent); flex: 1 1 0; height: 0; min-height: 0; overflow: hidden; } /* height:0 → the list never drives the row height; it fills what the player leaves */
+.sched__well { -webkit-mask: linear-gradient(#000 88%, transparent); mask: linear-gradient(#000 88%, transparent); flex: 1 1 0; height: 0; min-height: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; } /* height:0 → the list never drives the row height; it fills what the player leaves */
 .sched__foot { margin: 0; padding: 9px 4px 10px; font: 500 11px/1 var(--font-mono); letter-spacing: .08em; color: var(--ink-dim); }
 
 .eq__wrap { padding: 10px; }
@@ -165,7 +165,7 @@
   .app { grid-template-columns: 1fr; }
   .side { display: grid; grid-template-columns: 1fr 1fr; }
   .crt__glass { height: auto; aspect-ratio: 16 / 9; }
-  .sched__well { height: auto; max-height: 340px; flex: none; }
+  .sched__well { height: auto; max-height: 340px; flex: none; overflow-y: auto; }
 }
 
 /* ── mobile <720: one column, sticky screen, thumb dock ─ */
@@ -237,7 +237,7 @@
   .win__chev { display: block; transition: transform var(--t-med); }
   .win__toggle[aria-expanded="true"] .win__chev { transform: rotate(180deg); }
   .win--schedule:not(.is-open) > .sched__wrap, .win--shelf:not(.is-open) > .shelf__body { display: none; }
-  .sched__well { max-height: none; height: auto; flex: none; }
+  .sched__well { max-height: 60vh; height: auto; flex: none; overflow-y: auto; }
   .shelf { gap: 8px; } .plaque { height: 44px; flex: 1 1 calc(50% - 8px); font-size: 12px; padding: 0 10px; }
   .shelf__more { margin: 4px 0 0; flex-basis: 100%; }
   .foot { padding: 8px 0 0; font-size: 12px; }
@@ -665,7 +665,7 @@ button:focus-visible, [role="button"]:focus-visible, [role="slider"]:focus-visib
 .key--mode[data-mode="loop"], .key--mode[data-mode="shuffle"] { --glyph: var(--amber); color: var(--amber); }
 .lcd__mode { padding: 2px 6px; font: 700 12px/1 var(--font-mono, monospace); color: var(--lcd); border: 1px solid color-mix(in srgb, var(--lcd) 55%, transparent); border-radius: 2px; letter-spacing: .08em; }
 .lcd__row3 { gap: 10px; }
-.lcd__mode { flex: none; min-width: 64px; text-align: center; }
+.lcd__mode { flex: none; min-width: 64px; text-align: center; white-space: nowrap; }
 @media (max-width: 719px) { .lcd__mode { font-size: 11px; min-width: 54px; } }
 .key--golive { min-width: 104px; font: 700 13px/1 var(--font-mono, monospace); color: #fff; --face-top: #B3261E; --face-bot: #6E140F; }
 .key--golive[data-state="live"] { --face-top: #2A0D0B; --face-bot: #3A1210; color: #FF5A4E; text-shadow: 0 0 8px #FF3B30; }
