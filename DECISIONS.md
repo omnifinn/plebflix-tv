@@ -2,6 +2,35 @@
 
 Newest first. One entry per decision: date · who · decision · why · source.
 
+## 2026-10-30 · Niko · Niko talks only to Page; Page drives Claude headless; plebflix maintenance ships without asking him
+- **Decision:** the pipeline is Niko → Page (any device) → `claude -p` on this Mac → GitHub → Page's Cloudflare connector
+  → plebflix.com. Claude owns code, tests, commits, pushes and the deploy preparation; Page runs the connector's signed
+  calls. Standing authorization for plebflix maintenance deploys; the gates (validate, tests, vigilant diff review,
+  live verify) still run every time. Niko gets no setup steps.
+- **Why:** Niko: *"your /goal is to build the plebflix pipeline so that i only ever have to talk to page and he can talk to
+  you headless, no need to a terminal. this needs to work even if i am talking to page on mobile. you must be able to
+  autonomously handle all plebflix maintenance and push. … do not fucking give homework for me."*
+- **Source:** Niko in chat, 2026-10-30. `CLAUDE.md` (ship protocol), `.claude/settings.json`, `scripts/deploy.mjs`.
+
+## 2026-10-30 · Claude (session) · Deploy through Page's connector, not a token on this Mac; this reverses the token plan
+- **Decision:** the default deploy is the connector path `scripts/deploy.mjs` was built for (how v1 shipped): `ship` +
+  three generated connector calls + `verify`. Added: `step0-migrate.js` (applies D1 migrations not in `d1_migrations`,
+  tolerates a column added by hand), `keep_bindings` for secrets on publish, a `ship` command that refuses anything but
+  a clean `main` equal to `origin/main`, and a strict `verify` (live app.js carries the glass click-to-pause, live build
+  stamp equals the one built here, exit 1 otherwise). The earlier "Cloudflare API token in
+  `~/.config/cloudflare/plebflix-tv.env`" plan is dropped as the default and kept as the fallback in `LIBRARIAN.md` §4.
+- **Why:** Page already holds working access to the account; a token would be a second credential to create, store and
+  rotate, and creating it is a security setting this session does not change. A browser OAuth login is not unattended.
+- **Source:** `scripts/deploy.mjs` header (connector design), Page's v1 deploy; `tests/deploy.test.js`.
+
+## 2026-10-30 · Claude (session) · Headless permissions for this repo live in `.claude/settings.json`
+- **Decision:** allow git (no force push), npm, node scripts and tests, tsc, wrangler types/dry-run, curl to plebflix.com,
+  and edits to code/data/docs; deny wrangler login/logout/secret/delete/d1 execute, force push, hard reset, `rm -rf`,
+  and edits to `wrangler.jsonc` and `.claude/`. Repo-root `CLAUDE.md` now loads the ship protocol into every session.
+- **Why:** Page's earlier `claude -p` run stalled because it could not run git; the denies keep a headless run from
+  touching credentials, the account pin or its own permissions.
+- **Source:** Page's message in this terminal; `.claude/settings.json`.
+
 ## 2026-10-30 · Niko (via Page) · Page committed and pushed Claude's staged work as 4336ac4; Claude reviewed it and keeps it
 - **Decision:** Page (Niko's Grok Bot) committed the audit + broadcast work that was staged in this checkout, rebased it on
   its own PRs #2 and #3 (Iris's v5 share card, four favicon states), resolved `public/app.js` (both `syncFavicon` calls,

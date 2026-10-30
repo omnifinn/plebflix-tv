@@ -1,10 +1,13 @@
 #!/usr/bin/env node
 // Plebflix TV deploy without wrangler login / API tokens.
-// The Cloudflare *connector* (user-Cloudflare → execute) does the two authenticated calls;
-// this script does everything else on the box.
+// The Cloudflare *connector* (user-Cloudflare → execute, held by Page) does the authenticated calls;
+// this script does everything else on the box. Protocol: LIBRARIAN.md "Ship protocol".
 //
-//   1. node scripts/deploy.mjs prepare
-//        → builds, writes dist/deploy/manifest.json and dist/deploy/step1-session.js
+//   0. node scripts/deploy.mjs ship
+//        → refuses unless main is clean and on GitHub; runs validate + tests, then `prepare`
+//   0b. Run dist/deploy/step0-migrate.js through the connector → applies D1 migrations not yet in d1_migrations
+//   1. node scripts/deploy.mjs prepare            (ship runs it)
+//        → builds, writes dist/deploy/manifest.json, step0-migrate.js and step1-session.js
 //   2. Run dist/deploy/step1-session.js through the connector's `execute` (account f7b1f5882ab68d7dfd785ad6942b2db2),
 //      save its JSON result to dist/deploy/session.json  ({ jwt, buckets })
 //   3. node scripts/deploy.mjs upload dist/deploy/session.json
@@ -74,8 +77,72 @@ async function prepare() {
   return { jwt: s.result.jwt, buckets: s.result.buckets || [] };
 }`;
   fs.writeFileSync(path.join(OUT, "step1-session.js"), code);
+  fs.writeFileSync(path.join(OUT, "step0-migrate.js"), migrateCode());
   const bytes = Object.values(m).reduce((a, b) => a + b.size, 0);
-  console.log(`${Object.keys(m).length} files, ${(bytes / 1048576).toFixed(1)} MiB → run dist/deploy/step1-session.js via the connector`);
+  console.log(`${Object.keys(m).length} files, ${(bytes / 1048576).toFixed(1)} MiB`);
+  console.log("→ connector: run dist/deploy/step0-migrate.js, then dist/deploy/step1-session.js (save its JSON as dist/deploy/session.json)");
+}
+
+/** Split a migration file into statements: drop `--` comment lines, cut on `;`. (Our migrations hold no `;` in strings.) */
+export function statementsOf(sql) {
+  return sql
+    .split("\n")
+    .filter((line) => !/^\s*--/.test(line))
+    .join("\n")
+    .split(";")
+    .map((part) => part.trim())
+    .filter(Boolean);
+}
+
+/** Connector function: apply every migrations/*.sql not yet recorded in d1_migrations, in order, and record it. */
+function migrateCode() {
+  const migrations = fs
+    .readdirSync(path.join(ROOT, "migrations"))
+    .filter((name) => name.endsWith(".sql"))
+    .sort()
+    .map((name) => ({ name, statements: statementsOf(fs.readFileSync(path.join(ROOT, "migrations", name), "utf8")) }));
+  return `async () => {
+  const MIGRATIONS = ${JSON.stringify(migrations)};
+  const q = async (sql, params = []) => {
+    const r = await cloudflare.request({ method: "POST", path: \`/accounts/\${accountId}/d1/database/${DB_ID}/query\`, body: { sql, params } });
+    if (r && r.success === false) throw new Error(JSON.stringify(r.errors));
+    return (r && r.result && r.result[0] && r.result[0].results) || [];
+  };
+  await q("CREATE TABLE IF NOT EXISTS d1_migrations (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT UNIQUE, applied_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL)");
+  const done = new Set((await q("SELECT name FROM d1_migrations")).map((row) => row.name));
+  const applied = [];
+  for (const m of MIGRATIONS) {
+    if (done.has(m.name)) continue;
+    for (const sql of m.statements) {
+      try {
+        await q(sql);
+      } catch (e) {
+        // A column added by hand before the migration was recorded: treat as applied.
+        if (!/duplicate column/i.test(String((e && e.message) || e))) throw new Error(m.name + ": " + ((e && e.message) || e));
+      }
+    }
+    await q("INSERT INTO d1_migrations (name) VALUES (?)", [m.name]);
+    applied.push(m.name);
+  }
+  return { applied, alreadyApplied: [...done] };
+}`;
+}
+
+/** Box side of a deploy: only a clean main that GitHub already holds, only after the data gate and the tests pass. */
+async function ship() {
+  const run = (cmd) => execSync(cmd, { cwd: ROOT, stdio: "inherit" });
+  const out = (cmd) => execSync(cmd, { cwd: ROOT, encoding: "utf8" }).trim();
+  if (out("git rev-parse --abbrev-ref HEAD") !== "main") throw new Error("ship runs from main");
+  if (out("git status --porcelain --untracked-files=no")) throw new Error("uncommitted changes: commit and push first");
+  run("git fetch -q origin main");
+  const head = out("git rev-parse HEAD");
+  if (head !== out("git rev-parse origin/main")) throw new Error("main is not what GitHub holds: push (or pull) first");
+  run("npm run validate");
+  run("npm test");
+  run("node scripts/resources.mjs --check");
+  await prepare();
+  fs.writeFileSync(path.join(OUT, "ship.json"), JSON.stringify({ commit: head, build: JSON.parse(fs.readFileSync(path.join(ASSETS, "channels/index.json"), "utf8")).build, at: new Date().toISOString() }));
+  console.log(`ship ready for ${head.slice(0, 7)}`);
 }
 
 async function upload(sessionFile) {
@@ -118,6 +185,8 @@ async function upload(sessionFile) {
       { type: "ratelimit", name: "VOTE_RL", namespace_id: "4102", simple: { limit: 30, period: 60 } },
       { type: "ratelimit", name: "PLAY_RL", namespace_id: "4103", simple: { limit: 30, period: 60 } }],
     observability: { enabled: true, traces: { enabled: true } },
+    // Without this a script upload drops every binding not listed above, so a secret (IP_SALT) would vanish each deploy.
+    keep_bindings: ["secret_text", "secret_key"],
     assets: { jwt, config: { run_worker_first: ["/api/*", "/media/*", "/suomi", "/suomi/"], _headers: headers } },
   };
   const code = `async () => {
@@ -134,14 +203,41 @@ async function upload(sessionFile) {
 
 async function verify() {
   const base = process.env.PLEBFLIX_URL || "https://plebflix.com";
-  for (const p of ["/", "/app.js", "/channels/suomi.json", "/media/suomi/b5mies.mp4", "/api/stats?channel=suomi"]) {
+  let failed = 0;
+  const check = (ok, line) => {
+    console.log(`${ok ? "ok  " : "FAIL"} ${line}`);
+    if (!ok) failed += 1;
+  };
+  for (const p of ["/", "/channels/suomi.json", "/channels/schedule.json", "/media/suomi/b5mies.mp4", "/api/stats?channel=suomi"]) {
     const r = await fetch(base + p, { headers: p.startsWith("/media") ? { Range: "bytes=0-1023" } : {} });
-    console.log(r.status, p, r.headers.get("content-type"), r.headers.get("content-range") || "");
+    check(r.ok, `${r.status} ${p} ${r.headers.get("content-type") || ""} ${r.headers.get("content-range") || ""}`);
   }
+  // The live shell must load the app.js that carries this build's deck (glass click pauses / plays on).
+  const html = await (await fetch(`${base}/?verify=${Date.now()}`)).text();
+  const appUrl = (html.match(/src="(\/app\.js\?v=[a-f0-9]+)"/) || [])[1];
+  check(Boolean(appUrl), `shell references a versioned app.js (${appUrl || "none"})`);
+  if (appUrl) {
+    const app = await (await fetch(base + appUrl)).text();
+    check(app.includes('$("screen").addEventListener("click"'), "live app.js: a click on the glass pauses and plays on");
+    check(app.includes("shiftKind"), "live app.js: CONTINUOUS / TIMESHIFT modes");
+  }
+  // This exact build is live: the catalog stamp the deck polls matches the one built here.
+  const live = await (await fetch(`${base}/channels/index.json?verify=${Date.now()}`)).json().catch(() => ({}));
+  const localFile = path.join(ASSETS, "channels/index.json");
+  const local = fs.existsSync(localFile) ? JSON.parse(fs.readFileSync(localFile, "utf8")).build : "";
+  check(Boolean(live.build) && (!local || live.build === local), `catalog build stamp live ${live.build || "none"} / built here ${local || "none"}`);
+  if (failed) {
+    console.error(`${failed} check(s) failed`);
+    process.exit(1);
+  }
+  console.log("verify: all checks passed");
 }
 
 const [cmd, arg] = process.argv.slice(2);
-if (cmd === "prepare") await prepare();
-else if (cmd === "upload") await upload(arg || path.join(OUT, "session.json"));
-else if (cmd === "verify") await verify();
-else console.log("usage: node scripts/deploy.mjs prepare | upload <session.json> | verify");
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+  if (cmd === "ship") await ship();
+  else if (cmd === "prepare") await prepare();
+  else if (cmd === "upload") await upload(arg || path.join(OUT, "session.json"));
+  else if (cmd === "verify") await verify();
+  else console.log("usage: node scripts/deploy.mjs ship | prepare | upload <session.json> | verify");
+}

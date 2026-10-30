@@ -169,6 +169,10 @@ point `--url` at an archive.org/Wayback copy and keep `--original` as the real o
 
 ## 4. Deploy
 
+**Default path since 2026-10-30: the ship protocol in `CLAUDE.md`** — Claude prepares (`node scripts/deploy.mjs ship`),
+Page runs the three connector calls (`step0-migrate.js`, `step1-session.js`, `step3-publish.js`), then
+`node scripts/deploy.mjs verify`. No API token or wrangler login on this Mac. The token path below is the fallback.
+
 From a machine that holds `media/` (this Mac; the live site can rebuild it: every `media`/`poster` path is served at
 `https://plebflix.com/media/...`) and a token for the account pinned in `wrangler.jsonc` (`account_id`
 f7b1f588…, the one that owns plebflix.com; the Mac's OAuth default `omnifinn` 141fee… does NOT hold the zone).
