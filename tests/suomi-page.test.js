@@ -14,11 +14,11 @@ test("the main page gets the international card with the config's cache-bust", (
   const html = applyShareHead(shell, cfg, "intl");
   const v = `?v=${cfg.version}`;
   assert.ok(html.includes(`<meta property="og:image" content="https://plebflix.com/og-image.png${v}">`));
-  assert.ok(html.includes(`href="/favicon.svg${v}" type="image/svg+xml" id="favicon-svg"`));
+  assert.ok(html.includes(`<link id="favicon-svg" rel="icon" type="image/svg+xml" href="/favicons/live/favicon.svg${v}">`));
   assert.ok(html.includes('<meta name="theme-color" content="#0B0D10">'));
   assert.doesNotMatch(html, /og-image-suomi/);
 });
-test("the /suomi page shares the main v3 card and icons but keeps its own URL, theme colour and lang", () => {
+test("the /suomi page shares the main card and icons but keeps its own URL, theme colour and lang", () => {
   const html = applyShareHead(shell, cfg, "suomi");
   const v = `?v=${cfg.version}`;
   assert.ok(html.includes(`<meta property="og:image" content="https://plebflix.com/og-image.png${v}">`));
@@ -27,29 +27,38 @@ test("the /suomi page shares the main v3 card and icons but keeps its own URL, t
   assert.ok(html.includes('<meta property="og:url" content="https://plebflix.com/suomi">'));
   assert.ok(html.includes('<link rel="canonical" href="https://plebflix.com/suomi">'));
   assert.ok(html.includes('<meta name="theme-color" content="#04080D">'));
-  assert.ok(html.includes(`href="/favicon.svg${v}" type="image/svg+xml" id="favicon-svg"`));
+  assert.ok(html.includes(`<link id="favicon-svg" rel="icon" type="image/svg+xml" href="/favicons/live/favicon.svg${v}">`));
   assert.ok(html.includes(`<link rel="manifest" href="/site.webmanifest${v}">`));
   assert.ok(html.includes('<html lang="fi">'));
   assert.doesNotMatch(html, /og-image-suomi|\/suomi\/favicon|\/suomi\/site\.webmanifest/);
 });
-test("the share block matches Iris's v3 head snippet", () => {
-  assert.equal(cfg.version, 3);
+test("the share block carries every tag of Iris's v5 head snippet", () => {
+  assert.equal(cfg.version, 5);
   const head = renderShareHead(cfg, "intl");
-  for (const tag of [
-    '<link rel="icon" href="/favicon.ico?v=3" sizes="16x16 32x32 48x48">',
-    '<link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml" id="favicon-svg">',
-    '<link rel="icon" href="/favicon-32.png?v=3" type="image/png" sizes="32x32">',
-    '<link rel="icon" href="/favicon-16.png?v=3" type="image/png" sizes="16x16">',
-    '<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3">',
-    '<link rel="manifest" href="/site.webmanifest?v=3">',
-    '<meta property="og:image" content="https://plebflix.com/og-image.png?v=3">',
-    '<meta name="twitter:image" content="https://plebflix.com/og-image.png?v=3">',
-    '<meta name="twitter:card" content="summary_large_image">',
-  ]) assert.ok(head.includes(tag), tag);
-  assert.doesNotMatch(head, /\?v=2/);
+  const snippet = readFileSync(new URL("./fixtures/v5-head-snippet.html", import.meta.url), "utf8");
+  for (const tag of snippet.split("\n").map((l) => l.trim()).filter(Boolean)) assert.ok(head.includes(tag), tag);
+  assert.doesNotMatch(head, /\?v=[234]\b/);
 });
 test("bumping the version re-busts every share URL", () => {
   const head = renderShareHead({ ...cfg, version: 4 }, "intl");
-  assert.doesNotMatch(head, /\?v=3/);
+  assert.doesNotMatch(head, /\?v=5/);
   assert.equal((head.match(/\?v=4/g) || []).length, 9);
+});
+
+test("favicon state: paused wins, then loop, then shuffle, otherwise live", async () => {
+  const { faviconState } = await import("../public/favicon-mode.js");
+  for (const pm of ["live", "loop", "shuffle"]) {
+    assert.equal(faviconState("paused", pm), "paused");
+    assert.equal(faviconState("stopped", pm), "paused");
+  }
+  for (const m of ["live", "timeshift"]) {
+    assert.equal(faviconState(m, "loop"), "loop");
+    assert.equal(faviconState(m, "shuffle"), "shuffle");
+    assert.equal(faviconState(m, "live"), "live");
+  }
+});
+test("every favicon state Iris shipped is in public/", () => {
+  for (const st of ["live", "paused", "shuffle", "loop"])
+    for (const f of ["favicon.svg", "favicon-32.png", "favicon-16.png", "favicon.ico"])
+      assert.ok(readFileSync(new URL(`../public/favicons/${st}/${f}`, import.meta.url)).length > 0, `${st}/${f}`);
 });

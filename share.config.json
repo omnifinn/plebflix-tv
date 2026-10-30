@@ -1,15 +1,15 @@
 {
-  "_readme": "One place for every share card, favicon and theme-color tag. Swap files in public/, bump `version` (e.g. 4) so X/WhatsApp/iMessage refetch, then build + deploy. index.html's <!-- share:begin/end --> block and the /suomi page are both rendered from this file. v3 (30 Oct 2026): Iris's approved card + 'Record P' favicon; /suomi shares the main card and icons.",
-  "version": 3,
+  "_readme": "One place for every share card, favicon and theme-color tag. Swap files in public/, bump `version` (e.g. 4) so X/WhatsApp/iMessage refetch, then build + deploy. index.html's <!-- share:begin/end --> block and the /suomi page are both rendered from this file. v5 (30 Oct 2026): Iris's final navy player-window card + 'Record P' favicon with four tab states (favicons/<state>/, swapped by favicons/favicon-state.js); /suomi shares the main card and icons.",
+  "version": 5,
   "origin": "https://plebflix.com",
   "icons": {
+    "svg": "/favicons/live/favicon.svg",
+    "png32": "/favicons/live/favicon-32.png",
     "ico": "/favicon.ico",
-    "svg": "/favicon.svg",
-    "png32": "/favicon-32.png",
-    "png16": "/favicon-16.png",
+    "icoSizes": "48x48 32x32 16x16",
     "appleTouch": "/apple-touch-icon.png",
-    "manifest": "/site.webmanifest",
-    "icoSizes": "16x16 32x32 48x48"
+    "stateScript": "/favicons/favicon-state.js",
+    "manifest": "/site.webmanifest"
   },
   "intl": {
     "path": "/",
@@ -22,8 +22,8 @@
     "image": "/og-image.png",
     "imageWidth": 1200,
     "imageHeight": 630,
-    "imageAlt": "A 3D late-90s media player skinned as Plebflix TV, playing 'Me at the zoo'",
-    "twitterImageAlt": "A 3D late-90s media player skinned as Plebflix TV, playing 'Me at the zoo' (Jawed Karim & Yakov Lapitsky, CC BY 3.0)."
+    "imageAlt": "Plebflix TV classic-style media player window playing 'Me at the zoo' (Jawed Karim & Yakov Lapitsky, CC BY 3.0)",
+    "twitterImageAlt": "Plebflix TV classic-style media player window playing 'Me at the zoo' (Jawed Karim & Yakov Lapitsky, CC BY 3.0)"
   },
   "suomi": {
     "path": "/suomi",

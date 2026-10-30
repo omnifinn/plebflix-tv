@@ -1,3 +1,4 @@
+import { syncFavicon } from "./favicon-mode.js";
 import { buildBroadcast, dayKey, liveSeconds, spotAt, shiftFromLive, totalDuration } from "./schedule.js";
 
 /* Plebflix TV — PLEBAMP skin (design: Iris). Rocker order follows the design: International, then Suomi. */
@@ -235,6 +236,7 @@ function tally(item) {
 }
 
 function updateChrome(spot) {
+  syncFavicon(mode, playMode);
   const channel = channels.get(channelId);
   const number = channelNumber();
   const short = SHORT[channelId] || "";
@@ -1218,7 +1220,7 @@ function applyChannelChrome() {
   const m = META.get(channelId) || {};
   if ($("ch-now")) $("ch-now").textContent = `CH ${pad(m.number || 1)} · ${m.name || ""}`;
   document.body.dataset.kind = m.kind === "category" ? "category" : "lang";
-  // Both TVs share one tab icon (share.config.json v3), so only the theme colour follows the TV.
+  // Both TVs share one tab icon set (share.config.json v5; its state follows play/pause and the mode button), so only the theme colour follows the TV.
   const theme = document.querySelector('meta[name="theme-color"]');
   if (theme) theme.content = lang === "suomi" ? "#04080D" : "#0B0D10";
   lastSchedKey = "";
@@ -1296,6 +1298,7 @@ function paintMode() {
     btn.querySelector(".mode__icon").textContent = playMode === "live" ? "((•))" : playMode === "loop" ? "⟲" : "⤨";
   }
   if ($("mode-label")) $("mode-label").textContent = label;
+  syncFavicon(mode, playMode);
   if ($("lcd-mode")) $("lcd-mode").textContent = playMode === "live" && mode === "timeshift" ? "LIVE·TS" : label;
 }
 function cycleMode() {
