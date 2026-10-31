@@ -10,10 +10,14 @@ test("index.html keeps one share block for the build to fill", () => {
   assert.equal(shell.split("<!-- share:begin -->").length, 2);
   assert.equal(shell.split("<!-- share:end -->").length, 2);
 });
+const ALT = "Plebflix TV: a retro media player playing &quot;The Boxing Cats (Prof. Welton's)&quot; (1894), two cats in boxing gloves sparring. Edison Manufacturing Co., public domain.";
+
 test("the main page gets the international card with the config's cache-bust", () => {
   const html = applyShareHead(shell, cfg, "intl");
   const v = `?v=${cfg.version}`;
   assert.ok(html.includes(`<meta property="og:image" content="https://plebflix.com/og-image.png${v}">`));
+  assert.ok(html.includes(`<meta property="og:image:alt" content="${ALT}">`));
+  assert.ok(html.includes(`<meta name="twitter:image:alt" content="${ALT}">`));
   assert.ok(html.includes(`<link id="favicon-svg" rel="icon" type="image/svg+xml" href="/favicons/live/favicon.svg${v}">`));
   assert.ok(html.includes('<meta name="theme-color" content="#0B0D10">'));
   assert.doesNotMatch(html, /og-image-suomi/);
@@ -23,6 +27,8 @@ test("the /suomi page shares the main card and icons but keeps its own URL, them
   const v = `?v=${cfg.version}`;
   assert.ok(html.includes(`<meta property="og:image" content="https://plebflix.com/og-image.png${v}">`));
   assert.ok(html.includes(`<meta name="twitter:image" content="https://plebflix.com/og-image.png${v}">`));
+  assert.ok(html.includes(`<meta property="og:image:alt" content="${ALT}">`));
+  assert.ok(html.includes(`<meta name="twitter:image:alt" content="${ALT}">`));
   assert.ok(html.includes('<meta name="twitter:card" content="summary_large_image">'));
   assert.ok(html.includes('<meta property="og:url" content="https://plebflix.com/suomi">'));
   assert.ok(html.includes('<link rel="canonical" href="https://plebflix.com/suomi">'));
@@ -32,8 +38,8 @@ test("the /suomi page shares the main card and icons but keeps its own URL, them
   assert.ok(html.includes('<html lang="fi">'));
   assert.doesNotMatch(html, /og-image-suomi|\/suomi\/favicon|\/suomi\/site\.webmanifest/);
 });
-test("the share block carries every tag of Iris's v5 head snippet", () => {
-  assert.equal(cfg.version, 5);
+test("the share block carries every tag of the v9 head snippet", () => {
+  assert.equal(cfg.version, 9);
   const head = renderShareHead(cfg, "intl");
   const snippet = readFileSync(new URL("./fixtures/v5-head-snippet.html", import.meta.url), "utf8");
   for (const tag of snippet.split("\n").map((l) => l.trim()).filter(Boolean)) assert.ok(head.includes(tag), tag);
@@ -41,7 +47,7 @@ test("the share block carries every tag of Iris's v5 head snippet", () => {
 });
 test("bumping the version re-busts every share URL", () => {
   const head = renderShareHead({ ...cfg, version: 4 }, "intl");
-  assert.doesNotMatch(head, /\?v=5/);
+  assert.doesNotMatch(head, /\?v=9/);
   assert.equal((head.match(/\?v=4/g) || []).length, 9);
 });
 

@@ -1,13 +1,13 @@
 /* Plebflix TV · favicon state swapper (v4)
  * States: 'live' (red rec dot), 'paused' (amber bars), 'shuffle' (cyan crossed arrows), 'loop' (lavender circular arrow).
  * Expects in <head>:
- *   <link id="favicon-svg" rel="icon" type="image/svg+xml" href="/favicons/live/favicon.svg?v=5">
- *   <link id="favicon-png" rel="icon" type="image/png" sizes="32x32" href="/favicons/live/favicon-32.png?v=5">
- *   <link rel="icon" href="/favicon.ico?v=5" sizes="48x48 32x32 16x16">   (static, = live; not swapped)
+ *   <link id="favicon-svg" rel="icon" type="image/svg+xml" href="/favicons/live/favicon.svg?v=9">
+ *   <link id="favicon-png" rel="icon" type="image/png" sizes="32x32" href="/favicons/live/favicon-32.png?v=9">
+ *   <link rel="icon" href="/favicon.ico?v=9" sizes="48x48 32x32 16x16">   (static, = live; not swapped)
  */
 (function (w, d) {
   var BASE = '/favicons/';
-  var VER = '?v=5';
+  var VER = '?v=9';
   var STATES = ['live', 'paused', 'shuffle', 'loop'];
   var current = null;
 

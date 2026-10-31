@@ -28,7 +28,7 @@ PLAY, PAUSE, REW, FWD, STOP, and REC sit on the deck. CH+ / CH− and the tapes 
 
 ## Share cards
 
-`share.config.json` is the one place for share cards, favicons, and theme-color tags. `lib/share-head.mjs` writes the `<!-- share:begin/end -->` block in `index.html` and the `/suomi` page from it. International and Suomi share Iris's v5 card. The tab icon follows the deck: live, paused, shuffle, and loop live under `public/favicons/<state>/`, and `public/favicons/favicon-state.js` swaps them. Suomi keeps its own URL, language, and theme color. Swap the files in `public/`, bump `version` so X, WhatsApp, and iMessage refetch, then build and deploy. Edit the config, not the generated tags.
+`share.config.json` is the one place for share cards, favicons, and theme-color tags. `lib/share-head.mjs` writes the `<!-- share:begin/end -->` block in `index.html` and the `/suomi` page from it. International and Suomi share the v9 Boxing Cats card. The tab icon follows the deck: live, paused, shuffle, and loop live under `public/favicons/<state>/`, and `public/favicons/favicon-state.js` swaps them. Suomi keeps its own URL, language, and theme color. Swap the files in `public/`, bump `version` so X, WhatsApp, and iMessage refetch, then build and deploy. Edit the config, not the generated tags.
 
 ## Deploy
 
