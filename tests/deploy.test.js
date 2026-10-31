@@ -3,6 +3,16 @@ import { readFileSync, readdirSync } from "node:fs";
 import test from "node:test";
 import { statementsOf } from "../scripts/deploy.mjs";
 
+test("publish metadata keeps plain-text bindings", () => {
+  const src = readFileSync("scripts/deploy.mjs", "utf8");
+  const match = src.match(/keep_bindings:\s*(\[[^\]]+\])/);
+  assert.ok(match, "publish metadata sets keep_bindings");
+  const types = JSON.parse(match[1]);
+  assert.ok(types.includes("plain_text"));
+  assert.ok(types.includes("secret_text"));
+  assert.ok(types.includes("secret_key"));
+});
+
 test("migrations split into statements without comments", () => {
   const sql = "-- a comment; with a semicolon\nCREATE TABLE t (a TEXT);\n\n-- another\nCREATE INDEX i ON t (a);\n";
   assert.deepEqual(statementsOf(sql), ["CREATE TABLE t (a TEXT)", "CREATE INDEX i ON t (a)"]);
