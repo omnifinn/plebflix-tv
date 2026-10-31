@@ -253,6 +253,19 @@
           "uploader": "MrPabloFilms"
         },
         {
+          "kind": "youtube",
+          "id_or_url": "Vkvi3UwbUH0",
+          "official": false,
+          "uploader": "unknown"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "HsVnExzvsLg",
+          "at": "20190716051928",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
           "kind": "wayback",
           "id_or_url": "HsVnExzvsLg",
           "official": false,
@@ -495,6 +508,18 @@
           "id_or_url": "reuPTLd9f1g",
           "official": true,
           "uploader": "m4stern1nja4ss1nl33t"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "LYB8yFgi0S0",
+          "official": false,
+          "uploader": "unknown"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "AebBHtuBQcg",
+          "official": false,
+          "uploader": "unknown"
         }
       ],
       "duration": 179,
@@ -1009,6 +1034,12 @@
           "id_or_url": "5zmVJY6qnE4",
           "official": true,
           "uploader": "kättis"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "wFHorlkYSiw",
+          "official": false,
+          "uploader": "unknown"
         }
       ],
       "duration": 122,
@@ -1854,6 +1885,12 @@
           "id_or_url": "aes27RHYEVg",
           "official": true,
           "uploader": "Petri Himmeä"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "NC9cPZVEZZU",
+          "official": false,
+          "uploader": "unknown"
         }
       ],
       "duration": 254,
@@ -2251,6 +2288,12 @@
           "id_or_url": "CnUJUMpq48E",
           "official": true,
           "uploader": "Skorpioni"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "asrPf8lKQB0",
+          "official": false,
+          "uploader": "unknown"
         }
       ],
       "duration": 143,

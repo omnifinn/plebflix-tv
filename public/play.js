@@ -3,7 +3,7 @@
  * youtube is the IFrame player, archive is a file streamed from archive.org, wayback is the Internet Archive's copy
  * of that YouTube upload, image is a still from its public host.
  * @param {any} item
- * @returns {Array<{ kind: "youtube" | "archive" | "wayback" | "image", id: string, file: string, official: boolean, uploader: string }>}
+ * @returns {Array<{ kind: "youtube" | "archive" | "wayback" | "image", id: string, file: string, at: string, official: boolean, uploader: string }>}
  */
 export function sources(item) {
   const list = Array.isArray(item?.play) ? item.play : item?.play ? [item.play] : [];
@@ -14,25 +14,26 @@ export function sources(item) {
       kind: play.kind,
       id: String(play.id_or_url || ""),
       file: typeof play.file === "string" ? play.file : "",
+      at: typeof play.at === "string" ? play.at : "",
       official: play.official === true,
       uploader: typeof play.uploader === "string" ? play.uploader : "",
     });
   }
   if (out.length) return out;
   if (item?.source === "youtube" && item.embedId) {
-    return [{ kind: "youtube", id: String(item.embedId), file: "", official: false, uploader: "" }];
+    return [{ kind: "youtube", id: String(item.embedId), file: "", at: "", official: false, uploader: "" }];
   }
   return [];
 }
 
 /** The tape's first source, or an empty one. */
 export function playback(item) {
-  return sources(item)[0] || { kind: "", id: "", file: "", official: false, uploader: "" };
+  return sources(item)[0] || { kind: "", id: "", file: "", at: "", official: false, uploader: "" };
 }
 
 /** The file a browser streams from archive.org. */
 export function archiveFile(source) {
-  if (source.kind === "wayback") return `https://web.archive.org/web/2oe_/http://wayback-fakeurl.archive.org/yt/${encodeURIComponent(source.id)}`;
+  if (source.kind === "wayback") return `https://web.archive.org/web/${source.at || "2"}oe_/http://wayback-fakeurl.archive.org/yt/${encodeURIComponent(source.id)}`;
   return `https://archive.org/download/${encodeURIComponent(source.id)}/${source.file.split("/").map(encodeURIComponent).join("/")}`;
 }
 
