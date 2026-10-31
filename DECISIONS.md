@@ -2,6 +2,12 @@
 
 Newest first. One entry per decision: date · who · decision · why · source.
 
+## 2026-10-31 · Claude (session) · The YouTube embed starts itself
+
+- **Decision:** `onReady` mutes, seeks to the broadcast offset, and calls `playVideo`. The iframe is created muted even when sound was unlocked earlier. "Tap for sound" unmutes and calls `playVideo` in that gesture. A glass tap while the YouTube embed is not playing or buffering starts it, instead of pausing a tape that never started. Error 150 still skips: on this network that code is YouTube's "sign in to confirm you're not a bot" wall (`LOGIN_REQUIRED`), and the player response has no stream.
+- **Why:** Live headers and the iframe are already what YouTube asks for (`Referrer-Policy: strict-origin-when-cross-origin`, `allow=autoplay`, about 920×519). `onReady` never called `playVideo` or `seekTo`, and the sound tap only unmuted, so a browser that ignores the URL autoplay flag never starts. A glass tap then paused that idle embed. Headless Chromium also gets YouTube `LOGIN_REQUIRED` ("sign in to confirm you're not a bot"), which the player reports as error 150, and the deck skips onto an ident. That response has no stream, so this network cannot reach player state 1. After the change, `onReady` does reach state 3 (buffering) before the 150.
+- **Source:** Playwright against live plebflix.com, 2026-10-31. `public/app.js`.
+
 ## 2026-10-31 · Niko · The site never hosts a video
 
 - **Decision:** every tape plays through `play` (`youtube`, `archive`, or `link`). YouTube uses the IFrame Player API on
