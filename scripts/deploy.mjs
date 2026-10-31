@@ -209,13 +209,19 @@ async function verify() {
     console.log(`${ok ? "ok  " : "FAIL"} ${line}`);
     if (!ok) failed += 1;
   };
+  const pages = {};
   for (const p of ["/", "/channels/suomi.json", "/channels/schedule.json", "/credits", "/takedown", "/api/stats?channel=suomi"]) {
-    const r = await fetch(base + p);
-    check(r.ok, `${r.status} ${p} ${r.headers.get("content-type") || ""}`);
+    // Credits and takedown must be a 200 from the worker. A 307 to the same path is the .html redirect loop.
+    const manual = p === "/credits" || p === "/takedown";
+    const r = await fetch(`${base}${p}?verify=${Date.now()}`, manual ? { redirect: "manual" } : undefined);
+    const location = r.headers.get("location") || "";
+    check(manual ? r.status === 200 : r.ok, `${r.status} ${p}${location ? ` -> ${location}` : ""} ${r.headers.get("content-type") || ""}`);
+    if (manual && r.status === 200) pages[p] = await r.text();
   }
-  const credits = await (await fetch(`${base}/credits?verify=${Date.now()}`)).text();
+  const credits = pages["/credits"] || "";
   check(credits.includes("embedded via YouTube") || credits.includes("Credits"), "credits page lists the tapes");
-  const takedown = await (await fetch(`${base}/takedown?verify=${Date.now()}`)).text();
+  check(credits.includes("The Boxing Cats (Prof. Welton's)"), "credits page names the share image");
+  const takedown = pages["/takedown"] || "";
   check(takedown.includes("takedown@plebflix.com"), "takedown page names takedown@plebflix.com");
   // The live shell must load the app.js that carries this build's deck (glass click pauses / plays on).
   const html = await (await fetch(`${base}/?verify=${Date.now()}`)).text();

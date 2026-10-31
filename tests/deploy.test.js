@@ -28,7 +28,10 @@ test("deploy does not upload or verify hosted media", () => {
   const worker = readFileSync("src/worker.ts", "utf8");
   assert.equal(worker.includes("serveMedia"), false);
   assert.equal(worker.includes('"/media/"'), false);
-  assert.match(worker, /\/credits\.html/);
+  assert.match(worker, /"\/credits": "\/credits"/);
+  assert.match(worker, /"\/takedown": "\/takedown"/);
+  assert.doesNotMatch(worker, /"\/credits\.html"/);
+  assert.doesNotMatch(worker, /"\/takedown\.html"/);
 });
 
 test("every checked-in migration yields statements the connector step can run", () => {

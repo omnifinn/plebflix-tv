@@ -2,11 +2,13 @@ import { suomiPage } from "../lib/suomi-page.mjs";
 import { handleSubmit } from "../lib/submissions.mjs";
 import { handleImpression, handleStats, handleVote } from "../lib/votes.mjs";
 
+// Ask ASSETS for the extensionless path. Fetching /credits.html gets a 307 back to /credits,
+// and run_worker_first would send that redirect through this worker again.
 const PAGES: Record<string, string> = {
-  "/credits": "/credits.html",
-  "/credits/": "/credits.html",
-  "/takedown": "/takedown.html",
-  "/takedown/": "/takedown.html",
+  "/credits": "/credits",
+  "/credits/": "/credits",
+  "/takedown": "/takedown",
+  "/takedown/": "/takedown",
 };
 
 export default {
