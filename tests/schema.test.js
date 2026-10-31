@@ -21,7 +21,7 @@ const sample = () => ({
       signals: ["b", "c", "e"],
       why: "The track still defines a loading-screen scene.",
       original_url: "https://www.youtube.com/watch?v=y6120QOlsfU",
-      play: { kind: "youtube", id_or_url: "y6120QOlsfU", official: true, uploader: "Darude" },
+      play: [{ kind: "youtube", id_or_url: "y6120QOlsfU", official: true, uploader: "Darude" }],
     },
   ],
 });
@@ -45,7 +45,7 @@ test("pending tapes may have a zero duration", () => {
     why: "The bait-and-switch is still the joke.",
     original_url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
     status: "pending",
-    play: { kind: "youtube", id_or_url: "dQw4w9WgXcQ", official: true, uploader: "Rick Astley" },
+    play: [{ kind: "youtube", id_or_url: "dQw4w9WgXcQ", official: true, uploader: "Rick Astley" }],
   });
   assert.equal(validateChannel(doc, "suomi").ok, true);
 });
@@ -109,23 +109,24 @@ test("checked-in channels validate", async () => {
   const leeroy = intl.items.find((item) => item.id === "leeroy-jenkins");
   assert.equal(leeroy.embedId, "mLyOj_QD4a4");
   assert.equal(leeroy.year, 2005);
-  assert.equal(leeroy.play.official, false);
-  assert.equal(leeroy.play.uploader, "J Jonah Jameson");
+  assert.equal(leeroy.play[0].official, false);
+  assert.equal(leeroy.play[0].uploader, "J Jonah Jameson");
   assert.ok(leeroy.signals.length >= 3);
-  assert.equal(numa.play.kind, "youtube");
-  assert.equal(numa.play.official, true);
-  assert.equal(numa.play.id_or_url, "Cqd1Gvq-RBY");
+  assert.equal(numa.play[0].kind, "youtube");
+  assert.equal(numa.play[0].official, true);
+  assert.equal(numa.play[0].id_or_url, "Cqd1Gvq-RBY");
   const doge = intl.items.find((item) => item.id === "doge");
-  assert.equal(doge.play.kind, "link");
+  assert.equal(doge.play[0].kind, "image");
   const hamster = intl.items.find((item) => item.id === "hampster-dance");
-  assert.equal(hamster.play.kind, "archive");
-  assert.equal(hamster.play.id_or_url, "thd");
+  assert.equal(hamster.play[0].kind, "archive");
+  assert.equal(hamster.play[0].id_or_url, "thd");
+  assert.equal(hamster.play[0].file, "thd_512kb.mp4");
   for (const item of [...suomi.items, ...intl.items]) {
     assert.equal(item.media, undefined, item.id);
     assert.equal(item.poster, undefined, item.id);
     assert.equal(item.media_source, undefined, item.id);
     assert.equal(item.media_bytes, undefined, item.id);
-    assert.ok(item.play && item.play.uploader, item.id);
+    assert.ok(item.play?.length && item.play.every((source) => source.uploader && source.kind !== "link"), item.id);
   }
 });
 
@@ -140,9 +141,15 @@ test("play is required and hosted files are rejected", () => {
   doc.items[0].added = "2026-10-30";
   delete doc.items[0].play;
   assert.match(validateChannel(doc, "suomi").errors.join("\n"), /play must be/);
-  doc.items[0].play = { kind: "file", id_or_url: "/media/suomi/sandstorm.mp4", official: false, uploader: "us" };
-  assert.match(validateChannel(doc, "suomi").errors.join("\n"), /play.kind must be/);
-  doc.items[0].play = { kind: "youtube", id_or_url: "y6120QOlsfU", official: true, uploader: "Darude" };
+  doc.items[0].play = [{ kind: "file", id_or_url: "/media/suomi/sandstorm.mp4", official: false, uploader: "us" }];
+  assert.match(validateChannel(doc, "suomi").errors.join("\n"), /kind must be/);
+  doc.items[0].play = [{ kind: "link", id_or_url: "https://example.com", official: false, uploader: "x" }];
+  assert.match(validateChannel(doc, "suomi").errors.join("\n"), /kind must be/);
+  doc.items[0].play = [{ kind: "image", id_or_url: "https://evil.example/x.jpg", official: false, uploader: "x" }];
+  assert.match(validateChannel(doc, "suomi").errors.join("\n"), /must be an image on/);
+  doc.items[0].play = [{ kind: "archive", id_or_url: "thd", official: false, uploader: "x" }];
+  assert.match(validateChannel(doc, "suomi").errors.join("\n"), /file must name/);
+  doc.items[0].play = [{ kind: "youtube", id_or_url: "y6120QOlsfU", official: true, uploader: "Darude" }];
   doc.items[0].media = "/media/suomi/sandstorm.mp4";
   assert.match(validateChannel(doc, "suomi").errors.join("\n"), /does not host tape files/);
   delete doc.items[0].media;

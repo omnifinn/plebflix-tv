@@ -115,12 +115,14 @@ for (const row of resolved) {
     signals: row.signals,
     why: row.why,
     original_url: row.original_url || `https://www.youtube.com/watch?v=${row.embedId}`,
-    play: {
-      kind: "youtube",
-      id_or_url: row.embedId,
-      official: false,
-      uploader: (typeof row.creator === "string" && row.creator.trim()) || "unknown",
-    },
+    play: [
+      {
+        kind: "youtube",
+        id_or_url: row.embedId,
+        official: false,
+        uploader: (typeof row.creator === "string" && row.creator.trim()) || "unknown",
+      },
+    ],
   };
   if (row.creator) item.creator = row.creator;
   if (Array.isArray(row.tags) && row.tags.length) item.tags = row.tags;

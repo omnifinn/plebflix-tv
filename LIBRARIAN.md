@@ -40,8 +40,8 @@ changed (CI checks `RESOURCES.md` is current).
 | `why` | one line, ≤ 200 characters |
 | `original_url` | http(s) link to the original upload or a Wayback snapshot (the SOURCE pill) |
 | `source` / `embedId` | `youtube` + the video id, `archive.org` + identifier, `vimeo` + numeric id, or `other` + the page URL. For `youtube` and `archive.org` this matches `play.id_or_url` |
-| `play` | **required.** `{ "kind": "youtube" \| "archive" \| "link", "id_or_url", "official": true \| false, "uploader" }`. `youtube`: the creator's or an official channel's upload when one exists (`official: true`). A re-upload that is the only working embed stays, with `official: false`. `archive`: an archive.org identifier, used when no YouTube upload is alive. `link`: an http(s) page, shown as a link-out card, when no embed exists. `uploader` is one line (1–120). The same `kind` + `id_or_url` cannot appear twice on a shelf |
-| `duration` | integer seconds, 1–7200; the daily schedule is drawn from these. A link-out still occupies its slot for this many seconds |
+| `play` | **required.** An ordered list of sources, best first: `[{ "kind": "youtube" \| "archive" \| "image", "id_or_url", "official": true \| false, "uploader" }]`. `youtube`: the creator's or an official channel's upload first (`official: true`), then other embeddable uploads. `archive`: an archive.org identifier plus `"file"`, a video file in that item (prefer the h.264 one); it streams from archive.org into the deck's own player. `image`: a still on `i.kym-cdn.com`, `upload.wikimedia.org`, `i.imgur.com` or `archive.org`. Nothing links off the site. `uploader` is one line (1-120), never an email address. The same `kind` + `id_or_url` cannot appear twice on a shelf |
+| `duration` | integer seconds, 1–7200; the daily schedule is drawn from these. A still holds its slot for this many seconds |
 | `note` | string, ≤ 500 (credit / context; may be empty) |
 | `added` | **the UTC day the tape was filed, `YYYY-MM-DD`.** The tape joins every daily schedule from the *next* UTC day, so a deploy never puts two open tabs on two different programmes. A hand-written row must carry it. |
 | optional | `credit` (URL), `creator`, `tags` (≤ 8 slugs), `license` (`cc0`/`cc-by`/`cc-by-sa`/`public-domain`), `kind: "meme"` for a still whose card links out, `status: "pending"` to keep a row off air |
@@ -84,11 +84,12 @@ changed (CI checks `RESOURCES.md` is current).
 
 ### Playback
 
-Every tape plays through `play`. YouTube uses the IFrame Player API on `youtube-nocookie.com` and is seeked to the
-scheduled offset, so LIVE stays the same for everyone. archive.org is an embed reloaded to that offset (it has no player
-API). `link` is a card that points at the original page. Nothing is served from `/media`. A weekly check, not a CI gate:
-`npm run check-embeds` (YouTube oEmbed, then noembed; archive.org metadata). It prints dead embeds and exits 1 if any
-embed is dead. Link-only tapes are listed and do not fail the check.
+Every tape plays through `play`, an ordered list. YouTube uses the IFrame Player API on `youtube-nocookie.com` and is
+seeked to the scheduled offset, so LIVE stays the same for everyone. archive.org streams the named file into the deck's
+own player. A still holds its slot. A refused source hands the same slot to the next one. Nothing is served from `/media`.
+`npm run check-embeds` (YouTube oEmbed, then noembed; archive.org metadata and file; image fetch) exits 1 when any tape
+has no live source. `npm run verify-all-play` loads every tape in Chrome and WebKit and reports PLAYING per tape; it is
+the proof that a shelf change works, and a failure is fixed in the data.
 
 ## Where things are
 
@@ -98,7 +99,7 @@ embed is dead. Link-only tapes are listed and do not fail the check.
 | D1 | `plebflix-tv`, id `bc743ec1-07f3-422b-bb5a-972aa6507996` (tables `votes`, `impressions`, `submissions`) |
 | Catalog | `channels/suomi.json`, `channels/international.json` (git): every tape lives on exactly one language channel |
 | Category channels | `channels/categories.json` (git): the category list (MTV, KOMEDIA, ASIAA, DOKKARIT, VISAILUT, MEMES, FLASH, GAMING, ELÄIMET, FAILS) and an `assign` map from tape id to one or more categories. Long documentary-style tapes go on DOKKARIT, short funny ones on KOMEDIA, game-show moments on VISAILUT. Every new tape needs an `assign` entry. |
-| Playback | `play` on the tape. YouTube embed, archive.org embed, or a link-out. The site does not host the video. |
+| Playback | `play` on the tape: YouTube embed, archive.org stream, or a still from its public host, tried in order in the same slot. The site does not host the video. `npm run verify-all-play` proves each tape; `npm run check-embeds` fails on a tape with no live source. |
 | Credits / takedown | `/credits` and `/takedown` (generated into `public/credits.html` and `public/takedown.html` by `npm run resources`). Rights email: `takedown@plebflix.com` |
 | Dump folder | Google Drive "Plebflix TV dump" `1EOSMYYdkFys-PAOWIcrpO9X_fWMcYywY`, `links.txt` `15V44Y7VGoHOrjBDYiorhE5ozMzg4JUpV` |
 
@@ -142,9 +143,8 @@ calibration tapes B5mies, Kahen kilon siika, Ismo ja Seppo pyöräilee, Numa Num
 
 Add the row to `channels/suomi.json` or `channels/international.json` with the fields in §0, including `play`, and an
 `assign` entry in `channels/categories.json`. Prefer the creator's own YouTube upload (`play.official: true`). If that
-upload is gone and an archive.org item exists, use `kind: "archive"`. If neither embed is alive, use `kind: "link"` and
-point `id_or_url` at the original page. Do not download the file, do not write a poster into `public/`, and do not set
-`media`. A still (the old 7-second loops) is a link-out card, not a rendered MP4.
+upload is gone and an archive.org item exists, use `kind: "archive"`. If no source plays, the tape does not go on the air. Do not download the file, do not write a poster into `public/`, and do not set
+`media`. A still (the old 7-second loops) is an `image` source shown from its public host, not a rendered MP4.
 
 ```bash
 npm run validate
@@ -158,7 +158,7 @@ fields the validator now rejects.
 ### Dump folder
 
 1. `list_folder` on `1EOSMYYdkFys-PAOWIcrpO9X_fWMcYywY`; read `links.txt` (`read_file`). Lines are `URL | channel | note`; `#` lines are instructions.
-2. A link becomes a shelf row with `play` (YouTube, archive.org, or a link-out). A bare file with no official page does not go on the air: there is nothing to embed and nothing we host.
+2. A link becomes a shelf row with `play` (YouTube, archive.org, or a still). A tape with no source that plays does not go on the air: nothing is hosted here, and nothing sends a viewer off the site.
 3. After the tape is filed and deployed, `trash_file` the processed files and rewrite `links.txt` back to its header (`update_file_content`).
    Note: the Drive connector uses the `drive.file` grant; if a file Niko dropped is not listed, ask him to open it once
    with the Grok Bot Drive app or share the folder, rather than guessing ids.

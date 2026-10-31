@@ -49,9 +49,13 @@ function save() {
   }
 }
 
+const SAME_ORIGIN_MEDIA = false;
+
 /** Build the graph on the first user gesture (an AudioContext made earlier would start suspended and mute the tape). */
 function ensureGraph() {
-  if (ctx || !vid) return ctx;
+  // Every file now comes from archive.org, whose CDN sends no CORS header. A cross-origin file routed through Web Audio
+  // comes out silent, so the deck's sound stays on the element and the bands stay picture only.
+  if (ctx || !vid || !SAME_ORIGIN_MEDIA) return ctx;
   const AC = window.AudioContext || window.webkitAudioContext;
   if (!AC) return null;
   try {

@@ -1,10 +1,11 @@
 #!/usr/bin/env node
-// Weekly check: every on-air embed still resolves. Link-only tapes have no embed and are listed, not failed.
+// Weekly check: every on-air tape has a source that still resolves. This checks the sources exist; npm run
+// verify-all-play proves they play. Exit 1 when any tape has no live source: fix the data, not the player.
 //   npm run check-embeds
-// YouTube: oEmbed, then noembed if oEmbed refuses. archive.org: metadata. Exit 1 when an embed is dead.
+// YouTube: oEmbed, then noembed. archive.org: the item and its file. Image: the file answers.
 import { readdir, readFile } from "node:fs/promises";
 import { pathToFileURL } from "node:url";
-import { playback } from "../public/play.js";
+import { archiveFile, sources } from "../public/play.js";
 
 const META = new Set(["categories.json", "schedule.json"]);
 
@@ -14,11 +15,43 @@ const META = new Set(["categories.json", "schedule.json"]);
  */
 export async function checkTape(item, fetchImpl = fetch) {
   if (item?.status === "pending") return { ok: true, skipped: "pending" };
-  const play = playback(item);
-  if (play.kind === "link") return { ok: true, kind: "link", id: item.id, play };
-  if (play.kind === "youtube") return { ...(await youtubeAlive(play.id, fetchImpl)), kind: "youtube", id: item.id, play };
-  if (play.kind === "archive") return { ...(await archiveAlive(play.id, fetchImpl)), kind: "archive", id: item.id, play };
-  return { ok: false, kind: play.kind, id: item.id, play, detail: "unknown play kind" };
+  const list = sources(item);
+  const checked = [];
+  for (const source of list) checked.push({ ...source, ...(await sourceAlive(source, fetchImpl)) });
+  const live = checked.filter((source) => source.ok);
+  return {
+    ok: live.length > 0,
+    id: item.id,
+    sources: checked,
+    onlyYoutube: live.length > 0 && live.every((source) => source.kind === "youtube"),
+    detail: list.length ? checked.map((source) => `${source.kind}:${source.id} ${source.detail || "ok"}`).join("; ") : "no sources",
+  };
+}
+
+/**
+ * @param {{ kind: string, id: string, file: string }} source
+ * @param {typeof fetch} fetchImpl
+ */
+async function sourceAlive(source, fetchImpl) {
+  if (source.kind === "youtube") return youtubeAlive(source.id, fetchImpl);
+  if (source.kind === "archive") return archiveAlive(source.id, source.file, fetchImpl);
+  if (source.kind === "wayback") return imageAlive(archiveFile(source), fetchImpl);
+  if (source.kind === "image") return imageAlive(source.id, fetchImpl);
+  return { ok: false, detail: "unknown kind" };
+}
+
+/**
+ * @param {string} url
+ * @param {typeof fetch} fetchImpl
+ */
+async function imageAlive(url, fetchImpl) {
+  try {
+    const response = await fetchImpl(url, { signal: AbortSignal.timeout(20000) });
+    if (!response.ok) return { ok: false, detail: `HTTP ${response.status}` };
+    return { ok: true, via: "image" };
+  } catch (error) {
+    return { ok: false, detail: error instanceof Error ? error.message : String(error) };
+  }
 }
 
 /**
@@ -48,9 +81,10 @@ async function youtubeAlive(id, fetchImpl) {
 
 /**
  * @param {string} id
+ * @param {string} file
  * @param {typeof fetch} fetchImpl
  */
-async function archiveAlive(id, fetchImpl) {
+async function archiveAlive(id, file, fetchImpl) {
   try {
     const response = await fetchImpl(`https://archive.org/metadata/${encodeURIComponent(id)}`, {
       signal: AbortSignal.timeout(20000),
@@ -58,6 +92,7 @@ async function archiveAlive(id, fetchImpl) {
     if (!response.ok) return { ok: false, detail: `HTTP ${response.status}` };
     const data = await response.json().catch(() => ({}));
     if (!data.metadata) return { ok: false, detail: "no metadata" };
+    if (!(data.files || []).some((/** @type {{ name: string }} */ row) => row.name === file)) return { ok: false, detail: `no file ${file}` };
     return { ok: true, via: "metadata" };
   } catch (error) {
     return { ok: false, detail: error instanceof Error ? error.message : String(error) };
@@ -66,36 +101,27 @@ async function archiveAlive(id, fetchImpl) {
 
 async function main() {
   const names = (await readdir("channels")).filter((name) => name.endsWith(".json") && !META.has(name)).sort();
-  /** @type {Array<{ channel: string, title: string, result: any }>} */
+  let tapes = 0;
   const dead = [];
-  /** @type {Array<{ channel: string, id: string, title: string, url: string }>} */
-  const links = [];
-  let embeds = 0;
+  const youtubeOnly = [];
   for (const name of names) {
     const doc = JSON.parse(await readFile(`channels/${name}`, "utf8"));
     for (const item of doc.items || []) {
       const result = await checkTape(item);
       if (result.skipped) continue;
-      if (result.kind === "link") {
-        links.push({ channel: doc.id, id: item.id, title: item.title, url: result.play?.id || "" });
-        continue;
-      }
-      embeds += 1;
+      tapes += 1;
       if (!result.ok) {
-        dead.push({ channel: doc.id, title: item.title, result });
-        console.error(`DEAD ${doc.id}/${item.id} ${result.kind} ${result.play?.id || ""} ${result.detail || ""}`);
-      }
+        dead.push(`${doc.id}/${item.id}`);
+        console.error(`NO PLAYABLE SOURCE ${doc.id}/${item.id}: ${result.detail}`);
+      } else if (result.onlyYoutube) youtubeOnly.push(`${doc.id}/${item.id}`);
     }
   }
-  if (links.length) {
-    console.log(`link-only (${links.length}), no embed to check:`);
-    for (const row of links) console.log(`  ${row.channel}/${row.id} ${row.url}`);
-  }
+  if (youtubeOnly.length) console.log(`YouTube only, nothing else to play when YouTube refuses a viewer (${youtubeOnly.length}):\n  ${youtubeOnly.join("\n  ")}`);
   if (dead.length) {
-    console.error(`${dead.length} embed(s) did not resolve (${embeds} checked).`);
+    console.error(`${dead.length} of ${tapes} tapes have no playable source. Fix the data.`);
     process.exit(1);
   }
-  console.log(`Every on-air embed resolved (${embeds} checked, ${links.length} link-only).`);
+  console.log(`Every tape has a live source (${tapes} checked, ${youtubeOnly.length} YouTube only).`);
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

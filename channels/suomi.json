@@ -10,12 +10,14 @@
       "year": 1999,
       "source": "youtube",
       "embedId": "f-lnF5eNFFY",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "f-lnF5eNFFY",
-        "official": true,
-        "uploader": "shokteenik"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "f-lnF5eNFFY",
+          "official": true,
+          "uploader": "shokteenik"
+        }
+      ],
       "duration": 140,
       "note": "The surviving upload is from 30 Mar 2015. The uploader calls the ballad a 1999 piece.",
       "credit": "https://www.youtube.com/watch?v=f-lnF5eNFFY",
@@ -34,12 +36,20 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "SlIw7GiHUkc",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "SlIw7GiHUkc",
-        "official": true,
-        "uploader": "KahdenKilonSiika"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "SlIw7GiHUkc",
+          "official": true,
+          "uploader": "KahdenKilonSiika"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "SlIw7GiHUkc",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 106,
       "note": "The fishing story that swam out of Finnish message boards in 2008.",
       "credit": "https://www.youtube.com/watch?v=SlIw7GiHUkc",
@@ -58,12 +68,14 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "C_j3VK81csw",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "C_j3VK81csw",
-        "official": true,
-        "uploader": "ooskari2"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "C_j3VK81csw",
+          "official": true,
+          "uploader": "ooskari2"
+        }
+      ],
       "duration": 448,
       "note": "A fan edit of the Salatut elämät uncles. The year is the upload era, not a TV premiere.",
       "credit": "https://www.youtube.com/watch?v=C_j3VK81csw",
@@ -82,12 +94,14 @@
       "year": 2000,
       "source": "youtube",
       "embedId": "SN5WeFbV_Vs",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "SN5WeFbV_Vs",
-        "official": true,
-        "uploader": "tuotanto"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "SN5WeFbV_Vs",
+          "official": true,
+          "uploader": "tuotanto"
+        }
+      ],
       "duration": 181,
       "note": "The original infomercial segment (replaces the earlier Flash cartoon version).",
       "credit": "https://www.youtube.com/watch?v=SN5WeFbV_Vs",
@@ -105,12 +119,14 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "hBYHsyWOfno",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "hBYHsyWOfno",
-        "official": true,
-        "uploader": "IRC-Galleria"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "hBYHsyWOfno",
+          "official": true,
+          "uploader": "IRC-Galleria"
+        }
+      ],
       "duration": 230,
       "note": "A tour of the photo-gallery years. 2007 is the site's peak era, not a verified upload date.",
       "credit": "https://www.youtube.com/watch?v=hBYHsyWOfno",
@@ -129,12 +145,14 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "KgRO8xbR6xE",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "KgRO8xbR6xE",
-        "official": true,
-        "uploader": "Kare Haaparinne"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "KgRO8xbR6xE",
+          "official": true,
+          "uploader": "Kare Haaparinne"
+        }
+      ],
       "duration": 62,
       "note": "The sauna installment of the Ismo ja Seppo edits.",
       "credit": "https://www.youtube.com/watch?v=KgRO8xbR6xE",
@@ -152,12 +170,14 @@
       "year": 1994,
       "source": "youtube",
       "embedId": "-xz-KEs6NSI",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "-xz-KEs6NSI",
-        "official": true,
-        "uploader": "Grieffaajat"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "-xz-KEs6NSI",
+          "official": true,
+          "uploader": "Grieffaajat"
+        }
+      ],
       "duration": 397,
       "note": "Kummeli: Speedy ja Saku collect the appearance fee.",
       "credit": "https://www.youtube.com/watch?v=-xz-KEs6NSI",
@@ -175,12 +195,14 @@
       "year": 1998,
       "source": "youtube",
       "embedId": "uSjkhUjnWwU",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "uSjkhUjnWwU",
-        "official": true,
-        "uploader": "No Skill - No Talent"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "uSjkhUjnWwU",
+          "official": true,
+          "uploader": "No Skill - No Talent"
+        }
+      ],
       "duration": 146,
       "note": "Julmahuvi, with English subtitles on this upload.",
       "credit": "https://www.youtube.com/watch?v=uSjkhUjnWwU",
@@ -198,12 +220,14 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "hSFmsPJYis8",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "hSFmsPJYis8",
-        "official": true,
-        "uploader": "Loiri2009"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "hSFmsPJYis8",
+          "official": true,
+          "uploader": "Loiri2009"
+        }
+      ],
       "duration": 298,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=hSFmsPJYis8",
@@ -221,12 +245,20 @@
       "year": 2010,
       "source": "youtube",
       "embedId": "HsVnExzvsLg",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "HsVnExzvsLg",
-        "official": true,
-        "uploader": "MrPabloFilms"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "HsVnExzvsLg",
+          "official": true,
+          "uploader": "MrPabloFilms"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "HsVnExzvsLg",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 343,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=HsVnExzvsLg",
@@ -246,12 +278,20 @@
       "year": 2000,
       "source": "youtube",
       "embedId": "XBDpIHH4glE",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "XBDpIHH4glE",
-        "official": true,
-        "uploader": "CamuV"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "XBDpIHH4glE",
+          "official": true,
+          "uploader": "CamuV"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "XBDpIHH4glE",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 60,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=XBDpIHH4glE",
@@ -269,12 +309,20 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "mJUAbIx4jLI",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "mJUAbIx4jLI",
-        "official": true,
-        "uploader": "StunkMan Roctum"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "mJUAbIx4jLI",
+          "official": true,
+          "uploader": "StunkMan Roctum"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "mJUAbIx4jLI",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 94,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=mJUAbIx4jLI",
@@ -292,12 +340,20 @@
       "year": 1992,
       "source": "youtube",
       "embedId": "srTGKjcYRVg",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "srTGKjcYRVg",
-        "official": true,
-        "uploader": "MrLiikeri"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "srTGKjcYRVg",
+          "official": true,
+          "uploader": "MrLiikeri"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "srTGKjcYRVg",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 89,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=srTGKjcYRVg",
@@ -315,12 +371,20 @@
       "year": 2010,
       "source": "youtube",
       "embedId": "qw-BjsmT1Q0",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "qw-BjsmT1Q0",
-        "official": true,
-        "uploader": "MoraJonne"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "qw-BjsmT1Q0",
+          "official": true,
+          "uploader": "MoraJonne"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "qw-BjsmT1Q0",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 59,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=qw-BjsmT1Q0",
@@ -338,12 +402,20 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "dWR_TSF-QlE",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "dWR_TSF-QlE",
-        "official": true,
-        "uploader": "Evoluutiomies"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "dWR_TSF-QlE",
+          "official": true,
+          "uploader": "Evoluutiomies"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "dWR_TSF-QlE",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 92,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=dWR_TSF-QlE",
@@ -361,12 +433,20 @@
       "year": 2010,
       "source": "youtube",
       "embedId": "Gfdf2TiOXZ8",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "Gfdf2TiOXZ8",
-        "official": true,
-        "uploader": "epola"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "Gfdf2TiOXZ8",
+          "official": true,
+          "uploader": "epola"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "Gfdf2TiOXZ8",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 55,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=Gfdf2TiOXZ8",
@@ -384,12 +464,14 @@
       "year": 2010,
       "source": "youtube",
       "embedId": "Rf2meGb2sT8",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "Rf2meGb2sT8",
-        "official": true,
-        "uploader": "eetulaiho14"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "Rf2meGb2sT8",
+          "official": true,
+          "uploader": "eetulaiho14"
+        }
+      ],
       "duration": 33,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=Rf2meGb2sT8",
@@ -407,12 +489,14 @@
       "year": 2010,
       "source": "youtube",
       "embedId": "reuPTLd9f1g",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "reuPTLd9f1g",
-        "official": true,
-        "uploader": "m4stern1nja4ss1nl33t"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "reuPTLd9f1g",
+          "official": true,
+          "uploader": "m4stern1nja4ss1nl33t"
+        }
+      ],
       "duration": 179,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=reuPTLd9f1g",
@@ -430,12 +514,14 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "L3qMaZ5JeWs",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "L3qMaZ5JeWs",
-        "official": true,
-        "uploader": "Jaksary"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "L3qMaZ5JeWs",
+          "official": true,
+          "uploader": "Jaksary"
+        }
+      ],
       "duration": 43,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=L3qMaZ5JeWs",
@@ -453,12 +539,14 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "nM4aa8wpnIE",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "nM4aa8wpnIE",
-        "official": true,
-        "uploader": "AvaruusKulttuuri"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "nM4aa8wpnIE",
+          "official": true,
+          "uploader": "AvaruusKulttuuri"
+        }
+      ],
       "duration": 394,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=nM4aa8wpnIE",
@@ -476,12 +564,21 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "pivzf0kIomU",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "pivzf0kIomU",
-        "official": true,
-        "uploader": "Kimiisland"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "pivzf0kIomU",
+          "official": true,
+          "uploader": "Kimiisland"
+        },
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-pivzf0kIomU",
+          "file": "pivzf0kIomU.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 23,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=pivzf0kIomU",
@@ -499,12 +596,20 @@
       "year": 1999,
       "source": "youtube",
       "embedId": "9N_-zopnwp8",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "9N_-zopnwp8",
-        "official": true,
-        "uploader": "taikinasuikka"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "9N_-zopnwp8",
+          "official": true,
+          "uploader": "taikinasuikka"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "9N_-zopnwp8",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 91,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=9N_-zopnwp8",
@@ -522,12 +627,14 @@
       "year": 2004,
       "source": "youtube",
       "embedId": "iLn8TKyGgUM",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "iLn8TKyGgUM",
-        "official": false,
-        "uploader": "FOREVERSILVER"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "iLn8TKyGgUM",
+          "official": false,
+          "uploader": "FOREVERSILVER"
+        }
+      ],
       "duration": 156,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=iLn8TKyGgUM",
@@ -547,12 +654,14 @@
       "year": 2005,
       "source": "youtube",
       "embedId": "bRO_7lVXtzQ",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "bRO_7lVXtzQ",
-        "official": true,
-        "uploader": "aapoaa"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "bRO_7lVXtzQ",
+          "official": true,
+          "uploader": "aapoaa"
+        }
+      ],
       "duration": 471,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=bRO_7lVXtzQ",
@@ -570,12 +679,20 @@
       "year": 1997,
       "source": "youtube",
       "embedId": "nUyFg9xoPKk",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "nUyFg9xoPKk",
-        "official": true,
-        "uploader": "novoivit"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "nUyFg9xoPKk",
+          "official": true,
+          "uploader": "novoivit"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "nUyFg9xoPKk",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 256,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=nUyFg9xoPKk",
@@ -593,12 +710,14 @@
       "year": 1997,
       "source": "youtube",
       "embedId": "1nr2N9qeY7w",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "1nr2N9qeY7w",
-        "official": true,
-        "uploader": "nukkis"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "1nr2N9qeY7w",
+          "official": true,
+          "uploader": "nukkis"
+        }
+      ],
       "duration": 129,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=1nr2N9qeY7w",
@@ -616,12 +735,14 @@
       "year": 1997,
       "source": "youtube",
       "embedId": "RMSIBvcnrJc",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "RMSIBvcnrJc",
-        "official": true,
-        "uploader": "riku777777"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "RMSIBvcnrJc",
+          "official": true,
+          "uploader": "riku777777"
+        }
+      ],
       "duration": 194,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=RMSIBvcnrJc",
@@ -639,12 +760,14 @@
       "year": 1997,
       "source": "youtube",
       "embedId": "7WlhzFQ7YVw",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "7WlhzFQ7YVw",
-        "official": true,
-        "uploader": "estetty"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "7WlhzFQ7YVw",
+          "official": true,
+          "uploader": "estetty"
+        }
+      ],
       "duration": 146,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=7WlhzFQ7YVw",
@@ -662,12 +785,14 @@
       "year": 1998,
       "source": "youtube",
       "embedId": "5l3areu-Jx0",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "5l3areu-Jx0",
-        "official": true,
-        "uploader": "mikamonable"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "5l3areu-Jx0",
+          "official": true,
+          "uploader": "mikamonable"
+        }
+      ],
       "duration": 568,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=5l3areu-Jx0",
@@ -685,12 +810,20 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "snwMnyoXd64",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "snwMnyoXd64",
-        "official": true,
-        "uploader": "MacWaZaani"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "snwMnyoXd64",
+          "official": true,
+          "uploader": "MacWaZaani"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "snwMnyoXd64",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 61,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=snwMnyoXd64",
@@ -708,12 +841,20 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "yjBH0vMq8MY",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "yjBH0vMq8MY",
-        "official": true,
-        "uploader": "jhpjn"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "yjBH0vMq8MY",
+          "official": true,
+          "uploader": "jhpjn"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "yjBH0vMq8MY",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 153,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=yjBH0vMq8MY",
@@ -731,12 +872,14 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "nxVInjoAFc4",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "nxVInjoAFc4",
-        "official": true,
-        "uploader": "Yle Areena"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "nxVInjoAFc4",
+          "official": true,
+          "uploader": "Yle Areena"
+        }
+      ],
       "duration": 80,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=nxVInjoAFc4",
@@ -754,12 +897,14 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "_6eA07P684E",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "_6eA07P684E",
-        "official": true,
-        "uploader": "mrpasikuikka"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "_6eA07P684E",
+          "official": true,
+          "uploader": "mrpasikuikka"
+        }
+      ],
       "duration": 87,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=_6eA07P684E",
@@ -777,12 +922,14 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "P1ByL_3I2po",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "P1ByL_3I2po",
-        "official": true,
-        "uploader": "Yle Areena"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "P1ByL_3I2po",
+          "official": true,
+          "uploader": "Yle Areena"
+        }
+      ],
       "duration": 198,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=P1ByL_3I2po",
@@ -800,12 +947,20 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "WtLUuBOopfY",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "WtLUuBOopfY",
-        "official": true,
-        "uploader": "Yle Areena"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "WtLUuBOopfY",
+          "official": true,
+          "uploader": "Yle Areena"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "WtLUuBOopfY",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 95,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=WtLUuBOopfY",
@@ -823,12 +978,14 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "H37lJVKwl-w",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "H37lJVKwl-w",
-        "official": true,
-        "uploader": "Yle Areena"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "H37lJVKwl-w",
+          "official": true,
+          "uploader": "Yle Areena"
+        }
+      ],
       "duration": 60,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=H37lJVKwl-w",
@@ -846,12 +1003,14 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "5zmVJY6qnE4",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "5zmVJY6qnE4",
-        "official": true,
-        "uploader": "kättis"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "5zmVJY6qnE4",
+          "official": true,
+          "uploader": "kättis"
+        }
+      ],
       "duration": 122,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=5zmVJY6qnE4",
@@ -869,12 +1028,20 @@
       "year": 1993,
       "source": "youtube",
       "embedId": "EVjrpImlLMY",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "EVjrpImlLMY",
-        "official": true,
-        "uploader": "MrLiikeri"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "EVjrpImlLMY",
+          "official": true,
+          "uploader": "MrLiikeri"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "EVjrpImlLMY",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 294,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=EVjrpImlLMY",
@@ -892,12 +1059,14 @@
       "year": 1993,
       "source": "youtube",
       "embedId": "Uo-KGK0Zqtw",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "Uo-KGK0Zqtw",
-        "official": true,
-        "uploader": "Petri Suova"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "Uo-KGK0Zqtw",
+          "official": true,
+          "uploader": "Petri Suova"
+        }
+      ],
       "duration": 131,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=Uo-KGK0Zqtw",
@@ -915,12 +1084,14 @@
       "year": 1993,
       "source": "youtube",
       "embedId": "49dXuAxisJc",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "49dXuAxisJc",
-        "official": true,
-        "uploader": "Mysse"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "49dXuAxisJc",
+          "official": true,
+          "uploader": "Mysse"
+        }
+      ],
       "duration": 83,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=49dXuAxisJc",
@@ -938,12 +1109,20 @@
       "year": 1994,
       "source": "youtube",
       "embedId": "HbhLhw9850I",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "HbhLhw9850I",
-        "official": true,
-        "uploader": "Javier Messías"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "HbhLhw9850I",
+          "official": true,
+          "uploader": "Javier Messías"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "HbhLhw9850I",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 97,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=HbhLhw9850I",
@@ -961,12 +1140,14 @@
       "year": 1995,
       "source": "youtube",
       "embedId": "3CPHLYcdWVI",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "3CPHLYcdWVI",
-        "official": true,
-        "uploader": "tnt4thebrain"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "3CPHLYcdWVI",
+          "official": true,
+          "uploader": "tnt4thebrain"
+        }
+      ],
       "duration": 117,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=3CPHLYcdWVI",
@@ -984,12 +1165,20 @@
       "year": 1994,
       "source": "youtube",
       "embedId": "PT5OuSIxA40",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "PT5OuSIxA40",
-        "official": true,
-        "uploader": "Mutumaniac"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "PT5OuSIxA40",
+          "official": true,
+          "uploader": "Mutumaniac"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "PT5OuSIxA40",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 37,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=PT5OuSIxA40",
@@ -1007,12 +1196,14 @@
       "year": 1993,
       "source": "youtube",
       "embedId": "S-2aGSJVmss",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "S-2aGSJVmss",
-        "official": true,
-        "uploader": "Mysse"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "S-2aGSJVmss",
+          "official": true,
+          "uploader": "Mysse"
+        }
+      ],
       "duration": 38,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=S-2aGSJVmss",
@@ -1030,12 +1221,14 @@
       "year": 1996,
       "source": "youtube",
       "embedId": "Yt6EOBnB6F8",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "Yt6EOBnB6F8",
-        "official": true,
-        "uploader": "Grieffaajat"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "Yt6EOBnB6F8",
+          "official": true,
+          "uploader": "Grieffaajat"
+        }
+      ],
       "duration": 92,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=Yt6EOBnB6F8",
@@ -1053,12 +1246,14 @@
       "year": 2003,
       "source": "youtube",
       "embedId": "h-pQStkMebE",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "h-pQStkMebE",
-        "official": true,
-        "uploader": "Karpo Official"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "h-pQStkMebE",
+          "official": true,
+          "uploader": "Karpo Official"
+        }
+      ],
       "duration": 922,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=h-pQStkMebE",
@@ -1076,12 +1271,14 @@
       "year": 2003,
       "source": "youtube",
       "embedId": "iTyZkb5Mhco",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "iTyZkb5Mhco",
-        "official": true,
-        "uploader": "Karpo Official"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "iTyZkb5Mhco",
+          "official": true,
+          "uploader": "Karpo Official"
+        }
+      ],
       "duration": 375,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=iTyZkb5Mhco",
@@ -1099,12 +1296,14 @@
       "year": 2003,
       "source": "youtube",
       "embedId": "LF64T5MKe_U",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "LF64T5MKe_U",
-        "official": true,
-        "uploader": "Karpo Official"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "LF64T5MKe_U",
+          "official": true,
+          "uploader": "Karpo Official"
+        }
+      ],
       "duration": 747,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=LF64T5MKe_U",
@@ -1122,12 +1321,14 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "8O_ydqPWKLg",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "8O_ydqPWKLg",
-        "official": true,
-        "uploader": "TamburiiniMato"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "8O_ydqPWKLg",
+          "official": true,
+          "uploader": "TamburiiniMato"
+        }
+      ],
       "duration": 114,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=8O_ydqPWKLg",
@@ -1146,12 +1347,14 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "GI57hKelSB0",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "GI57hKelSB0",
-        "official": true,
-        "uploader": "Keijobob"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "GI57hKelSB0",
+          "official": true,
+          "uploader": "Keijobob"
+        }
+      ],
       "duration": 63,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=GI57hKelSB0",
@@ -1169,12 +1372,20 @@
       "year": 1973,
       "source": "youtube",
       "embedId": "L5illCCR70U",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "L5illCCR70U",
-        "official": true,
-        "uploader": "Stick Maahinen"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "L5illCCR70U",
+          "official": true,
+          "uploader": "Stick Maahinen"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "L5illCCR70U",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 24,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=L5illCCR70U",
@@ -1192,12 +1403,20 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "rJrEe8_gi64",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "rJrEe8_gi64",
-        "official": true,
-        "uploader": "mtvmediajarre"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "rJrEe8_gi64",
+          "official": true,
+          "uploader": "mtvmediajarre"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "rJrEe8_gi64",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 251,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=rJrEe8_gi64",
@@ -1215,12 +1434,14 @@
       "year": 1998,
       "source": "youtube",
       "embedId": "SmIdzkR23yU",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "SmIdzkR23yU",
-        "official": true,
-        "uploader": "NehmesBastet"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "SmIdzkR23yU",
+          "official": true,
+          "uploader": "NehmesBastet"
+        }
+      ],
       "duration": 180,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=SmIdzkR23yU",
@@ -1238,12 +1459,14 @@
       "year": 1998,
       "source": "youtube",
       "embedId": "3m6XPzFP27Y",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "3m6XPzFP27Y",
-        "official": true,
-        "uploader": "sukulakuko"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "3m6XPzFP27Y",
+          "official": true,
+          "uploader": "sukulakuko"
+        }
+      ],
       "duration": 388,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=3m6XPzFP27Y",
@@ -1261,12 +1484,20 @@
       "year": 1999,
       "source": "youtube",
       "embedId": "1bBILMMsEus",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "1bBILMMsEus",
-        "official": true,
-        "uploader": "Ma Vi"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "1bBILMMsEus",
+          "official": true,
+          "uploader": "Ma Vi"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "1bBILMMsEus",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 12,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=1bBILMMsEus",
@@ -1284,12 +1515,14 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "8ipgTgt9-bo",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "8ipgTgt9-bo",
-        "official": true,
-        "uploader": "Mauri Opiaatti"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "8ipgTgt9-bo",
+          "official": true,
+          "uploader": "Mauri Opiaatti"
+        }
+      ],
       "duration": 197,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=8ipgTgt9-bo",
@@ -1307,12 +1540,14 @@
       "year": 1999,
       "source": "youtube",
       "embedId": "kKiMwF9iFsE",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "kKiMwF9iFsE",
-        "official": true,
-        "uploader": "ron ronson"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "kKiMwF9iFsE",
+          "official": true,
+          "uploader": "ron ronson"
+        }
+      ],
       "duration": 222,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=kKiMwF9iFsE",
@@ -1330,12 +1565,20 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "bV8Hgn2-5tw",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "bV8Hgn2-5tw",
-        "official": true,
-        "uploader": "jartto"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "bV8Hgn2-5tw",
+          "official": true,
+          "uploader": "jartto"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "bV8Hgn2-5tw",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 45,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=bV8Hgn2-5tw",
@@ -1354,12 +1597,20 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "VrjK-92Qa5E",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "VrjK-92Qa5E",
-        "official": true,
-        "uploader": "Artami"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "VrjK-92Qa5E",
+          "official": true,
+          "uploader": "Artami"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "VrjK-92Qa5E",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 88,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=VrjK-92Qa5E",
@@ -1378,12 +1629,20 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "vYKv75qee3w",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "vYKv75qee3w",
-        "official": true,
-        "uploader": "Evoluutiomies"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "vYKv75qee3w",
+          "official": true,
+          "uploader": "Evoluutiomies"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "vYKv75qee3w",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 157,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=vYKv75qee3w",
@@ -1403,12 +1662,20 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "8QRHK_Z_X8Y",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "8QRHK_Z_X8Y",
-        "official": true,
-        "uploader": "Supermoniveto"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "8QRHK_Z_X8Y",
+          "official": true,
+          "uploader": "Supermoniveto"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "8QRHK_Z_X8Y",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 70,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=8QRHK_Z_X8Y",
@@ -1427,12 +1694,20 @@
       "year": 2006,
       "source": "youtube",
       "embedId": "m7UVRlyH36A",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "m7UVRlyH36A",
-        "official": true,
-        "uploader": "EnemyAce"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "m7UVRlyH36A",
+          "official": true,
+          "uploader": "EnemyAce"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "m7UVRlyH36A",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 97,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=m7UVRlyH36A",
@@ -1452,12 +1727,20 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "FY_WyMABiOk",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "FY_WyMABiOk",
-        "official": true,
-        "uploader": "EnemyAce"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "FY_WyMABiOk",
+          "official": true,
+          "uploader": "EnemyAce"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "FY_WyMABiOk",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 217,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=FY_WyMABiOk",
@@ -1477,12 +1760,14 @@
       "year": 2006,
       "source": "youtube",
       "embedId": "_hjHExmy4H8",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "_hjHExmy4H8",
-        "official": true,
-        "uploader": "Number Jerry"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "_hjHExmy4H8",
+          "official": true,
+          "uploader": "Number Jerry"
+        }
+      ],
       "duration": 16,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=_hjHExmy4H8",
@@ -1500,12 +1785,20 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "1WZFzDu9pns",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "1WZFzDu9pns",
-        "official": true,
-        "uploader": "astuinpaskaan"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "1WZFzDu9pns",
+          "official": true,
+          "uploader": "astuinpaskaan"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "1WZFzDu9pns",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 8,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=1WZFzDu9pns",
@@ -1524,12 +1817,20 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "GXMzNZABSK4",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "GXMzNZABSK4",
-        "official": true,
-        "uploader": "Riisinekku"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "GXMzNZABSK4",
+          "official": true,
+          "uploader": "Riisinekku"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "GXMzNZABSK4",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 9,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=GXMzNZABSK4",
@@ -1547,12 +1848,14 @@
       "year": 2006,
       "source": "youtube",
       "embedId": "aes27RHYEVg",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "aes27RHYEVg",
-        "official": true,
-        "uploader": "Petri Himmeä"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "aes27RHYEVg",
+          "official": true,
+          "uploader": "Petri Himmeä"
+        }
+      ],
       "duration": 254,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=aes27RHYEVg",
@@ -1572,12 +1875,14 @@
       "year": 2005,
       "source": "youtube",
       "embedId": "UYTe5h3fCW8",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "UYTe5h3fCW8",
-        "official": true,
-        "uploader": "Petri Himmeä"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "UYTe5h3fCW8",
+          "official": true,
+          "uploader": "Petri Himmeä"
+        }
+      ],
       "duration": 252,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=UYTe5h3fCW8",
@@ -1597,12 +1902,20 @@
       "year": 2006,
       "source": "youtube",
       "embedId": "6Z7e3DvqyPQ",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "6Z7e3DvqyPQ",
-        "official": true,
-        "uploader": "HevosmiestenKilta"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "6Z7e3DvqyPQ",
+          "official": true,
+          "uploader": "HevosmiestenKilta"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "6Z7e3DvqyPQ",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 397,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=6Z7e3DvqyPQ",
@@ -1622,12 +1935,14 @@
       "year": 1996,
       "source": "youtube",
       "embedId": "st-n9eLPsvM",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "st-n9eLPsvM",
-        "official": true,
-        "uploader": "Urheiluruutumies"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "st-n9eLPsvM",
+          "official": true,
+          "uploader": "Urheiluruutumies"
+        }
+      ],
       "duration": 131,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=st-n9eLPsvM",
@@ -1645,12 +1960,21 @@
       "year": 2006,
       "source": "youtube",
       "embedId": "eAk1wBPanVc",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "eAk1wBPanVc",
-        "official": true,
-        "uploader": "Hupaisat"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "eAk1wBPanVc",
+          "official": true,
+          "uploader": "Hupaisat"
+        },
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-eAk1wBPanVc",
+          "file": "Mita_saisi_olla_saatana-eAk1wBPanVc.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 80,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=eAk1wBPanVc",
@@ -1669,12 +1993,20 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "61JwL61wl1w",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "61JwL61wl1w",
-        "official": true,
-        "uploader": "MLFmylly"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "61JwL61wl1w",
+          "official": true,
+          "uploader": "MLFmylly"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "61JwL61wl1w",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 50,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=61JwL61wl1w",
@@ -1693,12 +2025,20 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "lcb8uafr0cw",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "lcb8uafr0cw",
-        "official": true,
-        "uploader": "Justimusfilms"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "lcb8uafr0cw",
+          "official": true,
+          "uploader": "Justimusfilms"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "lcb8uafr0cw",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 146,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=lcb8uafr0cw",
@@ -1718,12 +2058,20 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "Jy2bW31e2_Q",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "Jy2bW31e2_Q",
-        "official": true,
-        "uploader": "MrPabloFilms"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "Jy2bW31e2_Q",
+          "official": true,
+          "uploader": "MrPabloFilms"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "Jy2bW31e2_Q",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 141,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=Jy2bW31e2_Q",
@@ -1742,12 +2090,14 @@
       "year": 2005,
       "source": "youtube",
       "embedId": "fWyX7lJRiHo",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "fWyX7lJRiHo",
-        "official": true,
-        "uploader": "masted0ntti"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "fWyX7lJRiHo",
+          "official": true,
+          "uploader": "masted0ntti"
+        }
+      ],
       "duration": 65,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=fWyX7lJRiHo",
@@ -1767,12 +2117,14 @@
       "year": 2005,
       "source": "youtube",
       "embedId": "rD30nJgapWs",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "rD30nJgapWs",
-        "official": true,
-        "uploader": "TurboGable"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "rD30nJgapWs",
+          "official": true,
+          "uploader": "TurboGable"
+        }
+      ],
       "duration": 489,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=rD30nJgapWs",
@@ -1792,12 +2144,14 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "Xw2EYrqgTlE",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "Xw2EYrqgTlE",
-        "official": true,
-        "uploader": "Ismorec"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "Xw2EYrqgTlE",
+          "official": true,
+          "uploader": "Ismorec"
+        }
+      ],
       "duration": 78,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=Xw2EYrqgTlE",
@@ -1815,12 +2169,14 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "5pBUAw7iiw4",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "5pBUAw7iiw4",
-        "official": true,
-        "uploader": "Matapoliisit4"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "5pBUAw7iiw4",
+          "official": true,
+          "uploader": "Matapoliisit4"
+        }
+      ],
       "duration": 28,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=5pBUAw7iiw4",
@@ -1838,12 +2194,14 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "WFMKjelEx2M",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "WFMKjelEx2M",
-        "official": true,
-        "uploader": "Jani Suhonen"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "WFMKjelEx2M",
+          "official": true,
+          "uploader": "Jani Suhonen"
+        }
+      ],
       "duration": 36,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=WFMKjelEx2M",
@@ -1861,12 +2219,14 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "4kCtOwqm5Oc",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "4kCtOwqm5Oc",
-        "official": false,
-        "uploader": "jonne moments"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "4kCtOwqm5Oc",
+          "official": false,
+          "uploader": "jonne moments"
+        }
+      ],
       "duration": 40,
       "note": "The original upload no longer plays; this copy is a later reupload of the same clip.",
       "credit": "https://www.youtube.com/watch?v=nWm6apd6mp8",
@@ -1885,12 +2245,14 @@
       "year": 2010,
       "source": "youtube",
       "embedId": "CnUJUMpq48E",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "CnUJUMpq48E",
-        "official": true,
-        "uploader": "Skorpioni"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "CnUJUMpq48E",
+          "official": true,
+          "uploader": "Skorpioni"
+        }
+      ],
       "duration": 143,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=CnUJUMpq48E",
@@ -1910,12 +2272,20 @@
       "year": 2011,
       "source": "youtube",
       "embedId": "ZqUU7geqN-U",
-      "play": {
-        "kind": "link",
-        "id_or_url": "https://www.youtube.com/watch?v=ZqUU7geqN-U",
-        "official": false,
-        "uploader": "unknown"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "ZqUU7geqN-U",
+          "official": false,
+          "uploader": "unknown"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "ZqUU7geqN-U",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 161,
       "note": "The YouTube upload does not embed (oEmbed 401) and no archive.org item was found. The card links to that page.",
       "credit": "https://www.youtube.com/watch?v=ZqUU7geqN-U",
@@ -1933,12 +2303,20 @@
       "year": 2011,
       "source": "youtube",
       "embedId": "DtxEfQn7emI",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "DtxEfQn7emI",
-        "official": true,
-        "uploader": "Puumies Pete"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "DtxEfQn7emI",
+          "official": true,
+          "uploader": "Puumies Pete"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "DtxEfQn7emI",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 106,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=DtxEfQn7emI",
@@ -1957,12 +2335,20 @@
       "year": 2012,
       "source": "youtube",
       "embedId": "2Nwly8f2QHU",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "2Nwly8f2QHU",
-        "official": true,
-        "uploader": "Jukka Takalo TV"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "2Nwly8f2QHU",
+          "official": true,
+          "uploader": "Jukka Takalo TV"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "2Nwly8f2QHU",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 207,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=2Nwly8f2QHU",
@@ -1981,12 +2367,20 @@
       "year": 2012,
       "source": "youtube",
       "embedId": "cvQ1J3gCPOg",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "cvQ1J3gCPOg",
-        "official": true,
-        "uploader": "DonAmnesia"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "cvQ1J3gCPOg",
+          "official": true,
+          "uploader": "DonAmnesia"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "cvQ1J3gCPOg",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 18,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=cvQ1J3gCPOg",
@@ -2004,12 +2398,20 @@
       "year": 1993,
       "source": "youtube",
       "embedId": "RXLopKnRH58",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "RXLopKnRH58",
-        "official": true,
-        "uploader": "Peter Ståhlhammar"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "RXLopKnRH58",
+          "official": true,
+          "uploader": "Peter Ståhlhammar"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "RXLopKnRH58",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 90,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=RXLopKnRH58",
@@ -2027,12 +2429,20 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "XgFwrvT_rBQ",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "XgFwrvT_rBQ",
-        "official": true,
-        "uploader": "qwe123asdization"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "XgFwrvT_rBQ",
+          "official": true,
+          "uploader": "qwe123asdization"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "XgFwrvT_rBQ",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 71,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=XgFwrvT_rBQ",
@@ -2050,12 +2460,14 @@
       "year": 2005,
       "source": "youtube",
       "embedId": "H5Ox1R4AvNs",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "H5Ox1R4AvNs",
-        "official": true,
-        "uploader": "Skeba1979"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "H5Ox1R4AvNs",
+          "official": true,
+          "uploader": "Skeba1979"
+        }
+      ],
       "duration": 58,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=H5Ox1R4AvNs",
@@ -2073,12 +2485,14 @@
       "year": 2012,
       "source": "youtube",
       "embedId": "thSt5QMkh38",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "thSt5QMkh38",
-        "official": true,
-        "uploader": "Santtumann"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "thSt5QMkh38",
+          "official": true,
+          "uploader": "Santtumann"
+        }
+      ],
       "duration": 113,
       "note": "Team Ahma. The year is approximate.",
       "credit": "https://www.youtube.com/watch?v=thSt5QMkh38",
@@ -2096,12 +2510,20 @@
       "year": 2011,
       "source": "youtube",
       "embedId": "JFCeEUimG54",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "JFCeEUimG54",
-        "official": true,
-        "uploader": "Justimusfilms"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "JFCeEUimG54",
+          "official": true,
+          "uploader": "Justimusfilms"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "JFCeEUimG54",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 217,
       "note": "Justimusfilms. The year is approximate.",
       "credit": "https://www.youtube.com/watch?v=JFCeEUimG54",
@@ -2120,12 +2542,20 @@
       "year": 2011,
       "source": "youtube",
       "embedId": "OZ5PUSgFF6g",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "OZ5PUSgFF6g",
-        "official": true,
-        "uploader": "Babyface.Worlwide®"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "OZ5PUSgFF6g",
+          "official": true,
+          "uploader": "Babyface.Worlwide®"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "OZ5PUSgFF6g",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 398,
       "note": "Jare & VilleGalle with Märkä-Simo. The wedding video. Year is approximate.",
       "credit": "https://www.youtube.com/watch?v=OZ5PUSgFF6g",
@@ -2143,12 +2573,20 @@
       "year": 2012,
       "source": "youtube",
       "embedId": "xRDqYFpaTd4",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "xRDqYFpaTd4",
-        "official": true,
-        "uploader": "Retronymous"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "xRDqYFpaTd4",
+          "official": true,
+          "uploader": "Retronymous"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "xRDqYFpaTd4",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 186,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=xRDqYFpaTd4",
@@ -2167,12 +2605,14 @@
       "year": 2012,
       "source": "youtube",
       "embedId": "4NbxAb5fkY8",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "4NbxAb5fkY8",
-        "official": true,
-        "uploader": "Kille"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "4NbxAb5fkY8",
+          "official": true,
+          "uploader": "Kille"
+        }
+      ],
       "duration": 111,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=4NbxAb5fkY8",
@@ -2191,12 +2631,20 @@
       "year": 2011,
       "source": "youtube",
       "embedId": "y142zKobfqg",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "y142zKobfqg",
-        "official": true,
-        "uploader": "SilliS"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "y142zKobfqg",
+          "official": true,
+          "uploader": "SilliS"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "y142zKobfqg",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 43,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=y142zKobfqg",
@@ -2215,12 +2663,20 @@
       "year": 2012,
       "source": "youtube",
       "embedId": "AmE6JZaEJSk",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "AmE6JZaEJSk",
-        "official": true,
-        "uploader": "JONINVELAT2012"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "AmE6JZaEJSk",
+          "official": true,
+          "uploader": "JONINVELAT2012"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "AmE6JZaEJSk",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 45,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=AmE6JZaEJSk",
@@ -2238,12 +2694,20 @@
       "year": 2011,
       "source": "youtube",
       "embedId": "lJO9Ao_CUUU",
-      "play": {
-        "kind": "youtube",
-        "id_or_url": "lJO9Ao_CUUU",
-        "official": true,
-        "uploader": "utanaltti"
-      },
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "lJO9Ao_CUUU",
+          "official": true,
+          "uploader": "utanaltti"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "lJO9Ao_CUUU",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
       "duration": 143,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=lJO9Ao_CUUU",
@@ -2261,12 +2725,14 @@
       "year": 2011,
       "source": "other",
       "embedId": "https://knowyourmeme.com/memes/spurdo-sparde",
-      "play": {
-        "kind": "link",
-        "id_or_url": "https://knowyourmeme.com/memes/spurdo-sparde",
-        "official": false,
-        "uploader": "Know Your Meme"
-      },
+      "play": [
+        {
+          "kind": "image",
+          "id_or_url": "https://i.kym-cdn.com/entries/icons/original/000/008/001/Spurdo.jpg",
+          "official": false,
+          "uploader": "Know Your Meme"
+        }
+      ],
       "duration": 7,
       "note": "Still image. The card links to the Know Your Meme page; Plebflix does not host the picture.",
       "credit": "https://knowyourmeme.com/memes/spurdo-sparde",

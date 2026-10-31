@@ -24,12 +24,14 @@ function tape(id, year = 2004) {
     signals: ["a", "b", "c"],
     why: "It got passed around.",
     original_url: "https://example.com/tape",
-    play: {
-      kind: "youtube",
-      id_or_url: id.padEnd(11, "a").slice(0, 11),
-      official: false,
-      uploader: "test",
-    },
+    play: [
+      {
+        kind: "youtube",
+        id_or_url: id.padEnd(11, "a").slice(0, 11),
+        official: false,
+        uploader: "test",
+      },
+    ],
     creator: id === "loved" ? "Gary" : undefined,
     tags: id === "loved" ? ["webcam"] : undefined,
   };

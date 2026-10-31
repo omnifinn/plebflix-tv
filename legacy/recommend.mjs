@@ -161,7 +161,7 @@ export function parseSuggestion(body) {
     why: body.why.trim(),
     original_url: page,
     status: "pending",
-    play: playFor(extracted, page),
+    play: [playFor(extracted, page)],
     channel,
   };
   return { ok: true, suggestion };

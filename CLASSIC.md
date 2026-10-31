@@ -35,7 +35,7 @@ A tape also has to meet **at least three** of these. `signals` is the list of le
 | `original_url` | The original upload or site. If that page is gone, a Wayback snapshot that was actually fetched. Shown on the glass as SOURCE. |
 | `play` | How it plays: `youtube`, `archive`, or `link`, plus `official` and `uploader`. See `LIBRARIAN.md` §0. |
 
-Playback is a separate question, and it is the `play` object on the tape: a YouTube embed (the creator's or an official channel's upload when one exists), an archive.org embed when no YouTube upload is alive, or a link-out card when no embed exists. The set does not host the file. `original_url` can be a dead page's snapshot while the picture comes from a later upload. A link-out is not playback.
+Playback is a separate question, and it is the `play` list on the tape, best source first: a YouTube embed (the creator's or an official channel's upload when one exists), an archive.org stream, or a still from its public host. The set does not host the file. `original_url` can be a dead page's snapshot while the picture comes from a later upload.
 
 Flash-era `.swf` files stay off the loop. The deck does not run Ruffle. An archival SWF is a find, not a programme.
 

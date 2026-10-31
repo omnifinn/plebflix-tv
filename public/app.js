@@ -1,5 +1,5 @@
 import { syncFavicon } from "./favicon-mode.js";
-import { playback, watchUrl, youtubePoster } from "./play.js";
+import { archiveFile, sources, youtubePoster } from "./play.js";
 import { buildBroadcast, dayKey, dayStartSeconds, liveItems, liveSeconds, resolveDefinition, spotAt, shiftFromLive, totalDuration, DAY_SECONDS } from "./schedule.js";
 
 /* Plebflix TV — PLEBAMP skin (design: Iris). Rocker order follows the design: International, then Suomi. */
@@ -74,12 +74,15 @@ const shuffleHistory = [];
 const topStats = {};
 /** Tape ids whose embed returned 101/150 (or another fatal player error) this session. */
 const brokenEmbeds = new Set();
-/** The tape that already had its one retry on www.youtube.com. */
-let ytRetried = "";
+/** The current tape's sources, in the order they are being tried, and which one is up. */
+let sourceList = [];
+let sourceAt = 0;
+/** YouTube refused this many tapes in a row. Two means it is refusing this viewer, so other sources go first. */
+let ytRefusals = 0;
+/** Fires when an archive.org stream has not started in time. */
+let streamTimer = 0;
 /** The tape loadCurrent last asked the embed to play. */
 let currentItem = null;
-/** Wall clock when the archive.org iframe was pointed at `offset`, for LIVE drift. */
-let archiveAnchor = null;
 /** True while the deck is on the post-intro shuffle run (top tape, then onward). */
 let shuffleRun = false;
 
@@ -556,26 +559,9 @@ function followRow(row, list) {
   well.scrollTop = Math.max(0, row.offsetTop - list.offsetTop - row.offsetHeight * 1.5);
 }
 
-function hideLink() {
-  const link = $("card-link");
-  if (!link) return;
-  link.hidden = true;
-  link.removeAttribute("href");
-}
-
-function showCard(text) {
-  const card = $("card");
-  card.hidden = false;
-  card.classList.remove("ident");
-  hideLink();
-  $("card-mark").textContent = "PLEBFLIX";
-  $("card-sub").textContent = text;
-}
-
 function hideCard() {
   $("card").hidden = true;
   $("card").classList.remove("ident");
-  hideLink();
 }
 
 function showIdent(item) {
@@ -584,7 +570,6 @@ function showIdent(item) {
   hideEmbed();
   destroySwf();
   $("poster").hidden = true;
-  hideLink();
   const card = $("card");
   card.hidden = false;
   card.classList.add("ident");
@@ -593,51 +578,51 @@ function showIdent(item) {
   playerKind = "ident";
 }
 
-/** Link-out card: no file and no embed. The original page opens in a new tab. */
-function showLinkOut(item) {
+/** Every source refused. The tape keeps its slot on the shared schedule and says so; verify-all-play counts it as a failure. */
+function showNoSignal(item) {
   stopVideo();
   destroyYoutube();
   hideEmbed();
   destroySwf();
-  archiveAnchor = null;
-  const play = playback(item);
   $("poster").hidden = true;
   const card = $("card");
   card.hidden = false;
   card.classList.remove("ident");
   $("card-mark").textContent = item.title || "PLEBFLIX";
-  $("card-sub").textContent = play.uploader ? `OPEN ORIGINAL · ${play.uploader}` : "OPEN ORIGINAL";
-  const link = $("card-link");
-  const original = watchUrl(item);
-  if (link && /^https?:\/\//.test(original)) {
-    link.hidden = false;
-    link.href = original;
-    link.textContent = "Open the original";
-  }
-  playerKind = "link";
+  $("card-sub").textContent = "NO SIGNAL";
+  playerKind = "none";
+  markSource("none");
+}
+
+/** What is on the glass right now: "youtube:<id>", "archive:<id>", "image:<url>", "none", or empty while it starts. */
+function markSource(value) {
+  $("stage").dataset.source = value;
 }
 
 function showPoster(item) {
   const poster = $("poster");
-  const play = playback(item);
+  const list = sources(item);
+  const youtube = list.find((source) => source.kind === "youtube");
+  const archive = list.find((source) => source.kind === "archive");
   poster.hidden = false;
   poster.style.opacity = "1";
   poster.alt = "";
-  if (play.kind === "youtube" && play.id) {
-    poster.src = youtubePoster(play.id);
+  poster.onload = null;
+  if (youtube) {
+    poster.src = youtubePoster(youtube.id);
     poster.onerror = () => {
       poster.onerror = null;
-      poster.src = youtubePoster(play.id, "mqdefault");
+      poster.src = youtubePoster(youtube.id, "mqdefault");
     };
     return;
   }
-  if (play.kind === "archive" && play.id) {
+  if (archive) {
     poster.onerror = () => {
       poster.onerror = null;
       poster.removeAttribute("src");
       poster.hidden = true;
     };
-    poster.src = `https://archive.org/services/img/${encodeURIComponent(play.id)}`;
+    poster.src = `https://archive.org/services/img/${encodeURIComponent(archive.id)}`;
     return;
   }
   poster.onerror = null;
@@ -745,15 +730,13 @@ function unlockSound() {
     player.unMute();
     player.setVolume(100);
   }
-  // Archive.org has no player API. A tap is a user gesture, so reload the embed with autoplay.
-  if (playerKind === "archive" && currentItem && mode !== "paused" && mode !== "stopped") {
-    playArchive(currentItem, spotAt(playlist(), position())?.offset || 0);
-  }
+  if (playerKind === "archive" && vid) vid.muted = false;
 }
 
 const vid = $("vid");
 
 function stopVideo() {
+  clearTimeout(streamTimer);
   if (!vid) return;
   vid.pause();
   vid.hidden = true;
@@ -764,23 +747,119 @@ function stopVideo() {
   }
 }
 
-/** archive.org embed. Seeking reloads the iframe at the scheduled second. There is no local file. */
-function playArchive(item, offset) {
+/** A file streamed from archive.org into the deck's own <video>: seek, pause, sound and the EQ all work on it. */
+function playArchive(item, source, offset, attempt = 0) {
   stopVideo();
   destroyYoutube();
+  hideEmbed();
   destroySwf();
-  const play = playback(item);
-  const frame = $("embed");
-  const sec = Math.max(0, Math.floor(offset));
-  frame.hidden = false;
-  frame.src = `https://archive.org/embed/${encodeURIComponent(play.id)}?autoplay=1&start=${sec}`;
   playerKind = "archive";
-  archiveAnchor = { offset: Math.max(0, offset), at: Date.now() };
+  vid.hidden = false;
+  vid.muted = !soundOn;
+  vid.onloadedmetadata = () => {
+    vid.onloadedmetadata = null;
+    if (offset > 1 && Number.isFinite(vid.duration)) vid.currentTime = Math.min(offset, Math.max(0, vid.duration - 1));
+  };
+  vid.onplaying = () => {
+    clearTimeout(streamTimer);
+    $("poster").style.opacity = "0";
+    markSource(`${source.kind}:${source.id}`);
+  };
+  vid.onended = () => {
+    if (mode !== "paused" && mode !== "stopped") advance("end");
+  };
+  vid.onerror = () => {
+    // archive.org answers an occasional 500 from a busy node. The next request usually lands on a good one.
+    if (attempt < 2) {
+      clearTimeout(streamTimer);
+      streamTimer = setTimeout(() => {
+        const spot = spotAt(playlist(), mode === "paused" ? pausePos : position());
+        if (playerKind === "archive" && item === currentItem) playArchive(item, source, spot?.offset ?? offset, attempt + 1);
+      }, 1500);
+      return;
+    }
+    nextSource(item, "archive.org stream failed");
+  };
+  vid.src = archiveFile(source);
+  if (mode === "paused") return;
+  startStream(item);
 }
 
-function holdArchive() {
-  if (playerKind !== "archive") return;
+function startStream(item) {
+  clearTimeout(streamTimer);
+  streamTimer = setTimeout(() => {
+    if (playerKind === "archive") nextSource(item, "archive.org stream did not start");
+  }, 30000);
+  vid.play().catch(() => {
+    // Sound without a gesture is refused. Muted always plays; the tap-for-sound hint is already up.
+    vid.muted = true;
+    vid.play().catch(() => {});
+  });
+}
+
+/** A still from its public host. It holds its slot, as the 7-second loops did. */
+function showStill(item, source) {
+  stopVideo();
+  destroyYoutube();
   hideEmbed();
+  destroySwf();
+  playerKind = "image";
+  const poster = $("poster");
+  poster.onload = () => markSource(`image:${source.id}`);
+  poster.onerror = () => nextSource(item, "image did not load");
+  poster.hidden = false;
+  poster.style.opacity = "1";
+  poster.src = source.id;
+}
+
+/** Try the next source in the same slot. */
+function nextSource(item, why) {
+  console.warn(`[plebflix] ${item?.id || "?"}: ${why}`);
+  sourceAt += 1;
+  if (item !== currentItem) return;
+  const spot = spotAt(playlist(), mode === "paused" ? pausePos : position());
+  startSource(item, spot?.item === item || spot?.item.id === item.id ? spot.offset : 0, loadGen);
+}
+
+async function startSource(item, offset, gen) {
+  const source = sourceList[sourceAt];
+  if (!source) {
+    showNoSignal(item);
+    return;
+  }
+  markSource("");
+  if (source.kind === "image") {
+    showStill(item, source);
+    return;
+  }
+  if (source.kind === "archive" || source.kind === "wayback") {
+    playArchive(item, source, offset);
+    return;
+  }
+  stopVideo();
+  destroySwf();
+  hideEmbed();
+  try {
+    await loadApi();
+  } catch {
+    if (gen === loadGen) nextSource(item, "YouTube API did not load");
+    return;
+  }
+  if (gen !== loadGen || mode === "stopped") return;
+  ensureYtDiv();
+  const start = Math.max(0, Math.floor(offset));
+  if (player && typeof player.loadVideoById === "function") {
+    player.loadVideoById({ videoId: source.id, startSeconds: start });
+    if (soundOn) {
+      player.unMute?.();
+      player.setVolume?.(100);
+    } else {
+      player.mute?.();
+    }
+    if (mode === "paused") setTimeout(() => mode === "paused" && player?.pauseVideo?.(), 250);
+    return;
+  }
+  mountYoutube(source.id, start, "https://www.youtube-nocookie.com");
 }
 
 function onReady(event) {
@@ -813,6 +892,8 @@ function onState(event) {
   if (event.data === playing) {
     $("poster").style.opacity = "0";
     streak = 0;
+    ytRefusals = 0;
+    markSource(`youtube:${sourceList[sourceAt]?.id || ""}`);
   }
   if (event.data === ended && mode !== "paused" && mode !== "stopped") advance("end");
 }
@@ -821,29 +902,18 @@ function onError(event) {
   if (mode === "stopped" || !currentPlayer(event)) return;
   const code = Number(event?.data);
   const item = currentItem;
-  // 101 and 150: the owner disabled embedding, or YouTube's "not a bot" wall for this viewer's network.
-  // 100/153: gone or not embeddable. One retry on www.youtube.com, then this tape's link-out card. Never skip:
-  // a wall hits every tape, so skipping cascades and takes the viewer off the shared schedule.
-  console.warn(`[plebflix] embed error ${code} on ${item?.id || "?"} (${item?.title || ""}) ${item?.play?.id_or_url || ""}`);
+  // 101 and 150: the owner disabled embedding, or YouTube's "not a bot" wall. 2/5/100/153: gone or unplayable.
+  // Either way the slot stays and the next source takes it.
+  console.warn(`[plebflix] embed error ${code} on ${item?.id || "?"} (${item?.title || ""}) ${sourceList[sourceAt]?.id || ""}`);
   if (code === 2 || code === 5 || code === 100 || code === 101 || code === 150 || code === 153) {
-    if (item?.id && ytRetried !== item.id) {
-      ytRetried = item.id;
-      retryOnYoutube(item);
-      return;
-    }
     if (item?.id) brokenEmbeds.add(item.id);
-    showLinkOut(item);
+    ytRefusals += 1;
+    destroyYoutube();
+    nextSource(item, `YouTube error ${code}`);
   }
 }
 
-function retryOnYoutube(item) {
-  const spot = spotAt(playlist(), position());
-  destroyYoutube();
-  mountYoutube(playback(item).id, Math.max(0, Math.floor(spot?.item.id === item.id ? spot.offset : 0)), "https://www.youtube.com");
-}
-
 function mountYoutube(videoId, start, host) {
-  archiveAnchor = null;
   playerKind = "youtube";
   player = new window.YT.Player(ensureYtDiv(), {
     host,
@@ -901,76 +971,37 @@ async function loadCurrent(force) {
     return;
   }
   if (same && force && playerKind === "archive") {
-    if (mode === "paused") {
-      holdArchive();
-      return;
-    }
-    playArchive(spot.item, spot.offset);
+    ignoreUntil = Date.now() + 1500;
+    if (Number.isFinite(vid.duration)) vid.currentTime = Math.min(spot.offset, Math.max(0, vid.duration - 1));
+    if (mode === "paused") vid.pause();
+    else startStream(spot.item);
     return;
   }
-  if (same && force && playerKind === "link") return;
+  if (same && force && (playerKind === "image" || playerKind === "none")) return;
 
   loadedKey = key;
   currentItem = spot.item;
-  ytRetried = "";
+  sourceList = sources(spot.item);
+  if (ytRefusals >= 2) sourceList = [...sourceList.filter((source) => source.kind !== "youtube"), ...sourceList.filter((source) => source.kind === "youtube")];
+  sourceAt = 0;
+  markSource("");
   noteImpression(spot.item);
   announceTape(spot.item);
   const gen = ++loadGen;
   ignoreUntil = Date.now() + 4000;
   hideCard();
   document.title = `${spot.item.title} · Plebflix TV`;
-  const play = playback(spot.item);
-  if (play.kind === "link" || !play.id) {
-    showLinkOut(spot.item);
-    return;
-  }
   showPoster(spot.item);
-  const start = Math.max(0, Math.floor(spot.offset));
   stopVideo();
-  if (play.kind === "archive") {
-    if (mode === "paused") {
-      playerKind = "archive";
-      hideEmbed();
-      return;
-    }
-    playArchive(spot.item, spot.offset);
-    return;
-  }
-
-  destroySwf();
-  hideEmbed();
-  try {
-    await loadApi();
-  } catch {
-    showLinkOut(spot.item);
-    return;
-  }
-  if (gen !== loadGen || mode === "stopped") return;
-  ensureYtDiv();
-  const applySound = () => {
-    if (soundOn) {
-      player?.unMute?.();
-      player?.setVolume?.(100);
-    } else {
-      player?.mute?.();
-    }
-  };
-  if (player && typeof player.loadVideoById === "function") {
-    archiveAnchor = null;
-    player.loadVideoById({ videoId: play.id, startSeconds: start });
-    applySound();
-    if (mode === "paused") setTimeout(() => mode === "paused" && player?.pauseVideo?.(), 250);
-    return;
-  }
-  mountYoutube(play.id, start, "https://www.youtube-nocookie.com");
+  await startSource(spot.item, spot.offset, gen);
 }
 
 function syncDrift(spot) {
   if (playerKind === "archive") {
-    if (mode === "paused" || mode === "stopped" || Date.now() < ignoreUntil || !archiveAnchor) return;
-    const elapsed = (Date.now() - archiveAnchor.at) / 1000;
-    if (Math.abs(archiveAnchor.offset + elapsed - spot.offset) > 8) {
-      playArchive(spot.item, spot.offset);
+    if (mode === "paused" || mode === "stopped" || Date.now() < ignoreUntil || vid.readyState < 1) return;
+    if (vid.paused && !vid.ended) vid.play().catch(() => {});
+    if (spot.offset < vid.duration - 1 && Math.abs(vid.currentTime - spot.offset) > 3) {
+      vid.currentTime = spot.offset;
       ignoreUntil = Date.now() + 2000;
     }
     return;
@@ -1215,7 +1246,6 @@ function onPlay() {
     if (delta <= 2) goLive();
     else setTimeshift(pausePos);
     player?.playVideo?.();
-    if (playerKind === "archive" && currentItem) playArchive(currentItem, position());
     loadCurrent(true);
     return;
   }
@@ -1235,7 +1265,7 @@ function onPause() {
   pausePos = position();
   mode = "paused";
   player?.pauseVideo?.();
-  holdArchive();
+  if (playerKind === "archive") vid.pause();
   updateChrome(spotAt(playlist(), pausePos));
 }
 

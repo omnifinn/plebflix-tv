@@ -18,6 +18,7 @@
     "deploy:verify": "node scripts/deploy.mjs verify",
     "test": "node --test --test-concurrency=1",
     "smoke": "node scripts/smoke.mjs",
+    "verify-all-play": "node scripts/verify-all-play.mjs",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {

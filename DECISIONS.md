@@ -2,6 +2,20 @@
 
 Newest first. One entry per decision: date · who · decision · why · source.
 
+## 2026-10-31 · Niko via Page, Claude (session) · Every tape plays in-site; no link-outs; this reverses the retry-then-link-out entry below
+
+- **Decision (Niko):** no link-out cards, ever. Skipping a tape is a failure, not a fallback. Done means every tape PLAYING
+  in a real browser, per tape, with or without a VPN, with no rehosting. `npm run verify-all-play` is the proof.
+- **Decision (Claude):** `play` is an ordered list of `youtube`, `archive`, `image` sources. Archive sources stream the
+  file from archive.org into the deck's own `<video>`, because the archive.org iframe waits for a click. The Web Audio
+  graph stays off because archive.org's CDN sends no CORS header and a cross-origin file through it is silent. The
+  `www.youtube.com` retry is gone; it was refused exactly when `youtube-nocookie.com` was. A tape whose sources all fail
+  shows NO SIGNAL in its slot and counts as a failure, so nothing hides a broken tape. Dailymotion is out: its player
+  answered "Forbidden" in real Chrome from a network YouTube also refuses. No proxy and no YouTube front-end is used to
+  get past YouTube's bot check.
+- **Why:** Niko, 2026-10-31, updates 1-3 of Page's brief.
+- **Source:** Page's brief; `public/app.js`, `public/play.js`, `lib/schema.mjs`, `scripts/verify-all-play.mjs`.
+
 ## 2026-10-31 · Niko via Page, Claude (session) · A refused embed gets one retry, then its link-out card; the deck never skips on an error
 
 - **Decision:** on errors 2, 5, 100, 101, 150, 153 the player retries once on `www.youtube.com`, then shows that tape's

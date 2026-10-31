@@ -20,7 +20,7 @@ const repo = {
       signals: ["b", "c", "e"],
       why: "The track still defines a loading-screen scene.",
       original_url: "https://www.youtube.com/watch?v=y6120QOlsfU",
-      play: { kind: "youtube", id_or_url: "y6120QOlsfU", official: true, uploader: "Darude" },
+      play: [{ kind: "youtube", id_or_url: "y6120QOlsfU", official: true, uploader: "Darude" }],
     },
   ],
 };
@@ -42,7 +42,7 @@ const intl = {
       signals: ["a", "b", "c", "d"],
       why: "Weebl's animated badger loop.",
       original_url: "https://www.youtube.com/watch?v=EIyixC9NsLI",
-      play: { kind: "youtube", id_or_url: "EIyixC9NsLI", official: true, uploader: "Weebl's Stuff" },
+      play: [{ kind: "youtube", id_or_url: "EIyixC9NsLI", official: true, uploader: "Weebl's Stuff" }],
     },
   ],
 };
