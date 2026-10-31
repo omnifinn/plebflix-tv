@@ -84,6 +84,19 @@ async function prepare() {
   console.log("→ connector: run dist/deploy/step0-migrate.js, then dist/deploy/step1-session.js (save its JSON as dist/deploy/session.json)");
 }
 
+/**
+ * Cache-bust a verify request. A path that already has a query (`/api/stats?channel=suomi`)
+ * gets `&verify=`, not a second `?`, which the stats route rejects as 400.
+ * @param {string} base
+ * @param {string} pathname path, optionally with a query
+ * @param {number | string} [stamp]
+ */
+export function verifyUrl(base, pathname, stamp = Date.now()) {
+  const url = new URL(pathname, base.endsWith("/") ? base : `${base}/`);
+  url.searchParams.set("verify", String(stamp));
+  return url.href;
+}
+
 /** Split a migration file into statements: drop `--` comment lines, cut on `;`. (Our migrations hold no `;` in strings.) */
 export function statementsOf(sql) {
   return sql
@@ -213,7 +226,7 @@ async function verify() {
   for (const p of ["/", "/channels/suomi.json", "/channels/schedule.json", "/credits", "/takedown", "/api/stats?channel=suomi"]) {
     // Credits and takedown must be a 200 from the worker. A 307 to the same path is the .html redirect loop.
     const manual = p === "/credits" || p === "/takedown";
-    const r = await fetch(`${base}${p}?verify=${Date.now()}`, manual ? { redirect: "manual" } : undefined);
+    const r = await fetch(verifyUrl(base, p), manual ? { redirect: "manual" } : undefined);
     const location = r.headers.get("location") || "";
     check(manual ? r.status === 200 : r.ok, `${r.status} ${p}${location ? ` -> ${location}` : ""} ${r.headers.get("content-type") || ""}`);
     if (manual && r.status === 200) pages[p] = await r.text();
@@ -224,7 +237,7 @@ async function verify() {
   const takedown = pages["/takedown"] || "";
   check(takedown.includes("takedown@plebflix.com"), "takedown page names takedown@plebflix.com");
   // The live shell must load the app.js that carries this build's deck (glass click pauses / plays on).
-  const html = await (await fetch(`${base}/?verify=${Date.now()}`)).text();
+  const html = await (await fetch(verifyUrl(base, "/"))).text();
   const appUrl = (html.match(/src="(\/app\.js\?v=[a-f0-9]+)"/) || [])[1];
   check(Boolean(appUrl), `shell references a versioned app.js (${appUrl || "none"})`);
   if (appUrl) {
@@ -233,7 +246,7 @@ async function verify() {
     check(app.includes("shiftKind"), "live app.js: CONTINUOUS / TIMESHIFT modes");
   }
   // This exact build is live: the catalog stamp the deck polls matches the one built here.
-  const live = await (await fetch(`${base}/channels/index.json?verify=${Date.now()}`)).json().catch(() => ({}));
+  const live = await (await fetch(verifyUrl(base, "/channels/index.json"))).json().catch(() => ({}));
   const localFile = path.join(ASSETS, "channels/index.json");
   const local = fs.existsSync(localFile) ? JSON.parse(fs.readFileSync(localFile, "utf8")).build : "";
   check(Boolean(live.build) && (!local || live.build === local), `catalog build stamp live ${live.build || "none"} / built here ${local || "none"}`);

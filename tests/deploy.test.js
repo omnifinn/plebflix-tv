@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { readFileSync, readdirSync } from "node:fs";
 import test from "node:test";
-import { statementsOf } from "../scripts/deploy.mjs";
+import { statementsOf, verifyUrl } from "../scripts/deploy.mjs";
 
 test("publish metadata keeps plain-text bindings", () => {
   const src = readFileSync("scripts/deploy.mjs", "utf8");
@@ -11,6 +11,23 @@ test("publish metadata keeps plain-text bindings", () => {
   assert.ok(types.includes("plain_text"));
   assert.ok(types.includes("secret_text"));
   assert.ok(types.includes("secret_key"));
+});
+
+test("verify cache-bust joins an existing query with &", () => {
+  assert.equal(
+    verifyUrl("https://plebflix.com", "/api/stats?channel=suomi", 1),
+    "https://plebflix.com/api/stats?channel=suomi&verify=1",
+  );
+  assert.equal(verifyUrl("https://plebflix.com", "/", 1), "https://plebflix.com/?verify=1");
+  assert.equal(
+    verifyUrl("https://plebflix.com", "/channels/index.json", 1),
+    "https://plebflix.com/channels/index.json?verify=1",
+  );
+  const stats = new URL(verifyUrl("https://plebflix.com", "/api/stats?channel=suomi", 99));
+  assert.equal(stats.searchParams.get("channel"), "suomi");
+  assert.equal(stats.searchParams.get("verify"), "99");
+  assert.equal(stats.search.includes("?"), true);
+  assert.equal((stats.search.match(/\?/g) || []).length, 1);
 });
 
 test("migrations split into statements without comments", () => {
