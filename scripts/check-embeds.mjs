@@ -46,9 +46,11 @@ async function sourceAlive(source, fetchImpl) {
  */
 async function imageAlive(url, fetchImpl) {
   try {
-    const response = await fetchImpl(url, { signal: AbortSignal.timeout(20000) });
+    // Two bytes prove the file answers. A video must not be downloaded to check it.
+    const response = await fetchImpl(url, { headers: { range: "bytes=0-1" }, signal: AbortSignal.timeout(20000) });
+    await response.body?.cancel();
     if (!response.ok) return { ok: false, detail: `HTTP ${response.status}` };
-    return { ok: true, via: "image" };
+    return { ok: true, via: "fetch" };
   } catch (error) {
     return { ok: false, detail: error instanceof Error ? error.message : String(error) };
   }
