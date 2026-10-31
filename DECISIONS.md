@@ -2,6 +2,19 @@
 
 Newest first. One entry per decision: date · who · decision · why · source.
 
+## 2026-10-31 · Niko via Page, Claude (session) · A refused embed gets one retry, then its link-out card; the deck never skips on an error
+
+- **Decision:** on errors 2, 5, 100, 101, 150, 153 the player retries once on `www.youtube.com`, then shows that tape's
+  link-out card until the schedule moves on. `onReady` seeks to the scheduled offset and calls `playVideo()`. The player
+  box is a definite 100% × 100%. `youtube-nocookie.com` stays the first host; this narrows the 2026-10-31 "never hosts a
+  video" entry only for the retry. `npm run smoke` is the playback proof. The fix never tries to get past YouTube's wall.
+- **Why:** Niko: embed only, never rehost, never roll back, fix forward. Skipping turned a refusal into a cascade that
+  took viewers off the shared LIVE schedule, and the link-out card printed no link for YouTube tapes. Measured from this
+  Mac on 2026-10-31, on a Surfshark exit (HostRoyale): YouTube answers catalog tapes with "Sign in to confirm that you're
+  not a bot" (error 150) on both hosts, in Chrome and WebKit, including real signed-in Chrome; the control upload plays.
+  The same tape plays on youtube.com itself. Not measured: a connection without the VPN.
+- **Source:** Page's brief, 2026-10-31. `public/app.js`, `public/styles.css`, `scripts/smoke.mjs`.
+
 ## 2026-10-31 · Niko · The site never hosts a video
 
 - **Decision:** every tape plays through `play` (`youtube`, `archive`, or `link`). YouTube uses the IFrame Player API on

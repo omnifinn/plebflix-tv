@@ -1,5 +1,5 @@
 import { syncFavicon } from "./favicon-mode.js";
-import { playback, youtubePoster } from "./play.js";
+import { playback, watchUrl, youtubePoster } from "./play.js";
 import { buildBroadcast, dayKey, dayStartSeconds, liveItems, liveSeconds, resolveDefinition, spotAt, shiftFromLive, totalDuration, DAY_SECONDS } from "./schedule.js";
 
 /* Plebflix TV — PLEBAMP skin (design: Iris). Rocker order follows the design: International, then Suomi. */
@@ -74,6 +74,8 @@ const shuffleHistory = [];
 const topStats = {};
 /** Tape ids whose embed returned 101/150 (or another fatal player error) this session. */
 const brokenEmbeds = new Set();
+/** The tape that already had its one retry on www.youtube.com. */
+let ytRetried = "";
 /** The tape loadCurrent last asked the embed to play. */
 let currentItem = null;
 /** Wall clock when the archive.org iframe was pointed at `offset`, for LIVE drift. */
@@ -606,9 +608,10 @@ function showLinkOut(item) {
   $("card-mark").textContent = item.title || "PLEBFLIX";
   $("card-sub").textContent = play.uploader ? `OPEN ORIGINAL · ${play.uploader}` : "OPEN ORIGINAL";
   const link = $("card-link");
-  if (link && /^https?:\/\//.test(play.id)) {
+  const original = watchUrl(item);
+  if (link && /^https?:\/\//.test(original)) {
     link.hidden = false;
-    link.href = play.id;
+    link.href = original;
     link.textContent = "Open the original";
   }
   playerKind = "link";
@@ -789,6 +792,14 @@ function onReady(event) {
   } else {
     player?.mute?.();
   }
+  if (mode === "paused") return;
+  // Safari and others ignore the autoplay param, and start= is stale once the player has loaded. Mute comes first.
+  const spot = spotAt(playlist(), position());
+  if (spot && spot.item.id === currentItem?.id && spot.offset > 1) {
+    ignoreUntil = Date.now() + 1500;
+    player?.seekTo?.(spot.offset, true);
+  }
+  player?.playVideo?.();
 }
 
 function currentPlayer(event) {
@@ -810,12 +821,50 @@ function onError(event) {
   if (mode === "stopped" || !currentPlayer(event)) return;
   const code = Number(event?.data);
   const item = currentItem;
-  // 101 and 150: the owner disabled embedding. 100/153: gone or not embeddable. Skip and log.
+  // 101 and 150: the owner disabled embedding, or YouTube's "not a bot" wall for this viewer's network.
+  // 100/153: gone or not embeddable. One retry on www.youtube.com, then this tape's link-out card. Never skip:
+  // a wall hits every tape, so skipping cascades and takes the viewer off the shared schedule.
   console.warn(`[plebflix] embed error ${code} on ${item?.id || "?"} (${item?.title || ""}) ${item?.play?.id_or_url || ""}`);
   if (code === 2 || code === 5 || code === 100 || code === 101 || code === 150 || code === 153) {
+    if (item?.id && ytRetried !== item.id) {
+      ytRetried = item.id;
+      retryOnYoutube(item);
+      return;
+    }
     if (item?.id) brokenEmbeds.add(item.id);
-    advance("error");
+    showLinkOut(item);
   }
+}
+
+function retryOnYoutube(item) {
+  const spot = spotAt(playlist(), position());
+  destroyYoutube();
+  mountYoutube(playback(item).id, Math.max(0, Math.floor(spot?.item.id === item.id ? spot.offset : 0)), "https://www.youtube.com");
+}
+
+function mountYoutube(videoId, start, host) {
+  archiveAnchor = null;
+  playerKind = "youtube";
+  player = new window.YT.Player(ensureYtDiv(), {
+    host,
+    width: "100%",
+    height: "100%",
+    videoId,
+    playerVars: {
+      autoplay: 1,
+      mute: soundOn ? 0 : 1,
+      start,
+      controls: 0,
+      disablekb: 1,
+      fs: 0,
+      modestbranding: 1,
+      rel: 0,
+      playsinline: 1,
+      iv_load_policy: 3,
+      origin: location.origin,
+    },
+    events: { onReady, onError, onStateChange: onState },
+  });
 }
 
 async function loadCurrent(force) {
@@ -863,6 +912,7 @@ async function loadCurrent(force) {
 
   loadedKey = key;
   currentItem = spot.item;
+  ytRetried = "";
   noteImpression(spot.item);
   announceTape(spot.item);
   const gen = ++loadGen;
@@ -896,7 +946,7 @@ async function loadCurrent(force) {
     return;
   }
   if (gen !== loadGen || mode === "stopped") return;
-  const mount = ensureYtDiv();
+  ensureYtDiv();
   const applySound = () => {
     if (soundOn) {
       player?.unMute?.();
@@ -912,28 +962,7 @@ async function loadCurrent(force) {
     if (mode === "paused") setTimeout(() => mode === "paused" && player?.pauseVideo?.(), 250);
     return;
   }
-  archiveAnchor = null;
-  playerKind = "youtube";
-  player = new window.YT.Player(mount, {
-    host: "https://www.youtube-nocookie.com",
-    width: "100%",
-    height: "100%",
-    videoId: play.id,
-    playerVars: {
-      autoplay: 1,
-      mute: soundOn ? 0 : 1,
-      start,
-      controls: 0,
-      disablekb: 1,
-      fs: 0,
-      modestbranding: 1,
-      rel: 0,
-      playsinline: 1,
-      iv_load_policy: 3,
-      origin: location.origin,
-    },
-    events: { onReady, onError, onStateChange: onState },
-  });
+  mountYoutube(play.id, start, "https://www.youtube-nocookie.com");
 }
 
 function syncDrift(spot) {
