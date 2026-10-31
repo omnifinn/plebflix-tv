@@ -211,48 +211,6 @@
       "media_bytes": 24806815
     },
     {
-      "id": "smc-hoodrats",
-      "title": "SMC Hoodrats",
-      "year": 2009,
-      "source": "youtube",
-      "embedId": "kn2VcdTsy-U",
-      "duration": 343,
-      "note": "Archived copy of the linked upload.",
-      "credit": "https://www.youtube.com/watch?v=kn2VcdTsy-U",
-      "signals": [
-        "a",
-        "b",
-        "c",
-        "d"
-      ],
-      "why": "The original SMC home-made rap video, millions of plays from a suburb.",
-      "original_url": "https://www.youtube.com/watch?v=kn2VcdTsy-U",
-      "media": "/media/suomi/smc-hoodrats.mp4",
-      "poster": "/media/suomi/smc-hoodrats.jpg",
-      "media_bytes": 23935109
-    },
-    {
-      "id": "ismon-supervanukas",
-      "title": "Ismon supervanukas",
-      "year": 2008,
-      "source": "youtube",
-      "embedId": "i7HRfUaZqgk",
-      "duration": 65,
-      "note": "Archived copy of the linked upload.",
-      "credit": "https://www.youtube.com/watch?v=i7HRfUaZqgk",
-      "signals": [
-        "a",
-        "b",
-        "c",
-        "d"
-      ],
-      "why": "Peak Ismo remix culture: a Salatut elämät cut-up turned into a meme.",
-      "original_url": "https://www.youtube.com/watch?v=i7HRfUaZqgk",
-      "media": "/media/suomi/ismon-supervanukas.mp4",
-      "poster": "/media/suomi/ismon-supervanukas.jpg",
-      "media_bytes": 1733142
-    },
-    {
       "id": "tonnin-seteli",
       "title": "Kummeli – Tonnin seteli",
       "year": 2000,
@@ -391,26 +349,6 @@
       "media": "/media/suomi/kylla-muksu-tietaa.mp4",
       "poster": "/media/suomi/kylla-muksu-tietaa.jpg",
       "media_bytes": 1231297
-    },
-    {
-      "id": "uliuli",
-      "title": "Jukka Emil Vanaja – Uliuli",
-      "year": 2010,
-      "source": "youtube",
-      "embedId": "NWZ3ev_FiAA",
-      "duration": 224,
-      "note": "Archived copy of the linked upload.",
-      "credit": "https://www.youtube.com/watch?v=NWZ3ev_FiAA",
-      "signals": [
-        "a",
-        "b",
-        "d"
-      ],
-      "why": "A bedroom-made music video that became the 'uliuliuli' meme.",
-      "original_url": "https://www.youtube.com/watch?v=NWZ3ev_FiAA",
-      "media": "/media/suomi/uliuli.mp4",
-      "poster": "/media/suomi/uliuli.jpg",
-      "media_bytes": 19485619
     },
     {
       "id": "pertus",
@@ -953,26 +891,6 @@
       "media": "/media/suomi/kummeli-koistinen.mp4",
       "poster": "/media/suomi/kummeli-koistinen.jpg",
       "media_bytes": 3409670
-    },
-    {
-      "id": "kummeli-mursu",
-      "title": "Kummeli – Haista sinä mursu paska",
-      "year": 1993,
-      "source": "youtube",
-      "embedId": "vhQ9qeCQU4w",
-      "duration": 83,
-      "note": "Archived copy of the linked upload; credit to its original creators.",
-      "credit": "https://www.youtube.com/watch?v=vhQ9qeCQU4w",
-      "signals": [
-        "b",
-        "c",
-        "e"
-      ],
-      "why": "The insult that became a Finnish web catchphrase.",
-      "original_url": "https://www.youtube.com/watch?v=vhQ9qeCQU4w",
-      "media": "/media/suomi/kummeli-mursu.mp4",
-      "poster": "/media/suomi/kummeli-mursu.jpg",
-      "media_bytes": 5744185
     },
     {
       "id": "kummeli-kylakauppa",
@@ -2048,46 +1966,6 @@
       "media": "/media/suomi/ylilauta-nelonen.mp4",
       "poster": "/media/suomi/ylilauta-nelonen.jpg",
       "media_bytes": 5161471
-    },
-    {
-      "id": "frontside-ollie",
-      "title": "Robin – Frontside Ollie",
-      "year": 2012,
-      "source": "youtube",
-      "embedId": "oNfwMepTuZ0",
-      "duration": 181,
-      "note": "Archived copy of the linked upload.",
-      "credit": "https://www.youtube.com/watch?v=oNfwMepTuZ0",
-      "signals": [
-        "b",
-        "c",
-        "e"
-      ],
-      "why": "A 13-year-old's skate pop that conquered Finnish YouTube in 2012.",
-      "original_url": "https://www.youtube.com/watch?v=oNfwMepTuZ0",
-      "media": "/media/suomi/frontside-ollie.mp4",
-      "poster": "/media/suomi/frontside-ollie.jpg",
-      "media_bytes": 16508132
-    },
-    {
-      "id": "raptori-oi-beibi",
-      "title": "Raptori – Oi beibi",
-      "year": 1990,
-      "source": "youtube",
-      "embedId": "ITyJAcNJXyM",
-      "duration": 205,
-      "note": "Archived copy of the linked upload.",
-      "credit": "https://www.youtube.com/watch?v=ITyJAcNJXyM",
-      "signals": [
-        "b",
-        "c",
-        "e"
-      ],
-      "why": "The cult Finnish rap of 1990, rediscovered by millions online.",
-      "original_url": "https://www.youtube.com/watch?v=ITyJAcNJXyM",
-      "media": "/media/suomi/raptori-oi-beibi.mp4",
-      "poster": "/media/suomi/raptori-oi-beibi.jpg",
-      "media_bytes": 3134596
     },
     {
       "id": "spurdo-sparde",
