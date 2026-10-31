@@ -1,6 +1,6 @@
 {
-  "_readme": "One place for every share card, favicon and theme-color tag. Swap files in public/, bump `version` (e.g. 4) so X/WhatsApp/iMessage refetch, then build + deploy. index.html's <!-- share:begin/end --> block and the /suomi page are both rendered from this file. v5 (30 Oct 2026): Iris's final navy player-window card + 'Record P' favicon with four tab states (favicons/<state>/, swapped by favicons/favicon-state.js); /suomi shares the main card and icons.",
-  "version": 5,
+  "_readme": "One place for every share card, favicon and theme-color tag. Swap files in public/, bump `version` (e.g. 4) so X/WhatsApp/iMessage refetch, then build + deploy. index.html's <!-- share:begin/end --> block and the /suomi page are both rendered from this file. v5 (30 Oct 2026): Iris's final navy player-window card + 'Record P' favicon with four tab states (favicons/<state>/, swapped by favicons/favicon-state.js); /suomi shares the main card and icons. v9 (31 Oct 2026): Boxing Cats share image; /suomi shares it. Favicon files are unchanged; their query string moves with version so the state swapper stays in step.",
+  "version": 9,
   "origin": "https://plebflix.com",
   "icons": {
     "svg": "/favicons/live/favicon.svg",
@@ -22,8 +22,8 @@
     "image": "/og-image.png",
     "imageWidth": 1200,
     "imageHeight": 630,
-    "imageAlt": "Plebflix TV classic-style media player window playing 'Me at the zoo' (Jawed Karim & Yakov Lapitsky, CC BY 3.0)",
-    "twitterImageAlt": "Plebflix TV classic-style media player window playing 'Me at the zoo' (Jawed Karim & Yakov Lapitsky, CC BY 3.0)"
+    "imageAlt": "Plebflix TV: a retro media player playing \"The Boxing Cats (Prof. Welton's)\" (1894), two cats in boxing gloves sparring. Edison Manufacturing Co., public domain.",
+    "twitterImageAlt": "Plebflix TV: a retro media player playing \"The Boxing Cats (Prof. Welton's)\" (1894), two cats in boxing gloves sparring. Edison Manufacturing Co., public domain."
   },
   "suomi": {
     "path": "/suomi",
