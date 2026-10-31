@@ -16,7 +16,7 @@
   "assets": {
     "directory": "./dist/assets",
     "binding": "ASSETS",
-    "run_worker_first": ["/api/*", "/media/*", "/suomi", "/suomi/"]
+    "run_worker_first": ["/api/*", "/suomi", "/suomi/", "/credits", "/credits/", "/takedown", "/takedown/"]
   },
   "ratelimits": [
     { "name": "REC_RL", "namespace_id": "4101", "simple": { "limit": 3, "period": 60 } },

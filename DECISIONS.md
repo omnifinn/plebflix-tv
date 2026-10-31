@@ -2,6 +2,18 @@
 
 Newest first. One entry per decision: date · who · decision · why · source.
 
+## 2026-10-31 · Niko · The site never hosts a video
+
+- **Decision:** every tape plays through `play` (`youtube`, `archive`, or `link`). YouTube uses the IFrame Player API on
+  `youtube-nocookie.com`, seeked to the scheduled offset. archive.org is the fallback embed. No embed means a link-out
+  card. `/media` is not served, the asset build does not include tape files, and `media`, `poster`, `media_bytes`, and
+  `media_source` are rejected. Posters are YouTube's own thumbnails or the player's poster. `/credits` lists every tape
+  and `/takedown` tells rights holders to write to `takedown@plebflix.com`. `npm run check-embeds` is the weekly liveness
+  check and is not a CI gate. The old ingest, batch, range, and Ruffle code sits in `legacy/`.
+- **Why:** Niko: the site must be clean on copyright. Items link to their original source and play embedded. Nothing is
+  hosted, including the old 7-second meme loops.
+- **Source:** Niko, 2026-10-31. `public/play.js`, `public/app.js`, `lib/schema.mjs`, `LIBRARIAN.md` §0.
+
 ## 2026-10-30 · Niko · Niko talks only to Page; Page drives Claude headless; plebflix maintenance ships without asking him
 - **Decision:** the pipeline is Niko → Page (any device) → `claude -p` on this Mac → GitHub → Page's Cloudflare connector
   → plebflix.com. Claude owns code, tests, commits, pushes and the deploy preparation; Page runs the connector's signed

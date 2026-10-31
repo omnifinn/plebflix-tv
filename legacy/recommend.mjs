@@ -161,6 +161,7 @@ export function parseSuggestion(body) {
     why: body.why.trim(),
     original_url: page,
     status: "pending",
+    play: playFor(extracted, page),
     channel,
   };
   return { ok: true, suggestion };
@@ -232,6 +233,17 @@ export function extractEmbed(raw) {
     return { source: "other", embedId };
   }
   return null;
+}
+
+/** A pending card still has to carry `play`. Official is false until a person confirms the upload. */
+function playFor(extracted, page) {
+  if (extracted.source === "youtube") {
+    return { kind: "youtube", id_or_url: extracted.embedId, official: false, uploader: "unknown" };
+  }
+  if (extracted.source === "archive.org") {
+    return { kind: "archive", id_or_url: extracted.embedId, official: false, uploader: "unknown" };
+  }
+  return { kind: "link", id_or_url: page, official: false, uploader: "unknown" };
 }
 
 /** @param {string} host */
@@ -366,6 +378,7 @@ function pullBody(item, channel) {
     "The entry is marked `\"status\": \"pending\"` with `duration: 0`. It is **not** in the live loop until this checklist is done:",
     "",
     "- [ ] Open the link and confirm a real embed plays inside the set",
+    "- [ ] Set `play.uploader`, and `play.official` once you know whose upload it is",
     "- [ ] Set `duration` to the length in seconds",
     "- [ ] Remove `\"status\": \"pending\"`",
     "- [ ] Confirm it is not a duplicate",

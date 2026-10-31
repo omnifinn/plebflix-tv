@@ -10,6 +10,12 @@
       "year": 2004,
       "source": "youtube",
       "embedId": "Cqd1Gvq-RBY",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "Cqd1Gvq-RBY",
+        "official": true,
+        "uploader": "Gary Brolsma"
+      },
       "duration": 100,
       "note": "Gary Brolsma's Numa Numa Dance, filmed on a webcam.",
       "credit": "https://www.youtube.com/watch?v=Cqd1Gvq-RBY",
@@ -20,10 +26,7 @@
         "d"
       ],
       "why": "Gary Brolsma's Numa Numa Dance, filmed on a webcam.",
-      "original_url": "https://web.archive.org/web/20041211162602/http://www.newgrounds.com:80/portal/view/206373",
-      "media": "/media/international/numa-numa.mp4",
-      "poster": "/media/international/numa-numa.jpg",
-      "media_bytes": 6387523
+      "original_url": "https://web.archive.org/web/20041211162602/http://www.newgrounds.com:80/portal/view/206373"
     },
     {
       "id": "badgers",
@@ -31,6 +34,12 @@
       "year": 2003,
       "source": "youtube",
       "embedId": "EIyixC9NsLI",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "EIyixC9NsLI",
+        "official": true,
+        "uploader": "Weebl's Stuff"
+      },
       "duration": 73,
       "note": "Weebl's animated badger loop.",
       "credit": "https://www.youtube.com/watch?v=EIyixC9NsLI",
@@ -42,10 +51,7 @@
         "e"
       ],
       "why": "Weebl's animated badger loop.",
-      "original_url": "https://web.archive.org/web/20050523232618/http://www.weebls-stuff.com:80/toons/badgers/",
-      "media": "/media/international/badgers.mp4",
-      "poster": "/media/international/badgers.jpg",
-      "media_bytes": 2839641
+      "original_url": "https://web.archive.org/web/20050523232618/http://www.weebls-stuff.com:80/toons/badgers/"
     },
     {
       "id": "star-wars-kid",
@@ -53,6 +59,12 @@
       "year": 2003,
       "source": "youtube",
       "embedId": "HPPj6viIBmU",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "HPPj6viIBmU",
+        "official": true,
+        "uploader": "Jimi Love"
+      },
       "duration": 109,
       "note": "The 2002 practice tape, as it spread in 2003.",
       "credit": "https://www.youtube.com/watch?v=HPPj6viIBmU",
@@ -64,10 +76,7 @@
         "e"
       ],
       "why": "The 2002 practice tape, as it spread in 2003.",
-      "original_url": "https://www.youtube.com/watch?v=HPPj6viIBmU",
-      "media": "/media/international/star-wars-kid.mp4",
-      "poster": "/media/international/star-wars-kid.jpg",
-      "media_bytes": 8781914
+      "original_url": "https://www.youtube.com/watch?v=HPPj6viIBmU"
     },
     {
       "id": "peanut-butter-jelly-time",
@@ -75,6 +84,12 @@
       "year": 2002,
       "source": "youtube",
       "embedId": "Z3ZAGBL6UBA",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "Z3ZAGBL6UBA",
+        "official": true,
+        "uploader": "AlbinoBlackSheep"
+      },
       "duration": 106,
       "note": "The dancing banana. The Shockwave file does not play, so this is the YouTube copy.",
       "credit": "https://www.youtube.com/watch?v=Z3ZAGBL6UBA",
@@ -85,10 +100,7 @@
         "d"
       ],
       "why": "The dancing banana. The Shockwave file does not play, so this is the YouTube copy.",
-      "original_url": "https://www.youtube.com/watch?v=Z3ZAGBL6UBA",
-      "media": "/media/international/peanut-butter-jelly-time.mp4",
-      "poster": "/media/international/peanut-butter-jelly-time.jpg",
-      "media_bytes": 3375994
+      "original_url": "https://www.youtube.com/watch?v=Z3ZAGBL6UBA"
     },
     {
       "id": "keyboard-cat",
@@ -96,6 +108,12 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "J---aiyznGQ",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "J---aiyznGQ",
+        "official": true,
+        "uploader": "Keyboard Cat!"
+      },
       "duration": 54,
       "note": "The original upload that hit in 2007. Charlie Schmidt filmed the cat in 1984.",
       "credit": "https://www.youtube.com/watch?v=J---aiyznGQ",
@@ -107,10 +125,7 @@
         "e"
       ],
       "why": "The original upload that hit in 2007. Charlie Schmidt filmed the cat in 1984.",
-      "original_url": "https://www.youtube.com/watch?v=J---aiyznGQ",
-      "media": "/media/international/keyboard-cat.mp4",
-      "poster": "/media/international/keyboard-cat.jpg",
-      "media_bytes": 1897378
+      "original_url": "https://www.youtube.com/watch?v=J---aiyznGQ"
     },
     {
       "id": "dramatic-chipmunk",
@@ -118,6 +133,12 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "mfhBM_Yay6w",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "mfhBM_Yay6w",
+        "official": true,
+        "uploader": "libertycityemergency"
+      },
       "duration": 5,
       "note": "Five seconds and a zoom. The whole joke.",
       "credit": "https://www.youtube.com/watch?v=mfhBM_Yay6w",
@@ -129,10 +150,7 @@
         "e"
       ],
       "why": "Five seconds and a zoom. The whole joke.",
-      "original_url": "https://www.youtube.com/watch?v=mfhBM_Yay6w",
-      "media": "/media/international/dramatic-chipmunk.mp4",
-      "poster": "/media/international/dramatic-chipmunk.jpg",
-      "media_bytes": 117855
+      "original_url": "https://www.youtube.com/watch?v=mfhBM_Yay6w"
     },
     {
       "id": "leeroy-jenkins",
@@ -140,6 +158,12 @@
       "year": 2005,
       "source": "youtube",
       "embedId": "mLyOj_QD4a4",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "mLyOj_QD4a4",
+        "official": false,
+        "uploader": "J Jonah Jameson"
+      },
       "duration": 171,
       "note": "An HD upload of the 2005 World of Warcraft machinima.",
       "credit": "https://www.youtube.com/watch?v=mLyOj_QD4a4",
@@ -151,10 +175,7 @@
         "e"
       ],
       "why": "An HD upload of the 2005 World of Warcraft machinima.",
-      "original_url": "https://www.youtube.com/watch?v=mLyOj_QD4a4",
-      "media": "/media/international/leeroy-jenkins.mp4",
-      "poster": "/media/international/leeroy-jenkins.jpg",
-      "media_bytes": 10722291
+      "original_url": "https://www.youtube.com/watch?v=mLyOj_QD4a4"
     },
     {
       "id": "charlie-bit-my-finger",
@@ -162,6 +183,12 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "_OBlgSz8sSM",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "_OBlgSz8sSM",
+        "official": true,
+        "uploader": "HDCYT"
+      },
       "duration": 56,
       "note": "Harry and Charlie, the original upload.",
       "credit": "https://www.youtube.com/watch?v=_OBlgSz8sSM",
@@ -173,11 +200,7 @@
         "e"
       ],
       "why": "Harry and Charlie, the original upload.",
-      "original_url": "https://www.youtube.com/watch?v=_OBlgSz8sSM",
-      "media_source": "https://www.youtube.com/watch?v=0EqSXDwTq6U",
-      "media": "/media/international/charlie-bit-my-finger.mp4",
-      "poster": "/media/international/charlie-bit-my-finger.jpg",
-      "media_bytes": 2512884
+      "original_url": "https://www.youtube.com/watch?v=_OBlgSz8sSM"
     },
     {
       "id": "all-your-base",
@@ -185,6 +208,12 @@
       "year": 2001,
       "source": "youtube",
       "embedId": "qItugh-fFgg",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "qItugh-fFgg",
+        "official": true,
+        "uploader": "zuchini"
+      },
       "duration": 261,
       "note": "The Zero Wing flash mob. The Flash file does not play, so this is the YouTube copy.",
       "credit": "https://www.youtube.com/watch?v=qItugh-fFgg",
@@ -196,10 +225,7 @@
         "e"
       ],
       "why": "The Zero Wing flash mob. The Flash file does not play, so this is the YouTube copy.",
-      "original_url": "https://web.archive.org/web/20020722045409/http://allyourbasearebelongto.us:80/",
-      "media": "/media/international/all-your-base.mp4",
-      "poster": "/media/international/all-your-base.jpg",
-      "media_bytes": 4333859
+      "original_url": "https://web.archive.org/web/20020722045409/http://allyourbasearebelongto.us:80/"
     },
     {
       "id": "llama-song",
@@ -207,6 +233,12 @@
       "year": 2004,
       "source": "youtube",
       "embedId": "KMYN4djSq7o",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "KMYN4djSq7o",
+        "official": true,
+        "uploader": "AlbinoBlackSheep"
+      },
       "duration": 40,
       "note": "Albino Blacksheep's llama.",
       "credit": "https://www.youtube.com/watch?v=KMYN4djSq7o",
@@ -218,10 +250,7 @@
         "e"
       ],
       "why": "Albino Blacksheep's llama.",
-      "original_url": "https://web.archive.org/web/20041216010925/http://www.albinoblacksheep.com:80/flash/llama",
-      "media": "/media/international/llama-song.mp4",
-      "poster": "/media/international/llama-song.jpg",
-      "media_bytes": 1415103
+      "original_url": "https://web.archive.org/web/20041216010925/http://www.albinoblacksheep.com:80/flash/llama"
     },
     {
       "id": "hampster-dance",
@@ -229,6 +258,12 @@
       "year": 1998,
       "source": "archive.org",
       "embedId": "thd",
+      "play": {
+        "kind": "archive",
+        "id_or_url": "thd",
+        "official": false,
+        "uploader": "Legotronn"
+      },
       "duration": 37,
       "note": "Hampton's GIF loop, from a playable Internet Archive film.",
       "credit": "https://archive.org/details/thd",
@@ -240,10 +275,7 @@
         "e"
       ],
       "why": "Hampton's GIF loop, from a playable Internet Archive film.",
-      "original_url": "https://web.archive.org/web/19990423132243/http://www.hampsterdance.com:80/",
-      "media": "/media/international/hampster-dance.mp4",
-      "poster": "/media/international/hampster-dance.jpg",
-      "media_bytes": 1839120
+      "original_url": "https://web.archive.org/web/19990423132243/http://www.hampsterdance.com:80/"
     },
     {
       "id": "leekspin",
@@ -251,6 +283,12 @@
       "year": 2006,
       "source": "youtube",
       "embedId": "GCO62VNm67k",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "GCO62VNm67k",
+        "official": true,
+        "uploader": "loulan"
+      },
       "duration": 133,
       "note": "The leek spin. The song itself is on the Suomi channel.",
       "credit": "https://www.youtube.com/watch?v=GCO62VNm67k",
@@ -262,10 +300,7 @@
         "e"
       ],
       "why": "The leek spin. The song itself is on the Suomi channel.",
-      "original_url": "https://www.youtube.com/watch?v=GCO62VNm67k",
-      "media": "/media/international/leekspin.mp4",
-      "poster": "/media/international/leekspin.jpg",
-      "media_bytes": 4081644
+      "original_url": "https://www.youtube.com/watch?v=GCO62VNm67k"
     },
     {
       "id": "chocolate-rain",
@@ -273,6 +308,12 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "EwTZ2xpQwpA",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "EwTZ2xpQwpA",
+        "official": true,
+        "uploader": "TayZonday"
+      },
       "duration": 292,
       "note": "Tay Zonday.",
       "credit": "https://www.youtube.com/watch?v=EwTZ2xpQwpA",
@@ -284,10 +325,7 @@
         "e"
       ],
       "why": "Tay Zonday.",
-      "original_url": "https://www.youtube.com/watch?v=EwTZ2xpQwpA",
-      "media": "/media/international/chocolate-rain.mp4",
-      "poster": "/media/international/chocolate-rain.jpg",
-      "media_bytes": 12535733
+      "original_url": "https://www.youtube.com/watch?v=EwTZ2xpQwpA"
     },
     {
       "id": "evolution-of-dance",
@@ -295,6 +333,12 @@
       "year": 2006,
       "source": "youtube",
       "embedId": "dMH0bHeiRNg",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "dMH0bHeiRNg",
+        "official": true,
+        "uploader": "Judson Laipply"
+      },
       "duration": 360,
       "note": "Judson Laipply. Duration is the commonly cited six-minute cut.",
       "credit": "https://www.youtube.com/watch?v=dMH0bHeiRNg",
@@ -305,10 +349,7 @@
         "d"
       ],
       "why": "Judson Laipply. Duration is the commonly cited six-minute cut.",
-      "original_url": "https://www.youtube.com/watch?v=dMH0bHeiRNg",
-      "media": "/media/international/evolution-of-dance.mp4",
-      "poster": "/media/international/evolution-of-dance.jpg",
-      "media_bytes": 8003385
+      "original_url": "https://www.youtube.com/watch?v=dMH0bHeiRNg"
     },
     {
       "id": "salad-fingers",
@@ -316,6 +357,12 @@
       "year": 2004,
       "source": "youtube",
       "embedId": "M3iOROuTuMA",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "M3iOROuTuMA",
+        "official": true,
+        "uploader": "David Firth"
+      },
       "duration": 110,
       "note": "David Firth's first episode, from the original upload.",
       "credit": "https://www.youtube.com/watch?v=M3iOROuTuMA",
@@ -327,10 +374,7 @@
         "e"
       ],
       "why": "David Firth's first episode, from the original upload.",
-      "original_url": "https://www.youtube.com/watch?v=M3iOROuTuMA",
-      "media": "/media/international/salad-fingers.mp4",
-      "poster": "/media/international/salad-fingers.jpg",
-      "media_bytes": 2478381
+      "original_url": "https://www.youtube.com/watch?v=M3iOROuTuMA"
     },
     {
       "id": "charlie-the-unicorn",
@@ -338,6 +382,12 @@
       "year": 2005,
       "source": "youtube",
       "embedId": "CsGYh8AacgY",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "CsGYh8AacgY",
+        "official": true,
+        "uploader": "FilmCow"
+      },
       "duration": 226,
       "note": "FilmCow. Candy Mountain.",
       "credit": "https://www.youtube.com/watch?v=CsGYh8AacgY",
@@ -349,10 +399,7 @@
         "e"
       ],
       "why": "FilmCow. Candy Mountain.",
-      "original_url": "https://www.youtube.com/watch?v=CsGYh8AacgY",
-      "media": "/media/international/charlie-the-unicorn.mp4",
-      "poster": "/media/international/charlie-the-unicorn.jpg",
-      "media_bytes": 4609873
+      "original_url": "https://www.youtube.com/watch?v=CsGYh8AacgY"
     },
     {
       "id": "potter-puppet-pals",
@@ -360,6 +407,12 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "Tx1XIm6q4r4",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "Tx1XIm6q4r4",
+        "official": true,
+        "uploader": "Neil Cicierega"
+      },
       "duration": 126,
       "note": "Neil Cicierega's Potter Puppet Pals.",
       "credit": "https://www.youtube.com/watch?v=Tx1XIm6q4r4",
@@ -371,10 +424,7 @@
         "e"
       ],
       "why": "Neil Cicierega's Potter Puppet Pals.",
-      "original_url": "https://www.youtube.com/watch?v=Tx1XIm6q4r4",
-      "media": "/media/international/potter-puppet-pals.mp4",
-      "poster": "/media/international/potter-puppet-pals.jpg",
-      "media_bytes": 3384717
+      "original_url": "https://www.youtube.com/watch?v=Tx1XIm6q4r4"
     },
     {
       "id": "shoes",
@@ -382,6 +432,12 @@
       "year": 2006,
       "source": "youtube",
       "embedId": "wCF3ywukQYA",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "wCF3ywukQYA",
+        "official": true,
+        "uploader": "LiamKyleSullivan"
+      },
       "duration": 241,
       "note": "Liam Kyle Sullivan, the full version.",
       "credit": "https://www.youtube.com/watch?v=wCF3ywukQYA",
@@ -392,10 +448,7 @@
         "d"
       ],
       "why": "Liam Kyle Sullivan, the full version.",
-      "original_url": "https://www.youtube.com/watch?v=wCF3ywukQYA",
-      "media": "/media/international/shoes.mp4",
-      "poster": "/media/international/shoes.jpg",
-      "media_bytes": 16711484
+      "original_url": "https://www.youtube.com/watch?v=wCF3ywukQYA"
     },
     {
       "id": "daft-hands",
@@ -403,6 +456,12 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "K2cYWfq--Nw",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "K2cYWfq--Nw",
+        "official": true,
+        "uploader": "Fr. Eckle Studios"
+      },
       "duration": 224,
       "note": "The hands-only Harder, Better, Faster, Stronger.",
       "credit": "https://www.youtube.com/watch?v=K2cYWfq--Nw",
@@ -413,10 +472,7 @@
         "d"
       ],
       "why": "The hands-only Harder, Better, Faster, Stronger.",
-      "original_url": "https://www.youtube.com/watch?v=K2cYWfq--Nw",
-      "media": "/media/international/daft-hands.mp4",
-      "poster": "/media/international/daft-hands.jpg",
-      "media_bytes": 9922476
+      "original_url": "https://www.youtube.com/watch?v=K2cYWfq--Nw"
     },
     {
       "id": "ok-go",
@@ -424,6 +480,12 @@
       "year": 2006,
       "source": "youtube",
       "embedId": "dTAAsCNK7RA",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "dTAAsCNK7RA",
+        "official": true,
+        "uploader": "OKGoVEVO"
+      },
       "duration": 186,
       "note": "OK Go's treadmill video, official upload.",
       "credit": "https://www.youtube.com/watch?v=dTAAsCNK7RA",
@@ -434,10 +496,7 @@
         "e"
       ],
       "why": "OK Go's treadmill video, official upload.",
-      "original_url": "https://www.youtube.com/watch?v=dTAAsCNK7RA",
-      "media": "/media/international/ok-go.mp4",
-      "poster": "/media/international/ok-go.jpg",
-      "media_bytes": 14715770
+      "original_url": "https://www.youtube.com/watch?v=dTAAsCNK7RA"
     },
     {
       "id": "end-of-ze-world",
@@ -445,6 +504,12 @@
       "year": 2003,
       "source": "youtube",
       "embedId": "8ybv5e7VsCU",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "8ybv5e7VsCU",
+        "official": false,
+        "uploader": "Voiceoverguyfromch"
+      },
       "duration": 93,
       "note": "The Flash cartoon.",
       "credit": "https://www.youtube.com/watch?v=8ybv5e7VsCU",
@@ -455,11 +520,7 @@
         "d"
       ],
       "why": "The Flash cartoon.",
-      "original_url": "https://www.youtube.com/watch?v=8ybv5e7VsCU",
-      "media_source": "https://www.youtube.com/watch?v=nZMwKPmsbWE",
-      "media": "/media/international/end-of-ze-world.mp4",
-      "poster": "/media/international/end-of-ze-world.jpg",
-      "media_bytes": 1650628
+      "original_url": "https://www.youtube.com/watch?v=8ybv5e7VsCU"
     },
     {
       "id": "we-like-the-moon",
@@ -467,6 +528,12 @@
       "year": 2003,
       "source": "youtube",
       "embedId": "I9MZNEXrElw",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "I9MZNEXrElw",
+        "official": true,
+        "uploader": "Rathergood"
+      },
       "duration": 89,
       "note": "Rathergood's spoderman spiral.",
       "credit": "https://www.youtube.com/watch?v=I9MZNEXrElw",
@@ -477,10 +544,7 @@
         "d"
       ],
       "why": "Rathergood's spoderman spiral.",
-      "original_url": "https://www.youtube.com/watch?v=I9MZNEXrElw",
-      "media": "/media/international/we-like-the-moon.mp4",
-      "poster": "/media/international/we-like-the-moon.jpg",
-      "media_bytes": 4240245
+      "original_url": "https://www.youtube.com/watch?v=I9MZNEXrElw"
     },
     {
       "id": "magical-trevor",
@@ -488,6 +552,12 @@
       "year": 2004,
       "source": "youtube",
       "embedId": "au3-hk-pXsM",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "au3-hk-pXsM",
+        "official": true,
+        "uploader": "Weebl's Stuff"
+      },
       "duration": 50,
       "note": "Weebl, episode one.",
       "credit": "https://www.youtube.com/watch?v=au3-hk-pXsM",
@@ -498,10 +568,7 @@
         "d"
       ],
       "why": "Weebl, episode one.",
-      "original_url": "https://www.youtube.com/watch?v=au3-hk-pXsM",
-      "media": "/media/international/magical-trevor.mp4",
-      "poster": "/media/international/magical-trevor.jpg",
-      "media_bytes": 1700095
+      "original_url": "https://www.youtube.com/watch?v=au3-hk-pXsM"
     },
     {
       "id": "narwhals",
@@ -509,6 +576,12 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "ykwqXuMPsoc",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "ykwqXuMPsoc",
+        "official": true,
+        "uploader": "Weebl's Stuff"
+      },
       "duration": 69,
       "note": "Weebl. They are the Jedi of the sea.",
       "credit": "https://www.youtube.com/watch?v=ykwqXuMPsoc",
@@ -519,10 +592,7 @@
         "d"
       ],
       "why": "Weebl. They are the Jedi of the sea.",
-      "original_url": "https://www.youtube.com/watch?v=ykwqXuMPsoc",
-      "media": "/media/international/narwhals.mp4",
-      "poster": "/media/international/narwhals.jpg",
-      "media_bytes": 6342184
+      "original_url": "https://www.youtube.com/watch?v=ykwqXuMPsoc"
     },
     {
       "id": "amazing-horse",
@@ -530,6 +600,12 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "GUl9_5kK9ts",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "GUl9_5kK9ts",
+        "official": true,
+        "uploader": "Weebl's Stuff"
+      },
       "duration": 54,
       "note": "Weebl. The year is approximate.",
       "credit": "https://www.youtube.com/watch?v=GUl9_5kK9ts",
@@ -540,10 +616,7 @@
         "d"
       ],
       "why": "Weebl. The year is approximate.",
-      "original_url": "https://www.youtube.com/watch?v=GUl9_5kK9ts",
-      "media": "/media/international/amazing-horse.mp4",
-      "poster": "/media/international/amazing-horse.jpg",
-      "media_bytes": 2389617
+      "original_url": "https://www.youtube.com/watch?v=GUl9_5kK9ts"
     },
     {
       "id": "trololo",
@@ -551,6 +624,12 @@
       "year": 1976,
       "source": "youtube",
       "embedId": "oavMtUWDBTM",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "oavMtUWDBTM",
+        "official": true,
+        "uploader": "RealPapaPit"
+      },
       "duration": 161,
       "note": "Eduard Khil's 1976 performance, on the upload that went around in 2009.",
       "credit": "https://www.youtube.com/watch?v=oavMtUWDBTM",
@@ -560,10 +639,7 @@
         "e"
       ],
       "why": "Eduard Khil's 1976 performance, on the upload that went around in 2009.",
-      "original_url": "https://www.youtube.com/watch?v=oavMtUWDBTM",
-      "media": "/media/international/trololo.mp4",
-      "poster": "/media/international/trololo.jpg",
-      "media_bytes": 5536677
+      "original_url": "https://www.youtube.com/watch?v=oavMtUWDBTM"
     },
     {
       "id": "rickroll",
@@ -571,6 +647,12 @@
       "year": 1987,
       "source": "youtube",
       "embedId": "dQw4w9WgXcQ",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "dQw4w9WgXcQ",
+        "official": true,
+        "uploader": "Rick Astley"
+      },
       "duration": 213,
       "note": "Rick Astley's official video. The bait-and-switch arrived in 2007.",
       "credit": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
@@ -580,10 +662,7 @@
         "e"
       ],
       "why": "Rick Astley's official video. The bait-and-switch arrived in 2007.",
-      "original_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-      "media": "/media/international/rickroll.mp4",
-      "poster": "/media/international/rickroll.jpg",
-      "media_bytes": 18751816
+      "original_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
     },
     {
       "id": "me-at-the-zoo",
@@ -591,6 +670,12 @@
       "year": 2005,
       "source": "youtube",
       "embedId": "jNQXAC9IVRw",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "jNQXAC9IVRw",
+        "official": true,
+        "uploader": "jawed"
+      },
       "duration": 19,
       "note": "The first video on YouTube. Jawed Karim, elephants.",
       "credit": "https://www.youtube.com/watch?v=jNQXAC9IVRw",
@@ -602,10 +687,7 @@
         "e"
       ],
       "why": "The first video on YouTube. Jawed Karim, elephants.",
-      "original_url": "https://www.youtube.com/watch?v=jNQXAC9IVRw",
-      "media": "/media/international/me-at-the-zoo.mp4",
-      "poster": "/media/international/me-at-the-zoo.jpg",
-      "media_bytes": 556378
+      "original_url": "https://www.youtube.com/watch?v=jNQXAC9IVRw"
     },
     {
       "id": "leave-britney-alone",
@@ -613,6 +695,12 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "ElXi7yDHyWo",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "ElXi7yDHyWo",
+        "official": true,
+        "uploader": "WestIndianFlava"
+      },
       "duration": 132,
       "note": "Chris Crocker's original video.",
       "credit": "https://www.youtube.com/watch?v=ElXi7yDHyWo",
@@ -623,10 +711,7 @@
         "d"
       ],
       "why": "Chris Crocker's original video.",
-      "original_url": "https://www.youtube.com/watch?v=ElXi7yDHyWo",
-      "media": "/media/international/leave-britney-alone.mp4",
-      "poster": "/media/international/leave-britney-alone.jpg",
-      "media_bytes": 3490546
+      "original_url": "https://www.youtube.com/watch?v=ElXi7yDHyWo"
     },
     {
       "id": "david-after-dentist",
@@ -634,6 +719,12 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "txqiwrbYGrs",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "txqiwrbYGrs",
+        "official": true,
+        "uploader": "booba1234"
+      },
       "duration": 119,
       "note": "Is this real life?",
       "credit": "https://www.youtube.com/watch?v=txqiwrbYGrs",
@@ -644,10 +735,7 @@
         "d"
       ],
       "why": "Is this real life?",
-      "original_url": "https://www.youtube.com/watch?v=txqiwrbYGrs",
-      "media": "/media/international/david-after-dentist.mp4",
-      "poster": "/media/international/david-after-dentist.jpg",
-      "media_bytes": 7472213
+      "original_url": "https://www.youtube.com/watch?v=txqiwrbYGrs"
     },
     {
       "id": "technoviking",
@@ -655,6 +743,12 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "-8H4GKg-mYQ",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "-8H4GKg-mYQ",
+        "official": true,
+        "uploader": "Quantum Digital Official"
+      },
       "duration": 241,
       "note": "The unedited original upload. The parade was filmed in 2000.",
       "credit": "https://www.youtube.com/watch?v=-8H4GKg-mYQ",
@@ -666,10 +760,7 @@
         "e"
       ],
       "why": "The unedited original upload. The parade was filmed in 2000.",
-      "original_url": "https://www.youtube.com/watch?v=-8H4GKg-mYQ",
-      "media": "/media/international/technoviking.mp4",
-      "poster": "/media/international/technoviking.jpg",
-      "media_bytes": 12801106
+      "original_url": "https://www.youtube.com/watch?v=-8H4GKg-mYQ"
     },
     {
       "id": "double-rainbow",
@@ -677,6 +768,12 @@
       "year": 2010,
       "source": "youtube",
       "embedId": "OQSNhk5ICTI",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "OQSNhk5ICTI",
+        "official": true,
+        "uploader": "Yosemitebear62"
+      },
       "duration": 209,
       "note": "Yosemitebear, all the way across the sky.",
       "credit": "https://www.youtube.com/watch?v=OQSNhk5ICTI",
@@ -687,10 +784,7 @@
         "d"
       ],
       "why": "Yosemitebear, all the way across the sky.",
-      "original_url": "https://www.youtube.com/watch?v=OQSNhk5ICTI",
-      "media": "/media/international/double-rainbow.mp4",
-      "poster": "/media/international/double-rainbow.jpg",
-      "media_bytes": 9977476
+      "original_url": "https://www.youtube.com/watch?v=OQSNhk5ICTI"
     },
     {
       "id": "bed-intruder",
@@ -698,6 +792,12 @@
       "year": 2010,
       "source": "youtube",
       "embedId": "hMtZfW2z9dw",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "hMtZfW2z9dw",
+        "official": true,
+        "uploader": "schmoyoho"
+      },
       "duration": 75,
       "note": "The Gregory Brothers and Antoine Dodson.",
       "credit": "https://www.youtube.com/watch?v=hMtZfW2z9dw",
@@ -708,10 +808,7 @@
         "d"
       ],
       "why": "The Gregory Brothers and Antoine Dodson.",
-      "original_url": "https://www.youtube.com/watch?v=hMtZfW2z9dw",
-      "media": "/media/international/bed-intruder.mp4",
-      "poster": "/media/international/bed-intruder.jpg",
-      "media_bytes": 4274248
+      "original_url": "https://www.youtube.com/watch?v=hMtZfW2z9dw"
     },
     {
       "id": "hobbits",
@@ -719,6 +816,12 @@
       "year": 2006,
       "source": "youtube",
       "embedId": "uE-1RPDqJAY",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "uE-1RPDqJAY",
+        "official": true,
+        "uploader": "Aaron Hardbarger"
+      },
       "duration": 129,
       "note": "Erwin Beekveld's remix.",
       "credit": "https://www.youtube.com/watch?v=uE-1RPDqJAY",
@@ -729,10 +832,7 @@
         "d"
       ],
       "why": "Erwin Beekveld's remix.",
-      "original_url": "https://www.youtube.com/watch?v=uE-1RPDqJAY",
-      "media": "/media/international/hobbits.mp4",
-      "poster": "/media/international/hobbits.jpg",
-      "media_bytes": 3083142
+      "original_url": "https://www.youtube.com/watch?v=uE-1RPDqJAY"
     },
     {
       "id": "caramelldansen",
@@ -740,6 +840,12 @@
       "year": 2001,
       "source": "youtube",
       "embedId": "6-8E4Nirh9s",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "6-8E4Nirh9s",
+        "official": true,
+        "uploader": "Caramella Girls"
+      },
       "duration": 175,
       "note": "Caramella Girls' Swedish original. The dance meme came later.",
       "credit": "https://www.youtube.com/watch?v=6-8E4Nirh9s",
@@ -749,10 +855,7 @@
         "e"
       ],
       "why": "Caramella Girls' Swedish original. The dance meme came later.",
-      "original_url": "https://www.youtube.com/watch?v=6-8E4Nirh9s",
-      "media": "/media/international/caramelldansen.mp4",
-      "poster": "/media/international/caramelldansen.jpg",
-      "media_bytes": 16386310
+      "original_url": "https://www.youtube.com/watch?v=6-8E4Nirh9s"
     },
     {
       "id": "free-hugs",
@@ -760,6 +863,12 @@
       "year": 2006,
       "source": "youtube",
       "embedId": "vr3x_RRJdd4",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "vr3x_RRJdd4",
+        "official": true,
+        "uploader": "PeaceOnEarth123"
+      },
       "duration": 219,
       "note": "Juan Mann in Pitt Street Mall.",
       "credit": "https://www.youtube.com/watch?v=vr3x_RRJdd4",
@@ -770,10 +879,7 @@
         "d"
       ],
       "why": "Juan Mann in Pitt Street Mall.",
-      "original_url": "https://www.youtube.com/watch?v=vr3x_RRJdd4",
-      "media": "/media/international/free-hugs.mp4",
-      "poster": "/media/international/free-hugs.jpg",
-      "media_bytes": 16005480
+      "original_url": "https://www.youtube.com/watch?v=vr3x_RRJdd4"
     },
     {
       "id": "sneezing-panda",
@@ -781,6 +887,12 @@
       "year": 2006,
       "source": "youtube",
       "embedId": "IWtY2wnKExM",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "IWtY2wnKExM",
+        "official": true,
+        "uploader": "Loli Ji'j Johnson"
+      },
       "duration": 18,
       "note": "The cub, the sneeze, the mother.",
       "credit": "https://www.youtube.com/watch?v=IWtY2wnKExM",
@@ -791,10 +903,7 @@
         "d"
       ],
       "why": "The cub, the sneeze, the mother.",
-      "original_url": "https://www.youtube.com/watch?v=IWtY2wnKExM",
-      "media": "/media/international/sneezing-panda.mp4",
-      "poster": "/media/international/sneezing-panda.jpg",
-      "media_bytes": 614463
+      "original_url": "https://www.youtube.com/watch?v=IWtY2wnKExM"
     },
     {
       "id": "zombie-kid",
@@ -802,6 +911,12 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "CMNry4PE93Y",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "CMNry4PE93Y",
+        "official": true,
+        "uploader": "CaptJax458"
+      },
       "duration": 115,
       "note": "A costumed kid answers a reporter.",
       "credit": "https://www.youtube.com/watch?v=CMNry4PE93Y",
@@ -812,11 +927,7 @@
         "d"
       ],
       "why": "A costumed kid answers a reporter.",
-      "original_url": "https://www.youtube.com/watch?v=CMNry4PE93Y",
-      "media_source": "https://archive.org/details/2007-06-29-zombie-kid-likes-turtles",
-      "media": "/media/international/zombie-kid.mp4",
-      "poster": "/media/international/zombie-kid.jpg",
-      "media_bytes": 4332532
+      "original_url": "https://www.youtube.com/watch?v=CMNry4PE93Y"
     },
     {
       "id": "afro-ninja",
@@ -824,6 +935,12 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "BEtIoGQxqQs",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "BEtIoGQxqQs",
+        "official": true,
+        "uploader": "airmoney"
+      },
       "duration": 18,
       "note": "The backflip that did not land.",
       "credit": "https://www.youtube.com/watch?v=BEtIoGQxqQs",
@@ -834,10 +951,7 @@
         "d"
       ],
       "why": "The backflip that did not land.",
-      "original_url": "https://www.youtube.com/watch?v=BEtIoGQxqQs",
-      "media": "/media/international/afro-ninja.mp4",
-      "poster": "/media/international/afro-ninja.jpg",
-      "media_bytes": 404025
+      "original_url": "https://www.youtube.com/watch?v=BEtIoGQxqQs"
     },
     {
       "id": "boom-goes-the-dynamite",
@@ -845,6 +959,12 @@
       "year": 2004,
       "source": "youtube",
       "embedId": "W45DRy7M1no",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "W45DRy7M1no",
+        "official": true,
+        "uploader": "Jeremy Goldman"
+      },
       "duration": 234,
       "note": "The campus sportscast.",
       "credit": "https://www.youtube.com/watch?v=W45DRy7M1no",
@@ -855,10 +975,7 @@
         "d"
       ],
       "why": "The campus sportscast.",
-      "original_url": "https://www.youtube.com/watch?v=W45DRy7M1no",
-      "media": "/media/international/boom-goes-the-dynamite.mp4",
-      "poster": "/media/international/boom-goes-the-dynamite.jpg",
-      "media_bytes": 5333147
+      "original_url": "https://www.youtube.com/watch?v=W45DRy7M1no"
     },
     {
       "id": "miss-teen-usa",
@@ -866,6 +983,12 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "lj3iNxZ8Dww",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "lj3iNxZ8Dww",
+        "official": true,
+        "uploader": "IRamzayI"
+      },
       "duration": 49,
       "note": "The maps answer.",
       "credit": "https://www.youtube.com/watch?v=lj3iNxZ8Dww",
@@ -876,20 +999,23 @@
         "d"
       ],
       "why": "The maps answer.",
-      "original_url": "https://www.youtube.com/watch?v=lj3iNxZ8Dww",
-      "media": "/media/international/miss-teen-usa.mp4",
-      "poster": "/media/international/miss-teen-usa.jpg",
-      "media_bytes": 2297131
+      "original_url": "https://www.youtube.com/watch?v=lj3iNxZ8Dww"
     },
     {
       "id": "ultimate-showdown",
       "title": "The Ultimate Showdown",
       "year": 2005,
       "source": "youtube",
-      "embedId": "lrzKT-dFUjE",
+      "embedId": "z4UYpDB7J-s",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "z4UYpDB7J-s",
+        "official": true,
+        "uploader": "NeilCicieregaMusic"
+      },
       "duration": 212,
-      "note": "A reupload of the Lemon Demon animation.",
-      "credit": "https://www.youtube.com/watch?v=lrzKT-dFUjE",
+      "note": "Neil Cicierega's upload. The 2005 original is the Newgrounds flash.",
+      "credit": "https://www.youtube.com/watch?v=z4UYpDB7J-s",
       "signals": [
         "a",
         "b",
@@ -897,11 +1023,8 @@
         "d",
         "e"
       ],
-      "why": "A reupload of the Lemon Demon animation.",
-      "original_url": "https://www.youtube.com/watch?v=lrzKT-dFUjE",
-      "media": "/media/international/ultimate-showdown.mp4",
-      "poster": "/media/international/ultimate-showdown.jpg",
-      "media_bytes": 8869544
+      "why": "Neil Cicierega's Lemon Demon animation, the Newgrounds flash the whole web quoted.",
+      "original_url": "https://www.newgrounds.com/portal/view/285267"
     },
     {
       "id": "yatta",
@@ -909,6 +1032,12 @@
       "year": 2001,
       "source": "youtube",
       "embedId": "KUOwbcdZozQ",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "KUOwbcdZozQ",
+        "official": true,
+        "uploader": "Jedrzej"
+      },
       "duration": 252,
       "note": "Green Leaves' song, from the 1996 skit, as a net meme around 2001.",
       "credit": "https://www.youtube.com/watch?v=KUOwbcdZozQ",
@@ -919,10 +1048,7 @@
         "e"
       ],
       "why": "Green Leaves' song, from the 1996 skit, as a net meme around 2001.",
-      "original_url": "https://www.youtube.com/watch?v=KUOwbcdZozQ",
-      "media": "/media/international/yatta.mp4",
-      "poster": "/media/international/yatta.jpg",
-      "media_bytes": 21480314
+      "original_url": "https://www.youtube.com/watch?v=KUOwbcdZozQ"
     },
     {
       "id": "duck-song",
@@ -930,6 +1056,12 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "MtN1YnoL46Q",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "MtN1YnoL46Q",
+        "official": true,
+        "uploader": "forrestfire101"
+      },
       "duration": 192,
       "note": "A duck walks up to a lemonade stand.",
       "credit": "https://www.youtube.com/watch?v=MtN1YnoL46Q",
@@ -940,10 +1072,7 @@
         "d"
       ],
       "why": "A duck walks up to a lemonade stand.",
-      "original_url": "https://www.youtube.com/watch?v=MtN1YnoL46Q",
-      "media": "/media/international/duck-song.mp4",
-      "poster": "/media/international/duck-song.jpg",
-      "media_bytes": 3852236
+      "original_url": "https://www.youtube.com/watch?v=MtN1YnoL46Q"
     },
     {
       "id": "funtwo-canon",
@@ -951,6 +1080,12 @@
       "year": 2005,
       "source": "youtube",
       "embedId": "TF6cnLnEARo",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "TF6cnLnEARo",
+        "official": true,
+        "uploader": "funtwo"
+      },
       "duration": 321,
       "note": "The guitar arrangement that defined a YouTube genre.",
       "credit": "https://www.youtube.com/watch?v=TF6cnLnEARo",
@@ -961,10 +1096,7 @@
         "d"
       ],
       "why": "The guitar arrangement that defined a YouTube genre.",
-      "original_url": "https://www.youtube.com/watch?v=TF6cnLnEARo",
-      "media": "/media/international/funtwo-canon.mp4",
-      "poster": "/media/international/funtwo-canon.jpg",
-      "media_bytes": 6956356
+      "original_url": "https://www.youtube.com/watch?v=TF6cnLnEARo"
     },
     {
       "id": "ken-lee",
@@ -972,6 +1104,12 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "vUAaHkGpJy8",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "vUAaHkGpJy8",
+        "official": true,
+        "uploader": "Idols Global"
+      },
       "duration": 90,
       "note": "Valentina Hasan sings Mariah Carey by ear.",
       "credit": "https://www.youtube.com/watch?v=vUAaHkGpJy8",
@@ -982,10 +1120,7 @@
         "d"
       ],
       "why": "Valentina Hasan sings Mariah Carey by ear.",
-      "original_url": "https://www.youtube.com/watch?v=vUAaHkGpJy8",
-      "media": "/media/international/ken-lee.mp4",
-      "poster": "/media/international/ken-lee.jpg",
-      "media_bytes": 4547740
+      "original_url": "https://www.youtube.com/watch?v=vUAaHkGpJy8"
     },
     {
       "id": "angry-german-kid",
@@ -993,6 +1128,12 @@
       "year": 2006,
       "source": "youtube",
       "embedId": "Cy4mztkndHk",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "Cy4mztkndHk",
+        "official": false,
+        "uploader": "Adhiyaksa Negara"
+      },
       "duration": 263,
       "note": "A widely circulated reupload of the 2006 keyboard clip.",
       "credit": "https://www.youtube.com/watch?v=Cy4mztkndHk",
@@ -1003,10 +1144,7 @@
         "d"
       ],
       "why": "A widely circulated reupload of the 2006 keyboard clip.",
-      "original_url": "https://www.youtube.com/watch?v=Cy4mztkndHk",
-      "media": "/media/international/angry-german-kid.mp4",
-      "poster": "/media/international/angry-german-kid.jpg",
-      "media_bytes": 13337704
+      "original_url": "https://www.youtube.com/watch?v=Cy4mztkndHk"
     },
     {
       "id": "over-9000",
@@ -1014,6 +1152,12 @@
       "year": 2006,
       "source": "youtube",
       "embedId": "SiMHTK15Pik",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "SiMHTK15Pik",
+        "official": true,
+        "uploader": "chowderrockz"
+      },
       "duration": 16,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=SiMHTK15Pik",
@@ -1024,10 +1168,7 @@
         "e"
       ],
       "why": "A DBZ dub line that became one of the first great YouTube memes.",
-      "original_url": "https://www.youtube.com/watch?v=SiMHTK15Pik",
-      "media": "/media/international/over-9000.mp4",
-      "poster": "/media/international/over-9000.jpg",
-      "media_bytes": 477208
+      "original_url": "https://www.youtube.com/watch?v=SiMHTK15Pik"
     },
     {
       "id": "titanic-flute",
@@ -1035,6 +1176,12 @@
       "year": 2010,
       "source": "youtube",
       "embedId": "KolfEhV-KiA",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "KolfEhV-KiA",
+        "official": true,
+        "uploader": "Slaymark"
+      },
       "duration": 256,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=KolfEhV-KiA",
@@ -1045,10 +1192,7 @@
         "d"
       ],
       "why": "The worst recorder cover of My Heart Will Go On, perfected.",
-      "original_url": "https://www.youtube.com/watch?v=KolfEhV-KiA",
-      "media": "/media/international/titanic-flute.mp4",
-      "poster": "/media/international/titanic-flute.jpg",
-      "media_bytes": 8651755
+      "original_url": "https://www.youtube.com/watch?v=KolfEhV-KiA"
     },
     {
       "id": "tunak-tunak",
@@ -1056,6 +1200,12 @@
       "year": 1998,
       "source": "youtube",
       "embedId": "92ydUdqWE1g",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "92ydUdqWE1g",
+        "official": true,
+        "uploader": "Daler Mehndi Music"
+      },
       "duration": 256,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=92ydUdqWE1g",
@@ -1065,10 +1215,7 @@
         "e"
       ],
       "why": "Bluescreen clones dancing: an Internet favourite since dial-up.",
-      "original_url": "https://www.youtube.com/watch?v=92ydUdqWE1g",
-      "media": "/media/international/tunak-tunak.mp4",
-      "poster": "/media/international/tunak-tunak.jpg",
-      "media_bytes": 13865125
+      "original_url": "https://www.youtube.com/watch?v=92ydUdqWE1g"
     },
     {
       "id": "crazy-frog",
@@ -1076,6 +1223,12 @@
       "year": 2005,
       "source": "youtube",
       "embedId": "k85mRPqvMbE",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "k85mRPqvMbE",
+        "official": true,
+        "uploader": "Crazy Frog"
+      },
       "duration": 172,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=k85mRPqvMbE",
@@ -1085,10 +1238,7 @@
         "e"
       ],
       "why": "Born as a 1997 engine-noise MP3, ended up a billion-view ringtone.",
-      "original_url": "https://www.youtube.com/watch?v=k85mRPqvMbE",
-      "media": "/media/international/crazy-frog.mp4",
-      "poster": "/media/international/crazy-frog.jpg",
-      "media_bytes": 15246957
+      "original_url": "https://www.youtube.com/watch?v=k85mRPqvMbE"
     },
     {
       "id": "trogdor",
@@ -1096,6 +1246,12 @@
       "year": 2003,
       "source": "youtube",
       "embedId": "90X5NJleYJQ",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "90X5NJleYJQ",
+        "official": true,
+        "uploader": "homestarrunnerdotcom"
+      },
       "duration": 210,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=90X5NJleYJQ",
@@ -1107,10 +1263,7 @@
         "e"
       ],
       "why": "Trogdor the Burninator, the Homestar Runner Flash era at its peak.",
-      "original_url": "https://www.youtube.com/watch?v=90X5NJleYJQ",
-      "media": "/media/international/trogdor.mp4",
-      "poster": "/media/international/trogdor.jpg",
-      "media_bytes": 5068622
+      "original_url": "https://www.youtube.com/watch?v=90X5NJleYJQ"
     },
     {
       "id": "epic-sax-guy",
@@ -1118,6 +1271,12 @@
       "year": 2010,
       "source": "youtube",
       "embedId": "pHXDMe6QV-U",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "pHXDMe6QV-U",
+        "official": true,
+        "uploader": "Eurovision Song Contest"
+      },
       "duration": 196,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=pHXDMe6QV-U",
@@ -1127,10 +1286,7 @@
         "e"
       ],
       "why": "Eurovision 2010's sax hip-thrusts, looped for ten hours online.",
-      "original_url": "https://www.youtube.com/watch?v=pHXDMe6QV-U",
-      "media": "/media/international/epic-sax-guy.mp4",
-      "poster": "/media/international/epic-sax-guy.jpg",
-      "media_bytes": 18193759
+      "original_url": "https://www.youtube.com/watch?v=pHXDMe6QV-U"
     },
     {
       "id": "llamas-with-hats",
@@ -1138,6 +1294,12 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "kZUPCB9533Y",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "kZUPCB9533Y",
+        "official": true,
+        "uploader": "FilmCow"
+      },
       "duration": 79,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=kZUPCB9533Y",
@@ -1149,10 +1311,7 @@
         "e"
       ],
       "why": "Caaaarl! FilmCow's deadpan llama horror-comedy.",
-      "original_url": "https://www.youtube.com/watch?v=kZUPCB9533Y",
-      "media": "/media/international/llamas-with-hats.mp4",
-      "poster": "/media/international/llamas-with-hats.jpg",
-      "media_bytes": 1518446
+      "original_url": "https://www.youtube.com/watch?v=kZUPCB9533Y"
     },
     {
       "id": "where-is-matt",
@@ -1160,6 +1319,12 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "zlfKdbWwruY",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "zlfKdbWwruY",
+        "official": true,
+        "uploader": "Where the Hell is Matt?"
+      },
       "duration": 269,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=zlfKdbWwruY",
@@ -1170,10 +1335,7 @@
         "d"
       ],
       "why": "One bad dance around the whole world, the original feel-good viral.",
-      "original_url": "https://www.youtube.com/watch?v=zlfKdbWwruY",
-      "media": "/media/international/where-is-matt.mp4",
-      "poster": "/media/international/where-is-matt.jpg",
-      "media_bytes": 22837862
+      "original_url": "https://www.youtube.com/watch?v=zlfKdbWwruY"
     },
     {
       "id": "pork-and-beans",
@@ -1181,6 +1343,12 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "PQHPYelqr0E",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "PQHPYelqr0E",
+        "official": true,
+        "uploader": "WeezerVEVO"
+      },
       "duration": 196,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=PQHPYelqr0E",
@@ -1190,10 +1358,7 @@
         "e"
       ],
       "why": "A music video starring a who's-who of 2008 YouTube memes.",
-      "original_url": "https://www.youtube.com/watch?v=PQHPYelqr0E",
-      "media": "/media/international/pork-and-beans.mp4",
-      "poster": "/media/international/pork-and-beans.jpg",
-      "media_bytes": 12935270
+      "original_url": "https://www.youtube.com/watch?v=PQHPYelqr0E"
     },
     {
       "id": "mean-kitty",
@@ -1201,6 +1366,12 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "Qit3ALTelOo",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "Qit3ALTelOo",
+        "official": true,
+        "uploader": "SMP Films"
+      },
       "duration": 210,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=Qit3ALTelOo",
@@ -1211,10 +1382,7 @@
         "d"
       ],
       "why": "A man, a cat and a grudge — classic early YouTube music comedy.",
-      "original_url": "https://www.youtube.com/watch?v=Qit3ALTelOo",
-      "media": "/media/international/mean-kitty.mp4",
-      "poster": "/media/international/mean-kitty.jpg",
-      "media_bytes": 12026056
+      "original_url": "https://www.youtube.com/watch?v=Qit3ALTelOo"
     },
     {
       "id": "back-dorm-boys",
@@ -1222,6 +1390,12 @@
       "year": 2005,
       "source": "youtube",
       "embedId": "YBlCtqsat-w",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "YBlCtqsat-w",
+        "official": true,
+        "uploader": "duncanmeister"
+      },
       "duration": 295,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=YBlCtqsat-w",
@@ -1232,10 +1406,7 @@
         "d"
       ],
       "why": "Two Chinese students lip-syncing in a dorm, a 2005 sensation.",
-      "original_url": "https://www.youtube.com/watch?v=YBlCtqsat-w",
-      "media": "/media/international/back-dorm-boys.mp4",
-      "poster": "/media/international/back-dorm-boys.jpg",
-      "media_bytes": 7403265
+      "original_url": "https://www.youtube.com/watch?v=YBlCtqsat-w"
     },
     {
       "id": "autotune-news-1",
@@ -1243,6 +1414,12 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "bduQaCRkgg4",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "bduQaCRkgg4",
+        "official": true,
+        "uploader": "schmoyoho"
+      },
       "duration": 133,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=bduQaCRkgg4",
@@ -1254,10 +1431,7 @@
         "e"
       ],
       "why": "The Gregory Brothers start songifying the news.",
-      "original_url": "https://www.youtube.com/watch?v=bduQaCRkgg4",
-      "media": "/media/international/autotune-news-1.mp4",
-      "poster": "/media/international/autotune-news-1.jpg",
-      "media_bytes": 7317087
+      "original_url": "https://www.youtube.com/watch?v=bduQaCRkgg4"
     },
     {
       "id": "surprised-kitty",
@@ -1265,6 +1439,12 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "2ltYuVvBLa8",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "2ltYuVvBLa8",
+        "official": true,
+        "uploader": "Loreta Gentile"
+      },
       "duration": 17,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=2ltYuVvBLa8",
@@ -1275,10 +1455,7 @@
         "d"
       ],
       "why": "Tickle, paws up, surprise. Peak cat YouTube.",
-      "original_url": "https://www.youtube.com/watch?v=2ltYuVvBLa8",
-      "media": "/media/international/surprised-kitty.mp4",
-      "poster": "/media/international/surprised-kitty.jpg",
-      "media_bytes": 1002657
+      "original_url": "https://www.youtube.com/watch?v=2ltYuVvBLa8"
     },
     {
       "id": "evian-roller-babies",
@@ -1286,6 +1463,12 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "eExHIzBKRU0",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "eExHIzBKRU0",
+        "official": true,
+        "uploader": "ViralVideoChart"
+      },
       "duration": 61,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=eExHIzBKRU0",
@@ -1295,10 +1478,7 @@
         "e"
       ],
       "why": "The ad that became one of the most-viewed online ads ever.",
-      "original_url": "https://www.youtube.com/watch?v=eExHIzBKRU0",
-      "media": "/media/international/evian-roller-babies.mp4",
-      "poster": "/media/international/evian-roller-babies.jpg",
-      "media_bytes": 4959017
+      "original_url": "https://www.youtube.com/watch?v=eExHIzBKRU0"
     },
     {
       "id": "dancing-baby",
@@ -1306,6 +1486,12 @@
       "year": 1996,
       "source": "youtube",
       "embedId": "2GF3rWj0A_Y",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "2GF3rWj0A_Y",
+        "official": true,
+        "uploader": "babydancingnet"
+      },
       "duration": 24,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=2GF3rWj0A_Y",
@@ -1317,10 +1503,7 @@
         "e"
       ],
       "why": "The 3D dancing baby, emailed around the world in 1996.",
-      "original_url": "https://www.youtube.com/watch?v=2GF3rWj0A_Y",
-      "media": "/media/international/dancing-baby.mp4",
-      "poster": "/media/international/dancing-baby.jpg",
-      "media_bytes": 384649
+      "original_url": "https://www.youtube.com/watch?v=2GF3rWj0A_Y"
     },
     {
       "id": "hampster-dance-video",
@@ -1328,8 +1511,14 @@
       "year": 1998,
       "source": "youtube",
       "embedId": "6WpMlwVwydo",
+      "play": {
+        "kind": "link",
+        "id_or_url": "https://www.youtube.com/watch?v=6WpMlwVwydo",
+        "official": false,
+        "uploader": "CraniumOnEmpty"
+      },
       "duration": 43,
-      "note": "Archived copy of the linked upload.",
+      "note": "The YouTube upload does not embed (oEmbed 401). No separate archive.org film; the card links to that page.",
       "credit": "https://www.youtube.com/watch?v=6WpMlwVwydo",
       "signals": [
         "a",
@@ -1339,10 +1528,7 @@
         "e"
       ],
       "why": "Geocities-era looping hamster GIFs to a sped-up Disney tune.",
-      "original_url": "https://www.youtube.com/watch?v=6WpMlwVwydo",
-      "media": "/media/international/hampster-dance-video.mp4",
-      "poster": "/media/international/hampster-dance-video.jpg",
-      "media_bytes": 3332211
+      "original_url": "https://www.youtube.com/watch?v=6WpMlwVwydo"
     },
     {
       "id": "this-is-sparta-remix",
@@ -1350,6 +1536,12 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "sQs1cASjUD0",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "sQs1cASjUD0",
+        "official": true,
+        "uploader": "IhanSeppo"
+      },
       "duration": 131,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=sQs1cASjUD0",
@@ -1360,10 +1552,7 @@
         "d"
       ],
       "why": "The YTMND-era Sparta remix craze.",
-      "original_url": "https://www.youtube.com/watch?v=sQs1cASjUD0",
-      "media": "/media/international/this-is-sparta-remix.mp4",
-      "poster": "/media/international/this-is-sparta-remix.jpg",
-      "media_bytes": 3823232
+      "original_url": "https://www.youtube.com/watch?v=sQs1cASjUD0"
     },
     {
       "id": "pants-on-the-ground",
@@ -1371,6 +1560,12 @@
       "year": 2010,
       "source": "youtube",
       "embedId": "UfXs3qjPNNc",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "UfXs3qjPNNc",
+        "official": false,
+        "uploader": "Your Name In Ink"
+      },
       "duration": 124,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=UfXs3qjPNNc",
@@ -1380,10 +1575,7 @@
         "e"
       ],
       "why": "An American Idol audition that became a 2010 meme.",
-      "original_url": "https://www.youtube.com/watch?v=UfXs3qjPNNc",
-      "media": "/media/international/pants-on-the-ground.mp4",
-      "poster": "/media/international/pants-on-the-ground.jpg",
-      "media_bytes": 9385865
+      "original_url": "https://www.youtube.com/watch?v=UfXs3qjPNNc"
     },
     {
       "id": "burnt-face-man",
@@ -1391,6 +1583,12 @@
       "year": 2005,
       "source": "youtube",
       "embedId": "GxY5fDn5sjQ",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "GxY5fDn5sjQ",
+        "official": true,
+        "uploader": "David Firth"
+      },
       "duration": 78,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=GxY5fDn5sjQ",
@@ -1402,10 +1600,7 @@
         "e"
       ],
       "why": "David Firth's crime-fighter. Crime needs wiping up.",
-      "original_url": "https://www.youtube.com/watch?v=GxY5fDn5sjQ",
-      "media": "/media/international/burnt-face-man.mp4",
-      "poster": "/media/international/burnt-face-man.jpg",
-      "media_bytes": 1993568
+      "original_url": "https://www.youtube.com/watch?v=GxY5fDn5sjQ"
     },
     {
       "id": "ninja-cat",
@@ -1413,6 +1608,12 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "NbwpgyRUv5g",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "NbwpgyRUv5g",
+        "official": true,
+        "uploader": "juury"
+      },
       "duration": 78,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=NbwpgyRUv5g",
@@ -1423,10 +1624,7 @@
         "d"
       ],
       "why": "The cat that only moves when you're not looking.",
-      "original_url": "https://www.youtube.com/watch?v=NbwpgyRUv5g",
-      "media": "/media/international/ninja-cat.mp4",
-      "poster": "/media/international/ninja-cat.jpg",
-      "media_bytes": 1969724
+      "original_url": "https://www.youtube.com/watch?v=NbwpgyRUv5g"
     },
     {
       "id": "miku-ievan-polkka",
@@ -1434,6 +1632,12 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "widZEAJc0QM",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "widZEAJc0QM",
+        "official": true,
+        "uploader": "MCR Official"
+      },
       "duration": 149,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=widZEAJc0QM",
@@ -1445,10 +1649,7 @@
         "e"
       ],
       "why": "The Finnish polka, Vocaloid and a leek: a three-country meme.",
-      "original_url": "https://www.youtube.com/watch?v=widZEAJc0QM",
-      "media": "/media/international/miku-ievan-polkka.mp4",
-      "poster": "/media/international/miku-ievan-polkka.jpg",
-      "media_bytes": 13056688
+      "original_url": "https://www.youtube.com/watch?v=widZEAJc0QM"
     },
     {
       "id": "lonelygirl15",
@@ -1456,6 +1657,12 @@
       "year": 2006,
       "source": "youtube",
       "embedId": "-goXKtd6cPo",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "-goXKtd6cPo",
+        "official": true,
+        "uploader": "lonelygirl15"
+      },
       "duration": 95,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=-goXKtd6cPo",
@@ -1466,15 +1673,23 @@
         "e"
       ],
       "why": "The first great YouTube mystery, a vlog that was fiction.",
-      "original_url": "https://www.youtube.com/watch?v=-goXKtd6cPo",
-      "media": "/media/international/lonelygirl15.mp4",
-      "poster": "/media/international/lonelygirl15.jpg",
-      "media_bytes": 3628961
+      "original_url": "https://www.youtube.com/watch?v=-goXKtd6cPo"
     },
     {
       "id": "trollface",
       "title": "Trollface",
       "year": 2008,
+      "source": "other",
+      "embedId": "https://knowyourmeme.com/memes/trollface",
+      "play": {
+        "kind": "link",
+        "id_or_url": "https://knowyourmeme.com/memes/trollface",
+        "official": false,
+        "uploader": "Know Your Meme"
+      },
+      "duration": 7,
+      "note": "Still image. The card links to the Know Your Meme page; Plebflix does not host the picture.",
+      "credit": "https://knowyourmeme.com/memes/trollface",
       "signals": [
         "a",
         "b",
@@ -1483,21 +1698,24 @@
         "e"
       ],
       "why": "Problem? The MS Paint grin that defined rage comics.",
-      "note": "Static meme, looped 7 s. Image via Know Your Meme; credit to its creators.",
       "original_url": "https://knowyourmeme.com/memes/trollface",
-      "kind": "meme",
-      "source": "other",
-      "embedId": "https://i.kym-cdn.com/entries/icons/original/000/000/091/TrollFace.jpg",
-      "credit": "https://knowyourmeme.com/memes/trollface",
-      "duration": 7,
-      "media": "/media/international/trollface.mp4",
-      "poster": "/media/international/trollface.jpg",
-      "media_bytes": 31862
+      "kind": "meme"
     },
     {
       "id": "o-rly",
       "title": "O RLY? Owl",
       "year": 2003,
+      "source": "other",
+      "embedId": "https://knowyourmeme.com/memes/o-rly",
+      "play": {
+        "kind": "link",
+        "id_or_url": "https://knowyourmeme.com/memes/o-rly",
+        "official": false,
+        "uploader": "Know Your Meme"
+      },
+      "duration": 7,
+      "note": "Still image. The card links to the Know Your Meme page; Plebflix does not host the picture.",
+      "credit": "https://knowyourmeme.com/memes/o-rly",
       "signals": [
         "a",
         "b",
@@ -1505,21 +1723,24 @@
         "e"
       ],
       "why": "The snowy owl asking O RLY? — Something Awful, 2003.",
-      "note": "Static meme, looped 7 s. Image via Know Your Meme; credit to its creators.",
       "original_url": "https://knowyourmeme.com/memes/o-rly",
-      "kind": "meme",
-      "source": "other",
-      "embedId": "https://i.kym-cdn.com/entries/icons/original/000/000/015/oreally.jpg",
-      "credit": "https://knowyourmeme.com/memes/o-rly",
-      "duration": 7,
-      "media": "/media/international/o-rly.mp4",
-      "poster": "/media/international/o-rly.jpg",
-      "media_bytes": 31791
+      "kind": "meme"
     },
     {
       "id": "lolcats",
       "title": "LOLcats – I Can Has Cheezburger?",
       "year": 2007,
+      "source": "other",
+      "embedId": "https://knowyourmeme.com/memes/lolcats",
+      "play": {
+        "kind": "link",
+        "id_or_url": "https://knowyourmeme.com/memes/lolcats",
+        "official": false,
+        "uploader": "Know Your Meme"
+      },
+      "duration": 7,
+      "note": "Still image. The card links to the Know Your Meme page; Plebflix does not host the picture.",
+      "credit": "https://knowyourmeme.com/memes/lolcats",
       "signals": [
         "a",
         "b",
@@ -1528,42 +1749,48 @@
         "e"
       ],
       "why": "Impact-font cats speaking broken English.",
-      "note": "Static meme, looped 7 s. Image via Know Your Meme; credit to its creators.",
       "original_url": "https://knowyourmeme.com/memes/lolcats",
-      "kind": "meme",
-      "source": "other",
-      "embedId": "https://i.kym-cdn.com/entries/icons/original/000/000/018/lol.jpg",
-      "credit": "https://knowyourmeme.com/memes/lolcats",
-      "duration": 7,
-      "media": "/media/international/lolcats.mp4",
-      "poster": "/media/international/lolcats.jpg",
-      "media_bytes": 66834
+      "kind": "meme"
     },
     {
       "id": "disaster-girl",
       "title": "Disaster Girl",
       "year": 2007,
+      "source": "other",
+      "embedId": "https://knowyourmeme.com/memes/disaster-girl",
+      "play": {
+        "kind": "link",
+        "id_or_url": "https://knowyourmeme.com/memes/disaster-girl",
+        "official": false,
+        "uploader": "Know Your Meme"
+      },
+      "duration": 7,
+      "note": "Still image. The card links to the Know Your Meme page; Plebflix does not host the picture.",
+      "credit": "https://knowyourmeme.com/memes/disaster-girl",
       "signals": [
         "a",
         "b",
         "c"
       ],
       "why": "A knowing smile in front of a house fire.",
-      "note": "Static meme, looped 7 s. Image via Know Your Meme; credit to its creators.",
       "original_url": "https://knowyourmeme.com/memes/disaster-girl",
-      "kind": "meme",
-      "source": "other",
-      "embedId": "https://i.kym-cdn.com/entries/icons/original/000/000/043/dg1.jpg",
-      "credit": "https://knowyourmeme.com/memes/disaster-girl",
-      "duration": 7,
-      "media": "/media/international/disaster-girl.mp4",
-      "poster": "/media/international/disaster-girl.jpg",
-      "media_bytes": 59433
+      "kind": "meme"
     },
     {
       "id": "philosoraptor",
       "title": "Philosoraptor",
       "year": 2008,
+      "source": "other",
+      "embedId": "https://knowyourmeme.com/memes/philosoraptor",
+      "play": {
+        "kind": "link",
+        "id_or_url": "https://knowyourmeme.com/memes/philosoraptor",
+        "official": false,
+        "uploader": "Know Your Meme"
+      },
+      "duration": 7,
+      "note": "Still image. The card links to the Know Your Meme page; Plebflix does not host the picture.",
+      "credit": "https://knowyourmeme.com/memes/philosoraptor",
       "signals": [
         "a",
         "b",
@@ -1571,21 +1798,24 @@
         "d"
       ],
       "why": "The thinking velociraptor's unanswerable questions.",
-      "note": "Static meme, looped 7 s. Image via Know Your Meme; credit to its creators.",
       "original_url": "https://knowyourmeme.com/memes/philosoraptor",
-      "kind": "meme",
-      "source": "other",
-      "embedId": "https://i.kym-cdn.com/entries/icons/original/000/000/106/Philoso.jpg",
-      "credit": "https://knowyourmeme.com/memes/philosoraptor",
-      "duration": 7,
-      "media": "/media/international/philosoraptor.mp4",
-      "poster": "/media/international/philosoraptor.jpg",
-      "media_bytes": 52609
+      "kind": "meme"
     },
     {
       "id": "y-u-no",
       "title": "Y U NO Guy",
       "year": 2010,
+      "source": "other",
+      "embedId": "https://knowyourmeme.com/memes/y-u-no-guy",
+      "play": {
+        "kind": "link",
+        "id_or_url": "https://knowyourmeme.com/memes/y-u-no-guy",
+        "official": false,
+        "uploader": "Know Your Meme"
+      },
+      "duration": 7,
+      "note": "Still image. The card links to the Know Your Meme page; Plebflix does not host the picture.",
+      "credit": "https://knowyourmeme.com/memes/y-u-no-guy",
       "signals": [
         "a",
         "b",
@@ -1593,37 +1823,32 @@
         "d"
       ],
       "why": "Rage-comic exasperation: Y U NO?",
-      "note": "Static meme, looped 7 s. Image via Know Your Meme; credit to its creators.",
       "original_url": "https://knowyourmeme.com/memes/y-u-no-guy",
-      "kind": "meme",
-      "source": "other",
-      "embedId": "https://i.kym-cdn.com/entries/icons/original/000/004/006/YUNO.jpg",
-      "credit": "https://knowyourmeme.com/memes/y-u-no-guy",
-      "duration": 7,
-      "media": "/media/international/y-u-no.mp4",
-      "poster": "/media/international/y-u-no.jpg",
-      "media_bytes": 25697
+      "kind": "meme"
     },
     {
       "id": "success-kid",
       "title": "Success Kid",
       "year": 2007,
+      "source": "other",
+      "embedId": "https://knowyourmeme.com/memes/success-kid-i-hate-sandcastles",
+      "play": {
+        "kind": "link",
+        "id_or_url": "https://knowyourmeme.com/memes/success-kid-i-hate-sandcastles",
+        "official": false,
+        "uploader": "Know Your Meme"
+      },
+      "duration": 7,
+      "note": "Still image. The card links to the Know Your Meme page; Plebflix does not host the picture.",
+      "credit": "https://knowyourmeme.com/memes/success-kid-i-hate-sandcastles",
       "signals": [
         "a",
         "b",
         "c"
       ],
       "why": "A fist of sand, a face of victory.",
-      "note": "Static meme, looped 7 s. Image via Know Your Meme; credit to its creators.",
       "original_url": "https://knowyourmeme.com/memes/success-kid-i-hate-sandcastles",
-      "kind": "meme",
-      "source": "other",
-      "embedId": "https://i.kym-cdn.com/entries/icons/original/000/000/745/success.jpg",
-      "credit": "https://knowyourmeme.com/memes/success-kid-i-hate-sandcastles",
-      "duration": 7,
-      "media": "/media/international/success-kid.mp4",
-      "poster": "/media/international/success-kid.jpg",
-      "media_bytes": 51133
+      "kind": "meme"
     },
     {
       "id": "grape-lady",
@@ -1631,6 +1856,12 @@
       "year": 1996,
       "source": "youtube",
       "embedId": "STbhaqsBJB0",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "STbhaqsBJB0",
+        "official": true,
+        "uploader": "Peop Hoofd"
+      },
       "duration": 48,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=STbhaqsBJB0",
@@ -1640,10 +1871,7 @@
         "e"
       ],
       "why": "A 1996 TV grape-stomp fall that became one of the web's first viral clips and a Family Guy gag.",
-      "original_url": "https://www.youtube.com/watch?v=STbhaqsBJB0",
-      "media": "/media/international/grape-lady.mp4",
-      "poster": "/media/international/grape-lady.jpg",
-      "media_bytes": 2421145
+      "original_url": "https://www.youtube.com/watch?v=STbhaqsBJB0"
     },
     {
       "id": "boxxy",
@@ -1651,6 +1879,12 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "Yavx9yxTrsw",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "Yavx9yxTrsw",
+        "official": true,
+        "uploader": "boxxybabee"
+      },
       "duration": 307,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=Yavx9yxTrsw",
@@ -1662,10 +1896,7 @@
         "e"
       ],
       "why": "The webcam vlog that started a 4chan war and a meme.",
-      "original_url": "https://www.youtube.com/watch?v=Yavx9yxTrsw",
-      "media": "/media/international/boxxy.mp4",
-      "poster": "/media/international/boxxy.jpg",
-      "media_bytes": 14812030
+      "original_url": "https://www.youtube.com/watch?v=Yavx9yxTrsw"
     },
     {
       "id": "dont-tase-me-bro",
@@ -1673,6 +1904,12 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "6bVa6jn4rpE",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "6bVa6jn4rpE",
+        "official": true,
+        "uploader": "GainesvilleSun"
+      },
       "duration": 143,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=6bVa6jn4rpE",
@@ -1683,10 +1920,7 @@
         "d"
       ],
       "why": "Amateur footage of a Florida forum arrest that gave the web a catchphrase.",
-      "original_url": "https://www.youtube.com/watch?v=6bVa6jn4rpE",
-      "media": "/media/international/dont-tase-me-bro.mp4",
-      "poster": "/media/international/dont-tase-me-bro.jpg",
-      "media_bytes": 4248877
+      "original_url": "https://www.youtube.com/watch?v=6bVa6jn4rpE"
     },
     {
       "id": "bush-shoe",
@@ -1694,6 +1928,12 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "VFX-dKpcDz8",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "VFX-dKpcDz8",
+        "official": true,
+        "uploader": "Official Pop Drop"
+      },
       "duration": 61,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=VFX-dKpcDz8",
@@ -1703,10 +1943,7 @@
         "e"
       ],
       "why": "The 2008 shoe throw spawned instant Flash games and remixes.",
-      "original_url": "https://www.youtube.com/watch?v=VFX-dKpcDz8",
-      "media": "/media/international/bush-shoe.mp4",
-      "poster": "/media/international/bush-shoe.jpg",
-      "media_bytes": 2087650
+      "original_url": "https://www.youtube.com/watch?v=VFX-dKpcDz8"
     },
     {
       "id": "diet-coke-mentos",
@@ -1714,6 +1951,12 @@
       "year": 2006,
       "source": "youtube",
       "embedId": "hKoB0MHVBvM",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "hKoB0MHVBvM",
+        "official": true,
+        "uploader": "Chowee"
+      },
       "duration": 178,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=hKoB0MHVBvM",
@@ -1724,10 +1967,7 @@
         "d"
       ],
       "why": "EepyBird's fountain show, the experiment every kid tried after.",
-      "original_url": "https://www.youtube.com/watch?v=hKoB0MHVBvM",
-      "media": "/media/international/diet-coke-mentos.mp4",
-      "poster": "/media/international/diet-coke-mentos.jpg",
-      "media_bytes": 6765400
+      "original_url": "https://www.youtube.com/watch?v=hKoB0MHVBvM"
     },
     {
       "id": "jizz-in-my-pants",
@@ -1735,6 +1975,12 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "VLnWf1sQkjY",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "VLnWf1sQkjY",
+        "official": true,
+        "uploader": "TheLonelyIslandVEVO"
+      },
       "duration": 150,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=VLnWf1sQkjY",
@@ -1744,10 +1990,7 @@
         "c"
       ],
       "why": "Born as an online digital short and passed around the web.",
-      "original_url": "https://www.youtube.com/watch?v=VLnWf1sQkjY",
-      "media": "/media/international/jizz-in-my-pants.mp4",
-      "poster": "/media/international/jizz-in-my-pants.jpg",
-      "media_bytes": 14010684
+      "original_url": "https://www.youtube.com/watch?v=VLnWf1sQkjY"
     },
     {
       "id": "susan-boyle",
@@ -1755,6 +1998,12 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "RxPZh4AnWyk",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "RxPZh4AnWyk",
+        "official": false,
+        "uploader": "Davy Leyland"
+      },
       "duration": 349,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=RxPZh4AnWyk",
@@ -1764,10 +2013,7 @@
         "e"
       ],
       "why": "The audition that became one of YouTube's most-watched clips of 2009.",
-      "original_url": "https://www.youtube.com/watch?v=RxPZh4AnWyk",
-      "media": "/media/international/susan-boyle.mp4",
-      "poster": "/media/international/susan-boyle.jpg",
-      "media_bytes": 22918550
+      "original_url": "https://www.youtube.com/watch?v=RxPZh4AnWyk"
     },
     {
       "id": "asdfmovie",
@@ -1775,6 +2021,12 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "IYnsfV5N2n8",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "IYnsfV5N2n8",
+        "official": true,
+        "uploader": "TomSka"
+      },
       "duration": 107,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=IYnsfV5N2n8",
@@ -1786,10 +2038,7 @@
         "e"
       ],
       "why": "TomSka's random-humour cartoon, endlessly quoted.",
-      "original_url": "https://www.youtube.com/watch?v=IYnsfV5N2n8",
-      "media": "/media/international/asdfmovie.mp4",
-      "poster": "/media/international/asdfmovie.jpg",
-      "media_bytes": 4863805
+      "original_url": "https://www.youtube.com/watch?v=IYnsfV5N2n8"
     },
     {
       "id": "asdfmovie2",
@@ -1797,6 +2046,12 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "tKB4h9gvmm0",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "tKB4h9gvmm0",
+        "official": true,
+        "uploader": "TomSka"
+      },
       "duration": 112,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=tKB4h9gvmm0",
@@ -1808,10 +2063,7 @@
         "e"
       ],
       "why": "The sequel that kept the 'I like trains' era going.",
-      "original_url": "https://www.youtube.com/watch?v=tKB4h9gvmm0",
-      "media": "/media/international/asdfmovie2.mp4",
-      "poster": "/media/international/asdfmovie2.jpg",
-      "media_bytes": 5196177
+      "original_url": "https://www.youtube.com/watch?v=tKB4h9gvmm0"
     },
     {
       "id": "husky-i-love-you",
@@ -1819,6 +2071,12 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "qXo3NFqkaRM",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "qXo3NFqkaRM",
+        "official": true,
+        "uploader": "gardea23"
+      },
       "duration": 48,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=qXo3NFqkaRM",
@@ -1829,10 +2087,7 @@
         "d"
       ],
       "why": "Mishka the talking husky, a pet-video legend.",
-      "original_url": "https://www.youtube.com/watch?v=qXo3NFqkaRM",
-      "media": "/media/international/husky-i-love-you.mp4",
-      "poster": "/media/international/husky-i-love-you.jpg",
-      "media_bytes": 1924532
+      "original_url": "https://www.youtube.com/watch?v=qXo3NFqkaRM"
     },
     {
       "id": "best-cry-ever",
@@ -1840,6 +2095,12 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "ee925OTFBCA",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "ee925OTFBCA",
+        "official": true,
+        "uploader": "Dan Allen"
+      },
       "duration": 37,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=ee925OTFBCA",
@@ -1850,10 +2111,7 @@
         "d"
       ],
       "why": "The ugly-cry vlog that became a remix and reaction staple.",
-      "original_url": "https://www.youtube.com/watch?v=ee925OTFBCA",
-      "media": "/media/international/best-cry-ever.mp4",
-      "poster": "/media/international/best-cry-ever.jpg",
-      "media_bytes": 2466155
+      "original_url": "https://www.youtube.com/watch?v=ee925OTFBCA"
     },
     {
       "id": "nintendo-64-kid",
@@ -1861,6 +2119,12 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "pFlcqWQVVuU",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "pFlcqWQVVuU",
+        "official": true,
+        "uploader": "raw64life"
+      },
       "duration": 66,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=pFlcqWQVVuU",
@@ -1872,10 +2136,7 @@
         "e"
       ],
       "why": "The Christmas-morning scream every gamer knows.",
-      "original_url": "https://www.youtube.com/watch?v=pFlcqWQVVuU",
-      "media": "/media/international/nintendo-64-kid.mp4",
-      "poster": "/media/international/nintendo-64-kid.jpg",
-      "media_bytes": 3116514
+      "original_url": "https://www.youtube.com/watch?v=pFlcqWQVVuU"
     },
     {
       "id": "basshunter-dota",
@@ -1883,6 +2144,12 @@
       "year": 2006,
       "source": "youtube",
       "embedId": "aTJncWndUB8",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "aTJncWndUB8",
+        "official": true,
+        "uploader": "Extensive Music Underground"
+      },
       "duration": 235,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=aTJncWndUB8",
@@ -1894,10 +2161,7 @@
         "e"
       ],
       "why": "Born as a web-only gaming song before it charted.",
-      "original_url": "https://www.youtube.com/watch?v=aTJncWndUB8",
-      "media": "/media/international/basshunter-dota.mp4",
-      "poster": "/media/international/basshunter-dota.jpg",
-      "media_bytes": 16543283
+      "original_url": "https://www.youtube.com/watch?v=aTJncWndUB8"
     },
     {
       "id": "charlie-the-unicorn-2",
@@ -1905,6 +2169,12 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "QFCSXr6qnv4",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "QFCSXr6qnv4",
+        "official": true,
+        "uploader": "FilmCow"
+      },
       "duration": 361,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=QFCSXr6qnv4",
@@ -1916,10 +2186,7 @@
         "e"
       ],
       "why": "The candy-mountain sequel of FilmCow's web cartoon.",
-      "original_url": "https://www.youtube.com/watch?v=QFCSXr6qnv4",
-      "media": "/media/international/charlie-the-unicorn-2.mp4",
-      "poster": "/media/international/charlie-the-unicorn-2.jpg",
-      "media_bytes": 15138633
+      "original_url": "https://www.youtube.com/watch?v=QFCSXr6qnv4"
     },
     {
       "id": "crichton-leprechaun",
@@ -1927,6 +2194,12 @@
       "year": 2006,
       "source": "youtube",
       "embedId": "K1ljOcl39PQ",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "K1ljOcl39PQ",
+        "official": true,
+        "uploader": "NBC 15"
+      },
       "duration": 123,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=K1ljOcl39PQ",
@@ -1936,10 +2209,7 @@
         "e"
       ],
       "why": "A local news report that became a remix-song meme.",
-      "original_url": "https://www.youtube.com/watch?v=K1ljOcl39PQ",
-      "media": "/media/international/crichton-leprechaun.mp4",
-      "poster": "/media/international/crichton-leprechaun.jpg",
-      "media_bytes": 7549246
+      "original_url": "https://www.youtube.com/watch?v=K1ljOcl39PQ"
     },
     {
       "id": "go-bwaaah",
@@ -1947,6 +2217,12 @@
       "year": 2006,
       "source": "youtube",
       "embedId": "WJq4jWSQNd8",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "WJq4jWSQNd8",
+        "official": true,
+        "uploader": "Romain"
+      },
       "duration": 2,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=WJq4jWSQNd8",
@@ -1956,10 +2232,7 @@
         "d"
       ],
       "why": "Three-second fail clip shared in every 2000s viral reel.",
-      "original_url": "https://www.youtube.com/watch?v=WJq4jWSQNd8",
-      "media": "/media/international/go-bwaaah.mp4",
-      "poster": "/media/international/go-bwaaah.jpg",
-      "media_bytes": 133909
+      "original_url": "https://www.youtube.com/watch?v=WJq4jWSQNd8"
     },
     {
       "id": "scary-car-commercial",
@@ -1967,6 +2240,12 @@
       "year": 2004,
       "source": "youtube",
       "embedId": "HqGsT6VM8Vg",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "HqGsT6VM8Vg",
+        "official": true,
+        "uploader": "kiddlestix"
+      },
       "duration": 21,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=HqGsT6VM8Vg",
@@ -1976,10 +2255,7 @@
         "e"
       ],
       "why": "The screamer ad that spread by e-mail as a prank.",
-      "original_url": "https://www.youtube.com/watch?v=HqGsT6VM8Vg",
-      "media": "/media/international/scary-car-commercial.mp4",
-      "poster": "/media/international/scary-car-commercial.jpg",
-      "media_bytes": 986133
+      "original_url": "https://www.youtube.com/watch?v=HqGsT6VM8Vg"
     },
     {
       "id": "shoop-da-whoop",
@@ -1987,6 +2263,12 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "ZSM5t_0LIi8",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "ZSM5t_0LIi8",
+        "official": true,
+        "uploader": "Johnathon Ozanne"
+      },
       "duration": 4,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=ZSM5t_0LIi8",
@@ -1998,10 +2280,7 @@
         "e"
       ],
       "why": "Shoop da Whoop, the 4chan lazer face.",
-      "original_url": "https://www.youtube.com/watch?v=ZSM5t_0LIi8",
-      "media": "/media/international/shoop-da-whoop.mp4",
-      "poster": "/media/international/shoop-da-whoop.jpg",
-      "media_bytes": 120555
+      "original_url": "https://www.youtube.com/watch?v=ZSM5t_0LIi8"
     },
     {
       "id": "kitty-cat-dance",
@@ -2009,6 +2288,12 @@
       "year": 2006,
       "source": "youtube",
       "embedId": "SaA_cs4WZHM",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "SaA_cs4WZHM",
+        "official": true,
+        "uploader": "Steve Ibsen"
+      },
       "duration": 90,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=SaA_cs4WZHM",
@@ -2019,10 +2304,7 @@
         "d"
       ],
       "why": "Cat dancing to a song: early YouTube pet gold.",
-      "original_url": "https://www.youtube.com/watch?v=SaA_cs4WZHM",
-      "media": "/media/international/kitty-cat-dance.mp4",
-      "poster": "/media/international/kitty-cat-dance.jpg",
-      "media_bytes": 2242214
+      "original_url": "https://www.youtube.com/watch?v=SaA_cs4WZHM"
     },
     {
       "id": "greatest-freakout-ever",
@@ -2030,6 +2312,12 @@
       "year": 2006,
       "source": "youtube",
       "embedId": "YersIyzsOpc",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "YersIyzsOpc",
+        "official": true,
+        "uploader": "wafflepwn"
+      },
       "duration": 127,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=YersIyzsOpc",
@@ -2040,10 +2328,7 @@
         "d"
       ],
       "why": "The staged-or-not family freakout that hooked early YouTube.",
-      "original_url": "https://www.youtube.com/watch?v=YersIyzsOpc",
-      "media": "/media/international/greatest-freakout-ever.mp4",
-      "poster": "/media/international/greatest-freakout-ever.jpg",
-      "media_bytes": 5455345
+      "original_url": "https://www.youtube.com/watch?v=YersIyzsOpc"
     },
     {
       "id": "stalking-cat",
@@ -2051,6 +2336,12 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "fzzjgBAaWZw",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "fzzjgBAaWZw",
+        "official": true,
+        "uploader": "モアクリ"
+      },
       "duration": 73,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=fzzjgBAaWZw",
@@ -2061,10 +2352,7 @@
         "d"
       ],
       "why": "A cat creeping closer whenever the camera looks away.",
-      "original_url": "https://www.youtube.com/watch?v=fzzjgBAaWZw",
-      "media": "/media/international/stalking-cat.mp4",
-      "poster": "/media/international/stalking-cat.jpg",
-      "media_bytes": 4196671
+      "original_url": "https://www.youtube.com/watch?v=fzzjgBAaWZw"
     },
     {
       "id": "noah-photo-everyday",
@@ -2072,6 +2360,12 @@
       "year": 2006,
       "source": "youtube",
       "embedId": "6B26asyGKDo",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "6B26asyGKDo",
+        "official": true,
+        "uploader": "Noah Kalina"
+      },
       "duration": 345,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=6B26asyGKDo",
@@ -2083,10 +2377,7 @@
         "e"
       ],
       "why": "The photo-a-day timelapse that launched a genre.",
-      "original_url": "https://www.youtube.com/watch?v=6B26asyGKDo",
-      "media": "/media/international/noah-photo-everyday.mp4",
-      "poster": "/media/international/noah-photo-everyday.jpg",
-      "media_bytes": 10679610
+      "original_url": "https://www.youtube.com/watch?v=6B26asyGKDo"
     },
     {
       "id": "fred-goes-swimming",
@@ -2094,6 +2385,12 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "nEqwKNNQBwc",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "nEqwKNNQBwc",
+        "official": true,
+        "uploader": "FRED"
+      },
       "duration": 180,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=nEqwKNNQBwc",
@@ -2104,10 +2401,7 @@
         "d"
       ],
       "why": "Fred Figglehorn, the first YouTube channel to hit a million subscribers.",
-      "original_url": "https://www.youtube.com/watch?v=nEqwKNNQBwc",
-      "media": "/media/international/fred-goes-swimming.mp4",
-      "poster": "/media/international/fred-goes-swimming.jpg",
-      "media_bytes": 9271354
+      "original_url": "https://www.youtube.com/watch?v=nEqwKNNQBwc"
     },
     {
       "id": "what-is-love-roxbury",
@@ -2115,6 +2409,12 @@
       "year": 1998,
       "source": "youtube",
       "embedId": "6zlViU5PBPY",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "6zlViU5PBPY",
+        "official": true,
+        "uploader": "arfenhousefan"
+      },
       "duration": 235,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=6zlViU5PBPY",
@@ -2124,10 +2424,7 @@
         "e"
       ],
       "why": "The film's head-bob became a looping web meme.",
-      "original_url": "https://www.youtube.com/watch?v=6zlViU5PBPY",
-      "media": "/media/international/what-is-love-roxbury.mp4",
-      "poster": "/media/international/what-is-love-roxbury.jpg",
-      "media_bytes": 5844864
+      "original_url": "https://www.youtube.com/watch?v=6zlViU5PBPY"
     },
     {
       "id": "zidane-headbutt",
@@ -2135,6 +2432,12 @@
       "year": 2006,
       "source": "youtube",
       "embedId": "yUjFRKWk6gQ",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "yUjFRKWk6gQ",
+        "official": true,
+        "uploader": "DAN5555"
+      },
       "duration": 236,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=yUjFRKWk6gQ",
@@ -2144,10 +2447,7 @@
         "e"
       ],
       "why": "The 2006 final's headbutt spawned games, songs and remixes overnight.",
-      "original_url": "https://www.youtube.com/watch?v=yUjFRKWk6gQ",
-      "media": "/media/international/zidane-headbutt.mp4",
-      "poster": "/media/international/zidane-headbutt.jpg",
-      "media_bytes": 13684442
+      "original_url": "https://www.youtube.com/watch?v=yUjFRKWk6gQ"
     },
     {
       "id": "danny-macaskill",
@@ -2155,6 +2455,12 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "Z19zFlPah-o",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "Z19zFlPah-o",
+        "official": true,
+        "uploader": "Inspired Bicycles Ltd"
+      },
       "duration": 337,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=Z19zFlPah-o",
@@ -2165,10 +2471,7 @@
         "d"
       ],
       "why": "A homemade street-trials video that went around the world.",
-      "original_url": "https://www.youtube.com/watch?v=Z19zFlPah-o",
-      "media": "/media/international/danny-macaskill.mp4",
-      "poster": "/media/international/danny-macaskill.jpg",
-      "media_bytes": 18077039
+      "original_url": "https://www.youtube.com/watch?v=Z19zFlPah-o"
     },
     {
       "id": "skateboarding-dog",
@@ -2176,6 +2479,12 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "CQzUsTFqtW0",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "CQzUsTFqtW0",
+        "official": true,
+        "uploader": "RNickeyMouse"
+      },
       "duration": 88,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=CQzUsTFqtW0",
@@ -2185,10 +2494,7 @@
         "d"
       ],
       "why": "Tillman the bulldog on a board, a pet-video classic.",
-      "original_url": "https://www.youtube.com/watch?v=CQzUsTFqtW0",
-      "media": "/media/international/skateboarding-dog.mp4",
-      "poster": "/media/international/skateboarding-dog.jpg",
-      "media_bytes": 6867020
+      "original_url": "https://www.youtube.com/watch?v=CQzUsTFqtW0"
     },
     {
       "id": "sleepwalking-dog",
@@ -2196,6 +2502,12 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "z2BgjH_CtIA",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "z2BgjH_CtIA",
+        "official": true,
+        "uploader": "MarinaHD2001"
+      },
       "duration": 23,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=z2BgjH_CtIA",
@@ -2206,10 +2518,7 @@
         "d"
       ],
       "why": "A dog running into a wall in its sleep; tens of millions of plays.",
-      "original_url": "https://www.youtube.com/watch?v=z2BgjH_CtIA",
-      "media": "/media/international/sleepwalking-dog.mp4",
-      "poster": "/media/international/sleepwalking-dog.jpg",
-      "media_bytes": 501811
+      "original_url": "https://www.youtube.com/watch?v=z2BgjH_CtIA"
     },
     {
       "id": "bruce-lee-ping-pong",
@@ -2217,6 +2526,12 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "SncapPrTusA",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "SncapPrTusA",
+        "official": true,
+        "uploader": "BUNDO"
+      },
       "duration": 158,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=SncapPrTusA",
@@ -2226,10 +2541,7 @@
         "c"
       ],
       "why": "A viral faux-footage ad that fooled the web.",
-      "original_url": "https://www.youtube.com/watch?v=SncapPrTusA",
-      "media": "/media/international/bruce-lee-ping-pong.mp4",
-      "poster": "/media/international/bruce-lee-ping-pong.jpg",
-      "media_bytes": 7796630
+      "original_url": "https://www.youtube.com/watch?v=SncapPrTusA"
     },
     {
       "id": "will-it-blend-iphone",
@@ -2237,6 +2549,12 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "qg1ckCkm8YI",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "qg1ckCkm8YI",
+        "official": true,
+        "uploader": "Blendtec's Will It Blend?"
+      },
       "duration": 97,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=qg1ckCkm8YI",
@@ -2247,10 +2565,7 @@
         "d"
       ],
       "why": "Blendtec's web series at its peak.",
-      "original_url": "https://www.youtube.com/watch?v=qg1ckCkm8YI",
-      "media": "/media/international/will-it-blend-iphone.mp4",
-      "poster": "/media/international/will-it-blend-iphone.jpg",
-      "media_bytes": 4789250
+      "original_url": "https://www.youtube.com/watch?v=qg1ckCkm8YI"
     },
     {
       "id": "obama-girl",
@@ -2258,6 +2573,12 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "wKsoXHYICqU",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "wKsoXHYICqU",
+        "official": true,
+        "uploader": "The Key of Awesome"
+      },
       "duration": 199,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=wKsoXHYICqU",
@@ -2268,10 +2589,7 @@
         "d"
       ],
       "why": "The 2007 Obama Girl video, a template for viral politics.",
-      "original_url": "https://www.youtube.com/watch?v=wKsoXHYICqU",
-      "media": "/media/international/obama-girl.mp4",
-      "poster": "/media/international/obama-girl.jpg",
-      "media_bytes": 14291799
+      "original_url": "https://www.youtube.com/watch?v=wKsoXHYICqU"
     },
     {
       "id": "virtual-barber-shop",
@@ -2279,6 +2597,12 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "IUDTlvagjJA",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "IUDTlvagjJA",
+        "official": true,
+        "uploader": "LovelyVirus"
+      },
       "duration": 281,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=IUDTlvagjJA",
@@ -2288,10 +2612,7 @@
         "c"
       ],
       "why": "The binaural audio demo everybody forwarded.",
-      "original_url": "https://www.youtube.com/watch?v=IUDTlvagjJA",
-      "media": "/media/international/virtual-barber-shop.mp4",
-      "poster": "/media/international/virtual-barber-shop.jpg",
-      "media_bytes": 3772542
+      "original_url": "https://www.youtube.com/watch?v=IUDTlvagjJA"
     },
     {
       "id": "ding-fries-are-done",
@@ -2299,6 +2620,12 @@
       "year": 2005,
       "source": "youtube",
       "embedId": "ZvvHXjKloNs",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "ZvvHXjKloNs",
+        "official": true,
+        "uploader": "SpoofMonstrosities"
+      },
       "duration": 59,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=ZvvHXjKloNs",
@@ -2309,10 +2636,7 @@
         "d"
       ],
       "why": "The YTMND-era fry-cook song.",
-      "original_url": "https://www.youtube.com/watch?v=ZvvHXjKloNs",
-      "media": "/media/international/ding-fries-are-done.mp4",
-      "poster": "/media/international/ding-fries-are-done.jpg",
-      "media_bytes": 978424
+      "original_url": "https://www.youtube.com/watch?v=ZvvHXjKloNs"
     },
     {
       "id": "scraper-bike",
@@ -2320,6 +2644,12 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "hQGLNPJ9VCE",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "hQGLNPJ9VCE",
+        "official": true,
+        "uploader": "SpenSpenni"
+      },
       "duration": 208,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=hQGLNPJ9VCE",
@@ -2330,10 +2660,7 @@
         "e"
       ],
       "why": "The Oakland homemade music video that started a bike craze.",
-      "original_url": "https://www.youtube.com/watch?v=hQGLNPJ9VCE",
-      "media": "/media/international/scraper-bike.mp4",
-      "poster": "/media/international/scraper-bike.jpg",
-      "media_bytes": 9118431
+      "original_url": "https://www.youtube.com/watch?v=hQGLNPJ9VCE"
     },
     {
       "id": "rappin-for-jesus",
@@ -2341,6 +2668,12 @@
       "year": 2006,
       "source": "youtube",
       "embedId": "Kppx4bzfAaE",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "Kppx4bzfAaE",
+        "official": true,
+        "uploader": "Brian Spinney"
+      },
       "duration": 172,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=Kppx4bzfAaE",
@@ -2351,10 +2684,7 @@
         "d"
       ],
       "why": "Low-budget gospel rap passed around as a so-bad-it's-good classic.",
-      "original_url": "https://www.youtube.com/watch?v=Kppx4bzfAaE",
-      "media": "/media/international/rappin-for-jesus.mp4",
-      "poster": "/media/international/rappin-for-jesus.jpg",
-      "media_bytes": 14588924
+      "original_url": "https://www.youtube.com/watch?v=Kppx4bzfAaE"
     },
     {
       "id": "chum-drum-bedrum",
@@ -2362,6 +2692,12 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "tVj0ZTS4WF4",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "tVj0ZTS4WF4",
+        "official": true,
+        "uploader": "Random Channel"
+      },
       "duration": 246,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=tVj0ZTS4WF4",
@@ -2372,10 +2708,7 @@
         "d"
       ],
       "why": "The nonsense-song performance turned YouTube meme.",
-      "original_url": "https://www.youtube.com/watch?v=tVj0ZTS4WF4",
-      "media": "/media/international/chum-drum-bedrum.mp4",
-      "poster": "/media/international/chum-drum-bedrum.jpg",
-      "media_bytes": 22461027
+      "original_url": "https://www.youtube.com/watch?v=tVj0ZTS4WF4"
     },
     {
       "id": "jesus-is-my-friend",
@@ -2383,6 +2716,12 @@
       "year": 1983,
       "source": "youtube",
       "embedId": "7-NOZU2iPA8",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "7-NOZU2iPA8",
+        "official": true,
+        "uploader": "lostepiphany79"
+      },
       "duration": 168,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=7-NOZU2iPA8",
@@ -2392,10 +2731,7 @@
         "e"
       ],
       "why": "A 1983 TV performance rediscovered and made viral in the 2000s.",
-      "original_url": "https://www.youtube.com/watch?v=7-NOZU2iPA8",
-      "media": "/media/international/jesus-is-my-friend.mp4",
-      "poster": "/media/international/jesus-is-my-friend.jpg",
-      "media_bytes": 10065507
+      "original_url": "https://www.youtube.com/watch?v=7-NOZU2iPA8"
     },
     {
       "id": "animator-vs-animation",
@@ -2403,6 +2739,12 @@
       "year": 2006,
       "source": "youtube",
       "embedId": "npTC6b5-yvM",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "npTC6b5-yvM",
+        "official": true,
+        "uploader": "Alan Becker"
+      },
       "duration": 121,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=npTC6b5-yvM",
@@ -2414,10 +2756,7 @@
         "e"
       ],
       "why": "Alan Becker's Flash short that took over Newgrounds and YouTube.",
-      "original_url": "https://www.youtube.com/watch?v=npTC6b5-yvM",
-      "media": "/media/international/animator-vs-animation.mp4",
-      "poster": "/media/international/animator-vs-animation.jpg",
-      "media_bytes": 3316946
+      "original_url": "https://www.youtube.com/watch?v=npTC6b5-yvM"
     },
     {
       "id": "mudkip",
@@ -2425,6 +2764,12 @@
       "year": 2006,
       "source": "youtube",
       "embedId": "YP5i5-G2f3c",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "YP5i5-G2f3c",
+        "official": true,
+        "uploader": "Anonikip"
+      },
       "duration": 84,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=YP5i5-G2f3c",
@@ -2435,10 +2780,7 @@
         "e"
       ],
       "why": "The 4chan Mudkip meme in video form.",
-      "original_url": "https://www.youtube.com/watch?v=YP5i5-G2f3c",
-      "media": "/media/international/mudkip.mp4",
-      "poster": "/media/international/mudkip.jpg",
-      "media_bytes": 2096354
+      "original_url": "https://www.youtube.com/watch?v=YP5i5-G2f3c"
     },
     {
       "id": "fabulous-secret-powers",
@@ -2446,6 +2788,12 @@
       "year": 2005,
       "source": "youtube",
       "embedId": "FR7wOGyAzpw",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "FR7wOGyAzpw",
+        "official": true,
+        "uploader": "slackcircus"
+      },
       "duration": 269,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=FR7wOGyAzpw",
@@ -2457,10 +2805,7 @@
         "e"
       ],
       "why": "Slackcircus's He-Man edit, source of the HEYYEYAAEYAAAEYAEYAA meme.",
-      "original_url": "https://www.youtube.com/watch?v=FR7wOGyAzpw",
-      "media": "/media/international/fabulous-secret-powers.mp4",
-      "poster": "/media/international/fabulous-secret-powers.jpg",
-      "media_bytes": 11030944
+      "original_url": "https://www.youtube.com/watch?v=FR7wOGyAzpw"
     },
     {
       "id": "you-are-a-pirate",
@@ -2468,6 +2813,12 @@
       "year": 2006,
       "source": "youtube",
       "embedId": "GVXCr6upWUo",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "GVXCr6upWUo",
+        "official": true,
+        "uploader": "TaintedDarkSoulZX"
+      },
       "duration": 12,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=GVXCr6upWUo",
@@ -2477,10 +2828,7 @@
         "e"
       ],
       "why": "LazyTown's pirate song lived on as a web meme.",
-      "original_url": "https://www.youtube.com/watch?v=GVXCr6upWUo",
-      "media": "/media/international/you-are-a-pirate.mp4",
-      "poster": "/media/international/you-are-a-pirate.jpg",
-      "media_bytes": 628337
+      "original_url": "https://www.youtube.com/watch?v=GVXCr6upWUo"
     },
     {
       "id": "why-is-the-rum-gone",
@@ -2488,6 +2836,12 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "JImcvtJzIK8",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "JImcvtJzIK8",
+        "official": true,
+        "uploader": "DaJugglingFool"
+      },
       "duration": 145,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=JImcvtJzIK8",
@@ -2498,10 +2852,7 @@
         "e"
       ],
       "why": "The fan remix that made Jack Sparrow's line a song.",
-      "original_url": "https://www.youtube.com/watch?v=JImcvtJzIK8",
-      "media": "/media/international/why-is-the-rum-gone.mp4",
-      "poster": "/media/international/why-is-the-rum-gone.jpg",
-      "media_bytes": 10276799
+      "original_url": "https://www.youtube.com/watch?v=JImcvtJzIK8"
     },
     {
       "id": "horribly-slow-murderer",
@@ -2509,6 +2860,12 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "9VDvgL58h_Y",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "9VDvgL58h_Y",
+        "official": true,
+        "uploader": "RichardGaleFilms"
+      },
       "duration": 617,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=9VDvgL58h_Y",
@@ -2519,10 +2876,7 @@
         "d"
       ],
       "why": "The fake-trailer short that became a web legend.",
-      "original_url": "https://www.youtube.com/watch?v=9VDvgL58h_Y",
-      "media": "/media/international/horribly-slow-murderer.mp4",
-      "poster": "/media/international/horribly-slow-murderer.jpg",
-      "media_bytes": 21618504
+      "original_url": "https://www.youtube.com/watch?v=9VDvgL58h_Y"
     },
     {
       "id": "lazy-sunday",
@@ -2530,6 +2884,12 @@
       "year": 2005,
       "source": "youtube",
       "embedId": "sRhTeaa_B98",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "sRhTeaa_B98",
+        "official": true,
+        "uploader": "Saturday Night Live"
+      },
       "duration": 174,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=sRhTeaa_B98",
@@ -2539,10 +2899,7 @@
         "e"
       ],
       "why": "The SNL digital short whose web spread helped make YouTube.",
-      "original_url": "https://www.youtube.com/watch?v=sRhTeaa_B98",
-      "media": "/media/international/lazy-sunday.mp4",
-      "poster": "/media/international/lazy-sunday.jpg",
-      "media_bytes": 14655316
+      "original_url": "https://www.youtube.com/watch?v=sRhTeaa_B98"
     },
     {
       "id": "jk-wedding-dance",
@@ -2550,6 +2907,12 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "4-94JhLEiN0",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "4-94JhLEiN0",
+        "official": true,
+        "uploader": "TheKheinz"
+      },
       "duration": 309,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=4-94JhLEiN0",
@@ -2560,10 +2923,7 @@
         "d"
       ],
       "why": "The wedding entrance copied at weddings everywhere.",
-      "original_url": "https://www.youtube.com/watch?v=4-94JhLEiN0",
-      "media": "/media/international/jk-wedding-dance.mp4",
-      "poster": "/media/international/jk-wedding-dance.jpg",
-      "media_bytes": 18999708
+      "original_url": "https://www.youtube.com/watch?v=4-94JhLEiN0"
     },
     {
       "id": "bus-uncle",
@@ -2571,6 +2931,12 @@
       "year": 2006,
       "source": "youtube",
       "embedId": "RSHziqJWYcM",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "RSHziqJWYcM",
+        "official": true,
+        "uploader": "膠片頻道"
+      },
       "duration": 360,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=RSHziqJWYcM",
@@ -2582,10 +2948,7 @@
         "e"
       ],
       "why": "Hong Kong's phone-filmed bus rant, the city's defining viral.",
-      "original_url": "https://www.youtube.com/watch?v=RSHziqJWYcM",
-      "media": "/media/international/bus-uncle.mp4",
-      "poster": "/media/international/bus-uncle.jpg",
-      "media_bytes": 9536436
+      "original_url": "https://www.youtube.com/watch?v=RSHziqJWYcM"
     },
     {
       "id": "otters-holding-hands",
@@ -2593,6 +2956,12 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "epUk3T2Kfno",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "epUk3T2Kfno",
+        "official": true,
+        "uploader": "Otters holding hands"
+      },
       "duration": 101,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=epUk3T2Kfno",
@@ -2603,10 +2972,7 @@
         "d"
       ],
       "why": "Two sea otters holding hands, one of the first huge animal virals.",
-      "original_url": "https://www.youtube.com/watch?v=epUk3T2Kfno",
-      "media": "/media/international/otters-holding-hands.mp4",
-      "poster": "/media/international/otters-holding-hands.jpg",
-      "media_bytes": 4226949
+      "original_url": "https://www.youtube.com/watch?v=epUk3T2Kfno"
     },
     {
       "id": "battle-at-kruger",
@@ -2614,6 +2980,12 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "Y7QWXQrm2To",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "Y7QWXQrm2To",
+        "official": true,
+        "uploader": "logworld"
+      },
       "duration": 111,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=Y7QWXQrm2To",
@@ -2623,10 +2995,7 @@
         "e"
       ],
       "why": "The tourist safari video that became a documentary.",
-      "original_url": "https://www.youtube.com/watch?v=Y7QWXQrm2To",
-      "media": "/media/international/battle-at-kruger.mp4",
-      "poster": "/media/international/battle-at-kruger.jpg",
-      "media_bytes": 8243539
+      "original_url": "https://www.youtube.com/watch?v=Y7QWXQrm2To"
     },
     {
       "id": "christian-the-lion",
@@ -2634,6 +3003,12 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "cvCjyWp3rEk",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "cvCjyWp3rEk",
+        "official": true,
+        "uploader": "Born Free Foundation"
+      },
       "duration": 366,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=cvCjyWp3rEk",
@@ -2643,10 +3018,7 @@
         "e"
       ],
       "why": "The 1970s lion reunion footage went viral in 2008.",
-      "original_url": "https://www.youtube.com/watch?v=cvCjyWp3rEk",
-      "media": "/media/international/christian-the-lion.mp4",
-      "poster": "/media/international/christian-the-lion.jpg",
-      "media_bytes": 20693460
+      "original_url": "https://www.youtube.com/watch?v=cvCjyWp3rEk"
     },
     {
       "id": "the-landlord",
@@ -2654,6 +3026,12 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "SIdxVR_7ikg",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "SIdxVR_7ikg",
+        "official": true,
+        "uploader": "Funny Or Die"
+      },
       "duration": 159,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=SIdxVR_7ikg",
@@ -2663,10 +3041,7 @@
         "c"
       ],
       "why": "The video that launched Funny or Die.",
-      "original_url": "https://www.youtube.com/watch?v=SIdxVR_7ikg",
-      "media": "/media/international/the-landlord.mp4",
-      "poster": "/media/international/the-landlord.jpg",
-      "media_bytes": 9545318
+      "original_url": "https://www.youtube.com/watch?v=SIdxVR_7ikg"
     },
     {
       "id": "shining-recut",
@@ -2674,6 +3049,12 @@
       "year": 2005,
       "source": "youtube",
       "embedId": "KmkVWuP_sO0",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "KmkVWuP_sO0",
+        "official": true,
+        "uploader": "neochosen"
+      },
       "duration": 84,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=KmkVWuP_sO0",
@@ -2684,10 +3065,7 @@
         "d"
       ],
       "why": "The fake-comedy trailer that started the recut genre.",
-      "original_url": "https://www.youtube.com/watch?v=KmkVWuP_sO0",
-      "media": "/media/international/shining-recut.mp4",
-      "poster": "/media/international/shining-recut.jpg",
-      "media_bytes": 2160566
+      "original_url": "https://www.youtube.com/watch?v=KmkVWuP_sO0"
     },
     {
       "id": "bubb-rubb",
@@ -2695,6 +3073,12 @@
       "year": 2004,
       "source": "youtube",
       "embedId": "zUXow3d3-b0",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "zUXow3d3-b0",
+        "official": true,
+        "uploader": "whataboutlarry1"
+      },
       "duration": 142,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=zUXow3d3-b0",
@@ -2704,10 +3088,7 @@
         "e"
       ],
       "why": "The local-news interview that became a YTMND classic.",
-      "original_url": "https://www.youtube.com/watch?v=zUXow3d3-b0",
-      "media": "/media/international/bubb-rubb.mp4",
-      "poster": "/media/international/bubb-rubb.jpg",
-      "media_bytes": 4195321
+      "original_url": "https://www.youtube.com/watch?v=zUXow3d3-b0"
     },
     {
       "id": "yee",
@@ -2715,6 +3096,12 @@
       "year": 2012,
       "source": "youtube",
       "embedId": "q6EoRBvdVPQ",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "q6EoRBvdVPQ",
+        "official": true,
+        "uploader": "revergo"
+      },
       "duration": 9,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=q6EoRBvdVPQ",
@@ -2725,10 +3112,7 @@
         "e"
       ],
       "why": "The dinosaur 'Yee' clip from a 90s cartoon, a 2012 YouTube meme.",
-      "original_url": "https://www.youtube.com/watch?v=q6EoRBvdVPQ",
-      "media": "/media/international/yee.mp4",
-      "poster": "/media/international/yee.jpg",
-      "media_bytes": 207096
+      "original_url": "https://www.youtube.com/watch?v=q6EoRBvdVPQ"
     },
     {
       "id": "winning-songify",
@@ -2736,6 +3120,12 @@
       "year": 2011,
       "source": "youtube",
       "embedId": "9QS0q3mGPGg",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "9QS0q3mGPGg",
+        "official": true,
+        "uploader": "schmoyoho"
+      },
       "duration": 130,
       "note": "The Songify remix is itself what went viral.",
       "credit": "https://www.youtube.com/watch?v=9QS0q3mGPGg",
@@ -2747,10 +3137,7 @@
         "e"
       ],
       "why": "The Gregory Brothers turned Sheen's rant into the song of 2011.",
-      "original_url": "https://www.youtube.com/watch?v=9QS0q3mGPGg",
-      "media": "/media/international/winning-songify.mp4",
-      "poster": "/media/international/winning-songify.jpg",
-      "media_bytes": 6215202
+      "original_url": "https://www.youtube.com/watch?v=9QS0q3mGPGg"
     },
     {
       "id": "cant-hug-every-cat",
@@ -2758,6 +3145,12 @@
       "year": 2012,
       "source": "youtube",
       "embedId": "sP4NMoJcFd4",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "sP4NMoJcFd4",
+        "official": true,
+        "uploader": "schmoyoho"
+      },
       "duration": 135,
       "note": "The Songify remix is itself what went viral.",
       "credit": "https://www.youtube.com/watch?v=sP4NMoJcFd4",
@@ -2769,10 +3162,7 @@
         "e"
       ],
       "why": "A Songified vlog about loving cats, one of 2012's big earworms.",
-      "original_url": "https://www.youtube.com/watch?v=sP4NMoJcFd4",
-      "media": "/media/international/cant-hug-every-cat.mp4",
-      "poster": "/media/international/cant-hug-every-cat.jpg",
-      "media_bytes": 6138965
+      "original_url": "https://www.youtube.com/watch?v=sP4NMoJcFd4"
     },
     {
       "id": "arrow-in-the-knee",
@@ -2780,6 +3170,12 @@
       "year": 2011,
       "source": "youtube",
       "embedId": "Fmfpfi1Z_bk",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "Fmfpfi1Z_bk",
+        "official": true,
+        "uploader": "eX “Hyper X” Sigmas"
+      },
       "duration": 10,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=Fmfpfi1Z_bk",
@@ -2789,10 +3185,7 @@
         "e"
       ],
       "why": "The guard line that became the meme of 2011.",
-      "original_url": "https://www.youtube.com/watch?v=Fmfpfi1Z_bk",
-      "media": "/media/international/arrow-in-the-knee.mp4",
-      "poster": "/media/international/arrow-in-the-knee.jpg",
-      "media_bytes": 236994
+      "original_url": "https://www.youtube.com/watch?v=Fmfpfi1Z_bk"
     },
     {
       "id": "facebook-parenting",
@@ -2800,6 +3193,12 @@
       "year": 2012,
       "source": "youtube",
       "embedId": "kl1ujzRidmU",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "kl1ujzRidmU",
+        "official": true,
+        "uploader": "Tommy Jordan"
+      },
       "duration": 502,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=kl1ujzRidmU",
@@ -2810,10 +3209,7 @@
         "d"
       ],
       "why": "A dad shoots his daughter's laptop; 2012's most argued-about viral.",
-      "original_url": "https://www.youtube.com/watch?v=kl1ujzRidmU",
-      "media": "/media/international/facebook-parenting.mp4",
-      "poster": "/media/international/facebook-parenting.jpg",
-      "media_bytes": 21138516
+      "original_url": "https://www.youtube.com/watch?v=kl1ujzRidmU"
     },
     {
       "id": "substitute-teacher",
@@ -2821,6 +3217,12 @@
       "year": 2012,
       "source": "youtube",
       "embedId": "Dd7FixvoKBw",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "Dd7FixvoKBw",
+        "official": true,
+        "uploader": "Comedy Central"
+      },
       "duration": 181,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=Dd7FixvoKBw",
@@ -2830,10 +3232,7 @@
         "e"
       ],
       "why": "The A-A-Ron sketch that spread online far beyond the TV audience.",
-      "original_url": "https://www.youtube.com/watch?v=Dd7FixvoKBw",
-      "media": "/media/international/substitute-teacher.mp4",
-      "poster": "/media/international/substitute-teacher.jpg",
-      "media_bytes": 11606806
+      "original_url": "https://www.youtube.com/watch?v=Dd7FixvoKBw"
     },
     {
       "id": "grumpy-cat-original",
@@ -2841,6 +3240,12 @@
       "year": 2012,
       "source": "youtube",
       "embedId": "INscMGmhmX4",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "INscMGmhmX4",
+        "official": true,
+        "uploader": "Real Grumpy Cat"
+      },
       "duration": 55,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=INscMGmhmX4",
@@ -2851,10 +3256,7 @@
         "d"
       ],
       "why": "The first video of Tardar Sauce, the cat behind the meme.",
-      "original_url": "https://www.youtube.com/watch?v=INscMGmhmX4",
-      "media": "/media/international/grumpy-cat-original.mp4",
-      "poster": "/media/international/grumpy-cat-original.jpg",
-      "media_bytes": 3960661
+      "original_url": "https://www.youtube.com/watch?v=INscMGmhmX4"
     },
     {
       "id": "husky-no",
@@ -2862,6 +3264,12 @@
       "year": 2010,
       "source": "youtube",
       "embedId": "gRw-lfXy_tQ",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "gRw-lfXy_tQ",
+        "official": true,
+        "uploader": "gardea23"
+      },
       "duration": 23,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=gRw-lfXy_tQ",
@@ -2872,10 +3280,7 @@
         "d"
       ],
       "why": "Mishka the husky refuses again; a talking-dog classic.",
-      "original_url": "https://www.youtube.com/watch?v=gRw-lfXy_tQ",
-      "media": "/media/international/husky-no.mp4",
-      "poster": "/media/international/husky-no.jpg",
-      "media_bytes": 1618245
+      "original_url": "https://www.youtube.com/watch?v=gRw-lfXy_tQ"
     },
     {
       "id": "annoying-orange",
@@ -2883,6 +3288,12 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "ZN5PoW7_kdA",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "ZN5PoW7_kdA",
+        "official": true,
+        "uploader": "Dane Boe"
+      },
       "duration": 92,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=ZN5PoW7_kdA",
@@ -2893,10 +3304,7 @@
         "d"
       ],
       "why": "The web series that made a fruit one of YouTube's biggest stars of 2010.",
-      "original_url": "https://www.youtube.com/watch?v=ZN5PoW7_kdA",
-      "media": "/media/international/annoying-orange.mp4",
-      "poster": "/media/international/annoying-orange.jpg",
-      "media_bytes": 2685332
+      "original_url": "https://www.youtube.com/watch?v=ZN5PoW7_kdA"
     },
     {
       "id": "antoine-dodson",
@@ -2904,6 +3312,12 @@
       "year": 2010,
       "source": "youtube",
       "embedId": "EzNhaLUT520",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "EzNhaLUT520",
+        "official": true,
+        "uploader": "Crazy Laugh Action"
+      },
       "duration": 123,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=EzNhaLUT520",
@@ -2913,10 +3327,7 @@
         "e"
       ],
       "why": "The original news interview behind the Bed Intruder song.",
-      "original_url": "https://www.youtube.com/watch?v=EzNhaLUT520",
-      "media": "/media/international/antoine-dodson.mp4",
-      "poster": "/media/international/antoine-dodson.jpg",
-      "media_bytes": 7031107
+      "original_url": "https://www.youtube.com/watch?v=EzNhaLUT520"
     },
     {
       "id": "what-what",
@@ -2924,6 +3335,12 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "fbGkxcY7YFU",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "fbGkxcY7YFU",
+        "official": true,
+        "uploader": "Brownmark Films"
+      },
       "duration": 228,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=fbGkxcY7YFU",
@@ -2935,10 +3352,7 @@
         "e"
       ],
       "why": "DIY YouTube song parodied by South Park.",
-      "original_url": "https://www.youtube.com/watch?v=fbGkxcY7YFU",
-      "media": "/media/international/what-what.mp4",
-      "poster": "/media/international/what-what.jpg",
-      "media_bytes": 9263994
+      "original_url": "https://www.youtube.com/watch?v=fbGkxcY7YFU"
     },
     {
       "id": "kitten-surprise",
@@ -2946,6 +3360,12 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "YLDbGqJ2KYk",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "YLDbGqJ2KYk",
+        "official": true,
+        "uploader": "KAI"
+      },
       "duration": 39,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=YLDbGqJ2KYk",
@@ -2956,10 +3376,7 @@
         "d"
       ],
       "why": "Kitten fight broken up by a surprise; a cat-video classic.",
-      "original_url": "https://www.youtube.com/watch?v=YLDbGqJ2KYk",
-      "media": "/media/international/kitten-surprise.mp4",
-      "poster": "/media/international/kitten-surprise.jpg",
-      "media_bytes": 1766732
+      "original_url": "https://www.youtube.com/watch?v=YLDbGqJ2KYk"
     },
     {
       "id": "backflip-into-jeans",
@@ -2967,6 +3384,12 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "pShf2VuAu_Q",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "pShf2VuAu_Q",
+        "official": true,
+        "uploader": "unbuttonedfilms"
+      },
       "duration": 106,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=pShf2VuAu_Q",
@@ -2976,10 +3399,7 @@
         "d"
       ],
       "why": "Homemade stunt clip from every 2007 viral roundup.",
-      "original_url": "https://www.youtube.com/watch?v=pShf2VuAu_Q",
-      "media": "/media/international/backflip-into-jeans.mp4",
-      "poster": "/media/international/backflip-into-jeans.jpg",
-      "media_bytes": 7874235
+      "original_url": "https://www.youtube.com/watch?v=pShf2VuAu_Q"
     },
     {
       "id": "ytp-wilford-brimley",
@@ -2987,6 +3407,12 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "KICIOYlZTr8",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "KICIOYlZTr8",
+        "official": true,
+        "uploader": "Mike Bachmann"
+      },
       "duration": 79,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=KICIOYlZTr8",
@@ -2997,10 +3423,7 @@
         "e"
       ],
       "why": "Classic YouTube Poop from the genre's golden years.",
-      "original_url": "https://www.youtube.com/watch?v=KICIOYlZTr8",
-      "media": "/media/international/ytp-wilford-brimley.mp4",
-      "poster": "/media/international/ytp-wilford-brimley.jpg",
-      "media_bytes": 2346915
+      "original_url": "https://www.youtube.com/watch?v=KICIOYlZTr8"
     },
     {
       "id": "boom-headshot",
@@ -3008,6 +3431,12 @@
       "year": 2006,
       "source": "youtube",
       "embedId": "5_Xdi4T8mgI",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "5_Xdi4T8mgI",
+        "official": true,
+        "uploader": "urveen"
+      },
       "duration": 17,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=5_Xdi4T8mgI",
@@ -3019,10 +3448,7 @@
         "e"
       ],
       "why": "The gamer rant that became a catchphrase.",
-      "original_url": "https://www.youtube.com/watch?v=5_Xdi4T8mgI",
-      "media": "/media/international/boom-headshot.mp4",
-      "poster": "/media/international/boom-headshot.jpg",
-      "media_bytes": 414591
+      "original_url": "https://www.youtube.com/watch?v=5_Xdi4T8mgI"
     },
     {
       "id": "spirit-of-christmas",
@@ -3030,6 +3456,12 @@
       "year": 1995,
       "source": "youtube",
       "embedId": "Tkmxks20MPk",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "Tkmxks20MPk",
+        "official": true,
+        "uploader": "Tee Con"
+      },
       "duration": 240,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=Tkmxks20MPk",
@@ -3040,10 +3472,7 @@
         "e"
       ],
       "why": "The homemade video card passed around on tape and early web.",
-      "original_url": "https://www.youtube.com/watch?v=Tkmxks20MPk",
-      "media": "/media/international/spirit-of-christmas.mp4",
-      "poster": "/media/international/spirit-of-christmas.jpg",
-      "media_bytes": 10129585
+      "original_url": "https://www.youtube.com/watch?v=Tkmxks20MPk"
     },
     {
       "id": "ronald-get-down",
@@ -3051,6 +3480,12 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "EBMD4YiUqQU",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "EBMD4YiUqQU",
+        "official": true,
+        "uploader": "shosuki"
+      },
       "duration": 42,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=EBMD4YiUqQU",
@@ -3061,10 +3496,7 @@
         "e"
       ],
       "why": "The Nico Nico Douga Ronald remix craze.",
-      "original_url": "https://www.youtube.com/watch?v=EBMD4YiUqQU",
-      "media": "/media/international/ronald-get-down.mp4",
-      "poster": "/media/international/ronald-get-down.jpg",
-      "media_bytes": 2330851
+      "original_url": "https://www.youtube.com/watch?v=EBMD4YiUqQU"
     },
     {
       "id": "the-fox",
@@ -3072,6 +3504,12 @@
       "year": 2013,
       "source": "youtube",
       "embedId": "jofNR_WkoCE",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "jofNR_WkoCE",
+        "official": true,
+        "uploader": "TVNorge"
+      },
       "duration": 225,
       "note": "Ylvis, official video.",
       "credit": "https://www.youtube.com/watch?v=jofNR_WkoCE",
@@ -3082,10 +3520,7 @@
         "e"
       ],
       "why": "Ylvis, official video.",
-      "original_url": "https://www.youtube.com/watch?v=jofNR_WkoCE",
-      "media": "/media/international/the-fox.mp4",
-      "poster": "/media/international/the-fox.jpg",
-      "media_bytes": 16384344
+      "original_url": "https://www.youtube.com/watch?v=jofNR_WkoCE"
     },
     {
       "id": "gangnam-style",
@@ -3093,6 +3528,12 @@
       "year": 2012,
       "source": "youtube",
       "embedId": "9bZkp7q19f0",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "9bZkp7q19f0",
+        "official": true,
+        "uploader": "officialpsy"
+      },
       "duration": 252,
       "note": "Psy, official video.",
       "credit": "https://www.youtube.com/watch?v=9bZkp7q19f0",
@@ -3103,10 +3544,7 @@
         "e"
       ],
       "why": "Psy, official video.",
-      "original_url": "https://www.youtube.com/watch?v=9bZkp7q19f0",
-      "media": "/media/international/gangnam-style.mp4",
-      "poster": "/media/international/gangnam-style.jpg",
-      "media_bytes": 21863794
+      "original_url": "https://www.youtube.com/watch?v=9bZkp7q19f0"
     },
     {
       "id": "harlem-shake",
@@ -3114,6 +3552,12 @@
       "year": 2013,
       "source": "youtube",
       "embedId": "8vJiSSAMNWw",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "8vJiSSAMNWw",
+        "official": true,
+        "uploader": "DizastaMusic"
+      },
       "duration": 36,
       "note": "The original Filthy Frank upload that the copies followed.",
       "credit": "https://www.youtube.com/watch?v=8vJiSSAMNWw",
@@ -3125,10 +3569,7 @@
         "e"
       ],
       "why": "The original Filthy Frank upload that the copies followed.",
-      "original_url": "https://www.youtube.com/watch?v=8vJiSSAMNWw",
-      "media": "/media/international/harlem-shake.mp4",
-      "poster": "/media/international/harlem-shake.jpg",
-      "media_bytes": 3418192
+      "original_url": "https://www.youtube.com/watch?v=8vJiSSAMNWw"
     },
     {
       "id": "friday",
@@ -3136,6 +3577,12 @@
       "year": 2011,
       "source": "youtube",
       "embedId": "kfVsfOSbJY0",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "kfVsfOSbJY0",
+        "official": true,
+        "uploader": "rebecca"
+      },
       "duration": 227,
       "note": "Rebecca Black.",
       "credit": "https://www.youtube.com/watch?v=kfVsfOSbJY0",
@@ -3146,10 +3593,7 @@
         "e"
       ],
       "why": "Rebecca Black.",
-      "original_url": "https://www.youtube.com/watch?v=kfVsfOSbJY0",
-      "media": "/media/international/friday.mp4",
-      "poster": "/media/international/friday.jpg",
-      "media_bytes": 20345506
+      "original_url": "https://www.youtube.com/watch?v=kfVsfOSbJY0"
     },
     {
       "id": "honey-badger",
@@ -3157,6 +3601,12 @@
       "year": 2011,
       "source": "youtube",
       "embedId": "4r7wHMg5Yjg",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "4r7wHMg5Yjg",
+        "official": true,
+        "uploader": "czg123"
+      },
       "duration": 200,
       "note": "Randall's narration.",
       "credit": "https://www.youtube.com/watch?v=4r7wHMg5Yjg",
@@ -3167,10 +3617,7 @@
         "d"
       ],
       "why": "Randall's narration.",
-      "original_url": "https://www.youtube.com/watch?v=4r7wHMg5Yjg",
-      "media": "/media/international/honey-badger.mp4",
-      "poster": "/media/international/honey-badger.jpg",
-      "media_bytes": 13730551
+      "original_url": "https://www.youtube.com/watch?v=4r7wHMg5Yjg"
     },
     {
       "id": "nyan-cat",
@@ -3178,6 +3625,12 @@
       "year": 2011,
       "source": "youtube",
       "embedId": "2yJgwwDcgV8",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "2yJgwwDcgV8",
+        "official": true,
+        "uploader": "NyanCat"
+      },
       "duration": 226,
       "note": "The official Nyan Cat upload, not the ten-hour loop.",
       "credit": "https://www.youtube.com/watch?v=2yJgwwDcgV8",
@@ -3189,11 +3642,7 @@
         "e"
       ],
       "why": "The official Nyan Cat upload, not the ten-hour loop.",
-      "original_url": "https://www.youtube.com/watch?v=2yJgwwDcgV8",
-      "media_source": "https://www.youtube.com/watch?v=T96yuWBG1Aw",
-      "media": "/media/international/nyan-cat.mp4",
-      "poster": "/media/international/nyan-cat.jpg",
-      "media_bytes": 3750628
+      "original_url": "https://www.youtube.com/watch?v=2yJgwwDcgV8"
     },
     {
       "id": "dumb-ways-to-die",
@@ -3201,6 +3650,12 @@
       "year": 2012,
       "source": "youtube",
       "embedId": "IJNR2EpS0jw",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "IJNR2EpS0jw",
+        "official": true,
+        "uploader": "Dumb Ways to Die"
+      },
       "duration": 182,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=IJNR2EpS0jw",
@@ -3210,10 +3665,7 @@
         "e"
       ],
       "why": "A rail-safety ad that became a global earworm.",
-      "original_url": "https://www.youtube.com/watch?v=IJNR2EpS0jw",
-      "media": "/media/international/dumb-ways-to-die.mp4",
-      "poster": "/media/international/dumb-ways-to-die.jpg",
-      "media_bytes": 7016038
+      "original_url": "https://www.youtube.com/watch?v=IJNR2EpS0jw"
     },
     {
       "id": "russian-unicorn",
@@ -3221,6 +3673,12 @@
       "year": 2011,
       "source": "youtube",
       "embedId": "YjaZNYSt7o0",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "YjaZNYSt7o0",
+        "official": true,
+        "uploader": "Bad Lip Reading"
+      },
       "duration": 266,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=YjaZNYSt7o0",
@@ -3231,10 +3689,7 @@
         "d"
       ],
       "why": "Bad Lip Reading's breakout: Michael Bublé, reimagined.",
-      "original_url": "https://www.youtube.com/watch?v=YjaZNYSt7o0",
-      "media": "/media/international/russian-unicorn.mp4",
-      "poster": "/media/international/russian-unicorn.jpg",
-      "media_bytes": 23270551
+      "original_url": "https://www.youtube.com/watch?v=YjaZNYSt7o0"
     },
     {
       "id": "fenton",
@@ -3242,6 +3697,12 @@
       "year": 2011,
       "source": "youtube",
       "embedId": "3GRSbr0EYYU",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "3GRSbr0EYYU",
+        "official": true,
+        "uploader": "JAGGL113"
+      },
       "duration": 46,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=3GRSbr0EYYU",
@@ -3252,10 +3713,7 @@
         "d"
       ],
       "why": "A Labrador, a herd of deer and a desperate owner.",
-      "original_url": "https://www.youtube.com/watch?v=3GRSbr0EYYU",
-      "media": "/media/international/fenton.mp4",
-      "poster": "/media/international/fenton.jpg",
-      "media_bytes": 3417582
+      "original_url": "https://www.youtube.com/watch?v=3GRSbr0EYYU"
     },
     {
       "id": "aint-nobody-got-time",
@@ -3263,6 +3721,12 @@
       "year": 2012,
       "source": "youtube",
       "embedId": "ydmPh4MXT3g",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "ydmPh4MXT3g",
+        "official": true,
+        "uploader": "KFOR Oklahoma's News 4"
+      },
       "duration": 42,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=ydmPh4MXT3g",
@@ -3272,10 +3736,7 @@
         "e"
       ],
       "why": "A local-news interview that became a universal reply.",
-      "original_url": "https://www.youtube.com/watch?v=ydmPh4MXT3g",
-      "media": "/media/international/aint-nobody-got-time.mp4",
-      "poster": "/media/international/aint-nobody-got-time.jpg",
-      "media_bytes": 2330726
+      "original_url": "https://www.youtube.com/watch?v=ydmPh4MXT3g"
     },
     {
       "id": "chuck-testa",
@@ -3283,6 +3744,12 @@
       "year": 2011,
       "source": "youtube",
       "embedId": "LJP1DphOWPs",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "LJP1DphOWPs",
+        "official": true,
+        "uploader": "Chuck Testa (Ojai Valley Taxidermy)"
+      },
       "duration": 64,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=LJP1DphOWPs",
@@ -3293,10 +3760,7 @@
         "d"
       ],
       "why": "A taxidermist's homemade ad: 'Nope. Chuck Testa.'",
-      "original_url": "https://www.youtube.com/watch?v=LJP1DphOWPs",
-      "media": "/media/international/chuck-testa.mp4",
-      "poster": "/media/international/chuck-testa.jpg",
-      "media_bytes": 4532661
+      "original_url": "https://www.youtube.com/watch?v=LJP1DphOWPs"
     },
     {
       "id": "ultimate-dog-tease",
@@ -3304,6 +3768,12 @@
       "year": 2011,
       "source": "youtube",
       "embedId": "nGeKSiCQkPw",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "nGeKSiCQkPw",
+        "official": true,
+        "uploader": "Talking Animals"
+      },
       "duration": 81,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=nGeKSiCQkPw",
@@ -3314,10 +3784,7 @@
         "d"
       ],
       "why": "The talking dog who really wanted the maple bacon.",
-      "original_url": "https://www.youtube.com/watch?v=nGeKSiCQkPw",
-      "media": "/media/international/ultimate-dog-tease.mp4",
-      "poster": "/media/international/ultimate-dog-tease.jpg",
-      "media_bytes": 4253819
+      "original_url": "https://www.youtube.com/watch?v=nGeKSiCQkPw"
     },
     {
       "id": "stonehenge",
@@ -3325,6 +3792,12 @@
       "year": 2011,
       "source": "youtube",
       "embedId": "mbyzgeee2mg",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "mbyzgeee2mg",
+        "official": true,
+        "uploader": "TVNorge"
+      },
       "duration": 236,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=mbyzgeee2mg",
@@ -3334,15 +3807,23 @@
         "e"
       ],
       "why": "Ylvis before The Fox: what is the meaning of Stonehenge?",
-      "original_url": "https://www.youtube.com/watch?v=mbyzgeee2mg",
-      "media": "/media/international/stonehenge.mp4",
-      "poster": "/media/international/stonehenge.jpg",
-      "media_bytes": 11733304
+      "original_url": "https://www.youtube.com/watch?v=mbyzgeee2mg"
     },
     {
       "id": "doge",
       "title": "Doge",
       "year": 2013,
+      "source": "other",
+      "embedId": "https://knowyourmeme.com/memes/doge",
+      "play": {
+        "kind": "link",
+        "id_or_url": "https://knowyourmeme.com/memes/doge",
+        "official": false,
+        "uploader": "Know Your Meme"
+      },
+      "duration": 7,
+      "note": "Still image. The card links to the Know Your Meme page; Plebflix does not host the picture.",
+      "credit": "https://knowyourmeme.com/memes/doge",
       "signals": [
         "a",
         "b",
@@ -3350,42 +3831,48 @@
         "e"
       ],
       "why": "Kabosu side-eye. Such meme. Very classic. Wow.",
-      "note": "Static meme, looped 7 s. Image via Know Your Meme; credit to its creators.",
       "original_url": "https://knowyourmeme.com/memes/doge",
-      "kind": "meme",
-      "source": "other",
-      "embedId": "https://i.kym-cdn.com/entries/icons/original/000/013/564/doge.jpg",
-      "credit": "https://knowyourmeme.com/memes/doge",
-      "duration": 7,
-      "media": "/media/international/doge.mp4",
-      "poster": "/media/international/doge.jpg",
-      "media_bytes": 51756
+      "kind": "meme"
     },
     {
       "id": "grumpy-cat",
       "title": "Grumpy Cat",
       "year": 2012,
+      "source": "other",
+      "embedId": "https://knowyourmeme.com/memes/grumpy-cat",
+      "play": {
+        "kind": "link",
+        "id_or_url": "https://knowyourmeme.com/memes/grumpy-cat",
+        "official": false,
+        "uploader": "Know Your Meme"
+      },
+      "duration": 7,
+      "note": "Still image. The card links to the Know Your Meme page; Plebflix does not host the picture.",
+      "credit": "https://knowyourmeme.com/memes/grumpy-cat",
       "signals": [
         "a",
         "b",
         "c"
       ],
       "why": "Tardar Sauce's permanent frown. No.",
-      "note": "Static meme, looped 7 s. Image via Know Your Meme; credit to its creators.",
       "original_url": "https://knowyourmeme.com/memes/grumpy-cat",
-      "kind": "meme",
-      "source": "other",
-      "embedId": "https://i.kym-cdn.com/entries/icons/original/000/011/365/GRUMPYCAT.jpg",
-      "credit": "https://knowyourmeme.com/memes/grumpy-cat",
-      "duration": 7,
-      "media": "/media/international/grumpy-cat.mp4",
-      "poster": "/media/international/grumpy-cat.jpg",
-      "media_bytes": 95418
+      "kind": "meme"
     },
     {
       "id": "bad-luck-brian",
       "title": "Bad Luck Brian",
       "year": 2012,
+      "source": "other",
+      "embedId": "https://knowyourmeme.com/memes/bad-luck-brian",
+      "play": {
+        "kind": "link",
+        "id_or_url": "https://knowyourmeme.com/memes/bad-luck-brian",
+        "official": false,
+        "uploader": "Know Your Meme"
+      },
+      "duration": 7,
+      "note": "Still image. The card links to the Know Your Meme page; Plebflix does not host the picture.",
+      "credit": "https://knowyourmeme.com/memes/bad-luck-brian",
       "signals": [
         "a",
         "b",
@@ -3393,16 +3880,8 @@
         "d"
       ],
       "why": "A school photo that guaranteed everything goes wrong.",
-      "note": "Static meme, looped 7 s. Image via Know Your Meme; credit to its creators.",
       "original_url": "https://knowyourmeme.com/memes/bad-luck-brian",
-      "kind": "meme",
-      "source": "other",
-      "embedId": "https://i.kym-cdn.com/entries/icons/original/000/009/515/BadLuckBryan.jpg",
-      "credit": "https://knowyourmeme.com/memes/bad-luck-brian",
-      "duration": 7,
-      "media": "/media/international/bad-luck-brian.mp4",
-      "poster": "/media/international/bad-luck-brian.jpg",
-      "media_bytes": 47685
+      "kind": "meme"
     }
   ]
 }

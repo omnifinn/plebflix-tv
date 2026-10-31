@@ -18,6 +18,22 @@ test("migrations split into statements without comments", () => {
   assert.deepEqual(statementsOf(sql), ["CREATE TABLE t (a TEXT)", "CREATE INDEX i ON t (a)"]);
 });
 
+test("deploy does not upload or verify hosted media", () => {
+  const src = readFileSync("scripts/deploy.mjs", "utf8");
+  assert.equal(src.includes("ingest.mjs"), false);
+  assert.equal(src.includes("/media/suomi/b5mies.mp4"), false);
+  assert.match(src, /refusing to upload hosted media/);
+  assert.match(src, /\/credits/);
+  assert.match(src, /takedown@plebflix.com/);
+  const worker = readFileSync("src/worker.ts", "utf8");
+  assert.equal(worker.includes("serveMedia"), false);
+  assert.equal(worker.includes('"/media/"'), false);
+  assert.match(worker, /"\/credits": "\/credits"/);
+  assert.match(worker, /"\/takedown": "\/takedown"/);
+  assert.doesNotMatch(worker, /"\/credits\.html"/);
+  assert.doesNotMatch(worker, /"\/takedown\.html"/);
+});
+
 test("every checked-in migration yields statements the connector step can run", () => {
   const files = readdirSync("migrations").filter((name) => name.endsWith(".sql")).sort();
   assert.ok(files.includes("0003_votes_ip.sql"));

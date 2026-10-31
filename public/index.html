@@ -65,7 +65,7 @@
         <div class="crt__glass" id="screen">
           <div class="stage" id="stage">
             <img id="poster" alt="" hidden>
-            <video id="vid" playsinline muted preload="auto" hidden></video>
+            <video id="vid" playsinline muted preload="none" hidden></video>
             <div id="yt"></div>
             <iframe id="embed" title="Embedded video" hidden allow="autoplay; fullscreen; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin"></iframe>
             <div id="swf" hidden></div>
@@ -93,6 +93,7 @@
             <span class="osd__ch lcd-text" id="osd-ch">CH 02</span>
             <p class="osd__vote lcd-text" id="osd-vote" role="status" hidden></p>
             <button class="sound-hint" id="sound-hint" type="button"><svg aria-hidden="true"><use href="#i-speaker"/></svg>Tap for sound</button>
+            <a class="osd__out" id="card-link" hidden target="_blank" rel="noopener noreferrer">Open the original</a>
           </div>
         </div>
         <span class="crt__badge" aria-hidden="true">PLEBTRON</span>
@@ -179,7 +180,7 @@
         </div>
         <div class="well eq__well lcd-text aeq__vis" id="aeq-vis-well" hidden><canvas id="aeq-vis" width="300" height="64" title="Click to cycle: bars · scope · off" aria-label="Visualizer, click to change mode"></canvas><span class="aeq__mode" id="aeq-mode">BARS</span></div>
         <div class="aeq__bands" id="aeq-bands"></div>
-        <p class="aeq__note" id="aeq-note">EQ shapes the self-hosted tapes. Embedded fallbacks play untouched.</p>
+        <p class="aeq__note" id="aeq-note">The bands are the deck's picture. Embeds play on the creator's player, so the EQ does not touch the sound.</p>
       </div>
     </section>
 
@@ -225,11 +226,11 @@
         <li><a class="plaque" href="https://en.wikipedia.org/wiki/Internet_Memory_Foundation" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-archive-globe"/></svg>Internet Memory Foundation</a></li>
         <li class="shelf__more"><a href="/RESOURCES.md">Full library <svg aria-hidden="true"><use href="#i-arrow-right"/></svg></a></li>
       </ul>
-      <p class="shelf__note">Every tape links to its original upload or a Wayback snapshot.</p>
+      <p class="shelf__note">Every tape links to its original upload. Playback is an embed, or a link when no embed exists. <a href="/credits">Credits</a> · <a href="/takedown">Takedown</a></p>
     </div>
   </section>
 
-  <footer class="foot">Plebflix — real human slop <span>·</span> Add a tape with REC <span>·</span> Clips are archived for preservation and credited to their original creators — ask for removal any time (REC or <a href="https://github.com/omnifinn/plebflix-tv/issues/new?title=Takedown%20request" target="_blank" rel="noopener">a GitHub issue</a>). Every tape links to its original source.</footer>
+  <footer class="foot">Plebflix — real human slop <span>·</span> Add a tape with REC <span>·</span> <a href="/credits">Credits</a> <span>·</span> <a href="/takedown">Takedown</a> <span>·</span> Embeds only. We do not host the video.</footer>
 </div>
 
 <!-- ═════════ REC DIALOG ═════════ -->

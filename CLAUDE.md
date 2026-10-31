@@ -18,7 +18,7 @@ Standing authorization (Niko, 2026-10-30): plebflix maintenance ships without as
 
 1. Claude: make the change; `npm test`; `npm run validate`; commit on `main`; `git push origin main`.
 2. Claude: `node scripts/deploy.mjs ship` — refuses unless `main` is clean and equals `origin/main`, re-runs the gates,
-   builds, checks every tape file, writes `dist/deploy/step0-migrate.js` and `dist/deploy/step1-session.js`.
+   builds, refuses a manifest that contains `/media/`, writes `dist/deploy/step0-migrate.js` and `dist/deploy/step1-session.js`.
    Claude's last line to Page: `SHIP READY <commit>`.
 3. Page (connector `execute`): run `dist/deploy/step0-migrate.js` (applies D1 migrations not yet recorded; safe to re-run).
 4. Page (connector `execute`): run `dist/deploy/step1-session.js`; write its JSON result to `dist/deploy/session.json`.
@@ -33,8 +33,8 @@ Headless call Page uses: `claude -p --permission-mode acceptEdits "<task>"` from
 
 ## Content (Page's PRs)
 
-Page edits only `channels/*.json` and `media/`. Format, required fields, scheduling and the gate: `LIBRARIAN.md` §0.
-New media is made here with `node scripts/ingest.mjs --backfill` before step 2.
+Page edits only `channels/*.json`. Format, required fields, scheduling and the gate: `LIBRARIAN.md` §0.
+The site does not host video. There is no ingest step and no `media/` upload.
 
 ## Rules carried from Niko's global instructions
 

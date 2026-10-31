@@ -1,3 +1,5 @@
+// Retired 2026-10-31. The Worker no longer serves /media/*. Kept so the range tests still run.
+// Nothing in src/ imports this file.
 // Static assets on Workers answer Range requests with a full 200, which stops
 // browsers from seeking inside a tape. This turns that into a proper 206.
 export function parseRange(header, size) {

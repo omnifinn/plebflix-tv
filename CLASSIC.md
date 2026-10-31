@@ -33,10 +33,11 @@ A tape also has to meet **at least three** of these. `signals` is the list of le
 | `signals` | Three to five unique letters from `a` through `e`. |
 | `why` | One line. |
 | `original_url` | The original upload or site. If that page is gone, a Wayback snapshot that was actually fetched. Shown on the glass as SOURCE. |
+| `play` | How it plays: `youtube`, `archive`, or `link`, plus `official` and `uploader`. See `LIBRARIAN.md` §0. |
 
-Playback is a separate question. The set embeds YouTube, archive.org, or Vimeo. `original_url` can be a dead page's snapshot while the picture comes from a later upload. A link-out is not playback.
+Playback is a separate question, and it is the `play` object on the tape: a YouTube embed (the creator's or an official channel's upload when one exists), an archive.org embed when no YouTube upload is alive, or a link-out card when no embed exists. The set does not host the file. `original_url` can be a dead page's snapshot while the picture comes from a later upload. A link-out is not playback.
 
-Flash-era `.swf` files stay off the loop unless the card carries `license` of `cc0`, `cc-by`, `cc-by-sa`, or `public-domain`. Only then may the set run the file in Ruffle. An archival SWF with no such license is a find, not a programme.
+Flash-era `.swf` files stay off the loop. The deck does not run Ruffle. An archival SWF is a find, not a programme.
 
 ## Calibration
 
@@ -75,13 +76,13 @@ The Newgrounds player is gone. That Wayback snapshot is the original page. Playb
 
 | | |
 | --- | --- |
-| Embed | YouTube `mLyOj_QD4a4`, oEmbed title “Leeroy Jenkins HD 1080p” |
+| Embed | YouTube `mLyOj_QD4a4`, oEmbed title “Leeroy Jenkins HD 1080p”, uploader J Jonah Jameson, `play.official: false` |
 | Duration | 172 seconds |
 | `year` | 2005 |
 | `original_url` | `https://www.youtube.com/watch?v=mLyOj_QD4a4` |
 | `signals` | `a`, `b`, `c`, `d`, `e` |
 
-This is an HD upload of the 2005 World of Warcraft machinima. No verified snapshot of the earlier warcraftmovies.com page was found, so the original URL is this film. It was born in a game community, quoted until the line stopped meaning anything else, homemade machinima, and it defined that raid-night scene.
+This is an HD re-upload of the 2005 World of Warcraft machinima, not the creator's own channel. The warcraftmovies.com original is gone, and the other copies that turned up (`LkCNJRfSZBU`, `sAooq7e0gg0`) are not an official upload either, so this embed stays and is marked not official. It was born in a game community, quoted until the line stopped meaning anything else, homemade machinima, and it defined that raid-night scene. The calibration id stays `mLyOj_QD4a4`.
 
 ## What does not get on
 

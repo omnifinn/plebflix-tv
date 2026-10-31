@@ -2,7 +2,7 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
-  Content-Security-Policy: script-src 'self' blob: https://www.youtube.com https://s.ytimg.com https://unpkg.com 'wasm-unsafe-eval'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'
+  Content-Security-Policy: script-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://s.ytimg.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com https://archive.org; img-src 'self' data: https://i.ytimg.com https://*.ytimg.com https://archive.org
 
 /channels/*
   Cache-Control: public, max-age=60
@@ -39,6 +39,9 @@
 /tactile.js
   Cache-Control: public, max-age=31536000, immutable
 
+/play.js
+  Cache-Control: public, max-age=31536000, immutable
+
 /fonts/*
   Cache-Control: public, max-age=86400
 
@@ -51,7 +54,3 @@
 /site.webmanifest
   Content-Type: application/manifest+json
   Cache-Control: public, max-age=86400
-
-/media/*
-  Cache-Control: public, max-age=86400
-  Accept-Ranges: bytes

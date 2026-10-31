@@ -1,7 +1,15 @@
-import { serveMedia } from "../lib/range.mjs";
 import { suomiPage } from "../lib/suomi-page.mjs";
 import { handleSubmit } from "../lib/submissions.mjs";
 import { handleImpression, handleStats, handleVote } from "../lib/votes.mjs";
+
+// Ask ASSETS for the extensionless path. Fetching /credits.html gets a 307 back to /credits,
+// and run_worker_first would send that redirect through this worker again.
+const PAGES: Record<string, string> = {
+  "/credits": "/credits",
+  "/credits/": "/credits",
+  "/takedown": "/takedown",
+  "/takedown/": "/takedown",
+};
 
 export default {
   async fetch(request: Request, env: Env, ctx: { waitUntil(p: Promise<unknown>): void }): Promise<Response> {
@@ -30,8 +38,9 @@ export default {
         headers: { "content-type": "application/json; charset=utf-8" },
       });
     }
-    if (url.pathname.startsWith("/media/")) {
-      return (serveMedia as any)(request, env.ASSETS, (globalThis as any).caches?.default, (p: Promise<unknown>) => ctx.waitUntil(p));
+    const page = PAGES[url.pathname];
+    if (page) {
+      return env.ASSETS.fetch(new Request(new URL(page, url), request));
     }
     if (url.pathname === "/suomi" || url.pathname === "/suomi/") {
       const shell = await env.ASSETS.fetch(new Request(new URL("/", url), { headers: { accept: "text/html" } }));
