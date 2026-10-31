@@ -1,8 +1,8 @@
 # Plebflix TV — the daily librarian routine
 
 Everything the morning routine needs: where submissions and votes live, how to vet,
-how to ingest a tape, and how to redeploy. Since 2026-10-30 the deploy machine is Niko's Mac
-(`~/Developer/personal/plebflix-tv`, `media/` mirrored from the live site) with a Cloudflare API token for the
+how to file a tape, and how to redeploy. Since 2026-10-30 the deploy machine is Niko's Mac
+(`~/Developer/personal/plebflix-tv`) with a Cloudflare API token for the
 account that owns plebflix.com (`f7b1f5882ab68d7dfd785ad6942b2db2`). The connector route below (Cursor box
 `/workspace/deploy/plebflix-tv`, `user-Cloudflare` → `execute`, cursor-github, user-Google-drive) is the older path
 and still works where those connectors exist.
@@ -11,10 +11,10 @@ Never touch the Worker `plebflix`, the repo `omnifinn/plebflix` (that is Bask) o
 
 ## 0. Content lives in data files — the only files a content PR touches (Page, since 2026-10-30)
 
-Niko, 2026-10-30: *"Another assistant (Page) adds content to this repo through daily PRs. … Page will only edit those data
-files and `media/`, and will never touch the app code."* Everything the player shows is read from plain JSON under
-`channels/` (it is served as-is at `/channels/*.json`; the code never embeds a title or a time). A content PR edits these
-and nothing else:
+Niko, 2026-10-30, updated 2026-10-31: Page adds content through daily PRs and edits only the data files under
+`channels/`. Page does not touch the app code, and the site does not host video, so a content PR never adds a file under
+`media/` or `public/`. Everything the player shows is read from plain JSON under `channels/` (served as-is at
+`/channels/*.json`; the code never embeds a title or a time). A content PR edits these and nothing else:
 
 | File | Holds | Edited when |
 | --- | --- | --- |
@@ -22,7 +22,6 @@ and nothing else:
 | `channels/suomi.json` | the Suomi shelf, same shape | same |
 | `channels/categories.json` | the category channels (`channels`) and `assign`: tape id → one or more category ids | every new tape gets an `assign` entry |
 | `channels/schedule.json` | how each channel airs: order, hold-out, ident length, fixed slots (format below) | a channel should play in file order, or a tape should air at a fixed time |
-| `media/<lang>/<id>.mp4` + `.jpg` | the self-hosted file and poster (not in git; made on the deploy Mac by `scripts/ingest.mjs`) | see "Media" below |
 
 **The gate: `npm run validate`.** CI (`.github/workflows/validate.yml`) runs it on every pull request; run it locally before
 pushing. It checks both shelves field by field, that every tape has at least one category and every category exists,
@@ -34,18 +33,20 @@ changed (CI checks `RESOURCES.md` is current).
 
 | Field | Rule |
 | --- | --- |
-| `id` | lowercase slug, unique on the shelf; the file is `media/<lang>/<id>.mp4` |
+| `id` | lowercase slug, unique on the shelf |
 | `title` | 1–160 characters |
 | `year` | integer; the viral peak, 2013 or earlier (`CLASSIC.md`) |
 | `signals` | 3–5 of `a b c d e` (`CLASSIC.md`), unique |
 | `why` | one line, ≤ 200 characters |
 | `original_url` | http(s) link to the original upload or a Wayback snapshot (the SOURCE pill) |
-| `source` / `embedId` | `youtube` + 11-char id, `vimeo` + numeric id, `archive.org` + identifier, or `other` + the page URL; the embed is the fallback when the file fails |
-| `duration` | integer seconds, 1–7200 (`yt-dlp -j URL` gives it); the daily schedule is drawn from these |
+| `source` / `embedId` | `youtube` + the video id, `archive.org` + identifier, `vimeo` + numeric id, or `other` + the page URL. For `youtube` and `archive.org` this matches `play.id_or_url` |
+| `play` | **required.** `{ "kind": "youtube" \| "archive" \| "link", "id_or_url", "official": true \| false, "uploader" }`. `youtube`: the creator's or an official channel's upload when one exists (`official: true`). A re-upload that is the only working embed stays, with `official: false`. `archive`: an archive.org identifier, used when no YouTube upload is alive. `link`: an http(s) page, shown as a link-out card, when no embed exists. `uploader` is one line (1–120). The same `kind` + `id_or_url` cannot appear twice on a shelf |
+| `duration` | integer seconds, 1–7200; the daily schedule is drawn from these. A link-out still occupies its slot for this many seconds |
 | `note` | string, ≤ 500 (credit / context; may be empty) |
-| `added` | **the UTC day the tape was filed, `YYYY-MM-DD`.** The tape joins every daily schedule from the *next* UTC day, so a deploy never puts two open tabs on two different programmes. `scripts/ingest.mjs` and `scripts/batch.mjs` stamp it; a hand-written row must carry it. |
-| `media` | `/media/<lang>/<id>.mp4` once the file exists; `poster` `/media/<lang>/<id>.jpg`; `media_bytes` its size |
-| optional | `media_source` (direct URL to download the file from when the original will not), `credit` (URL), `creator`, `tags` (≤ 8 slugs), `license` (`cc0`/`cc-by`/`cc-by-sa`/`public-domain`, required for a `.swf`), `kind: "meme"` for a still turned into a 7 s loop, `status: "pending"` to keep a row off air |
+| `added` | **the UTC day the tape was filed, `YYYY-MM-DD`.** The tape joins every daily schedule from the *next* UTC day, so a deploy never puts two open tabs on two different programmes. A hand-written row must carry it. |
+| optional | `credit` (URL), `creator`, `tags` (≤ 8 slugs), `license` (`cc0`/`cc-by`/`cc-by-sa`/`public-domain`), `kind: "meme"` for a still whose card links out, `status: "pending"` to keep a row off air |
+
+`media`, `poster`, `media_bytes`, and `media_source` are rejected. Plebflix does not host the file or a downloaded frame. Posters come from `i.ytimg.com` or the player.
 
 ### How a new tape slots into a channel's daily schedule
 
@@ -81,12 +82,13 @@ changed (CI checks `RESOURCES.md` is current).
 | `ident_seconds` | 1–60: the station ident between tapes. |
 | `slots` | `[{ "at": "HH:MM", "tape": "<id>" }]`, **UTC** (Helsinki = UTC+2 in winter, UTC+3 in summer). The tape starts at that second every day; the gap before it is filled with tapes that fit, then an ident. The tape must be on that shelf (and, for a category channel, assigned to that category), slots must not overlap. |
 
-### Media
+### Playback
 
-`media/` is not in git, so a PR cannot carry the file. Give the row `duration` (from `yt-dlp -j`) and, if the original
-will not download, `media_source`. On the deploy Mac the routine then runs `node scripts/ingest.mjs --backfill`, which
-downloads, transcodes (H.264/AAC ≤ 480p ≤ 24 MiB, poster) and writes `media`, `poster`, `media_bytes` and the exact
-`duration` back into the shelf JSON; that change is committed and pushed before the deploy (§4).
+Every tape plays through `play`. YouTube uses the IFrame Player API on `youtube-nocookie.com` and is seeked to the
+scheduled offset, so LIVE stays the same for everyone. archive.org is an embed reloaded to that offset (it has no player
+API). `link` is a card that points at the original page. Nothing is served from `/media`. A weekly check, not a CI gate:
+`npm run check-embeds` (YouTube oEmbed, then noembed; archive.org metadata). It prints dead embeds and exits 1 if any
+embed is dead. Link-only tapes are listed and do not fail the check.
 
 ## Where things are
 
@@ -96,7 +98,8 @@ downloads, transcodes (H.264/AAC ≤ 480p ≤ 24 MiB, poster) and writes `media`
 | D1 | `plebflix-tv`, id `bc743ec1-07f3-422b-bb5a-972aa6507996` (tables `votes`, `impressions`, `submissions`) |
 | Catalog | `channels/suomi.json`, `channels/international.json` (git): every tape lives on exactly one language channel |
 | Category channels | `channels/categories.json` (git): the category list (MTV, KOMEDIA, ASIAA, DOKKARIT, VISAILUT, MEMES, FLASH, GAMING, ELÄIMET, FAILS) and an `assign` map from tape id to one or more categories. Long documentary-style tapes go on DOKKARIT, short funny ones on KOMEDIA, game-show moments on VISAILUT. Every new tape needs an `assign` entry. |
-| Media | `media/<channel>/<id>.mp4` + `.jpg` poster (on the box, **not** in git; served as Worker static assets at `/media/...`) |
+| Playback | `play` on the tape. YouTube embed, archive.org embed, or a link-out. The site does not host the video. |
+| Credits / takedown | `/credits` and `/takedown` (generated into `public/credits.html` and `public/takedown.html` by `npm run resources`). Rights email: `takedown@plebflix.com` |
 | Dump folder | Google Drive "Plebflix TV dump" `1EOSMYYdkFys-PAOWIcrpO9X_fWMcYywY`, `links.txt` `15V44Y7VGoHOrjBDYiorhE5ozMzg4JUpV` |
 
 ## 1. Read D1 (connector `execute`)
@@ -128,42 +131,35 @@ UPDATE submissions SET status = 'rejected', review_note = ?, reviewed_at = datet
 Classifier (`CLASSIC.md`): at least 10 years old (hard rule) **and** at least 3 of 5 signals
 (a born online, b spread widely, c still quoted, d amateur/DIY, e defined its scene).
 The REC card is a link only (since 2026-10-30): title, year, duration and uploader come from the link
-(`yt-dlp -j --skip-download URL`; `scripts/ingest.mjs` fills them in when `--title`/`--year` are omitted), you judge the
-signals and the channel (the deck sends the TV that was on). Check the link exists, the year is real, it isn't a duplicate
+(`yt-dlp -j --skip-download URL`), you judge the signals and the channel (the deck sends the TV that was on). Check the link exists, the year is real, it isn't a duplicate
 (`grep` the channel JSONs for the video id / original URL), and it isn't hateful, sexual, or cruel to a private person.
 ÄM-IRK is on air (Niko asked for it). Apply the CLASSIC.md rule: viral/meme online, peak in 2013 or earlier, originals only (no remixes, compilations or cartoon versions unless the remix itself went viral). Recommend accept / reject / block to Niko with one line each.
 
 Drop suggestions from votes: a tape with ≥ 12 votes and a Wilson lower bound < 0.32 (`npm run curate` uses the same rule;
 calibration tapes B5mies, Kahen kilon siika, Ismo ja Seppo pyöräilee, Numa Numa, Leeroy Jenkins stay).
 
-## 3. Ingest a tape
+## 3. File a tape
+
+Add the row to `channels/suomi.json` or `channels/international.json` with the fields in §0, including `play`, and an
+`assign` entry in `channels/categories.json`. Prefer the creator's own YouTube upload (`play.official: true`). If that
+upload is gone and an archive.org item exists, use `kind: "archive"`. If neither embed is alive, use `kind: "link"` and
+point `id_or_url` at the original page. Do not download the file, do not write a poster into `public/`, and do not set
+`media`. A still (the old 7-second loops) is a link-out card, not a rendered MP4.
 
 ```bash
-cd /workspace/deploy/plebflix-tv && export PATH=/workspace/node22/bin:$PATH
-# a link (YouTube, Vimeo, archive.org, Wayback, most video pages yt-dlp knows, or a direct file URL)
-node scripts/ingest.mjs --channel suomi --url "https://www.youtube.com/watch?v=XXXXXXXXXXX" \
-  --signals a,b,d --why "One line on why it is a classic." [--title "Title"] [--year 2006] [--id slug] [--original URL] [--note "credit"]
-# --title and --year default to what the link says (yt-dlp); give them when the upload date is not the release year
-# a local video file (e.g. pulled from the Drive dump with DownloadFile)
-node scripts/ingest.mjs --channel international --file /workspace/dump/clip.mov --title ... --year ... --signals ... --why ... --original "https://where-it-came-from"
-# a static meme or GIF → 7 s looping MP4 with a title/year strip
-node scripts/ingest.mjs --channel international --image https://…/meme.jpg --title "Doge" --year 2013 --signals a,b,c --why "..."
-node scripts/ingest.mjs --check        # every catalog tape has its media file?
-node scripts/ingest.mjs --backfill     # archive any tape that lacks media (uses media_source if set)
+npm run validate
+npm run resources          # RESOURCES.md, public/credits.html, public/takedown.html
+npm run check-embeds       # weekly; not a CI gate. Prints dead embeds.
 ```
 
-Batch: write a plan JSON (`[{id, channel, url, title, year, signals, why, cats, original_url?}]`) and run `node scripts/batch.mjs plan.json --jobs 4`. It downloads and transcodes in parallel, keeps progress in `plan.json.done.jsonl` (rerun to resume), and files the finished tapes into the channel JSON and `categories.json`.
-
-Output: H.264/AAC MP4 (Main profile, yuv420p), ≤ 480p (360p for tapes over 10 min; anything over 20 min is trimmed), ≤ 24 MiB, faststart, plus a poster. The tape is appended to the channel JSON with
-`media`, `poster`, `duration`, `media_bytes`; `original_url` stays the SOURCE link. If YouTube blocks the box,
-point `--url` at an archive.org/Wayback copy and keep `--original` as the real original.
+`legacy/ingest.mjs` and `legacy/batch.mjs` are the old download-and-transcode pipeline. Do not run them. They write
+fields the validator now rejects.
 
 ### Dump folder
 
 1. `list_folder` on `1EOSMYYdkFys-PAOWIcrpO9X_fWMcYywY`; read `links.txt` (`read_file`). Lines are `URL | channel | note`; `#` lines are instructions.
-2. For each video file: `DownloadFile` (cursor) → `/workspace/dump/`, then ingest with `--file`.
-3. For each link: ingest with `--url`.
-4. After a successful deploy, `trash_file` the processed files and rewrite `links.txt` back to its header (`update_file_content`).
+2. A link becomes a shelf row with `play` (YouTube, archive.org, or a link-out). A bare file with no official page does not go on the air: there is nothing to embed and nothing we host.
+3. After the tape is filed and deployed, `trash_file` the processed files and rewrite `links.txt` back to its header (`update_file_content`).
    Note: the Drive connector uses the `drive.file` grant; if a file Niko dropped is not listed, ask him to open it once
    with the Grok Bot Drive app or share the folder, rather than guessing ids.
 
@@ -173,21 +169,22 @@ point `--url` at an archive.org/Wayback copy and keep `--original` as the real o
 Page runs the three connector calls (`step0-migrate.js`, `step1-session.js`, `step3-publish.js`), then
 `node scripts/deploy.mjs verify`. No API token or wrangler login on this Mac. The token path below is the fallback.
 
-From a machine that holds `media/` (this Mac; the live site can rebuild it: every `media`/`poster` path is served at
-`https://plebflix.com/media/...`) and a token for the account pinned in `wrangler.jsonc` (`account_id`
+From this Mac, with a token for the account pinned in `wrangler.jsonc` (`account_id`
 f7b1f588…, the one that owns plebflix.com; the Mac's OAuth default `omnifinn` 141fee… does NOT hold the zone).
+`prepare` refuses if the asset manifest contains any `/media/` path.
 
 ```bash
 set -a; source ~/.config/cloudflare/plebflix-tv.env; set +a   # CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID
 npm run validate                                               # the data gate (shelves, categories, schedule)
-node scripts/ingest.mjs --backfill                             # files for tapes a content PR added (writes media/… into the JSON)
-git add channels && git commit -m "librarian: media for …"     # if backfill changed a shelf
 git push origin main                                           # GitHub first; CI must be green
-npm run build && node scripts/ingest.mjs --check               # refuses if a tape's file is missing
+npm run build
 npx wrangler d1 migrations apply plebflix-tv --remote          # before the code that needs the column
 npx wrangler deploy
-node scripts/deploy.mjs verify                                 # 200s on /, app.js, a channel, a tape (206), stats
+node scripts/deploy.mjs verify                                 # 200s on /, channels, /credits, /takedown, stats
 ```
+
+After the first deploy of the embed-only build, purge `https://plebflix.com/media/*` from the Cloudflare cache. The Worker
+no longer answers that path, but older assets were cached for a day.
 
 A tape filed today (`added` = today, UTC) airs from tomorrow; deploy the same UTC day it was filed and no open tab ever
 disagrees with a fresh one. Open tabs re-read `channels/*.json` within five minutes of a deploy (the build stamp in
@@ -199,5 +196,5 @@ New D1 migrations on that path: run their SQL through the connector `query` endp
 
 ## 5. GitHub
 
-Commit catalog + code changes (never `media/`), then open a PR on `omnifinn/plebflix-tv` with the cursor-github connector
+Commit catalog + code changes (no tape files), then open a PR on `omnifinn/plebflix-tv` with the cursor-github connector
 (one PR per accepted submission batch is fine) and record `pr_url` in `submissions`.

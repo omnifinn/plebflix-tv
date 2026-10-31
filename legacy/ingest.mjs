@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// Retired 2026-10-31. Do not run this against the shelf. The validator rejects media, poster, media_bytes, and media_source.
+// Kept whole (zero-loss). It still writes MP4s under media/; the site does not serve them.
 // Plebflix TV media ingest: download/transcode a tape, store it in the media dir,
 // and add/update it in channels/<channel>.json. See README "Self-hosted media".
 //

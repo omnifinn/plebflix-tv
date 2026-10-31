@@ -67,7 +67,6 @@ async function manifest() {
 
 async function prepare() {
   execSync("node scripts/build.mjs", { cwd: ROOT, stdio: "inherit" });
-  execSync("node scripts/ingest.mjs --check", { cwd: ROOT, stdio: "inherit" });
   fs.mkdirSync(OUT, { recursive: true });
   const { manifest: m } = await manifest();
   fs.writeFileSync(path.join(OUT, "manifest.json"), JSON.stringify(m));
@@ -78,6 +77,8 @@ async function prepare() {
 }`;
   fs.writeFileSync(path.join(OUT, "step1-session.js"), code);
   fs.writeFileSync(path.join(OUT, "step0-migrate.js"), migrateCode());
+  const hosted = Object.keys(m).filter((p) => p.startsWith("/media/"));
+  if (hosted.length) throw new Error(`refusing to upload hosted media (${hosted.length} files)`);
   const bytes = Object.values(m).reduce((a, b) => a + b.size, 0);
   console.log(`${Object.keys(m).length} files, ${(bytes / 1048576).toFixed(1)} MiB`);
   console.log("→ connector: run dist/deploy/step0-migrate.js, then dist/deploy/step1-session.js (save its JSON as dist/deploy/session.json)");
@@ -187,7 +188,7 @@ async function upload(sessionFile) {
     observability: { enabled: true, traces: { enabled: true } },
     // Without this a script upload drops every binding not listed above, so a secret (IP_SALT) or a plain-text var (GITHUB_REPO) would vanish each deploy.
     keep_bindings: ["secret_text", "secret_key", "plain_text"],
-    assets: { jwt, config: { run_worker_first: ["/api/*", "/media/*", "/suomi", "/suomi/"], _headers: headers } },
+    assets: { jwt, config: { run_worker_first: ["/api/*", "/suomi", "/suomi/", "/credits", "/credits/", "/takedown", "/takedown/"], _headers: headers } },
   };
   const code = `async () => {
   const metadata = ${JSON.stringify(metadata)};
@@ -208,10 +209,14 @@ async function verify() {
     console.log(`${ok ? "ok  " : "FAIL"} ${line}`);
     if (!ok) failed += 1;
   };
-  for (const p of ["/", "/channels/suomi.json", "/channels/schedule.json", "/media/suomi/b5mies.mp4", "/api/stats?channel=suomi"]) {
-    const r = await fetch(base + p, { headers: p.startsWith("/media") ? { Range: "bytes=0-1023" } : {} });
-    check(r.ok, `${r.status} ${p} ${r.headers.get("content-type") || ""} ${r.headers.get("content-range") || ""}`);
+  for (const p of ["/", "/channels/suomi.json", "/channels/schedule.json", "/credits", "/takedown", "/api/stats?channel=suomi"]) {
+    const r = await fetch(base + p);
+    check(r.ok, `${r.status} ${p} ${r.headers.get("content-type") || ""}`);
   }
+  const credits = await (await fetch(`${base}/credits?verify=${Date.now()}`)).text();
+  check(credits.includes("embedded via YouTube") || credits.includes("Credits"), "credits page lists the tapes");
+  const takedown = await (await fetch(`${base}/takedown?verify=${Date.now()}`)).text();
+  check(takedown.includes("takedown@plebflix.com"), "takedown page names takedown@plebflix.com");
   // The live shell must load the app.js that carries this build's deck (glass click pauses / plays on).
   const html = await (await fetch(`${base}/?verify=${Date.now()}`)).text();
   const appUrl = (html.match(/src="(\/app\.js\?v=[a-f0-9]+)"/) || [])[1];

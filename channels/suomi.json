@@ -10,6 +10,12 @@
       "year": 1999,
       "source": "youtube",
       "embedId": "f-lnF5eNFFY",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "f-lnF5eNFFY",
+        "official": true,
+        "uploader": "shokteenik"
+      },
       "duration": 140,
       "note": "The surviving upload is from 30 Mar 2015. The uploader calls the ballad a 1999 piece.",
       "credit": "https://www.youtube.com/watch?v=f-lnF5eNFFY",
@@ -20,10 +26,7 @@
         "e"
       ],
       "why": "A homemade 1999 net ballad about Finnish Babylon 5 fans, still the name of that scene.",
-      "original_url": "https://www.youtube.com/watch?v=f-lnF5eNFFY",
-      "media": "/media/suomi/b5mies.mp4",
-      "poster": "/media/suomi/b5mies.jpg",
-      "media_bytes": 2405354
+      "original_url": "https://www.youtube.com/watch?v=f-lnF5eNFFY"
     },
     {
       "id": "kahen-kilon-siika",
@@ -31,6 +34,12 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "SlIw7GiHUkc",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "SlIw7GiHUkc",
+        "official": true,
+        "uploader": "KahdenKilonSiika"
+      },
       "duration": 106,
       "note": "The fishing story that swam out of Finnish message boards in 2008.",
       "credit": "https://www.youtube.com/watch?v=SlIw7GiHUkc",
@@ -41,10 +50,7 @@
         "d"
       ],
       "why": "A homemade fishing story that spread from Finnish message boards and is still quoted.",
-      "original_url": "https://www.youtube.com/watch?v=SlIw7GiHUkc",
-      "media": "/media/suomi/kahen-kilon-siika.mp4",
-      "poster": "/media/suomi/kahen-kilon-siika.jpg",
-      "media_bytes": 2771993
+      "original_url": "https://www.youtube.com/watch?v=SlIw7GiHUkc"
     },
     {
       "id": "ismo-seppo-pyorailee",
@@ -52,6 +58,12 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "C_j3VK81csw",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "C_j3VK81csw",
+        "official": true,
+        "uploader": "ooskari2"
+      },
       "duration": 448,
       "note": "A fan edit of the Salatut elämät uncles. The year is the upload era, not a TV premiere.",
       "credit": "https://www.youtube.com/watch?v=C_j3VK81csw",
@@ -62,10 +74,7 @@
         "e"
       ],
       "why": "A fan edit of a TV soap. The uncles are still quoted, and the edits are a scene of their own.",
-      "original_url": "https://www.youtube.com/watch?v=C_j3VK81csw",
-      "media": "/media/suomi/ismo-seppo-pyorailee.mp4",
-      "poster": "/media/suomi/ismo-seppo-pyorailee.jpg",
-      "media_bytes": 23547946
+      "original_url": "https://www.youtube.com/watch?v=C_j3VK81csw"
     },
     {
       "id": "aromipesa",
@@ -73,6 +82,12 @@
       "year": 2000,
       "source": "youtube",
       "embedId": "SN5WeFbV_Vs",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "SN5WeFbV_Vs",
+        "official": true,
+        "uploader": "tuotanto"
+      },
       "duration": 181,
       "note": "The original infomercial segment (replaces the earlier Flash cartoon version).",
       "credit": "https://www.youtube.com/watch?v=SN5WeFbV_Vs",
@@ -82,10 +97,7 @@
         "e"
       ],
       "why": "The original TV-shop Aromipesä demo with chef Mikko, the infomercial Finland turned into a meme.",
-      "original_url": "https://www.youtube.com/watch?v=SN5WeFbV_Vs",
-      "media": "/media/suomi/aromipesa.mp4",
-      "poster": "/media/suomi/aromipesa.jpg",
-      "media_bytes": 5615257
+      "original_url": "https://www.youtube.com/watch?v=SN5WeFbV_Vs"
     },
     {
       "id": "irc-galleria",
@@ -93,6 +105,12 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "hBYHsyWOfno",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "hBYHsyWOfno",
+        "official": true,
+        "uploader": "IRC-Galleria"
+      },
       "duration": 230,
       "note": "A tour of the photo-gallery years. 2007 is the site's peak era, not a verified upload date.",
       "credit": "https://www.youtube.com/watch?v=hBYHsyWOfno",
@@ -103,10 +121,7 @@
         "e"
       ],
       "why": "A homemade tour of IRC-Galleria, the photo site that defined a Finnish teen web scene. 2007 is the peak era.",
-      "original_url": "https://www.youtube.com/watch?v=hBYHsyWOfno",
-      "media": "/media/suomi/irc-galleria.mp4",
-      "poster": "/media/suomi/irc-galleria.jpg",
-      "media_bytes": 12477823
+      "original_url": "https://www.youtube.com/watch?v=hBYHsyWOfno"
     },
     {
       "id": "ismo-seppo-saunassa",
@@ -114,6 +129,12 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "KgRO8xbR6xE",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "KgRO8xbR6xE",
+        "official": true,
+        "uploader": "Kare Haaparinne"
+      },
       "duration": 62,
       "note": "The sauna installment of the Ismo ja Seppo edits.",
       "credit": "https://www.youtube.com/watch?v=KgRO8xbR6xE",
@@ -123,10 +144,7 @@
         "d"
       ],
       "why": "The sauna cut of the fan-edited uncles, still recognized.",
-      "original_url": "https://www.youtube.com/watch?v=KgRO8xbR6xE",
-      "media": "/media/suomi/ismo-seppo-saunassa.mp4",
-      "poster": "/media/suomi/ismo-seppo-saunassa.jpg",
-      "media_bytes": 2303562
+      "original_url": "https://www.youtube.com/watch?v=KgRO8xbR6xE"
     },
     {
       "id": "kummeli-artisti-maksaa",
@@ -134,6 +152,12 @@
       "year": 1994,
       "source": "youtube",
       "embedId": "-xz-KEs6NSI",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "-xz-KEs6NSI",
+        "official": true,
+        "uploader": "Grieffaajat"
+      },
       "duration": 397,
       "note": "Kummeli: Speedy ja Saku collect the appearance fee.",
       "credit": "https://www.youtube.com/watch?v=-xz-KEs6NSI",
@@ -143,10 +167,7 @@
         "e"
       ],
       "why": "A Kummeli sketch people still quote when someone gets paid.",
-      "original_url": "https://www.youtube.com/watch?v=-xz-KEs6NSI",
-      "media": "/media/suomi/kummeli-artisti-maksaa.mp4",
-      "poster": "/media/suomi/kummeli-artisti-maksaa.jpg",
-      "media_bytes": 24952282
+      "original_url": "https://www.youtube.com/watch?v=-xz-KEs6NSI"
     },
     {
       "id": "studio-julmahuvi",
@@ -154,6 +175,12 @@
       "year": 1998,
       "source": "youtube",
       "embedId": "uSjkhUjnWwU",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "uSjkhUjnWwU",
+        "official": true,
+        "uploader": "No Skill - No Talent"
+      },
       "duration": 146,
       "note": "Julmahuvi, with English subtitles on this upload.",
       "credit": "https://www.youtube.com/watch?v=uSjkhUjnWwU",
@@ -163,10 +190,7 @@
         "e"
       ],
       "why": "Julmahuvi, a cult sketch show people still pass around.",
-      "original_url": "https://www.youtube.com/watch?v=uSjkhUjnWwU",
-      "media": "/media/suomi/studio-julmahuvi.mp4",
-      "poster": "/media/suomi/studio-julmahuvi.jpg",
-      "media_bytes": 4912296
+      "original_url": "https://www.youtube.com/watch?v=uSjkhUjnWwU"
     },
     {
       "id": "hyvaa-puuta",
@@ -174,6 +198,12 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "hSFmsPJYis8",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "hSFmsPJYis8",
+        "official": true,
+        "uploader": "Loiri2009"
+      },
       "duration": 298,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=hSFmsPJYis8",
@@ -183,10 +213,7 @@
         "e"
       ],
       "why": "Vesa-Matti Loiri's woodcraft ode became a deadpan net catchphrase.",
-      "original_url": "https://www.youtube.com/watch?v=hSFmsPJYis8",
-      "media": "/media/suomi/hyvaa-puuta.mp4",
-      "poster": "/media/suomi/hyvaa-puuta.jpg",
-      "media_bytes": 17649796
+      "original_url": "https://www.youtube.com/watch?v=hSFmsPJYis8"
     },
     {
       "id": "smc-lahiorotat",
@@ -194,6 +221,12 @@
       "year": 2010,
       "source": "youtube",
       "embedId": "HsVnExzvsLg",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "HsVnExzvsLg",
+        "official": true,
+        "uploader": "MrPabloFilms"
+      },
       "duration": 343,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=HsVnExzvsLg",
@@ -205,10 +238,7 @@
         "e"
       ],
       "why": "Suburban DIY rap that gave the boards 'meno vitun dippi'.",
-      "original_url": "https://www.youtube.com/watch?v=HsVnExzvsLg",
-      "media": "/media/suomi/smc-lahiorotat.mp4",
-      "poster": "/media/suomi/smc-lahiorotat.jpg",
-      "media_bytes": 24806815
+      "original_url": "https://www.youtube.com/watch?v=HsVnExzvsLg"
     },
     {
       "id": "tonnin-seteli",
@@ -216,6 +246,12 @@
       "year": 2000,
       "source": "youtube",
       "embedId": "XBDpIHH4glE",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "XBDpIHH4glE",
+        "official": true,
+        "uploader": "CamuV"
+      },
       "duration": 60,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=XBDpIHH4glE",
@@ -225,10 +261,7 @@
         "e"
       ],
       "why": "The thousand-mark note sketch, endlessly re-uploaded and quoted.",
-      "original_url": "https://www.youtube.com/watch?v=XBDpIHH4glE",
-      "media": "/media/suomi/tonnin-seteli.mp4",
-      "poster": "/media/suomi/tonnin-seteli.jpg",
-      "media_bytes": 2276981
+      "original_url": "https://www.youtube.com/watch?v=XBDpIHH4glE"
     },
     {
       "id": "kokkinurkkaus",
@@ -236,6 +269,12 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "mJUAbIx4jLI",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "mJUAbIx4jLI",
+        "official": true,
+        "uploader": "StunkMan Roctum"
+      },
       "duration": 94,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=mJUAbIx4jLI",
@@ -245,10 +284,7 @@
         "d"
       ],
       "why": "Two guys, one kitchen, zero skill — early Finnish YouTube cooking.",
-      "original_url": "https://www.youtube.com/watch?v=mJUAbIx4jLI",
-      "media": "/media/suomi/kokkinurkkaus.mp4",
-      "poster": "/media/suomi/kokkinurkkaus.jpg",
-      "media_bytes": 6078820
+      "original_url": "https://www.youtube.com/watch?v=mJUAbIx4jLI"
     },
     {
       "id": "mauri-perala",
@@ -256,6 +292,12 @@
       "year": 1992,
       "source": "youtube",
       "embedId": "srTGKjcYRVg",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "srTGKjcYRVg",
+        "official": true,
+        "uploader": "MrLiikeri"
+      },
       "duration": 89,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=srTGKjcYRVg",
@@ -265,10 +307,7 @@
         "e"
       ],
       "why": "'Totuus: ei ole' — the Kummeli line that lives on as a board reply.",
-      "original_url": "https://www.youtube.com/watch?v=srTGKjcYRVg",
-      "media": "/media/suomi/mauri-perala.mp4",
-      "poster": "/media/suomi/mauri-perala.jpg",
-      "media_bytes": 8272256
+      "original_url": "https://www.youtube.com/watch?v=srTGKjcYRVg"
     },
     {
       "id": "es-laulu",
@@ -276,6 +315,12 @@
       "year": 2010,
       "source": "youtube",
       "embedId": "qw-BjsmT1Q0",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "qw-BjsmT1Q0",
+        "official": true,
+        "uploader": "MoraJonne"
+      },
       "duration": 59,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=qw-BjsmT1Q0",
@@ -285,10 +330,7 @@
         "d"
       ],
       "why": "An energy-drink hymn from the ES-jonne era of Finnish forums.",
-      "original_url": "https://www.youtube.com/watch?v=qw-BjsmT1Q0",
-      "media": "/media/suomi/es-laulu.mp4",
-      "poster": "/media/suomi/es-laulu.jpg",
-      "media_bytes": 1127212
+      "original_url": "https://www.youtube.com/watch?v=qw-BjsmT1Q0"
     },
     {
       "id": "evoluutiomies-lelutuokio",
@@ -296,6 +338,12 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "dWR_TSF-QlE",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "dWR_TSF-QlE",
+        "official": true,
+        "uploader": "Evoluutiomies"
+      },
       "duration": 92,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=dWR_TSF-QlE",
@@ -305,10 +353,7 @@
         "e"
       ],
       "why": "Kuvalauta's own toy-hour video, homemade and deeply weird.",
-      "original_url": "https://www.youtube.com/watch?v=dWR_TSF-QlE",
-      "media": "/media/suomi/evoluutiomies-lelutuokio.mp4",
-      "poster": "/media/suomi/evoluutiomies-lelutuokio.jpg",
-      "media_bytes": 4267350
+      "original_url": "https://www.youtube.com/watch?v=dWR_TSF-QlE"
     },
     {
       "id": "era-koira",
@@ -316,6 +361,12 @@
       "year": 2010,
       "source": "youtube",
       "embedId": "Gfdf2TiOXZ8",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "Gfdf2TiOXZ8",
+        "official": true,
+        "uploader": "epola"
+      },
       "duration": 55,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=Gfdf2TiOXZ8",
@@ -325,10 +376,7 @@
         "d"
       ],
       "why": "The wilderness dog video that became a meemi.info entry.",
-      "original_url": "https://www.youtube.com/watch?v=Gfdf2TiOXZ8",
-      "media": "/media/suomi/era-koira.mp4",
-      "poster": "/media/suomi/era-koira.jpg",
-      "media_bytes": 4078810
+      "original_url": "https://www.youtube.com/watch?v=Gfdf2TiOXZ8"
     },
     {
       "id": "kylla-muksu-tietaa",
@@ -336,6 +384,12 @@
       "year": 2010,
       "source": "youtube",
       "embedId": "Rf2meGb2sT8",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "Rf2meGb2sT8",
+        "official": true,
+        "uploader": "eetulaiho14"
+      },
       "duration": 33,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=Rf2meGb2sT8",
@@ -345,10 +399,7 @@
         "d"
       ],
       "why": "A kid knows best — short, homemade and endlessly reposted.",
-      "original_url": "https://www.youtube.com/watch?v=Rf2meGb2sT8",
-      "media": "/media/suomi/kylla-muksu-tietaa.mp4",
-      "poster": "/media/suomi/kylla-muksu-tietaa.jpg",
-      "media_bytes": 1231297
+      "original_url": "https://www.youtube.com/watch?v=Rf2meGb2sT8"
     },
     {
       "id": "pertus",
@@ -356,6 +407,12 @@
       "year": 2010,
       "source": "youtube",
       "embedId": "reuPTLd9f1g",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "reuPTLd9f1g",
+        "official": true,
+        "uploader": "m4stern1nja4ss1nl33t"
+      },
       "duration": 179,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=reuPTLd9f1g",
@@ -365,10 +422,7 @@
         "d"
       ],
       "why": "Don't underestimate the kid: an early Finnish YouTube kid star.",
-      "original_url": "https://www.youtube.com/watch?v=reuPTLd9f1g",
-      "media": "/media/suomi/pertus.mp4",
-      "poster": "/media/suomi/pertus.jpg",
-      "media_bytes": 2543700
+      "original_url": "https://www.youtube.com/watch?v=reuPTLd9f1g"
     },
     {
       "id": "jupe-laamanen",
@@ -376,6 +430,12 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "L3qMaZ5JeWs",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "L3qMaZ5JeWs",
+        "official": true,
+        "uploader": "Jaksary"
+      },
       "duration": 43,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=L3qMaZ5JeWs",
@@ -385,10 +445,7 @@
         "e"
       ],
       "why": "A homemade interview that the Finnish boards adopted as lore.",
-      "original_url": "https://www.youtube.com/watch?v=L3qMaZ5JeWs",
-      "media": "/media/suomi/jupe-laamanen.mp4",
-      "poster": "/media/suomi/jupe-laamanen.jpg",
-      "media_bytes": 4027186
+      "original_url": "https://www.youtube.com/watch?v=L3qMaZ5JeWs"
     },
     {
       "id": "avaruuskulttuuri",
@@ -396,6 +453,12 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "nM4aa8wpnIE",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "nM4aa8wpnIE",
+        "official": true,
+        "uploader": "AvaruusKulttuuri"
+      },
       "duration": 394,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=nM4aa8wpnIE",
@@ -405,10 +468,7 @@
         "e"
       ],
       "why": "Kuvalauta's space-culture opus, a cult video of the board years.",
-      "original_url": "https://www.youtube.com/watch?v=nM4aa8wpnIE",
-      "media": "/media/suomi/avaruuskulttuuri.mp4",
-      "poster": "/media/suomi/avaruuskulttuuri.jpg",
-      "media_bytes": 20410084
+      "original_url": "https://www.youtube.com/watch?v=nM4aa8wpnIE"
     },
     {
       "id": "kimi-ice-cream",
@@ -416,6 +476,12 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "pivzf0kIomU",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "pivzf0kIomU",
+        "official": true,
+        "uploader": "Kimiisland"
+      },
       "duration": 23,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=pivzf0kIomU",
@@ -425,10 +491,7 @@
         "e"
       ],
       "why": "Red-flagged race, Kimi goes for an ice cream. Peak Iceman.",
-      "original_url": "https://www.youtube.com/watch?v=pivzf0kIomU",
-      "media": "/media/suomi/kimi-ice-cream.mp4",
-      "poster": "/media/suomi/kimi-ice-cream.jpg",
-      "media_bytes": 791749
+      "original_url": "https://www.youtube.com/watch?v=pivzf0kIomU"
     },
     {
       "id": "nykanen-karhuvaara",
@@ -436,6 +499,12 @@
       "year": 1999,
       "source": "youtube",
       "embedId": "9N_-zopnwp8",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "9N_-zopnwp8",
+        "official": true,
+        "uploader": "taikinasuikka"
+      },
       "duration": 91,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=9N_-zopnwp8",
@@ -445,10 +514,7 @@
         "e"
       ],
       "why": "Matti's talk-show wisdom, the source of half of Finland's catchphrases.",
-      "original_url": "https://www.youtube.com/watch?v=9N_-zopnwp8",
-      "media": "/media/suomi/nykanen-karhuvaara.mp4",
-      "poster": "/media/suomi/nykanen-karhuvaara.jpg",
-      "media_bytes": 2019102
+      "original_url": "https://www.youtube.com/watch?v=9N_-zopnwp8"
     },
     {
       "id": "am-irk",
@@ -456,6 +522,12 @@
       "year": 2004,
       "source": "youtube",
       "embedId": "iLn8TKyGgUM",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "iLn8TKyGgUM",
+        "official": false,
+        "uploader": "FOREVERSILVER"
+      },
       "duration": 156,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=iLn8TKyGgUM",
@@ -467,10 +539,7 @@
         "e"
       ],
       "why": "The IRC-Galleria era's own anthem: a homemade 2004 web video endlessly forwarded and parodied by Finnish teens.",
-      "original_url": "https://www.youtube.com/watch?v=iLn8TKyGgUM",
-      "media": "/media/suomi/am-irk.mp4",
-      "poster": "/media/suomi/am-irk.jpg",
-      "media_bytes": 9129593
+      "original_url": "https://www.youtube.com/watch?v=iLn8TKyGgUM"
     },
     {
       "id": "am-irk-ajankohtainen-kakkonen",
@@ -478,6 +547,12 @@
       "year": 2005,
       "source": "youtube",
       "embedId": "bRO_7lVXtzQ",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "bRO_7lVXtzQ",
+        "official": true,
+        "uploader": "aapoaa"
+      },
       "duration": 471,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=bRO_7lVXtzQ",
@@ -487,10 +562,7 @@
         "e"
       ],
       "why": "Yle's report on the ÄM-IRK and IRC-Galleria craze; the clip itself circulated as part of the meme.",
-      "original_url": "https://www.youtube.com/watch?v=bRO_7lVXtzQ",
-      "media": "/media/suomi/am-irk-ajankohtainen-kakkonen.mp4",
-      "poster": "/media/suomi/am-irk-ajankohtainen-kakkonen.jpg",
-      "media_bytes": 12163266
+      "original_url": "https://www.youtube.com/watch?v=bRO_7lVXtzQ"
     },
     {
       "id": "julmahuvi-roudasta-rospuuttoon",
@@ -498,6 +570,12 @@
       "year": 1997,
       "source": "youtube",
       "embedId": "nUyFg9xoPKk",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "nUyFg9xoPKk",
+        "official": true,
+        "uploader": "novoivit"
+      },
       "duration": 256,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=nUyFg9xoPKk",
@@ -507,10 +585,7 @@
         "e"
       ],
       "why": "Studio Julmahuvi's most shared sketch online; passed around Riemurasia-era sites and quoted ever since.",
-      "original_url": "https://www.youtube.com/watch?v=nUyFg9xoPKk",
-      "media": "/media/suomi/julmahuvi-roudasta-rospuuttoon.mp4",
-      "poster": "/media/suomi/julmahuvi-roudasta-rospuuttoon.jpg",
-      "media_bytes": 11638615
+      "original_url": "https://www.youtube.com/watch?v=nUyFg9xoPKk"
     },
     {
       "id": "julmahuvi-studiokeskustelu",
@@ -518,6 +593,12 @@
       "year": 1997,
       "source": "youtube",
       "embedId": "1nr2N9qeY7w",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "1nr2N9qeY7w",
+        "official": true,
+        "uploader": "nukkis"
+      },
       "duration": 129,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=1nr2N9qeY7w",
@@ -527,10 +608,7 @@
         "e"
       ],
       "why": "Cult Julmahuvi studio-panel parody, a staple of Finnish clip sites in the 2000s.",
-      "original_url": "https://www.youtube.com/watch?v=1nr2N9qeY7w",
-      "media": "/media/suomi/julmahuvi-studiokeskustelu.mp4",
-      "poster": "/media/suomi/julmahuvi-studiokeskustelu.jpg",
-      "media_bytes": 7610360
+      "original_url": "https://www.youtube.com/watch?v=1nr2N9qeY7w"
     },
     {
       "id": "julmahuvi-ameno",
@@ -538,6 +616,12 @@
       "year": 1997,
       "source": "youtube",
       "embedId": "RMSIBvcnrJc",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "RMSIBvcnrJc",
+        "official": true,
+        "uploader": "riku777777"
+      },
       "duration": 194,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=RMSIBvcnrJc",
@@ -547,10 +631,7 @@
         "e"
       ],
       "why": "Julmahuvi's Ameno sketch, one of the group's clips most reposted online.",
-      "original_url": "https://www.youtube.com/watch?v=RMSIBvcnrJc",
-      "media": "/media/suomi/julmahuvi-ameno.mp4",
-      "poster": "/media/suomi/julmahuvi-ameno.jpg",
-      "media_bytes": 5561999
+      "original_url": "https://www.youtube.com/watch?v=RMSIBvcnrJc"
     },
     {
       "id": "julmahuvi-nukkumistempaus",
@@ -558,6 +639,12 @@
       "year": 1997,
       "source": "youtube",
       "embedId": "7WlhzFQ7YVw",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "7WlhzFQ7YVw",
+        "official": true,
+        "uploader": "estetty"
+      },
       "duration": 146,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=7WlhzFQ7YVw",
@@ -567,10 +654,7 @@
         "e"
       ],
       "why": "Julmahuvi sketch kept alive by web reposts and fan subtitles.",
-      "original_url": "https://www.youtube.com/watch?v=7WlhzFQ7YVw",
-      "media": "/media/suomi/julmahuvi-nukkumistempaus.mp4",
-      "poster": "/media/suomi/julmahuvi-nukkumistempaus.jpg",
-      "media_bytes": 6779633
+      "original_url": "https://www.youtube.com/watch?v=7WlhzFQ7YVw"
     },
     {
       "id": "julmahuvi-uutiset-neuvottelut",
@@ -578,6 +662,12 @@
       "year": 1998,
       "source": "youtube",
       "embedId": "5l3areu-Jx0",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "5l3areu-Jx0",
+        "official": true,
+        "uploader": "mikamonable"
+      },
       "duration": 568,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=5l3areu-Jx0",
@@ -587,10 +677,7 @@
         "e"
       ],
       "why": "Julmahuvi's news-parody negotiations, widely shared on Finnish forums.",
-      "original_url": "https://www.youtube.com/watch?v=5l3areu-Jx0",
-      "media": "/media/suomi/julmahuvi-uutiset-neuvottelut.mp4",
-      "poster": "/media/suomi/julmahuvi-uutiset-neuvottelut.jpg",
-      "media_bytes": 20692043
+      "original_url": "https://www.youtube.com/watch?v=5l3areu-Jx0"
     },
     {
       "id": "ihmebantu-anteeksi-sain-viestin",
@@ -598,6 +685,12 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "snwMnyoXd64",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "snwMnyoXd64",
+        "official": true,
+        "uploader": "MacWaZaani"
+      },
       "duration": 61,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=snwMnyoXd64",
@@ -607,10 +700,7 @@
         "e"
       ],
       "why": "The most reposted Ihmebantu bit; a reaction-clip staple on Finnish boards.",
-      "original_url": "https://www.youtube.com/watch?v=snwMnyoXd64",
-      "media": "/media/suomi/ihmebantu-anteeksi-sain-viestin.mp4",
-      "poster": "/media/suomi/ihmebantu-anteeksi-sain-viestin.jpg",
-      "media_bytes": 3047862
+      "original_url": "https://www.youtube.com/watch?v=snwMnyoXd64"
     },
     {
       "id": "ihmebantu-moikkaaminen",
@@ -618,6 +708,12 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "yjBH0vMq8MY",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "yjBH0vMq8MY",
+        "official": true,
+        "uploader": "jhpjn"
+      },
       "duration": 153,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=yjBH0vMq8MY",
@@ -627,10 +723,7 @@
         "e"
       ],
       "why": "Ihmebantu's greeting-etiquette sketch, half a million views from fan uploads.",
-      "original_url": "https://www.youtube.com/watch?v=yjBH0vMq8MY",
-      "media": "/media/suomi/ihmebantu-moikkaaminen.mp4",
-      "poster": "/media/suomi/ihmebantu-moikkaaminen.jpg",
-      "media_bytes": 6279229
+      "original_url": "https://www.youtube.com/watch?v=yjBH0vMq8MY"
     },
     {
       "id": "ihmebantu-korvanappi",
@@ -638,6 +731,12 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "nxVInjoAFc4",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "nxVInjoAFc4",
+        "official": true,
+        "uploader": "Yle Areena"
+      },
       "duration": 80,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=nxVInjoAFc4",
@@ -647,10 +746,7 @@
         "e"
       ],
       "why": "A cult 'korvanappi' sketch from Ihmebantu, the disturbed-humour series fans spread online.",
-      "original_url": "https://www.youtube.com/watch?v=nxVInjoAFc4",
-      "media": "/media/suomi/ihmebantu-korvanappi.mp4",
-      "poster": "/media/suomi/ihmebantu-korvanappi.jpg",
-      "media_bytes": 4351293
+      "original_url": "https://www.youtube.com/watch?v=nxVInjoAFc4"
     },
     {
       "id": "ihmebantu-mummo",
@@ -658,6 +754,12 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "_6eA07P684E",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "_6eA07P684E",
+        "official": true,
+        "uploader": "mrpasikuikka"
+      },
       "duration": 87,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=_6eA07P684E",
@@ -667,10 +769,7 @@
         "e"
       ],
       "why": "Ihmebantu's grandma sketch, endlessly reposted.",
-      "original_url": "https://www.youtube.com/watch?v=_6eA07P684E",
-      "media": "/media/suomi/ihmebantu-mummo.mp4",
-      "poster": "/media/suomi/ihmebantu-mummo.jpg",
-      "media_bytes": 6045185
+      "original_url": "https://www.youtube.com/watch?v=_6eA07P684E"
     },
     {
       "id": "ihmebantu-sairaalalaulajat",
@@ -678,6 +777,12 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "P1ByL_3I2po",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "P1ByL_3I2po",
+        "official": true,
+        "uploader": "Yle Areena"
+      },
       "duration": 198,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=P1ByL_3I2po",
@@ -687,10 +792,7 @@
         "e"
       ],
       "why": "Mock-documentary about hospital singers; one of the show's best-known clips.",
-      "original_url": "https://www.youtube.com/watch?v=P1ByL_3I2po",
-      "media": "/media/suomi/ihmebantu-sairaalalaulajat.mp4",
-      "poster": "/media/suomi/ihmebantu-sairaalalaulajat.jpg",
-      "media_bytes": 13812948
+      "original_url": "https://www.youtube.com/watch?v=P1ByL_3I2po"
     },
     {
       "id": "ihmebantu-kakka",
@@ -698,6 +800,12 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "WtLUuBOopfY",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "WtLUuBOopfY",
+        "official": true,
+        "uploader": "Yle Areena"
+      },
       "duration": 95,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=WtLUuBOopfY",
@@ -707,10 +815,7 @@
         "e"
       ],
       "why": "Ihmebantu monologue that became a shared in-joke.",
-      "original_url": "https://www.youtube.com/watch?v=WtLUuBOopfY",
-      "media": "/media/suomi/ihmebantu-kakka.mp4",
-      "poster": "/media/suomi/ihmebantu-kakka.jpg",
-      "media_bytes": 6626738
+      "original_url": "https://www.youtube.com/watch?v=WtLUuBOopfY"
     },
     {
       "id": "ihmebantu-pieru",
@@ -718,6 +823,12 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "H37lJVKwl-w",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "H37lJVKwl-w",
+        "official": true,
+        "uploader": "Yle Areena"
+      },
       "duration": 60,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=H37lJVKwl-w",
@@ -727,10 +838,7 @@
         "e"
       ],
       "why": "Ihmebantu's ode to the fart, a widely quoted clip.",
-      "original_url": "https://www.youtube.com/watch?v=H37lJVKwl-w",
-      "media": "/media/suomi/ihmebantu-pieru.mp4",
-      "poster": "/media/suomi/ihmebantu-pieru.jpg",
-      "media_bytes": 2932679
+      "original_url": "https://www.youtube.com/watch?v=H37lJVKwl-w"
     },
     {
       "id": "ihmebantu-samaan-tahtiin",
@@ -738,6 +846,12 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "5zmVJY6qnE4",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "5zmVJY6qnE4",
+        "official": true,
+        "uploader": "kättis"
+      },
       "duration": 122,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=5zmVJY6qnE4",
@@ -747,10 +861,7 @@
         "e"
       ],
       "why": "Ihmebantu sketch kept alive by fan reposts.",
-      "original_url": "https://www.youtube.com/watch?v=5zmVJY6qnE4",
-      "media": "/media/suomi/ihmebantu-samaan-tahtiin.mp4",
-      "poster": "/media/suomi/ihmebantu-samaan-tahtiin.jpg",
-      "media_bytes": 8978487
+      "original_url": "https://www.youtube.com/watch?v=5zmVJY6qnE4"
     },
     {
       "id": "kummeli-rapakymppi",
@@ -758,6 +869,12 @@
       "year": 1993,
       "source": "youtube",
       "embedId": "EVjrpImlLMY",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "EVjrpImlLMY",
+        "official": true,
+        "uploader": "MrLiikeri"
+      },
       "duration": 294,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=EVjrpImlLMY",
@@ -767,10 +884,7 @@
         "e"
       ],
       "why": "Kummeli's Napakymppi parody, over two million plays on YouTube reposts.",
-      "original_url": "https://www.youtube.com/watch?v=EVjrpImlLMY",
-      "media": "/media/suomi/kummeli-rapakymppi.mp4",
-      "poster": "/media/suomi/kummeli-rapakymppi.jpg",
-      "media_bytes": 16315883
+      "original_url": "https://www.youtube.com/watch?v=EVjrpImlLMY"
     },
     {
       "id": "kummeli-kreikkalainen-tarjoilija",
@@ -778,6 +892,12 @@
       "year": 1993,
       "source": "youtube",
       "embedId": "Uo-KGK0Zqtw",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "Uo-KGK0Zqtw",
+        "official": true,
+        "uploader": "Petri Suova"
+      },
       "duration": 131,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=Uo-KGK0Zqtw",
@@ -787,10 +907,7 @@
         "e"
       ],
       "why": "One of the most reposted Kummeli sketches online.",
-      "original_url": "https://www.youtube.com/watch?v=Uo-KGK0Zqtw",
-      "media": "/media/suomi/kummeli-kreikkalainen-tarjoilija.mp4",
-      "poster": "/media/suomi/kummeli-kreikkalainen-tarjoilija.jpg",
-      "media_bytes": 10457355
+      "original_url": "https://www.youtube.com/watch?v=Uo-KGK0Zqtw"
     },
     {
       "id": "kummeli-ei-lainata",
@@ -798,6 +915,12 @@
       "year": 1993,
       "source": "youtube",
       "embedId": "49dXuAxisJc",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "49dXuAxisJc",
+        "official": true,
+        "uploader": "Mysse"
+      },
       "duration": 83,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=49dXuAxisJc",
@@ -807,10 +930,7 @@
         "e"
       ],
       "why": "'Ei lainata' became a stock Finnish reply thanks to web reposts.",
-      "original_url": "https://www.youtube.com/watch?v=49dXuAxisJc",
-      "media": "/media/suomi/kummeli-ei-lainata.mp4",
-      "poster": "/media/suomi/kummeli-ei-lainata.jpg",
-      "media_bytes": 4964563
+      "original_url": "https://www.youtube.com/watch?v=49dXuAxisJc"
     },
     {
       "id": "kummeli-potilas-saarinen",
@@ -818,6 +938,12 @@
       "year": 1994,
       "source": "youtube",
       "embedId": "HbhLhw9850I",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "HbhLhw9850I",
+        "official": true,
+        "uploader": "Javier Messías"
+      },
       "duration": 97,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=HbhLhw9850I",
@@ -827,10 +953,7 @@
         "e"
       ],
       "why": "Potilas Saarinen clips spread widely on Finnish clip sites.",
-      "original_url": "https://www.youtube.com/watch?v=HbhLhw9850I",
-      "media": "/media/suomi/kummeli-potilas-saarinen.mp4",
-      "poster": "/media/suomi/kummeli-potilas-saarinen.jpg",
-      "media_bytes": 5586061
+      "original_url": "https://www.youtube.com/watch?v=HbhLhw9850I"
     },
     {
       "id": "kummeli-kenkakauppiaat",
@@ -838,6 +961,12 @@
       "year": 1995,
       "source": "youtube",
       "embedId": "3CPHLYcdWVI",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "3CPHLYcdWVI",
+        "official": true,
+        "uploader": "tnt4thebrain"
+      },
       "duration": 117,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=3CPHLYcdWVI",
@@ -847,10 +976,7 @@
         "e"
       ],
       "why": "Kummeli shoe-shop sketch with three-quarters of a million web plays.",
-      "original_url": "https://www.youtube.com/watch?v=3CPHLYcdWVI",
-      "media": "/media/suomi/kummeli-kenkakauppiaat.mp4",
-      "poster": "/media/suomi/kummeli-kenkakauppiaat.jpg",
-      "media_bytes": 8789019
+      "original_url": "https://www.youtube.com/watch?v=3CPHLYcdWVI"
     },
     {
       "id": "kummeli-opettaja",
@@ -858,6 +984,12 @@
       "year": 1994,
       "source": "youtube",
       "embedId": "PT5OuSIxA40",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "PT5OuSIxA40",
+        "official": true,
+        "uploader": "Mutumaniac"
+      },
       "duration": 37,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=PT5OuSIxA40",
@@ -867,10 +999,7 @@
         "e"
       ],
       "why": "Short Kummeli teacher bit, a reaction-clip favourite.",
-      "original_url": "https://www.youtube.com/watch?v=PT5OuSIxA40",
-      "media": "/media/suomi/kummeli-opettaja.mp4",
-      "poster": "/media/suomi/kummeli-opettaja.jpg",
-      "media_bytes": 2271920
+      "original_url": "https://www.youtube.com/watch?v=PT5OuSIxA40"
     },
     {
       "id": "kummeli-koistinen",
@@ -878,6 +1007,12 @@
       "year": 1993,
       "source": "youtube",
       "embedId": "S-2aGSJVmss",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "S-2aGSJVmss",
+        "official": true,
+        "uploader": "Mysse"
+      },
       "duration": 38,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=S-2aGSJVmss",
@@ -887,10 +1022,7 @@
         "e"
       ],
       "why": "Short Kummeli clip quoted all over Finnish forums.",
-      "original_url": "https://www.youtube.com/watch?v=S-2aGSJVmss",
-      "media": "/media/suomi/kummeli-koistinen.mp4",
-      "poster": "/media/suomi/kummeli-koistinen.jpg",
-      "media_bytes": 3409670
+      "original_url": "https://www.youtube.com/watch?v=S-2aGSJVmss"
     },
     {
       "id": "kummeli-kylakauppa",
@@ -898,6 +1030,12 @@
       "year": 1996,
       "source": "youtube",
       "embedId": "Yt6EOBnB6F8",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "Yt6EOBnB6F8",
+        "official": true,
+        "uploader": "Grieffaajat"
+      },
       "duration": 92,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=Yt6EOBnB6F8",
@@ -907,10 +1045,7 @@
         "e"
       ],
       "why": "Kyläkauppa sketch reposted widely online.",
-      "original_url": "https://www.youtube.com/watch?v=Yt6EOBnB6F8",
-      "media": "/media/suomi/kummeli-kylakauppa.mp4",
-      "poster": "/media/suomi/kummeli-kylakauppa.jpg",
-      "media_bytes": 8496643
+      "original_url": "https://www.youtube.com/watch?v=Yt6EOBnB6F8"
     },
     {
       "id": "karpo-teinit-tupakkaostoksilla",
@@ -918,6 +1053,12 @@
       "year": 2003,
       "source": "youtube",
       "embedId": "h-pQStkMebE",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "h-pQStkMebE",
+        "official": true,
+        "uploader": "Karpo Official"
+      },
       "duration": 922,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=h-pQStkMebE",
@@ -927,10 +1068,7 @@
         "e"
       ],
       "why": "The teen-cigarette sting, one of the most shared Karpo episodes.",
-      "original_url": "https://www.youtube.com/watch?v=h-pQStkMebE",
-      "media": "/media/suomi/karpo-teinit-tupakkaostoksilla.mp4",
-      "poster": "/media/suomi/karpo-teinit-tupakkaostoksilla.jpg",
-      "media_bytes": 22618768
+      "original_url": "https://www.youtube.com/watch?v=h-pQStkMebE"
     },
     {
       "id": "karpo-paskaa-jarveen",
@@ -938,6 +1076,12 @@
       "year": 2003,
       "source": "youtube",
       "embedId": "iTyZkb5Mhco",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "iTyZkb5Mhco",
+        "official": true,
+        "uploader": "Karpo Official"
+      },
       "duration": 375,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=iTyZkb5Mhco",
@@ -947,10 +1091,7 @@
         "e"
       ],
       "why": "Karpo confronts a lake polluter; widely reposted online.",
-      "original_url": "https://www.youtube.com/watch?v=iTyZkb5Mhco",
-      "media": "/media/suomi/karpo-paskaa-jarveen.mp4",
-      "poster": "/media/suomi/karpo-paskaa-jarveen.jpg",
-      "media_bytes": 20667326
+      "original_url": "https://www.youtube.com/watch?v=iTyZkb5Mhco"
     },
     {
       "id": "karpo-helppoheikin-anatomia",
@@ -958,6 +1099,12 @@
       "year": 2003,
       "source": "youtube",
       "embedId": "LF64T5MKe_U",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "LF64T5MKe_U",
+        "official": true,
+        "uploader": "Karpo Official"
+      },
       "duration": 747,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=LF64T5MKe_U",
@@ -967,10 +1114,7 @@
         "e"
       ],
       "why": "Karpo episode on a door-to-door huckster, a fan favourite on YouTube.",
-      "original_url": "https://www.youtube.com/watch?v=LF64T5MKe_U",
-      "media": "/media/suomi/karpo-helppoheikin-anatomia.mp4",
-      "poster": "/media/suomi/karpo-helppoheikin-anatomia.jpg",
-      "media_bytes": 23549932
+      "original_url": "https://www.youtube.com/watch?v=LF64T5MKe_U"
     },
     {
       "id": "remonttireiska-ionit",
@@ -978,6 +1122,12 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "8O_ydqPWKLg",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "8O_ydqPWKLg",
+        "official": true,
+        "uploader": "TamburiiniMato"
+      },
       "duration": 114,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=8O_ydqPWKLg",
@@ -988,10 +1138,7 @@
         "e"
       ],
       "why": "The 'ionit' sales pitch that became a Finnish meme and remix fodder.",
-      "original_url": "https://www.youtube.com/watch?v=8O_ydqPWKLg",
-      "media": "/media/suomi/remonttireiska-ionit.mp4",
-      "poster": "/media/suomi/remonttireiska-ionit.jpg",
-      "media_bytes": 2278148
+      "original_url": "https://www.youtube.com/watch?v=8O_ydqPWKLg"
     },
     {
       "id": "remonttireiska-oover",
@@ -999,6 +1146,12 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "GI57hKelSB0",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "GI57hKelSB0",
+        "official": true,
+        "uploader": "Keijobob"
+      },
       "duration": 63,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=GI57hKelSB0",
@@ -1008,10 +1161,7 @@
         "e"
       ],
       "why": "Remontti-Reiska at full throttle; shared everywhere as a reaction clip.",
-      "original_url": "https://www.youtube.com/watch?v=GI57hKelSB0",
-      "media": "/media/suomi/remonttireiska-oover.mp4",
-      "poster": "/media/suomi/remonttireiska-oover.jpg",
-      "media_bytes": 1802188
+      "original_url": "https://www.youtube.com/watch?v=GI57hKelSB0"
     },
     {
       "id": "uuno-olitkos-nukkumassa",
@@ -1019,6 +1169,12 @@
       "year": 1973,
       "source": "youtube",
       "embedId": "L5illCCR70U",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "L5illCCR70U",
+        "official": true,
+        "uploader": "Stick Maahinen"
+      },
       "duration": 24,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=L5illCCR70U",
@@ -1028,10 +1184,7 @@
         "e"
       ],
       "why": "The Uuno line that became a ringtone and a web meme; short clip only.",
-      "original_url": "https://www.youtube.com/watch?v=L5illCCR70U",
-      "media": "/media/suomi/uuno-olitkos-nukkumassa.mp4",
-      "poster": "/media/suomi/uuno-olitkos-nukkumassa.jpg",
-      "media_bytes": 1193921
+      "original_url": "https://www.youtube.com/watch?v=L5illCCR70U"
     },
     {
       "id": "voittopotti-juontaja",
@@ -1039,6 +1192,12 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "rJrEe8_gi64",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "rJrEe8_gi64",
+        "official": true,
+        "uploader": "mtvmediajarre"
+      },
       "duration": 251,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=rJrEe8_gi64",
@@ -1048,10 +1207,7 @@
         "e"
       ],
       "why": "Call-in quiz host loses it on air; over four million plays and endless remixes.",
-      "original_url": "https://www.youtube.com/watch?v=rJrEe8_gi64",
-      "media": "/media/suomi/voittopotti-juontaja.mp4",
-      "poster": "/media/suomi/voittopotti-juontaja.jpg",
-      "media_bytes": 8859247
+      "original_url": "https://www.youtube.com/watch?v=rJrEe8_gi64"
     },
     {
       "id": "onnenpyora-porkka-mokat",
@@ -1059,6 +1215,12 @@
       "year": 1998,
       "source": "youtube",
       "embedId": "SmIdzkR23yU",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "SmIdzkR23yU",
+        "official": true,
+        "uploader": "NehmesBastet"
+      },
       "duration": 180,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=SmIdzkR23yU",
@@ -1068,10 +1230,7 @@
         "e"
       ],
       "why": "Wheel of Fortune Finland bloopers with Ville Porkka, a long-time web favourite.",
-      "original_url": "https://www.youtube.com/watch?v=SmIdzkR23yU",
-      "media": "/media/suomi/onnenpyora-porkka-mokat.mp4",
-      "poster": "/media/suomi/onnenpyora-porkka-mokat.jpg",
-      "media_bytes": 7988137
+      "original_url": "https://www.youtube.com/watch?v=SmIdzkR23yU"
     },
     {
       "id": "onnenpyora-blondi",
@@ -1079,6 +1238,12 @@
       "year": 1998,
       "source": "youtube",
       "embedId": "3m6XPzFP27Y",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "3m6XPzFP27Y",
+        "official": true,
+        "uploader": "sukulakuko"
+      },
       "duration": 388,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=3m6XPzFP27Y",
@@ -1088,10 +1253,7 @@
         "e"
       ],
       "why": "The infamous Onnenpyörä guess, three-quarters of a million web plays.",
-      "original_url": "https://www.youtube.com/watch?v=3m6XPzFP27Y",
-      "media": "/media/suomi/onnenpyora-blondi.mp4",
-      "poster": "/media/suomi/onnenpyora-blondi.jpg",
-      "media_bytes": 20964542
+      "original_url": "https://www.youtube.com/watch?v=3m6XPzFP27Y"
     },
     {
       "id": "pepe-willberg-tietovisa",
@@ -1099,6 +1261,12 @@
       "year": 1999,
       "source": "youtube",
       "embedId": "1bBILMMsEus",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "1bBILMMsEus",
+        "official": true,
+        "uploader": "Ma Vi"
+      },
       "duration": 12,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=1bBILMMsEus",
@@ -1108,10 +1276,7 @@
         "e"
       ],
       "why": "Thirteen seconds of quiz-show agony that became a Finnish reaction meme.",
-      "original_url": "https://www.youtube.com/watch?v=1bBILMMsEus",
-      "media": "/media/suomi/pepe-willberg-tietovisa.mp4",
-      "poster": "/media/suomi/pepe-willberg-tietovisa.jpg",
-      "media_bytes": 506041
+      "original_url": "https://www.youtube.com/watch?v=1bBILMMsEus"
     },
     {
       "id": "miljonaari-youtube-supertahti",
@@ -1119,6 +1284,12 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "8ipgTgt9-bo",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "8ipgTgt9-bo",
+        "official": true,
+        "uploader": "Mauri Opiaatti"
+      },
       "duration": 197,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=8ipgTgt9-bo",
@@ -1128,10 +1299,7 @@
         "e"
       ],
       "why": "The Finnish Millionaire contestant whose run went viral on YouTube.",
-      "original_url": "https://www.youtube.com/watch?v=8ipgTgt9-bo",
-      "media": "/media/suomi/miljonaari-youtube-supertahti.mp4",
-      "poster": "/media/suomi/miljonaari-youtube-supertahti.jpg",
-      "media_bytes": 7783507
+      "original_url": "https://www.youtube.com/watch?v=8ipgTgt9-bo"
     },
     {
       "id": "kymppitonni-kahdeksan-ihmetta",
@@ -1139,6 +1307,12 @@
       "year": 1999,
       "source": "youtube",
       "embedId": "kKiMwF9iFsE",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "kKiMwF9iFsE",
+        "official": true,
+        "uploader": "ron ronson"
+      },
       "duration": 222,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=kKiMwF9iFsE",
@@ -1148,10 +1322,7 @@
         "e"
       ],
       "why": "Kymppitonni's 'eight wonders of the world' moment, a classic shared clip.",
-      "original_url": "https://www.youtube.com/watch?v=kKiMwF9iFsE",
-      "media": "/media/suomi/kymppitonni-kahdeksan-ihmetta.mp4",
-      "poster": "/media/suomi/kymppitonni-kahdeksan-ihmetta.jpg",
-      "media_bytes": 12856552
+      "original_url": "https://www.youtube.com/watch?v=kKiMwF9iFsE"
     },
     {
       "id": "ala-tuu-kurkistelee",
@@ -1159,6 +1330,12 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "bV8Hgn2-5tw",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "bV8Hgn2-5tw",
+        "official": true,
+        "uploader": "jartto"
+      },
       "duration": 45,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=bV8Hgn2-5tw",
@@ -1169,10 +1346,7 @@
         "d"
       ],
       "why": "SuomiTube classic: a homemade clip whose line is still quoted, 1.4 million plays.",
-      "original_url": "https://www.youtube.com/watch?v=bV8Hgn2-5tw",
-      "media": "/media/suomi/ala-tuu-kurkistelee.mp4",
-      "poster": "/media/suomi/ala-tuu-kurkistelee.jpg",
-      "media_bytes": 1539173
+      "original_url": "https://www.youtube.com/watch?v=bV8Hgn2-5tw"
     },
     {
       "id": "teiniuhoamista",
@@ -1180,6 +1354,12 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "VrjK-92Qa5E",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "VrjK-92Qa5E",
+        "official": true,
+        "uploader": "Artami"
+      },
       "duration": 88,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=VrjK-92Qa5E",
@@ -1190,10 +1370,7 @@
         "d"
       ],
       "why": "Teen threat-rant that became a 2.4-million-play Finnish YouTube classic.",
-      "original_url": "https://www.youtube.com/watch?v=VrjK-92Qa5E",
-      "media": "/media/suomi/teiniuhoamista.mp4",
-      "poster": "/media/suomi/teiniuhoamista.jpg",
-      "media_bytes": 4540559
+      "original_url": "https://www.youtube.com/watch?v=VrjK-92Qa5E"
     },
     {
       "id": "evoluutiomies-kauppareissu",
@@ -1201,6 +1378,12 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "vYKv75qee3w",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "vYKv75qee3w",
+        "official": true,
+        "uploader": "Evoluutiomies"
+      },
       "duration": 157,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=vYKv75qee3w",
@@ -1212,10 +1395,7 @@
         "e"
       ],
       "why": "Evoluutiomies' best-known animation; remixed and STP'd for years.",
-      "original_url": "https://www.youtube.com/watch?v=vYKv75qee3w",
-      "media": "/media/suomi/evoluutiomies-kauppareissu.mp4",
-      "poster": "/media/suomi/evoluutiomies-kauppareissu.jpg",
-      "media_bytes": 14792038
+      "original_url": "https://www.youtube.com/watch?v=vYKv75qee3w"
     },
     {
       "id": "nippon-kazauwa",
@@ -1223,6 +1403,12 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "8QRHK_Z_X8Y",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "8QRHK_Z_X8Y",
+        "official": true,
+        "uploader": "Supermoniveto"
+      },
       "duration": 70,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=8QRHK_Z_X8Y",
@@ -1233,10 +1419,7 @@
         "d"
       ],
       "why": "SuomiTube classic from Niko's list: 1.6 million plays of homemade nonsense.",
-      "original_url": "https://www.youtube.com/watch?v=8QRHK_Z_X8Y",
-      "media": "/media/suomi/nippon-kazauwa.mp4",
-      "poster": "/media/suomi/nippon-kazauwa.jpg",
-      "media_bytes": 4925259
+      "original_url": "https://www.youtube.com/watch?v=8QRHK_Z_X8Y"
     },
     {
       "id": "paka-intti-animaatio",
@@ -1244,6 +1427,12 @@
       "year": 2006,
       "source": "youtube",
       "embedId": "m7UVRlyH36A",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "m7UVRlyH36A",
+        "official": true,
+        "uploader": "EnemyAce"
+      },
       "duration": 97,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=m7UVRlyH36A",
@@ -1255,10 +1444,7 @@
         "e"
       ],
       "why": "The army-service Flash cartoon every conscript passed around.",
-      "original_url": "https://www.youtube.com/watch?v=m7UVRlyH36A",
-      "media": "/media/suomi/paka-intti-animaatio.mp4",
-      "poster": "/media/suomi/paka-intti-animaatio.jpg",
-      "media_bytes": 1382898
+      "original_url": "https://www.youtube.com/watch?v=m7UVRlyH36A"
     },
     {
       "id": "paka-2",
@@ -1266,6 +1452,12 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "FY_WyMABiOk",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "FY_WyMABiOk",
+        "official": true,
+        "uploader": "EnemyAce"
+      },
       "duration": 217,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=FY_WyMABiOk",
@@ -1277,10 +1469,7 @@
         "e"
       ],
       "why": "Paka's sequel, as forwarded around barracks as the first.",
-      "original_url": "https://www.youtube.com/watch?v=FY_WyMABiOk",
-      "media": "/media/suomi/paka-2.mp4",
-      "poster": "/media/suomi/paka-2.jpg",
-      "media_bytes": 3335034
+      "original_url": "https://www.youtube.com/watch?v=FY_WyMABiOk"
     },
     {
       "id": "nyt-vituttaa",
@@ -1288,6 +1477,12 @@
       "year": 2006,
       "source": "youtube",
       "embedId": "_hjHExmy4H8",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "_hjHExmy4H8",
+        "official": true,
+        "uploader": "Number Jerry"
+      },
       "duration": 16,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=_hjHExmy4H8",
@@ -1297,10 +1492,7 @@
         "e"
       ],
       "why": "A news vox pop turned into a 2.5-million-play Finnish meme.",
-      "original_url": "https://www.youtube.com/watch?v=_hjHExmy4H8",
-      "media": "/media/suomi/nyt-vituttaa.mp4",
-      "poster": "/media/suomi/nyt-vituttaa.jpg",
-      "media_bytes": 941892
+      "original_url": "https://www.youtube.com/watch?v=_hjHExmy4H8"
     },
     {
       "id": "juon-vetta",
@@ -1308,6 +1500,12 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "1WZFzDu9pns",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "1WZFzDu9pns",
+        "official": true,
+        "uploader": "astuinpaskaan"
+      },
       "duration": 8,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=1WZFzDu9pns",
@@ -1318,10 +1516,7 @@
         "d"
       ],
       "why": "Nine seconds of water drinking, 1.4 million plays and techno remixes.",
-      "original_url": "https://www.youtube.com/watch?v=1WZFzDu9pns",
-      "media": "/media/suomi/juon-vetta.mp4",
-      "poster": "/media/suomi/juon-vetta.jpg",
-      "media_bytes": 307536
+      "original_url": "https://www.youtube.com/watch?v=1WZFzDu9pns"
     },
     {
       "id": "tama-on-vetta",
@@ -1329,6 +1524,12 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "GXMzNZABSK4",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "GXMzNZABSK4",
+        "official": true,
+        "uploader": "Riisinekku"
+      },
       "duration": 9,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=GXMzNZABSK4",
@@ -1338,10 +1539,7 @@
         "e"
       ],
       "why": "The Moomin line that became a Finnish web meme.",
-      "original_url": "https://www.youtube.com/watch?v=GXMzNZABSK4",
-      "media": "/media/suomi/tama-on-vetta.mp4",
-      "poster": "/media/suomi/tama-on-vetta.jpg",
-      "media_bytes": 442212
+      "original_url": "https://www.youtube.com/watch?v=GXMzNZABSK4"
     },
     {
       "id": "taistelu-jaska-1",
@@ -1349,6 +1547,12 @@
       "year": 2006,
       "source": "youtube",
       "embedId": "aes27RHYEVg",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "aes27RHYEVg",
+        "official": true,
+        "uploader": "Petri Himmeä"
+      },
       "duration": 254,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=aes27RHYEVg",
@@ -1360,10 +1564,7 @@
         "e"
       ],
       "why": "The home-made animated web series every Finnish teen of 2006 knew.",
-      "original_url": "https://www.youtube.com/watch?v=aes27RHYEVg",
-      "media": "/media/suomi/taistelu-jaska-1.mp4",
-      "poster": "/media/suomi/taistelu-jaska-1.jpg",
-      "media_bytes": 9127303
+      "original_url": "https://www.youtube.com/watch?v=aes27RHYEVg"
     },
     {
       "id": "taistelu-jaska-pilot",
@@ -1371,6 +1572,12 @@
       "year": 2005,
       "source": "youtube",
       "embedId": "UYTe5h3fCW8",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "UYTe5h3fCW8",
+        "official": true,
+        "uploader": "Petri Himmeä"
+      },
       "duration": 252,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=UYTe5h3fCW8",
@@ -1382,10 +1589,7 @@
         "e"
       ],
       "why": "Taistelu-Jaska's pilot, the start of a web-animation cult.",
-      "original_url": "https://www.youtube.com/watch?v=UYTe5h3fCW8",
-      "media": "/media/suomi/taistelu-jaska-pilot.mp4",
-      "poster": "/media/suomi/taistelu-jaska-pilot.jpg",
-      "media_bytes": 9799157
+      "original_url": "https://www.youtube.com/watch?v=UYTe5h3fCW8"
     },
     {
       "id": "hevosmiesten-kilta-1",
@@ -1393,6 +1597,12 @@
       "year": 2006,
       "source": "youtube",
       "embedId": "6Z7e3DvqyPQ",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "6Z7e3DvqyPQ",
+        "official": true,
+        "uploader": "HevosmiestenKilta"
+      },
       "duration": 397,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=6Z7e3DvqyPQ",
@@ -1404,10 +1614,7 @@
         "e"
       ],
       "why": "The Harry Potter fandub that defined Finnish dub humour online.",
-      "original_url": "https://www.youtube.com/watch?v=6Z7e3DvqyPQ",
-      "media": "/media/suomi/hevosmiesten-kilta-1.mp4",
-      "poster": "/media/suomi/hevosmiesten-kilta-1.jpg",
-      "media_bytes": 13601756
+      "original_url": "https://www.youtube.com/watch?v=6Z7e3DvqyPQ"
     },
     {
       "id": "seppo-kimmo-atlanta",
@@ -1415,6 +1622,12 @@
       "year": 1996,
       "source": "youtube",
       "embedId": "st-n9eLPsvM",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "st-n9eLPsvM",
+        "official": true,
+        "uploader": "Urheiluruutumies"
+      },
       "duration": 131,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=st-n9eLPsvM",
@@ -1424,10 +1637,7 @@
         "e"
       ],
       "why": "Seppo Räty and Kimmo Kinnunen's Atlanta interview, a million-play web classic.",
-      "original_url": "https://www.youtube.com/watch?v=st-n9eLPsvM",
-      "media": "/media/suomi/seppo-kimmo-atlanta.mp4",
-      "poster": "/media/suomi/seppo-kimmo-atlanta.jpg",
-      "media_bytes": 4762630
+      "original_url": "https://www.youtube.com/watch?v=st-n9eLPsvM"
     },
     {
       "id": "mita-saisi-olla-saatana",
@@ -1435,6 +1645,12 @@
       "year": 2006,
       "source": "youtube",
       "embedId": "eAk1wBPanVc",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "eAk1wBPanVc",
+        "official": true,
+        "uploader": "Hupaisat"
+      },
       "duration": 80,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=eAk1wBPanVc",
@@ -1445,10 +1661,7 @@
         "d"
       ],
       "why": "The kiosk greeting that became a 3.6-million-play Finnish meme.",
-      "original_url": "https://www.youtube.com/watch?v=eAk1wBPanVc",
-      "media": "/media/suomi/mita-saisi-olla-saatana.mp4",
-      "poster": "/media/suomi/mita-saisi-olla-saatana.jpg",
-      "media_bytes": 6009089
+      "original_url": "https://www.youtube.com/watch?v=eAk1wBPanVc"
     },
     {
       "id": "keuruu-ylikersantti",
@@ -1456,6 +1669,12 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "61JwL61wl1w",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "61JwL61wl1w",
+        "official": true,
+        "uploader": "MLFmylly"
+      },
       "duration": 50,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=61JwL61wl1w",
@@ -1466,10 +1685,7 @@
         "d"
       ],
       "why": "Army sergeant's rage caught on a phone; an intti-era viral.",
-      "original_url": "https://www.youtube.com/watch?v=61JwL61wl1w",
-      "media": "/media/suomi/keuruu-ylikersantti.mp4",
-      "poster": "/media/suomi/keuruu-ylikersantti.jpg",
-      "media_bytes": 1089846
+      "original_url": "https://www.youtube.com/watch?v=61JwL61wl1w"
     },
     {
       "id": "masa-teurastaja-lanit",
@@ -1477,6 +1693,12 @@
       "year": 2009,
       "source": "youtube",
       "embedId": "lcb8uafr0cw",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "lcb8uafr0cw",
+        "official": true,
+        "uploader": "Justimusfilms"
+      },
       "duration": 146,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=lcb8uafr0cw",
@@ -1488,10 +1710,7 @@
         "e"
       ],
       "why": "LAN-party rap that 7.7 million plays made the Finnish gamer anthem.",
-      "original_url": "https://www.youtube.com/watch?v=lcb8uafr0cw",
-      "media": "/media/suomi/masa-teurastaja-lanit.mp4",
-      "poster": "/media/suomi/masa-teurastaja-lanit.jpg",
-      "media_bytes": 11535505
+      "original_url": "https://www.youtube.com/watch?v=lcb8uafr0cw"
     },
     {
       "id": "rap-mummo-eila",
@@ -1499,6 +1718,12 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "Jy2bW31e2_Q",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "Jy2bW31e2_Q",
+        "official": true,
+        "uploader": "MrPabloFilms"
+      },
       "duration": 141,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=Jy2bW31e2_Q",
@@ -1509,10 +1734,7 @@
         "d"
       ],
       "why": "A grandma rapping, 5.6 million plays, one of Finland's first big virals.",
-      "original_url": "https://www.youtube.com/watch?v=Jy2bW31e2_Q",
-      "media": "/media/suomi/rap-mummo-eila.mp4",
-      "poster": "/media/suomi/rap-mummo-eila.jpg",
-      "media_bytes": 10966600
+      "original_url": "https://www.youtube.com/watch?v=Jy2bW31e2_Q"
     },
     {
       "id": "ismo-seppo-homobaarissa",
@@ -1520,6 +1742,12 @@
       "year": 2005,
       "source": "youtube",
       "embedId": "fWyX7lJRiHo",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "fWyX7lJRiHo",
+        "official": true,
+        "uploader": "masted0ntti"
+      },
       "duration": 65,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=fWyX7lJRiHo",
@@ -1531,10 +1759,7 @@
         "e"
       ],
       "why": "One of the original Ismo ja Seppo prank calls with fan animation.",
-      "original_url": "https://www.youtube.com/watch?v=fWyX7lJRiHo",
-      "media": "/media/suomi/ismo-seppo-homobaarissa.mp4",
-      "poster": "/media/suomi/ismo-seppo-homobaarissa.jpg",
-      "media_bytes": 1898928
+      "original_url": "https://www.youtube.com/watch?v=fWyX7lJRiHo"
     },
     {
       "id": "ismo-seppo-metsalla",
@@ -1542,6 +1767,12 @@
       "year": 2005,
       "source": "youtube",
       "embedId": "rD30nJgapWs",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "rD30nJgapWs",
+        "official": true,
+        "uploader": "TurboGable"
+      },
       "duration": 489,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=rD30nJgapWs",
@@ -1553,10 +1784,7 @@
         "e"
       ],
       "why": "Ismo ja Seppo go hunting; a staple of the Riemurasia era.",
-      "original_url": "https://www.youtube.com/watch?v=rD30nJgapWs",
-      "media": "/media/suomi/ismo-seppo-metsalla.mp4",
-      "poster": "/media/suomi/ismo-seppo-metsalla.jpg",
-      "media_bytes": 7883594
+      "original_url": "https://www.youtube.com/watch?v=rD30nJgapWs"
     },
     {
       "id": "mtv3-kymmenen-uutiset-moka",
@@ -1564,6 +1792,12 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "Xw2EYrqgTlE",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "Xw2EYrqgTlE",
+        "official": true,
+        "uploader": "Ismorec"
+      },
       "duration": 78,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=Xw2EYrqgTlE",
@@ -1573,10 +1807,7 @@
         "e"
       ],
       "why": "Live-news blooper passed around as a Finnish TV fail classic.",
-      "original_url": "https://www.youtube.com/watch?v=Xw2EYrqgTlE",
-      "media": "/media/suomi/mtv3-kymmenen-uutiset-moka.mp4",
-      "poster": "/media/suomi/mtv3-kymmenen-uutiset-moka.jpg",
-      "media_bytes": 4071136
+      "original_url": "https://www.youtube.com/watch?v=Xw2EYrqgTlE"
     },
     {
       "id": "mtv3-loppukevennys-moka",
@@ -1584,6 +1815,12 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "5pBUAw7iiw4",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "5pBUAw7iiw4",
+        "official": true,
+        "uploader": "Matapoliisit4"
+      },
       "duration": 28,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=5pBUAw7iiw4",
@@ -1593,10 +1830,7 @@
         "e"
       ],
       "why": "News light-ending gone wrong, three-quarters of a million plays.",
-      "original_url": "https://www.youtube.com/watch?v=5pBUAw7iiw4",
-      "media": "/media/suomi/mtv3-loppukevennys-moka.mp4",
-      "poster": "/media/suomi/mtv3-loppukevennys-moka.jpg",
-      "media_bytes": 1621261
+      "original_url": "https://www.youtube.com/watch?v=5pBUAw7iiw4"
     },
     {
       "id": "yle-kamera-hukassa",
@@ -1604,6 +1838,12 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "WFMKjelEx2M",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "WFMKjelEx2M",
+        "official": true,
+        "uploader": "Jani Suhonen"
+      },
       "duration": 36,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=WFMKjelEx2M",
@@ -1613,10 +1853,7 @@
         "e"
       ],
       "why": "Yle's robot camera wanders off mid-news; a Finnish fail favourite.",
-      "original_url": "https://www.youtube.com/watch?v=WFMKjelEx2M",
-      "media": "/media/suomi/yle-kamera-hukassa.mp4",
-      "poster": "/media/suomi/yle-kamera-hukassa.jpg",
-      "media_bytes": 2078856
+      "original_url": "https://www.youtube.com/watch?v=WFMKjelEx2M"
     },
     {
       "id": "ui-juma",
@@ -1624,6 +1861,13 @@
       "year": 2008,
       "source": "youtube",
       "embedId": "4kCtOwqm5Oc",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "4kCtOwqm5Oc",
+        "official": false,
+        "uploader": "jonne moments"
+      },
+      "duration": 40,
       "note": "The original upload no longer plays; this copy is a later reupload of the same clip.",
       "credit": "https://www.youtube.com/watch?v=nWm6apd6mp8",
       "signals": [
@@ -1633,11 +1877,7 @@
         "d"
       ],
       "why": "Homemade ice-swim clip whose 'Ui juma!' became a national catchphrase; voted Finland's most memorable viral video.",
-      "original_url": "https://www.youtube.com/watch?v=nWm6apd6mp8",
-      "media": "/media/suomi/ui-juma.mp4",
-      "poster": "/media/suomi/ui-juma.jpg",
-      "duration": 40,
-      "media_bytes": 3873467
+      "original_url": "https://www.youtube.com/watch?v=nWm6apd6mp8"
     },
     {
       "id": "dj-ibusal-pilalla",
@@ -1645,6 +1885,12 @@
       "year": 2010,
       "source": "youtube",
       "embedId": "CnUJUMpq48E",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "CnUJUMpq48E",
+        "official": true,
+        "uploader": "Skorpioni"
+      },
       "duration": 143,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=CnUJUMpq48E",
@@ -1656,10 +1902,7 @@
         "e"
       ],
       "why": "DJ Ibusal's DIY 'Pilalla' video, a Finnish web cult classic quoted on every board.",
-      "original_url": "https://www.youtube.com/watch?v=CnUJUMpq48E",
-      "media": "/media/suomi/dj-ibusal-pilalla.mp4",
-      "poster": "/media/suomi/dj-ibusal-pilalla.jpg",
-      "media_bytes": 10426841
+      "original_url": "https://www.youtube.com/watch?v=CnUJUMpq48E"
     },
     {
       "id": "jonnet-suora-lahetys",
@@ -1667,8 +1910,14 @@
       "year": 2011,
       "source": "youtube",
       "embedId": "ZqUU7geqN-U",
+      "play": {
+        "kind": "link",
+        "id_or_url": "https://www.youtube.com/watch?v=ZqUU7geqN-U",
+        "official": false,
+        "uploader": "unknown"
+      },
       "duration": 161,
-      "note": "Archived copy of the linked upload; credit to its original creators.",
+      "note": "The YouTube upload does not embed (oEmbed 401) and no archive.org item was found. The card links to that page.",
       "credit": "https://www.youtube.com/watch?v=ZqUU7geqN-U",
       "signals": [
         "b",
@@ -1676,10 +1925,7 @@
         "e"
       ],
       "why": "Kids photobomb Yle's live news; the clip that gave 'jonnet' its face.",
-      "original_url": "https://www.youtube.com/watch?v=ZqUU7geqN-U",
-      "media": "/media/suomi/jonnet-suora-lahetys.mp4",
-      "poster": "/media/suomi/jonnet-suora-lahetys.jpg",
-      "media_bytes": 8515331
+      "original_url": "https://www.youtube.com/watch?v=ZqUU7geqN-U"
     },
     {
       "id": "kissa-putkessa",
@@ -1687,6 +1933,12 @@
       "year": 2011,
       "source": "youtube",
       "embedId": "DtxEfQn7emI",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "DtxEfQn7emI",
+        "official": true,
+        "uploader": "Puumies Pete"
+      },
       "duration": 106,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=DtxEfQn7emI",
@@ -1697,10 +1949,7 @@
         "d"
       ],
       "why": "A homemade cat-in-a-pipe rescue that 2.9 million Finns watched and quoted.",
-      "original_url": "https://www.youtube.com/watch?v=DtxEfQn7emI",
-      "media": "/media/suomi/kissa-putkessa.mp4",
-      "poster": "/media/suomi/kissa-putkessa.jpg",
-      "media_bytes": 6728447
+      "original_url": "https://www.youtube.com/watch?v=DtxEfQn7emI"
     },
     {
       "id": "lissut-pissikset",
@@ -1708,6 +1957,12 @@
       "year": 2012,
       "source": "youtube",
       "embedId": "2Nwly8f2QHU",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "2Nwly8f2QHU",
+        "official": true,
+        "uploader": "Jukka Takalo TV"
+      },
       "duration": 207,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=2Nwly8f2QHU",
@@ -1718,10 +1973,7 @@
         "e"
       ],
       "why": "The DIY 'pissikset' sketch that defined a Finnish YouTube moment.",
-      "original_url": "https://www.youtube.com/watch?v=2Nwly8f2QHU",
-      "media": "/media/suomi/lissut-pissikset.mp4",
-      "poster": "/media/suomi/lissut-pissikset.jpg",
-      "media_bytes": 12666089
+      "original_url": "https://www.youtube.com/watch?v=2Nwly8f2QHU"
     },
     {
       "id": "kimis-hobby",
@@ -1729,6 +1981,12 @@
       "year": 2012,
       "source": "youtube",
       "embedId": "cvQ1J3gCPOg",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "cvQ1J3gCPOg",
+        "official": true,
+        "uploader": "DonAmnesia"
+      },
       "duration": 18,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=cvQ1J3gCPOg",
@@ -1738,10 +1996,7 @@
         "e"
       ],
       "why": "Kimi Räikkönen's deadpan interview answer, a two-million-play meme.",
-      "original_url": "https://www.youtube.com/watch?v=cvQ1J3gCPOg",
-      "media": "/media/suomi/kimis-hobby.mp4",
-      "poster": "/media/suomi/kimis-hobby.jpg",
-      "media_bytes": 677411
+      "original_url": "https://www.youtube.com/watch?v=cvQ1J3gCPOg"
     },
     {
       "id": "kummeli-naapuri",
@@ -1749,6 +2004,12 @@
       "year": 1993,
       "source": "youtube",
       "embedId": "RXLopKnRH58",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "RXLopKnRH58",
+        "official": true,
+        "uploader": "Peter Ståhlhammar"
+      },
       "duration": 90,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=RXLopKnRH58",
@@ -1758,10 +2019,7 @@
         "e"
       ],
       "why": "Over a million plays; the neighbour's lines are still quoted.",
-      "original_url": "https://www.youtube.com/watch?v=RXLopKnRH58",
-      "media": "/media/suomi/kummeli-naapuri.mp4",
-      "poster": "/media/suomi/kummeli-naapuri.jpg",
-      "media_bytes": 6848327
+      "original_url": "https://www.youtube.com/watch?v=RXLopKnRH58"
     },
     {
       "id": "timo-jutila-eteenpain",
@@ -1769,6 +2027,12 @@
       "year": 2007,
       "source": "youtube",
       "embedId": "XgFwrvT_rBQ",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "XgFwrvT_rBQ",
+        "official": true,
+        "uploader": "qwe123asdization"
+      },
       "duration": 71,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=XgFwrvT_rBQ",
@@ -1778,10 +2042,7 @@
         "e"
       ],
       "why": "Hockey commentary that became a 1.3-million-play meme and remix template.",
-      "original_url": "https://www.youtube.com/watch?v=XgFwrvT_rBQ",
-      "media": "/media/suomi/timo-jutila-eteenpain.mp4",
-      "poster": "/media/suomi/timo-jutila-eteenpain.jpg",
-      "media_bytes": 2916990
+      "original_url": "https://www.youtube.com/watch?v=XgFwrvT_rBQ"
     },
     {
       "id": "bb-niko-synttarit",
@@ -1789,6 +2050,12 @@
       "year": 2005,
       "source": "youtube",
       "embedId": "H5Ox1R4AvNs",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "H5Ox1R4AvNs",
+        "official": true,
+        "uploader": "Skeba1979"
+      },
       "duration": 58,
       "note": "Archived copy of the linked upload; credit to its original creators.",
       "credit": "https://www.youtube.com/watch?v=H5Ox1R4AvNs",
@@ -1798,10 +2065,7 @@
         "e"
       ],
       "why": "Big Brother Finland's Niko and his birthday, a long-running web meme.",
-      "original_url": "https://www.youtube.com/watch?v=H5Ox1R4AvNs",
-      "media": "/media/suomi/bb-niko-synttarit.mp4",
-      "poster": "/media/suomi/bb-niko-synttarit.jpg",
-      "media_bytes": 1237305
+      "original_url": "https://www.youtube.com/watch?v=H5Ox1R4AvNs"
     },
     {
       "id": "team-ahma",
@@ -1809,6 +2073,12 @@
       "year": 2012,
       "source": "youtube",
       "embedId": "thSt5QMkh38",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "thSt5QMkh38",
+        "official": true,
+        "uploader": "Santtumann"
+      },
       "duration": 113,
       "note": "Team Ahma. The year is approximate.",
       "credit": "https://www.youtube.com/watch?v=thSt5QMkh38",
@@ -1818,10 +2088,7 @@
         "d"
       ],
       "why": "A homemade sports-commentary bit that got passed around. The year is approximate.",
-      "original_url": "https://www.youtube.com/watch?v=thSt5QMkh38",
-      "media": "/media/suomi/team-ahma.mp4",
-      "poster": "/media/suomi/team-ahma.jpg",
-      "media_bytes": 3473512
+      "original_url": "https://www.youtube.com/watch?v=thSt5QMkh38"
     },
     {
       "id": "haapavesi",
@@ -1829,6 +2096,12 @@
       "year": 2011,
       "source": "youtube",
       "embedId": "JFCeEUimG54",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "JFCeEUimG54",
+        "official": true,
+        "uploader": "Justimusfilms"
+      },
       "duration": 217,
       "note": "Justimusfilms. The year is approximate.",
       "credit": "https://www.youtube.com/watch?v=JFCeEUimG54",
@@ -1839,10 +2112,7 @@
         "e"
       ],
       "why": "Justimusfilms, a DIY comedy channel that defined a Finnish YouTube scene. The year is approximate.",
-      "original_url": "https://www.youtube.com/watch?v=JFCeEUimG54",
-      "media": "/media/suomi/haapavesi.mp4",
-      "poster": "/media/suomi/haapavesi.jpg",
-      "media_bytes": 12824305
+      "original_url": "https://www.youtube.com/watch?v=JFCeEUimG54"
     },
     {
       "id": "haissa",
@@ -1850,6 +2120,12 @@
       "year": 2011,
       "source": "youtube",
       "embedId": "OZ5PUSgFF6g",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "OZ5PUSgFF6g",
+        "official": true,
+        "uploader": "Babyface.Worlwide®"
+      },
       "duration": 398,
       "note": "Jare & VilleGalle with Märkä-Simo. The wedding video. Year is approximate.",
       "credit": "https://www.youtube.com/watch?v=OZ5PUSgFF6g",
@@ -1859,10 +2135,7 @@
         "e"
       ],
       "why": "The wedding video people kept forwarding. The year is approximate.",
-      "original_url": "https://www.youtube.com/watch?v=OZ5PUSgFF6g",
-      "media": "/media/suomi/haissa.mp4",
-      "poster": "/media/suomi/haissa.jpg",
-      "media_bytes": 21953994
+      "original_url": "https://www.youtube.com/watch?v=OZ5PUSgFF6g"
     },
     {
       "id": "mopoauto",
@@ -1870,6 +2143,12 @@
       "year": 2012,
       "source": "youtube",
       "embedId": "xRDqYFpaTd4",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "xRDqYFpaTd4",
+        "official": true,
+        "uploader": "Retronymous"
+      },
       "duration": 186,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=xRDqYFpaTd4",
@@ -1880,10 +2159,7 @@
         "d"
       ],
       "why": "Two kids, a microcar and a homemade anthem every Finnish teen knew.",
-      "original_url": "https://www.youtube.com/watch?v=xRDqYFpaTd4",
-      "media": "/media/suomi/mopoauto.mp4",
-      "poster": "/media/suomi/mopoauto.jpg",
-      "media_bytes": 8072602
+      "original_url": "https://www.youtube.com/watch?v=xRDqYFpaTd4"
     },
     {
       "id": "nuoret-hurjat",
@@ -1891,6 +2167,12 @@
       "year": 2012,
       "source": "youtube",
       "embedId": "4NbxAb5fkY8",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "4NbxAb5fkY8",
+        "official": true,
+        "uploader": "Kille"
+      },
       "duration": 111,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=4NbxAb5fkY8",
@@ -1901,10 +2183,7 @@
         "d"
       ],
       "why": "Homemade teen bravado video that became a meemi.info staple.",
-      "original_url": "https://www.youtube.com/watch?v=4NbxAb5fkY8",
-      "media": "/media/suomi/nuoret-hurjat.mp4",
-      "poster": "/media/suomi/nuoret-hurjat.jpg",
-      "media_bytes": 5837971
+      "original_url": "https://www.youtube.com/watch?v=4NbxAb5fkY8"
     },
     {
       "id": "ei-viddu-make",
@@ -1912,6 +2191,12 @@
       "year": 2011,
       "source": "youtube",
       "embedId": "y142zKobfqg",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "y142zKobfqg",
+        "official": true,
+        "uploader": "SilliS"
+      },
       "duration": 43,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=y142zKobfqg",
@@ -1922,10 +2207,7 @@
         "d"
       ],
       "why": "A shouted 'ei viddu Make' that the boards never stopped quoting.",
-      "original_url": "https://www.youtube.com/watch?v=y142zKobfqg",
-      "media": "/media/suomi/ei-viddu-make.mp4",
-      "poster": "/media/suomi/ei-viddu-make.jpg",
-      "media_bytes": 823717
+      "original_url": "https://www.youtube.com/watch?v=y142zKobfqg"
     },
     {
       "id": "joni-2012",
@@ -1933,6 +2215,12 @@
       "year": 2012,
       "source": "youtube",
       "embedId": "AmE6JZaEJSk",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "AmE6JZaEJSk",
+        "official": true,
+        "uploader": "JONINVELAT2012"
+      },
       "duration": 45,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=AmE6JZaEJSk",
@@ -1942,10 +2230,7 @@
         "d"
       ],
       "why": "A Kony 2012 parody made by Finnish teens about a guy named Joni.",
-      "original_url": "https://www.youtube.com/watch?v=AmE6JZaEJSk",
-      "media": "/media/suomi/joni-2012.mp4",
-      "poster": "/media/suomi/joni-2012.jpg",
-      "media_bytes": 1662234
+      "original_url": "https://www.youtube.com/watch?v=AmE6JZaEJSk"
     },
     {
       "id": "ylilauta-nelonen",
@@ -1953,6 +2238,12 @@
       "year": 2011,
       "source": "youtube",
       "embedId": "lJO9Ao_CUUU",
+      "play": {
+        "kind": "youtube",
+        "id_or_url": "lJO9Ao_CUUU",
+        "official": true,
+        "uploader": "utanaltti"
+      },
       "duration": 143,
       "note": "Archived copy of the linked upload.",
       "credit": "https://www.youtube.com/watch?v=lJO9Ao_CUUU",
@@ -1962,15 +2253,23 @@
         "e"
       ],
       "why": "The night the evening news discovered Ylilauta.",
-      "original_url": "https://www.youtube.com/watch?v=lJO9Ao_CUUU",
-      "media": "/media/suomi/ylilauta-nelonen.mp4",
-      "poster": "/media/suomi/ylilauta-nelonen.jpg",
-      "media_bytes": 5161471
+      "original_url": "https://www.youtube.com/watch?v=lJO9Ao_CUUU"
     },
     {
       "id": "spurdo-sparde",
       "title": "Spurdo Spärde",
       "year": 2011,
+      "source": "other",
+      "embedId": "https://knowyourmeme.com/memes/spurdo-sparde",
+      "play": {
+        "kind": "link",
+        "id_or_url": "https://knowyourmeme.com/memes/spurdo-sparde",
+        "official": false,
+        "uploader": "Know Your Meme"
+      },
+      "duration": 7,
+      "note": "Still image. The card links to the Know Your Meme page; Plebflix does not host the picture.",
+      "credit": "https://knowyourmeme.com/memes/spurdo-sparde",
       "signals": [
         "a",
         "b",
@@ -1979,16 +2278,8 @@
         "e"
       ],
       "why": "The Finnish board bear with the broken grin: ebin :DDD",
-      "note": "Static meme, looped 7 s. Image via Know Your Meme; credit to its creators.",
       "original_url": "https://knowyourmeme.com/memes/spurdo-sparde",
-      "kind": "meme",
-      "source": "other",
-      "embedId": "https://i.kym-cdn.com/entries/icons/original/000/008/001/Spurdo.jpg",
-      "credit": "https://knowyourmeme.com/memes/spurdo-sparde",
-      "duration": 7,
-      "media": "/media/suomi/spurdo-sparde.mp4",
-      "poster": "/media/suomi/spurdo-sparde.jpg",
-      "media_bytes": 28154
+      "kind": "meme"
     }
   ]
 }

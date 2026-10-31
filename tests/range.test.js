@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { parseRange, serveMedia } from "../lib/range.mjs";
+import { parseRange, serveMedia } from "../legacy/range.mjs";
 test("parseRange", () => {
   assert.deepEqual(parseRange("bytes=0-99", 1000), { start: 0, end: 99 });
   assert.deepEqual(parseRange("bytes=900-", 1000), { start: 900, end: 999 });

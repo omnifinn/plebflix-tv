@@ -40,9 +40,6 @@ export async function build() {
   await cp("RESOURCES.md", "dist/assets/RESOURCES.md").catch(() => {});
   // The REC dialog checks pasted links against the archive shelf hosts.
   await cp("sources.json", "dist/assets/sources.json").catch(() => {});
-  // Self-hosted tapes live outside git in media/ (or $PLEBFLIX_MEDIA); copy them in.
-  const media = process.env.PLEBFLIX_MEDIA || "media";
-  if (existsSync(media)) await cp(media, "dist/assets/media", { recursive: true });
   // Temporary source hand-off for a cloud agent (gitignored; remove the folder to stop serving it).
   if (existsSync(".handoff")) await cp(".handoff", "dist/assets/_handoff", { recursive: true });
 }
@@ -50,10 +47,12 @@ export async function build() {
 /** Hash the shell's scripts and styles in dist/assets; rewrite app.js's own import first so its hash covers it. */
 async function versionAssets() {
   const short = (text) => createHash("sha256").update(text).digest("hex").slice(0, 10);
-  const files = ["schedule.js", "fx.js", "audio.js", "search.js", "skins.js", "tactile.js", "styles.css", "styles/tokens.css"];
+  const files = ["schedule.js", "play.js", "fx.js", "audio.js", "search.js", "skins.js", "tactile.js", "styles.css", "styles/tokens.css"];
   const versions = new Map();
   for (const file of files) versions.set(file, short(await readFile(`dist/assets/${file}`)));
-  const app = (await readFile("dist/assets/app.js", "utf8")).replace('from "./schedule.js"', `from "./schedule.js?v=${versions.get("schedule.js")}"`);
+  let app = (await readFile("dist/assets/app.js", "utf8"))
+    .replace('from "./schedule.js"', `from "./schedule.js?v=${versions.get("schedule.js")}"`)
+    .replace('from "./play.js"', `from "./play.js?v=${versions.get("play.js")}"`);
   await writeFile("dist/assets/app.js", app);
   versions.set("app.js", short(app));
   return versions;

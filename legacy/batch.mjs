@@ -1,5 +1,7 @@
 #!/usr/bin/env node
-// Batch ingest: node scripts/batch.mjs plan.json [--jobs 3]
+// Retired 2026-10-31. Do not run this against the shelf. It files media fields the validator rejects.
+// Kept whole (zero-loss).
+// Batch ingest: node legacy/batch.mjs plan.json [--jobs 3]
 // plan.json = [{ id, channel: "suomi"|"international", url, title, year, signals:[...], why, cats:[...], original_url?, note?, maxSeconds? }]
 // Downloads + transcodes in parallel (child processes), then files every finished tape into the channel JSON
 // and categories.json in one go. Progress is kept in <plan>.done.jsonl so a rerun resumes.
@@ -11,7 +13,7 @@ import { fileURLToPath } from "node:url";
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const [, , planFile, ...rest] = process.argv;
 if (!planFile) {
-  console.log("usage: node scripts/batch.mjs plan.json [--jobs 3] [--file-only]");
+  console.log("usage: node legacy/batch.mjs plan.json [--jobs 3] [--file-only]");
   process.exit(1);
 }
 const jobs = Number(rest[rest.indexOf("--jobs") + 1]) || 3;
@@ -24,8 +26,8 @@ if (existsSync(doneFile)) for (const line of readFileSync(doneFile, "utf8").spli
 function worker(entry) {
   return new Promise((resolve) => {
     const code = `
-      import { archiveItem } from ${JSON.stringify(path.join(ROOT, "scripts/ingest.mjs"))};
-      import { transcode } from ${JSON.stringify(path.join(ROOT, "scripts/ingest.mjs"))};
+      import { archiveItem } from ${JSON.stringify(path.join(ROOT, "legacy/ingest.mjs"))};
+      import { transcode } from ${JSON.stringify(path.join(ROOT, "legacy/ingest.mjs"))};
       const e = ${JSON.stringify(entry)};
       try {
         const item = archiveItem(e.channel, { id: e.id, title: e.title, year: e.year }, { srcUrl: e.url, image: e.image });

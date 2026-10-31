@@ -2,9 +2,9 @@
 
 A 24/7 living-room broadcast of classic internet videos. Two channels share one clock: **Suomi** (Finnish net culture, Flash, and the clips that escaped the message boards) and **International** (the early viral shelf). Everyone watching a channel is on the same tape at the same second. The set is a CRT on a VHS cabinet, and the deck buttons behave like a deck.
 
-What counts as a classic is in `CLASSIC.md`: at least ten years old, and at least three of the five signals. Every card has an `original_url`. The glass shows it as SOURCE. Playback stays embedded in the tube (YouTube IFrame API, archive.org, Vimeo, or Ruffle for a `.swf` whose license allows it).
+What counts as a classic is in `CLASSIC.md`: at least ten years old, and at least three of the five signals. Every card has an `original_url`. The glass shows it as SOURCE. Playback stays in the tube as an embed: the YouTube IFrame Player API on `youtube-nocookie.com` when the creator's or an official upload exists, an archive.org embed when it does not, or a link-out card when no embed exists. The site does not host the video.
 
-Tapes are archived: every clip is transcoded to a small MP4 and served from plebflix.com (`/media/...`) so it can't vanish, with the original embed as fallback and `original_url` always shown as SOURCE. Those files are not in git. See [Self-hosted media](#self-hosted-media). `LIBRARIAN.md` is the daily routine: where votes and submissions live, how to vet a tape, how to run `scripts/ingest.mjs`, and how to deploy with `scripts/deploy.mjs`. `sources.json` lists the shelves a suggestion may cite, including the Wayback Machine and archive.org. `RESOURCES.md` prints them.
+`LIBRARIAN.md` is the daily routine: where votes and submissions live, how to vet a tape, how to file one, and how to deploy with `scripts/deploy.mjs`. `sources.json` lists the shelves a suggestion may cite, including the Wayback Machine and archive.org. `RESOURCES.md` prints them. `/credits` lists every tape and its uploader. `/takedown` is how a rights holder asks for a tape to come off (`takedown@plebflix.com`).
 
 ## Watch it locally
 
@@ -32,18 +32,17 @@ PLAY, PAUSE, REW, FWD, STOP, and REC sit on the deck. CH+ / CH− and the tapes 
 
 ## Deploy
 
-There is no GitHub Action that deploys: the tapes (`media/`, 1.9 GiB) are not in git, and a static-asset deploy publishes exactly the files in `dist/assets`, so a deploy from a machine without `media/` would take every tape off the air. Deploy from a machine that holds `media/` and a credential for the Cloudflare account pinned in `wrangler.jsonc` (`account_id`, the account that owns plebflix.com). Push `main` to GitHub first; CI (`validate.yml`) is the gate.
+There is no GitHub Action that deploys. A static-asset deploy publishes exactly the files in `dist/assets`. Deploy from a machine with a credential for the Cloudflare account pinned in `wrangler.jsonc` (`account_id`, the account that owns plebflix.com). Push `main` to GitHub first; CI (`validate.yml`) is the gate. `prepare` refuses if the manifest contains `/media/`.
 
 ```bash
 set -a; source ~/.config/cloudflare/plebflix-tv.env; set +a   # CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID
 npm ci && npm run build
-node scripts/ingest.mjs --check                                # every tape has its file in media/
 npx wrangler d1 migrations apply plebflix-tv --remote          # new migrations first; the code expects the columns
 npx wrangler deploy
 node scripts/deploy.mjs verify
 ```
 
-`media/` can be rebuilt from the live site: every catalog `media` and `poster` path is served at `https://plebflix.com/media/...`. Optional secret: `npx wrangler secret put IP_SALT` (any long random string) salts the stored address hashes on votes and submissions.
+Optional secret: `npx wrangler secret put IP_SALT` (any long random string) salts the stored address hashes on votes and submissions. After the embed-only deploy, purge `https://plebflix.com/media/*` from the Cloudflare cache so old tape files stop being served from the edge.
 
 First-time setup on a fresh account, for the record:
 
@@ -98,7 +97,7 @@ The Worker name is `plebflix-tv`. Custom domains on the existing zone: `plebflix
 | `DB` | D1 database. The name is `plebflix-tv`. The binding is `DB`. Migrations live in `migrations/`. |
 | `IP_SALT` | Optional secret. Without it the address hashes use a fixed salt. |
 
-`POST /api/recommend` files a suggestion into the D1 `submissions` table (status `pending`). Nothing reaches GitHub from the Worker; the librarian routine vets the row and opens the pull request. Every API response also carries the `_headers` security headers (`X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy`, and a `Content-Security-Policy` that allows scripts only from this origin, YouTube's IFrame API and unpkg for Ruffle).
+`POST /api/recommend` files a suggestion into the D1 `submissions` table (status `pending`). Nothing reaches GitHub from the Worker; the librarian routine vets the row and opens the pull request. Every API response also carries the `_headers` security headers (`X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy`, and a `Content-Security-Policy` that allows scripts from this origin and YouTube's IFrame API, and frames from YouTube and archive.org).
 
 ## Votes
 
@@ -139,20 +138,13 @@ The stats file is `{ "suomi": { "b5mies": { "up": 1, "down": 0, "impressions": 4
 
 `--pr` needs `GITHUB_TOKEN` (and `GITHUB_REPO`, which defaults to `omnifinn/plebflix-tv`). Without the token it prints the report and does not open a pull request. With the token, and with at least one drop, it opens a pull request against the default branch that removes those tapes and regenerates `RESOURCES.md`.
 
-## Self-hosted media
+## Playback
 
-`scripts/ingest.mjs` downloads (yt-dlp / curl), transcodes (ffmpeg: H.264/AAC, ≤480p, ≤24 MiB, faststart) and files a tape:
+Every tape has `play`. YouTube uses the IFrame Player API on `youtube-nocookie.com` (`public/play.js`, `public/app.js`): autoplay, muted until a tap, seeked to the scheduled offset, so LIVE is the same programme for everyone. REW, FWD, pause, and a second press (or a click on the glass) go through `seekTo`, `pauseVideo`, and `playVideo`. archive.org has no player API, so the iframe is reloaded at the offset. Errors 101 and 150 (and 2, 5, 100, 153) are logged and the deck skips to the next tape. A `link` tape is a card with the original page. The `<video>` element stays in the page for the equalizer graph and is never given a file.
 
-```bash
-node scripts/ingest.mjs --channel suomi --url URL --signals a,b,d --why "…"            # title + year from the link (yt-dlp), or pass --title/--year
-node scripts/ingest.mjs --channel international --file clip.mov --title T --year 2005 --signals a,b,c --why "…"
-node scripts/ingest.mjs --channel international --image meme.jpg --title Doge --year 2013 --signals a,b,c --why "…"   # 7 s loop
-node scripts/ingest.mjs --backfill | --check
-```
+The old download-and-transcode pipeline (`legacy/ingest.mjs`, `legacy/batch.mjs`) and the `/media` range handler (`legacy/range.mjs`) are retired. Do not run them against the shelf.
 
-Files go to `media/<channel>/<id>.mp4` (gitignored, or `$PLEBFLIX_MEDIA`), `npm run build` copies them into `dist/assets/media`.
-They are Worker static assets (R2 is not enabled on the account; 25 MiB per file). Static assets answer `Range` with a full 200, which breaks seeking, so `/media/*` runs through the Worker (`run_worker_first`): `lib/range.mjs` puts each file in the edge cache once and lets `caches.default.match` answer ranges with 206, with an in-Worker slicer as fallback. The media files never go in git, so keep `media/` on the deploying machine: a deploy re-sends the full manifest and `deploy prepare` refuses if a tape's file is missing.
-The player prefers `item.media` in a `<video>` and falls back to the embed. On load it goes straight to LIVE, the shared
+On load the deck goes straight to LIVE, the shared
 wall-clock broadcast of the current channel. The TV language defaults from the visitor's country (`/api/geo` reads
 `request.cf.country`: Suomi in Finland, International elsewhere); `?tv=suomi`, `#suomi`/`#suomi-komedia` or the saved
 choice in localStorage win. Channels are categories (CH 1 = all tapes, then MTV, Komedia, Asiaa, Dokkarit, Visailut,
@@ -181,7 +173,7 @@ npm run candidates -- --pending
 
 ## Channels
 
-`channels/suomi.json` and `channels/international.json` are the source of truth. `channels/categories.json` maps tapes onto the category channels; `channels/schedule.json` says how each channel airs; the build turns them into `channels/index.json` (the TV × channel lineup, with a `build` stamp) plus one JSON per category. `RESOURCES.md` is generated from them. Content changes touch only these files and `media/` (`LIBRARIAN.md` §0 has the format and the validation command); the player code never embeds a title or a time.
+`channels/suomi.json` and `channels/international.json` are the source of truth. `channels/categories.json` maps tapes onto the category channels; `channels/schedule.json` says how each channel airs; the build turns them into `channels/index.json` (the TV × channel lineup, with a `build` stamp) plus one JSON per category. `RESOURCES.md`, `/credits`, and `/takedown` are generated from them. Content changes touch only the files under `channels/` (`LIBRARIAN.md` §0 has the format and the validation command); the player code never embeds a title or a time.
 
 Each item:
 
@@ -194,14 +186,13 @@ Each item:
 | `why` | One line, at most 200 characters. |
 | `original_url` | Original upload or site, or a Wayback snapshot. This is the SOURCE link. |
 | `source` | `youtube`, `archive.org`, `vimeo`, or `other`. |
-| `embedId` | YouTube id, archive.org identifier, Vimeo id, or (for `other`) the page URL. A licensed `.swf` URL is allowed when `license` is set. |
+| `embedId` | YouTube id, archive.org identifier, Vimeo id, or (for `other`) the page URL. For a YouTube or archive play this matches `play.id_or_url`. |
+| `play` | Required. `{ kind: "youtube" \| "archive" \| "link", id_or_url, official, uploader }`. The deck plays this and nothing else. |
 | `duration` | Seconds. One UTC day’s lineup is drawn from these, not played as a fixed loop. |
-| `added` | `YYYY-MM-DD` (UTC), the day the tape was filed. It airs from the next UTC day. Set by `ingest.mjs` / `batch.mjs`; required on a hand-written row. |
-| `media`, `poster`, `media_bytes` | The self-hosted file (`/media/<lang>/<id>.mp4`), its poster and size, written by `ingest.mjs`. |
-| `media_source` | Optional http(s) URL `ingest.mjs --backfill` downloads from when the original will not. |
+| `added` | `YYYY-MM-DD` (UTC), the day the tape was filed. It airs from the next UTC day. Required on a hand-written row. |
 | `note` | Short credit or context. |
 | `credit` | Optional http(s) link. |
-| `license` | Optional. `cc0`, `cc-by`, `cc-by-sa`, or `public-domain`. Required before a `.swf` may play in Ruffle. |
+| `license` | Optional. `cc0`, `cc-by`, `cc-by-sa`, or `public-domain`. Printed on `/credits` when set; otherwise the page says the tape is embedded via YouTube or the Internet Archive, or is link only. |
 | `tags` | Optional. Up to eight lowercase slugs. `npm run curate` groups the top tapes by them. |
 | `creator` | Optional. One line, at most 80 characters. |
 | `status` | Omit it for something on air. `pending` keeps a suggestion off the loop (`duration` may be 0) until a person confirms the embed, sets the duration, and removes the field. |
@@ -210,14 +201,14 @@ Each item:
 
 Press REC, or edit a channel file and open a pull request.
 
-The card is one field: paste a link (YouTube, Vimeo, Internet Archive, Wayback, or any page with the video) and it files itself. The deck sends the TV that is on as the channel. Submit calls `POST /api/recommend`. The Worker checks the origin, the body size, a honeypot field, and a per-address rate limit (8 an hour), validates the URL, folds duplicates, and stores the row in D1 `submissions` as `pending`. The librarian routine (`LIBRARIAN.md`) takes title, year and duration from the link (`yt-dlp`), judges the signals, ingests the tape, and opens the pull request.
+The card is one field: paste a link (YouTube, Vimeo, Internet Archive, Wayback, or any page with the video) and it files itself. The deck sends the TV that is on as the channel. Submit calls `POST /api/recommend`. The Worker checks the origin, the body size, a honeypot field, and a per-address rate limit (8 an hour), validates the URL, folds duplicates, and stores the row in D1 `submissions` as `pending`. The librarian routine (`LIBRARIAN.md`) takes title, year and duration from the link (`yt-dlp`), judges the signals, files the tape with `play`, and opens the pull request.
 
 Before you push a hand-edited list:
 
 ```bash
 npm run validate          # shelves, categories.json, schedule.json, sources.json
-npm run resources         # rewrite RESOURCES.md
-npm run verify-embeds     # oEmbed / archive.org metadata, needs a network
+npm run resources         # rewrite RESOURCES.md, public/credits.html, public/takedown.html
+npm run check-embeds      # weekly: oEmbed / archive.org metadata, needs a network. Not a CI gate.
 ```
 
 `npm test` covers the day’s lineup, the vote shelf, curation, the schema, and the REC route (with GitHub mocked).

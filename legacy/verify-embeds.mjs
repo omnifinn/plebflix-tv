@@ -1,3 +1,5 @@
+// Retired 2026-10-31. Superseded by scripts/check-embeds.mjs (npm run check-embeds), which reads the play contract.
+// Kept whole (zero-loss).
 import { readdir, readFile } from "node:fs/promises";
 
 const files = (await readdir("channels")).filter((name) => name.endsWith(".json") && name !== "categories.json" && name !== "schedule.json").sort();
