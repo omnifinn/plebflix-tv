@@ -738,9 +738,12 @@ function unlockSound() {
     /* private mode */
   }
   $("sound-hint").hidden = true;
-  if (player && typeof player.unMute === "function") {
-    player.unMute();
-    player.setVolume(100);
+  // The tap is the gesture browsers require before unmuted playback. playVideo has to run here:
+  // unMute on its own leaves a cued embed silent and paused.
+  if (playerKind === "youtube" && player) {
+    player.unMute?.();
+    player.setVolume?.(100);
+    if (mode !== "paused" && mode !== "stopped") player.playVideo?.();
   }
   // Archive.org has no player API. A tap is a user gesture, so reload the embed with autoplay.
   if (playerKind === "archive" && currentItem && mode !== "paused" && mode !== "stopped") {
@@ -780,14 +783,58 @@ function holdArchive() {
   hideEmbed();
 }
 
-function onReady(event) {
-  player = event?.target || player;
-  if (mode === "paused") player?.pauseVideo?.();
+/** Seconds into the tape that is on, or 0 when the player has already moved on. */
+function playbackOffset() {
+  const spot = spotAt(playlist(), mode === "paused" ? pausePos : position());
+  if (!spot || (currentItem && spot.item?.id !== currentItem.id)) return 0;
+  return Math.max(0, spot.offset || 0);
+}
+
+/**
+ * Mute (unless this viewer already unlocked sound), seek to the broadcast offset, and play.
+ * The iframe URL's autoplay flag is not enough: Chrome and Safari ignore it unless the API
+ * calls playVideo, and an unmuted call without a gesture is rejected. onReady is not a gesture,
+ * so the first play stays muted when sound is still locked.
+ */
+function armYoutube(target) {
+  const next = target || player;
+  if (!next) return;
+  player = next;
+  if (mode === "paused" || mode === "stopped") {
+    if (soundOn) {
+      next.unMute?.();
+      next.setVolume?.(100);
+    } else {
+      next.mute?.();
+    }
+    next.pauseVideo?.();
+    return;
+  }
+  // Ask for a muted play first. An unmuted playVideo from onReady is not a user gesture
+  // and the browser drops it, which leaves the embed sitting on the poster.
+  next.mute?.();
+  const offset = playbackOffset();
+  if (offset > 0.5) next.seekTo?.(offset, true);
+  next.playVideo?.();
   if (soundOn) {
-    player?.unMute?.();
-    player?.setVolume?.(100);
-  } else {
-    player?.mute?.();
+    next.unMute?.();
+    next.setVolume?.(100);
+    next.playVideo?.();
+  }
+}
+
+function onReady(event) {
+  armYoutube(event?.target || player);
+}
+
+/** True when a YouTube embed is up but has not reached playing or buffering. */
+function youtubeNeedsStart() {
+  if (playerKind !== "youtube" || typeof player?.getPlayerState !== "function") return false;
+  try {
+    const state = player.getPlayerState();
+    return state !== 1 && state !== 3;
+  } catch {
+    return true;
   }
 }
 
@@ -799,10 +846,9 @@ function onState(event) {
   if (!currentPlayer(event)) return;
   const playing = window.YT?.PlayerState?.PLAYING;
   const ended = window.YT?.PlayerState?.ENDED;
-  if (event.data === playing) {
-    $("poster").style.opacity = "0";
-    streak = 0;
-  }
+  const buffering = window.YT?.PlayerState?.BUFFERING;
+  if (event.data === playing || event.data === buffering) $("poster").style.opacity = "0";
+  if (event.data === playing) streak = 0;
   if (event.data === ended && mode !== "paused" && mode !== "stopped") advance("end");
 }
 
@@ -907,9 +953,10 @@ async function loadCurrent(force) {
   };
   if (player && typeof player.loadVideoById === "function") {
     archiveAnchor = null;
-    player.loadVideoById({ videoId: play.id, startSeconds: start });
     applySound();
+    player.loadVideoById({ videoId: play.id, startSeconds: start });
     if (mode === "paused") setTimeout(() => mode === "paused" && player?.pauseVideo?.(), 250);
+    else player.playVideo?.();
     return;
   }
   archiveAnchor = null;
@@ -921,7 +968,7 @@ async function loadCurrent(force) {
     videoId: play.id,
     playerVars: {
       autoplay: 1,
-      mute: soundOn ? 0 : 1,
+      mute: 1,
       start,
       controls: 0,
       disablekb: 1,
@@ -1600,8 +1647,14 @@ function wire() {
   for (const lamp of $$("button.lamp")) lamp.addEventListener("click", backToLive);
   $("sound-hint").addEventListener("click", unlockSound);
   // The glass is the biggest key on the deck: a tap pauses, the next tap plays on (or wakes a stopped set).
+  // A YouTube embed that never started has no controls (pointer-events are off, controls are hidden),
+  // so that first tap has to be the play gesture rather than a pause of a tape that is not running.
   $("screen").addEventListener("click", (event) => {
     if (event.target.closest("button, a, input, [role=button]")) return;
+    if ((mode === "live" || mode === "timeshift") && youtubeNeedsStart()) {
+      armYoutube(player);
+      return;
+    }
     if (mode === "live" || mode === "timeshift") onPause();
     else onPlay();
   });
