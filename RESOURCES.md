@@ -22,8 +22,6 @@ From Riemurasia nights to Euroviisut.
 | Studio Julmahuvi — Sleeping | 1998 | bce | Julmahuvi, a cult sketch show people still pass around. | 2:26 | [source](https://www.youtube.com/watch?v=uSjkhUjnWwU) |
 | Niin hyvää puuta | 2009 | bce | Vesa-Matti Loiri's woodcraft ode became a deadpan net catchphrase. | 4:58 | [source](https://www.youtube.com/watch?v=hSFmsPJYis8) |
 | SMC – Lähiörotat skujaa | 2010 | abcde | Suburban DIY rap that gave the boards 'meno vitun dippi'. | 5:43 | [source](https://www.youtube.com/watch?v=HsVnExzvsLg) |
-| SMC Hoodrats | 2009 | abcd | The original SMC home-made rap video, millions of plays from a suburb. | 5:43 | [source](https://www.youtube.com/watch?v=kn2VcdTsy-U) |
-| Ismon supervanukas | 2008 | abcd | Peak Ismo remix culture: a Salatut elämät cut-up turned into a meme. | 1:05 | [source](https://www.youtube.com/watch?v=i7HRfUaZqgk) |
 | Kummeli – Tonnin seteli | 2000 | bce | The thousand-mark note sketch, endlessly re-uploaded and quoted. | 1:00 | [source](https://www.youtube.com/watch?v=XBDpIHH4glE) |
 | Kimmon ja Karin kokkinurkkaus | 2008 | abd | Two guys, one kitchen, zero skill — early Finnish YouTube cooking. | 1:34 | [source](https://www.youtube.com/watch?v=mJUAbIx4jLI) |
 | Kummeli – Mauri Perälä | 1992 | bce | 'Totuus: ei ole' — the Kummeli line that lives on as a board reply. | 1:29 | [source](https://www.youtube.com/watch?v=srTGKjcYRVg) |
@@ -31,7 +29,6 @@ From Riemurasia nights to Euroviisut.
 | Evoluutiomies – Lelutuokio | 2008 | ade | Kuvalauta's own toy-hour video, homemade and deeply weird. | 1:32 | [source](https://www.youtube.com/watch?v=dWR_TSF-QlE) |
 | Erä-Koira | 2010 | abd | The wilderness dog video that became a meemi.info entry. | 0:55 | [source](https://www.youtube.com/watch?v=Gfdf2TiOXZ8) |
 | Kyllä muksu tietää | 2010 | abd | A kid knows best — short, homemade and endlessly reposted. | 0:33 | [source](https://www.youtube.com/watch?v=Rf2meGb2sT8) |
-| Jukka Emil Vanaja – Uliuli | 2010 | abd | A bedroom-made music video that became the 'uliuliuli' meme. | 3:44 | [source](https://www.youtube.com/watch?v=NWZ3ev_FiAA) |
 | Pertus – älä aliarvioi lasta | 2010 | abd | Don't underestimate the kid: an early Finnish YouTube kid star. | 2:59 | [source](https://www.youtube.com/watch?v=reuPTLd9f1g) |
 | Jaksary haastattelee: Jupe Laamanen | 2009 | ade | A homemade interview that the Finnish boards adopted as lore. | 0:43 | [source](https://www.youtube.com/watch?v=L3qMaZ5JeWs) |
 | Avaruuskulttuuri | 2009 | ade | Kuvalauta's space-culture opus, a cult video of the board years. | 6:34 | [source](https://www.youtube.com/watch?v=nM4aa8wpnIE) |
@@ -59,7 +56,6 @@ From Riemurasia nights to Euroviisut.
 | Kummeli – Kenkäkauppiaat | 1995 | bce | Kummeli shoe-shop sketch with three-quarters of a million web plays. | 1:57 | [source](https://www.youtube.com/watch?v=3CPHLYcdWVI) |
 | Kummeli – Opettaja | 1994 | bce | Short Kummeli teacher bit, a reaction-clip favourite. | 0:37 | [source](https://www.youtube.com/watch?v=PT5OuSIxA40) |
 | Kummeli – Koistinen | 1993 | bce | Short Kummeli clip quoted all over Finnish forums. | 0:38 | [source](https://www.youtube.com/watch?v=S-2aGSJVmss) |
-| Kummeli – Haista sinä mursu paska | 1993 | bce | The insult that became a Finnish web catchphrase. | 1:23 | [source](https://www.youtube.com/watch?v=vhQ9qeCQU4w) |
 | Kummeli Kyläkauppa – Kankkunen | 1996 | bce | Kyläkauppa sketch reposted widely online. | 1:32 | [source](https://www.youtube.com/watch?v=Yt6EOBnB6F8) |
 | Karpolla on asiaa – Teinit tupakkaostoksilla | 2003 | bce | The teen-cigarette sting, one of the most shared Karpo episodes. | 15:22 | [source](https://www.youtube.com/watch?v=h-pQStkMebE) |
 | Karpolla on asiaa – Paskaa järveen | 2003 | bce | Karpo confronts a lake polluter; widely reposted online. | 6:15 | [source](https://www.youtube.com/watch?v=iTyZkb5Mhco) |
@@ -112,8 +108,6 @@ From Riemurasia nights to Euroviisut.
 | Ei viddu Make! | 2011 | abcd | A shouted 'ei viddu Make' that the boards never stopped quoting. | 0:43 | [source](https://www.youtube.com/watch?v=y142zKobfqg) |
 | JONI 2012 | 2012 | abd | A Kony 2012 parody made by Finnish teens about a guy named Joni. | 0:45 | [source](https://www.youtube.com/watch?v=AmE6JZaEJSk) |
 | Ylilauta @ Nelosen uutiset | 2011 | bce | The night the evening news discovered Ylilauta. | 2:23 | [source](https://www.youtube.com/watch?v=lJO9Ao_CUUU) |
-| Robin – Frontside Ollie | 2012 | bce | A 13-year-old's skate pop that conquered Finnish YouTube in 2012. | 3:01 | [source](https://www.youtube.com/watch?v=oNfwMepTuZ0) |
-| Raptori – Oi beibi | 1990 | bce | The cult Finnish rap of 1990, rediscovered by millions online. | 3:25 | [source](https://www.youtube.com/watch?v=ITyJAcNJXyM) |
 | Spurdo Spärde | 2011 | abcde | The Finnish board bear with the broken grin: ebin :DDD | 0:07 | [source](https://knowyourmeme.com/memes/spurdo-sparde) |
 
 ## 2. International
