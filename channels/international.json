@@ -23,6 +23,13 @@
           "file": "Cqd1Gvq-RBY.mp4",
           "official": false,
           "uploader": "Internet Archive"
+        },
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-Cqd1Gvq-RBY",
+          "file": "Cqd1Gvq-RBY.webm",
+          "official": false,
+          "uploader": "Internet Archive"
         }
       ],
       "duration": 100,
@@ -90,6 +97,13 @@
           "file": "Star_Wars_Kid-HPPj6viIBmU.mp4",
           "official": false,
           "uploader": "Internet Archive"
+        },
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-HPPj6viIBmU",
+          "file": "Star_Wars_Kid-HPPj6viIBmU.webm",
+          "official": false,
+          "uploader": "Internet Archive"
         }
       ],
       "duration": 109,
@@ -124,6 +138,13 @@
           "file": "It_s_Peanut_Butter_Jelly_Time-Z3ZAGBL6UBA.mp4",
           "official": false,
           "uploader": "Internet Archive"
+        },
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-Z3ZAGBL6UBA",
+          "file": "It_s_Peanut_Butter_Jelly_Time-Z3ZAGBL6UBA.webm",
+          "official": false,
+          "uploader": "Internet Archive"
         }
       ],
       "duration": 106,
@@ -155,6 +176,12 @@
           "kind": "archive",
           "id_or_url": "youtube-J---aiyznGQ",
           "file": "J---aiyznGQ.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "J---aiyznGQ",
           "official": false,
           "uploader": "Internet Archive"
         }
@@ -194,13 +221,13 @@
         },
         {
           "kind": "wayback",
-          "id_or_url": "mfhBM_Yay6w",
+          "id_or_url": "88GOVPswhjc",
           "official": false,
           "uploader": "Internet Archive"
         },
         {
           "kind": "wayback",
-          "id_or_url": "88GOVPswhjc",
+          "id_or_url": "mfhBM_Yay6w",
           "official": false,
           "uploader": "Internet Archive"
         }
@@ -237,6 +264,12 @@
           "file": "Leeroy_Jenkins_HD_1080p-mLyOj_QD4a4.mp4",
           "official": false,
           "uploader": "Internet Archive"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "mLyOj_QD4a4",
+          "official": false,
+          "uploader": "Internet Archive"
         }
       ],
       "duration": 171,
@@ -269,13 +302,6 @@
           "kind": "archive",
           "id_or_url": "youtube-_OBlgSz8sSM",
           "file": "Charlie_bit_my_finger_-_again-_OBlgSz8sSM.mp4",
-          "official": false,
-          "uploader": "Internet Archive"
-        },
-        {
-          "kind": "archive",
-          "id_or_url": "charlie-bit-my-finger-again-_OBlgSz8sSM",
-          "file": "Charlie bit my finger - again ! -   On May 23rd this video will be removed from YouTube  -)-_OBlgSz8sSM.mp4",
           "official": false,
           "uploader": "Internet Archive"
         },
@@ -331,6 +357,13 @@
           "kind": "archive",
           "id_or_url": "youtube-dIQ53t0gv_4",
           "file": "dIQ53t0gv_4.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-dIQ53t0gv_4",
+          "file": "dIQ53t0gv_4.webm",
           "official": false,
           "uploader": "Internet Archive"
         }
@@ -461,6 +494,13 @@
           "kind": "archive",
           "id_or_url": "youtube-EwTZ2xpQwpA",
           "file": "Chocolate_Rain_Original_Song_by_Tay_Zonday-EwTZ2xpQwpA.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-EwTZ2xpQwpA",
+          "file": "Chocolate_Rain_Original_Song_by_Tay_Zonday-EwTZ2xpQwpA.webm",
           "official": false,
           "uploader": "Internet Archive"
         },
@@ -608,6 +648,13 @@
           "kind": "archive",
           "id_or_url": "youtube-Tx1XIm6q4r4",
           "file": "Potter_Puppet_Pals_-_The_Mysterious_Ticking_Noise-Tx1XIm6q4r4.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-Tx1XIm6q4r4",
+          "file": "Potter_Puppet_Pals_-_The_Mysterious_Ticking_Noise-Tx1XIm6q4r4.webm",
           "official": false,
           "uploader": "Internet Archive"
         }
@@ -857,6 +904,13 @@
           "file": "ykwqXuMPsoc.ia.mp4",
           "official": false,
           "uploader": "Internet Archive"
+        },
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-ykwqXuMPsoc",
+          "file": "ykwqXuMPsoc.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
         }
       ],
       "duration": 69,
@@ -997,6 +1051,13 @@
         },
         {
           "kind": "archive",
+          "id_or_url": "youtube-jNQXAC9IVRw",
+          "file": "jNQXAC9IVRw.webm",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "archive",
           "id_or_url": "jNQXAC9IVRw",
           "file": "videoplayback 2.mp4",
           "official": false,
@@ -1094,6 +1155,12 @@
           "file": "David_After_Dentist-txqiwrbYGrs.mp4",
           "official": false,
           "uploader": "Internet Archive"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "txqiwrbYGrs",
+          "official": false,
+          "uploader": "Internet Archive"
         }
       ],
       "duration": 119,
@@ -1125,6 +1192,12 @@
           "kind": "archive",
           "id_or_url": "youtube--8H4GKg-mYQ",
           "file": "Techno_Viking_Unedited_Original_Video--8H4GKg-mYQ.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "-8H4GKg-mYQ",
           "official": false,
           "uploader": "Internet Archive"
         }
@@ -1270,6 +1343,12 @@
           "file": "Caramell_-_Caramelldansen_HD_Version_Swedish_Original_Official-6-8E4Nirh9s.mp4",
           "official": false,
           "uploader": "Internet Archive"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "6-8E4Nirh9s",
+          "official": false,
+          "uploader": "Internet Archive"
         }
       ],
       "duration": 175,
@@ -1404,6 +1483,13 @@
           "kind": "archive",
           "id_or_url": "youtube-BEtIoGQxqQs",
           "file": "afro_ninja-BEtIoGQxqQs.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-BEtIoGQxqQs",
+          "file": "afro_ninja-BEtIoGQxqQs.webm",
           "official": false,
           "uploader": "Internet Archive"
         }
@@ -1742,6 +1828,13 @@
           "file": "Its_Over_9000_Original_Video_and_Audio-SiMHTK15Pik.mp4",
           "official": false,
           "uploader": "Internet Archive"
+        },
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-SiMHTK15Pik",
+          "file": "Its_Over_9000_Original_Video_and_Audio-SiMHTK15Pik.webm",
+          "official": false,
+          "uploader": "Internet Archive"
         }
       ],
       "duration": 16,
@@ -1883,6 +1976,12 @@
           "file": "Strong_Bad_Email_58_-_Dragon-90X5NJleYJQ.mp4",
           "official": false,
           "uploader": "Internet Archive"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "90X5NJleYJQ",
+          "official": false,
+          "uploader": "Internet Archive"
         }
       ],
       "duration": 210,
@@ -1917,6 +2016,13 @@
           "file": "pHXDMe6QV-U.mp4",
           "official": false,
           "uploader": "Internet Archive"
+        },
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-pHXDMe6QV-U",
+          "file": "pHXDMe6QV-U.webm",
+          "official": false,
+          "uploader": "Internet Archive"
         }
       ],
       "duration": 196,
@@ -1947,6 +2053,13 @@
           "kind": "archive",
           "id_or_url": "youtube-kZUPCB9533Y",
           "file": "Llamas_with_Hats-kZUPCB9533Y.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-kZUPCB9533Y",
+          "file": "Llamas_with_Hats-kZUPCB9533Y.webm",
           "official": false,
           "uploader": "Internet Archive"
         }
@@ -1983,6 +2096,12 @@
           "file": "Where_the_Hell_is_Matt_2008-zlfKdbWwruY.mp4",
           "official": false,
           "uploader": "Internet Archive"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "zlfKdbWwruY",
+          "official": false,
+          "uploader": "Internet Archive"
         }
       ],
       "duration": 269,
@@ -2014,6 +2133,13 @@
           "kind": "archive",
           "id_or_url": "youtube-PQHPYelqr0E",
           "file": "PQHPYelqr0E.ia.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-PQHPYelqr0E",
+          "file": "PQHPYelqr0E.mp4",
           "official": false,
           "uploader": "Internet Archive"
         }
@@ -2198,12 +2324,6 @@
         },
         {
           "kind": "wayback",
-          "id_or_url": "eExHIzBKRU0",
-          "official": false,
-          "uploader": "Internet Archive"
-        },
-        {
-          "kind": "wayback",
           "id_or_url": "Lb1IUHXoljE",
           "official": false,
           "uploader": "Internet Archive"
@@ -2271,6 +2391,13 @@
           "kind": "archive",
           "id_or_url": "youtube-6WpMlwVwydo",
           "file": "Original_HampsterDance_circa_1997_hamsters_dancing_online_..._and_peek_at_the_new-6WpMlwVwydo.ia.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-6WpMlwVwydo",
+          "file": "Original_HampsterDance_circa_1997_hamsters_dancing_online_..._and_peek_at_the_new-6WpMlwVwydo.mp4",
           "official": false,
           "uploader": "Internet Archive"
         },
@@ -2741,6 +2868,13 @@
           "file": "FOAR_EVERYWUN_FRUM_BOXXY-Yavx9yxTrsw.mp4",
           "official": false,
           "uploader": "Internet Archive"
+        },
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-Yavx9yxTrsw",
+          "file": "FOAR_EVERYWUN_FRUM_BOXXY-Yavx9yxTrsw.webm",
+          "official": false,
+          "uploader": "Internet Archive"
         }
       ],
       "duration": 307,
@@ -2799,6 +2933,13 @@
           "kind": "archive",
           "id_or_url": "youtube-VFX-dKpcDz8",
           "file": "George_Bush_shoe_attack-VFX-dKpcDz8.ia.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-VFX-dKpcDz8",
+          "file": "George_Bush_shoe_attack-VFX-dKpcDz8.mp4",
           "official": false,
           "uploader": "Internet Archive"
         }
@@ -2877,6 +3018,12 @@
           "file": "The_Lonely_Island_-_Jizz_In_My_Pants_Official_Video-VLnWf1sQkjY.mp4",
           "official": false,
           "uploader": "Internet Archive"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "VLnWf1sQkjY",
+          "official": false,
+          "uploader": "Internet Archive"
         }
       ],
       "duration": 150,
@@ -2907,6 +3054,13 @@
           "kind": "archive",
           "id_or_url": "youtube-RxPZh4AnWyk",
           "file": "Susan_Boyle_-_Britains_Got_Talent_2009_Episode_1_-_Saturday_11th_April_HD_High_Quality-RxPZh4AnWyk.ia.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-RxPZh4AnWyk",
+          "file": "Susan_Boyle_-_Britains_Got_Talent_2009_Episode_1_-_Saturday_11th_April_HD_High_Quality-RxPZh4AnWyk.mp4",
           "official": false,
           "uploader": "Internet Archive"
         }
@@ -2974,6 +3128,13 @@
           "file": "asdfmovie2.ia.mp4",
           "official": false,
           "uploader": "Internet Archive"
+        },
+        {
+          "kind": "archive",
+          "id_or_url": "asdfmovie2_202408",
+          "file": "asdfmovie2.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
         }
       ],
       "duration": 112,
@@ -3006,6 +3167,13 @@
           "kind": "archive",
           "id_or_url": "youtube-qXo3NFqkaRM",
           "file": "qXo3NFqkaRM.ia.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-qXo3NFqkaRM",
+          "file": "qXo3NFqkaRM.mp4",
           "official": false,
           "uploader": "Internet Archive"
         }
@@ -3176,6 +3344,13 @@
           "file": "K1ljOcl39PQ.mp4",
           "official": false,
           "uploader": "Internet Archive"
+        },
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-K1ljOcl39PQ",
+          "file": "K1ljOcl39PQ.webm",
+          "official": false,
+          "uploader": "Internet Archive"
         }
       ],
       "duration": 123,
@@ -3206,6 +3381,13 @@
           "kind": "archive",
           "id_or_url": "youtube-WJq4jWSQNd8",
           "file": "Go_Bwaaah-WJq4jWSQNd8.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-WJq4jWSQNd8",
+          "file": "Go_Bwaaah-WJq4jWSQNd8.webm",
           "official": false,
           "uploader": "Internet Archive"
         }
@@ -3448,7 +3630,7 @@
         {
           "kind": "archive",
           "id_or_url": "youtube-6B26asyGKDo",
-          "file": "Noah_takes_a_photo_of_himself_every_day_for_6_years.-6B26asyGKDo.mp4",
+          "file": "Noah_takes_a_photo_of_himself_every_day_for_6_years.-6B26asyGKDo.webm",
           "official": false,
           "uploader": "Internet Archive"
         }
@@ -3696,9 +3878,8 @@
           "uploader": "Blendtec's Will It Blend?"
         },
         {
-          "kind": "archive",
-          "id_or_url": "youtube-qg1ckCkm8YI",
-          "file": "qg1ckCkm8YI.mp4",
+          "kind": "wayback",
+          "id_or_url": "qg1ckCkm8YI",
           "official": false,
           "uploader": "Internet Archive"
         }
@@ -3729,9 +3910,8 @@
           "uploader": "The Key of Awesome"
         },
         {
-          "kind": "archive",
-          "id_or_url": "youtube-wKsoXHYICqU",
-          "file": "Crush_On_Obama-wKsoXHYICqU.mp4",
+          "kind": "wayback",
+          "id_or_url": "wKsoXHYICqU",
           "official": false,
           "uploader": "Internet Archive"
         }
@@ -3881,6 +4061,13 @@
           "file": "Rappin_for_Jesus-Kppx4bzfAaE.mp4",
           "official": false,
           "uploader": "Internet Archive"
+        },
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-Kppx4bzfAaE",
+          "file": "Rappin_for_Jesus-Kppx4bzfAaE.webm",
+          "official": false,
+          "uploader": "Internet Archive"
         }
       ],
       "duration": 172,
@@ -3979,6 +4166,13 @@
           "file": "Animator_vs._Animation_original-npTC6b5-yvM.mp4",
           "official": false,
           "uploader": "Internet Archive"
+        },
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-npTC6b5-yvM",
+          "file": "Animator_vs._Animation_original-npTC6b5-yvM.webm",
+          "official": false,
+          "uploader": "Internet Archive"
         }
       ],
       "duration": 121,
@@ -4013,6 +4207,13 @@
           "file": "Mudkip-YP5i5-G2f3c.mp4",
           "official": false,
           "uploader": "Internet Archive"
+        },
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-YP5i5-G2f3c",
+          "file": "Mudkip-YP5i5-G2f3c.webm",
+          "official": false,
+          "uploader": "Internet Archive"
         }
       ],
       "duration": 84,
@@ -4044,6 +4245,12 @@
           "kind": "archive",
           "id_or_url": "youtube-FR7wOGyAzpw",
           "file": "Fabulous_Secret_Powers-FR7wOGyAzpw.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "FR7wOGyAzpw",
           "official": false,
           "uploader": "Internet Archive"
         }
@@ -4319,6 +4526,12 @@
           "file": "Christian_the_lion_-_Full_ending-cvCjyWp3rEk.ia.mp4",
           "official": false,
           "uploader": "Internet Archive"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "cvCjyWp3rEk",
+          "official": false,
+          "uploader": "Internet Archive"
         }
       ],
       "duration": 366,
@@ -4380,6 +4593,13 @@
           "kind": "archive",
           "id_or_url": "youtube-KmkVWuP_sO0",
           "file": "The_Shining_Recut-KmkVWuP_sO0.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-KmkVWuP_sO0",
+          "file": "The_Shining_Recut-KmkVWuP_sO0.webm",
           "official": false,
           "uploader": "Internet Archive"
         }
@@ -4444,6 +4664,13 @@
           "kind": "archive",
           "id_or_url": "youtube-q6EoRBvdVPQ",
           "file": "Yee-q6EoRBvdVPQ.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-q6EoRBvdVPQ",
+          "file": "Yee-q6EoRBvdVPQ.webm",
           "official": false,
           "uploader": "Internet Archive"
         }
@@ -4555,13 +4782,13 @@
         },
         {
           "kind": "wayback",
-          "id_or_url": "Fmfpfi1Z_bk",
+          "id_or_url": "3_GaEgZacCE",
           "official": false,
           "uploader": "Internet Archive"
         },
         {
           "kind": "wayback",
-          "id_or_url": "3_GaEgZacCE",
+          "id_or_url": "Fmfpfi1Z_bk",
           "official": false,
           "uploader": "Internet Archive"
         }
@@ -4589,12 +4816,6 @@
           "id_or_url": "kl1ujzRidmU",
           "official": true,
           "uploader": "Tommy Jordan"
-        },
-        {
-          "kind": "wayback",
-          "id_or_url": "kl1ujzRidmU",
-          "official": false,
-          "uploader": "Internet Archive"
         }
       ],
       "duration": 502,
@@ -4626,6 +4847,13 @@
           "kind": "archive",
           "id_or_url": "youtube-Dd7FixvoKBw",
           "file": "Substitute_Teacher_-_Key_Peele-Dd7FixvoKBw.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-Dd7FixvoKBw",
+          "file": "Substitute_Teacher_-_Key_Peele-Dd7FixvoKBw.webm",
           "official": false,
           "uploader": "Internet Archive"
         }
@@ -4723,6 +4951,12 @@
           "kind": "archive",
           "id_or_url": "youtube-ZN5PoW7_kdA",
           "file": "The_Annoying_Orange-ZN5PoW7_kdA.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "ZN5PoW7_kdA",
           "official": false,
           "uploader": "Internet Archive"
         }
@@ -4919,6 +5153,12 @@
           "file": "5_Xdi4T8mgI.mp4",
           "official": false,
           "uploader": "Internet Archive"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "5_Xdi4T8mgI",
+          "official": false,
+          "uploader": "Internet Archive"
         }
       ],
       "duration": 17,
@@ -4946,6 +5186,12 @@
           "id_or_url": "Tkmxks20MPk",
           "official": true,
           "uploader": "Tee Con"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "Tkmxks20MPk",
+          "official": false,
+          "uploader": "Internet Archive"
         },
         {
           "kind": "wayback",
@@ -5090,6 +5336,12 @@
           "file": "DO_THE_HARLEM_SHAKE_ORIGINAL-8vJiSSAMNWw.mp4",
           "official": false,
           "uploader": "Internet Archive"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "8vJiSSAMNWw",
+          "official": false,
+          "uploader": "Internet Archive"
         }
       ],
       "duration": 36,
@@ -5122,6 +5374,13 @@
           "kind": "archive",
           "id_or_url": "youtube-kfVsfOSbJY0",
           "file": "Rebecca_Black_-_Friday-kfVsfOSbJY0.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-kfVsfOSbJY0",
+          "file": "Rebecca_Black_-_Friday-kfVsfOSbJY0.webm",
           "official": false,
           "uploader": "Internet Archive"
         }
@@ -5224,6 +5483,13 @@
           "file": "IJNR2EpS0jw.mp4",
           "official": false,
           "uploader": "Internet Archive"
+        },
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-IJNR2EpS0jw",
+          "file": "Dumb_Ways_to_Die-IJNR2EpS0jw.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
         }
       ],
       "duration": 182,
@@ -5289,6 +5555,13 @@
           "file": "JESUS_CHRIST_IN_RICHMOND_PARK_-_ORIGINAL_UPLOAD-3GRSbr0EYYU.ia.mp4",
           "official": false,
           "uploader": "Internet Archive"
+        },
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-3GRSbr0EYYU",
+          "file": "JESUS_CHRIST_IN_RICHMOND_PARK_-_ORIGINAL_UPLOAD-3GRSbr0EYYU.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
         }
       ],
       "duration": 46,
@@ -5320,6 +5593,12 @@
           "kind": "archive",
           "id_or_url": "youtube-ydmPh4MXT3g",
           "file": "Sweet_Brown_on_apartment_fire_-_Ain_t_Nobody_Got_Time_for_That-ydmPh4MXT3g.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "ydmPh4MXT3g",
           "official": false,
           "uploader": "Internet Archive"
         }

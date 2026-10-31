@@ -602,6 +602,13 @@
           "file": "pivzf0kIomU.mp4",
           "official": false,
           "uploader": "Internet Archive"
+        },
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-pivzf0kIomU",
+          "file": "pivzf0kIomU.webm",
+          "official": false,
+          "uploader": "Internet Archive"
         }
       ],
       "duration": 23,
@@ -2010,6 +2017,12 @@
           "file": "Mita_saisi_olla_saatana-eAk1wBPanVc.mp4",
           "official": false,
           "uploader": "Internet Archive"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "eAk1wBPanVc",
+          "official": false,
+          "uploader": "Internet Archive"
         }
       ],
       "duration": 80,
@@ -2559,12 +2572,6 @@
           "id_or_url": "JFCeEUimG54",
           "official": true,
           "uploader": "Justimusfilms"
-        },
-        {
-          "kind": "wayback",
-          "id_or_url": "JFCeEUimG54",
-          "official": false,
-          "uploader": "Internet Archive"
         }
       ],
       "duration": 217,
@@ -2591,12 +2598,6 @@
           "id_or_url": "OZ5PUSgFF6g",
           "official": true,
           "uploader": "Babyface.Worlwide®"
-        },
-        {
-          "kind": "wayback",
-          "id_or_url": "OZ5PUSgFF6g",
-          "official": false,
-          "uploader": "Internet Archive"
         }
       ],
       "duration": 398,
@@ -2622,12 +2623,6 @@
           "id_or_url": "xRDqYFpaTd4",
           "official": true,
           "uploader": "Retronymous"
-        },
-        {
-          "kind": "wayback",
-          "id_or_url": "xRDqYFpaTd4",
-          "official": false,
-          "uploader": "Internet Archive"
         }
       ],
       "duration": 186,
