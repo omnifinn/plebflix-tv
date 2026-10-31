@@ -185,8 +185,8 @@ async function upload(sessionFile) {
       { type: "ratelimit", name: "VOTE_RL", namespace_id: "4102", simple: { limit: 30, period: 60 } },
       { type: "ratelimit", name: "PLAY_RL", namespace_id: "4103", simple: { limit: 30, period: 60 } }],
     observability: { enabled: true, traces: { enabled: true } },
-    // Without this a script upload drops every binding not listed above, so a secret (IP_SALT) would vanish each deploy.
-    keep_bindings: ["secret_text", "secret_key"],
+    // Without this a script upload drops every binding not listed above, so a secret (IP_SALT) or a plain-text var (GITHUB_REPO) would vanish each deploy.
+    keep_bindings: ["secret_text", "secret_key", "plain_text"],
     assets: { jwt, config: { run_worker_first: ["/api/*", "/media/*", "/suomi", "/suomi/"], _headers: headers } },
   };
   const code = `async () => {
