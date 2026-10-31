@@ -93,7 +93,7 @@ From Riemurasia nights to Euroviisut.
 | YLE uutiset – kamera nolosti hukassa | 2008 | bce | Yle's robot camera wanders off mid-news; a Finnish fail favourite. | 0:36 | Jani Suhonen | [YouTube, official](https://www.youtube.com/watch?v=WFMKjelEx2M) — embedded via YouTube |
 | Ui juma! (Avantouintia Henrin tapaan) | 2008 | abcd | Homemade ice-swim clip whose 'Ui juma!' became a national catchphrase; voted Finland's most memorable viral video. | 0:40 | jonne moments | [YouTube, not official](https://www.youtube.com/watch?v=4kCtOwqm5Oc) — embedded via YouTube |
 | DJ Ibusal – Pilalla | 2010 | abcde | DJ Ibusal's DIY 'Pilalla' video, a Finnish web cult classic quoted on every board. | 2:23 | Skorpioni | [YouTube, official](https://www.youtube.com/watch?v=CnUJUMpq48E) — embedded via YouTube |
-| Jonnet pilaavat suoran lähetyksen (Yle-uutiset) | 2011 | bce | Kids photobomb Yle's live news; the clip that gave 'jonnet' its face. | 2:41 | unknown | [link only](https://www.youtube.com/watch?v=ZqUU7geqN-U) — link only |
+| Jonnet pilaavat suoran lähetyksen (Yle-uutiset) | 2011 | bce | Kids photobomb Yle's live news; the clip that gave 'jonnet' its face. | 2:41 | unknown | [YouTube, not official](https://www.youtube.com/watch?v=ZqUU7geqN-U) — embedded via YouTube |
 | Siellä on kissa siellä putkessa | 2011 | abcd | A homemade cat-in-a-pipe rescue that 2.9 million Finns watched and quoted. | 1:46 | Puumies Pete | [YouTube, official](https://www.youtube.com/watch?v=DtxEfQn7emI) — embedded via YouTube |
 | Lissut: Pissikset | 2012 | abce | The DIY 'pissikset' sketch that defined a Finnish YouTube moment. | 3:27 | Jukka Takalo TV | [YouTube, official](https://www.youtube.com/watch?v=2Nwly8f2QHU) — embedded via YouTube |
 | Kimi's hobby | 2012 | bce | Kimi Räikkönen's deadpan interview answer, a two-million-play meme. | 0:18 | DonAmnesia | [YouTube, official](https://www.youtube.com/watch?v=cvQ1J3gCPOg) — embedded via YouTube |
@@ -108,7 +108,7 @@ From Riemurasia nights to Euroviisut.
 | Ei viddu Make! | 2011 | abcd | A shouted 'ei viddu Make' that the boards never stopped quoting. | 0:43 | SilliS | [YouTube, official](https://www.youtube.com/watch?v=y142zKobfqg) — embedded via YouTube |
 | JONI 2012 | 2012 | abd | A Kony 2012 parody made by Finnish teens about a guy named Joni. | 0:45 | JONINVELAT2012 | [YouTube, official](https://www.youtube.com/watch?v=AmE6JZaEJSk) — embedded via YouTube |
 | Ylilauta @ Nelosen uutiset | 2011 | bce | The night the evening news discovered Ylilauta. | 2:23 | utanaltti | [YouTube, official](https://www.youtube.com/watch?v=lJO9Ao_CUUU) — embedded via YouTube |
-| Spurdo Spärde | 2011 | abcde | The Finnish board bear with the broken grin: ebin :DDD | 0:07 | Know Your Meme | [link only](https://knowyourmeme.com/memes/spurdo-sparde) — link only |
+| Spurdo Spärde | 2011 | abcde | The Finnish board bear with the broken grin: ebin :DDD | 0:07 | Know Your Meme | [image, not official](https://i.kym-cdn.com/entries/icons/original/000/008/001/Spurdo.jpg) — image from its public source |
 
 ## 2. International
 
@@ -126,7 +126,7 @@ The ones you emailed to the whole lab.
 | Charlie Bit My Finger | 2007 | abcde | Harry and Charlie, the original upload. | 0:56 | HDCYT | [YouTube, official](https://www.youtube.com/watch?v=_OBlgSz8sSM) — embedded via YouTube |
 | All Your Base | 2001 | abcde | The Zero Wing flash mob. The Flash file does not play, so this is the YouTube copy. | 4:21 | zuchini | [YouTube, official](https://www.youtube.com/watch?v=qItugh-fFgg) — embedded via YouTube |
 | The Llama Song | 2004 | abcde | Albino Blacksheep's llama. | 0:40 | AlbinoBlackSheep | [YouTube, official](https://www.youtube.com/watch?v=KMYN4djSq7o) — embedded via YouTube |
-| The Hampster Dance | 1998 | abcde | Hampton's GIF loop, from a playable Internet Archive film. | 0:37 | Legotronn | [archive.org, not official](https://archive.org/details/thd) — embedded via Internet Archive |
+| The Hampster Dance | 1998 | abcde | Hampton's GIF loop, from a playable Internet Archive film. | 0:37 | Legotronn | [archive.org, not official](https://archive.org/details/thd) — streamed from Internet Archive |
 | Loituma Girl | 2006 | abcde | The leek spin. The song itself is on the Suomi channel. | 2:13 | loulan | [YouTube, official](https://www.youtube.com/watch?v=GCO62VNm67k) — embedded via YouTube |
 | Chocolate Rain | 2007 | abcde | Tay Zonday. | 4:52 | TayZonday | [YouTube, official](https://www.youtube.com/watch?v=EwTZ2xpQwpA) — embedded via YouTube |
 | Evolution of Dance | 2006 | abcd | Judson Laipply. Duration is the commonly cited six-minute cut. | 6:00 | Judson Laipply | [YouTube, official](https://www.youtube.com/watch?v=dMH0bHeiRNg) — embedded via YouTube |
@@ -178,20 +178,20 @@ The ones you emailed to the whole lab.
 | Surprised Kitty | 2009 | abcd | Tickle, paws up, surprise. Peak cat YouTube. | 0:17 | Loreta Gentile | [YouTube, official](https://www.youtube.com/watch?v=2ltYuVvBLa8) — embedded via YouTube |
 | Evian Roller Babies | 2009 | bce | The ad that became one of the most-viewed online ads ever. | 1:01 | ViralVideoChart | [YouTube, official](https://www.youtube.com/watch?v=eExHIzBKRU0) — embedded via YouTube |
 | Dancing Baby (Ooga Chaka) | 1996 | abcde | The 3D dancing baby, emailed around the world in 1996. | 0:24 | babydancingnet | [YouTube, official](https://www.youtube.com/watch?v=2GF3rWj0A_Y) — embedded via YouTube |
-| Hampster Dance (circa 1997) | 1998 | abcde | Geocities-era looping hamster GIFs to a sped-up Disney tune. | 0:43 | CraniumOnEmpty | [link only](https://www.youtube.com/watch?v=6WpMlwVwydo) — link only |
+| Hampster Dance (circa 1997) | 1998 | abcde | Geocities-era looping hamster GIFs to a sped-up Disney tune. | 0:43 | Internet Archive | [archive.org, not official](https://archive.org/details/youtube-6WpMlwVwydo) — streamed from Internet Archive |
 | This Is Sparta Remix | 2007 | abcd | The YTMND-era Sparta remix craze. | 2:11 | IhanSeppo | [YouTube, official](https://www.youtube.com/watch?v=sQs1cASjUD0) — embedded via YouTube |
 | Pants on the Ground – General Larry Platt | 2010 | bce | An American Idol audition that became a 2010 meme. | 2:04 | Your Name In Ink | [YouTube, not official](https://www.youtube.com/watch?v=UfXs3qjPNNc) — embedded via YouTube |
 | Burnt Face Man | 2005 | abcde | David Firth's crime-fighter. Crime needs wiping up. | 1:18 | David Firth | [YouTube, official](https://www.youtube.com/watch?v=GxY5fDn5sjQ) — embedded via YouTube |
 | Ninja Cat Comes Closer Without Moving | 2008 | abcd | The cat that only moves when you're not looking. | 1:18 | juury | [YouTube, official](https://www.youtube.com/watch?v=NbwpgyRUv5g) — embedded via YouTube |
 | Hatsune Miku – Ievan Polkka | 2007 | abcde | The Finnish polka, Vocaloid and a leek: a three-country meme. | 2:29 | MCR Official | [YouTube, official](https://www.youtube.com/watch?v=widZEAJc0QM) — embedded via YouTube |
 | lonelygirl15 – First Blog | 2006 | abce | The first great YouTube mystery, a vlog that was fiction. | 1:35 | lonelygirl15 | [YouTube, official](https://www.youtube.com/watch?v=-goXKtd6cPo) — embedded via YouTube |
-| Trollface | 2008 | abcde | Problem? The MS Paint grin that defined rage comics. | 0:07 | Know Your Meme | [link only](https://knowyourmeme.com/memes/trollface) — link only |
-| O RLY? Owl | 2003 | abce | The snowy owl asking O RLY? — Something Awful, 2003. | 0:07 | Know Your Meme | [link only](https://knowyourmeme.com/memes/o-rly) — link only |
-| LOLcats – I Can Has Cheezburger? | 2007 | abcde | Impact-font cats speaking broken English. | 0:07 | Know Your Meme | [link only](https://knowyourmeme.com/memes/lolcats) — link only |
-| Disaster Girl | 2007 | abc | A knowing smile in front of a house fire. | 0:07 | Know Your Meme | [link only](https://knowyourmeme.com/memes/disaster-girl) — link only |
-| Philosoraptor | 2008 | abcd | The thinking velociraptor's unanswerable questions. | 0:07 | Know Your Meme | [link only](https://knowyourmeme.com/memes/philosoraptor) — link only |
-| Y U NO Guy | 2010 | abcd | Rage-comic exasperation: Y U NO? | 0:07 | Know Your Meme | [link only](https://knowyourmeme.com/memes/y-u-no-guy) — link only |
-| Success Kid | 2007 | abc | A fist of sand, a face of victory. | 0:07 | Know Your Meme | [link only](https://knowyourmeme.com/memes/success-kid-i-hate-sandcastles) — link only |
+| Trollface | 2008 | abcde | Problem? The MS Paint grin that defined rage comics. | 0:07 | Know Your Meme | [image, not official](https://i.kym-cdn.com/entries/icons/original/000/000/091/TrollFace.jpg) — image from its public source |
+| O RLY? Owl | 2003 | abce | The snowy owl asking O RLY? — Something Awful, 2003. | 0:07 | Know Your Meme | [image, not official](https://i.kym-cdn.com/entries/icons/original/000/000/015/oreally.jpg) — image from its public source |
+| LOLcats – I Can Has Cheezburger? | 2007 | abcde | Impact-font cats speaking broken English. | 0:07 | Know Your Meme | [image, not official](https://i.kym-cdn.com/entries/icons/original/000/000/018/lol.jpg) — image from its public source |
+| Disaster Girl | 2007 | abc | A knowing smile in front of a house fire. | 0:07 | Know Your Meme | [image, not official](https://i.kym-cdn.com/entries/icons/original/000/000/043/dg1.jpg) — image from its public source |
+| Philosoraptor | 2008 | abcd | The thinking velociraptor's unanswerable questions. | 0:07 | Know Your Meme | [image, not official](https://i.kym-cdn.com/entries/icons/original/000/000/106/Philoso.jpg) — image from its public source |
+| Y U NO Guy | 2010 | abcd | Rage-comic exasperation: Y U NO? | 0:07 | Know Your Meme | [image, not official](https://i.kym-cdn.com/entries/icons/original/000/004/006/YUNO.jpg) — image from its public source |
+| Success Kid | 2007 | abc | A fist of sand, a face of victory. | 0:07 | Know Your Meme | [image, not official](https://i.kym-cdn.com/entries/icons/original/000/000/745/success.jpg) — image from its public source |
 | Grape Lady falls (Grape Stomp) | 1996 | bce | A 1996 TV grape-stomp fall that became one of the web's first viral clips and a Family Guy gag. | 0:48 | Peop Hoofd | [YouTube, official](https://www.youtube.com/watch?v=STbhaqsBJB0) — embedded via YouTube |
 | FOAR EVERYWUN FRUM BOXXY | 2009 | abcde | The webcam vlog that started a 4chan war and a meme. | 5:07 | boxxybabee | [YouTube, official](https://www.youtube.com/watch?v=Yavx9yxTrsw) — embedded via YouTube |
 | Don't tase me, bro! | 2007 | abcd | Amateur footage of a Florida forum arrest that gave the web a catchphrase. | 2:23 | GainesvilleSun | [YouTube, official](https://www.youtube.com/watch?v=6bVa6jn4rpE) — embedded via YouTube |
@@ -274,9 +274,9 @@ The ones you emailed to the whole lab.
 | Chuck Testa – Nope | 2011 | abcd | A taxidermist's homemade ad: 'Nope. Chuck Testa.' | 1:04 | Chuck Testa (Ojai Valley Taxidermy) | [YouTube, official](https://www.youtube.com/watch?v=LJP1DphOWPs) — embedded via YouTube |
 | Ultimate Dog Tease | 2011 | abcd | The talking dog who really wanted the maple bacon. | 1:21 | Talking Animals | [YouTube, official](https://www.youtube.com/watch?v=nGeKSiCQkPw) — embedded via YouTube |
 | Ylvis – Stonehenge | 2011 | bce | Ylvis before The Fox: what is the meaning of Stonehenge? | 3:56 | TVNorge | [YouTube, official](https://www.youtube.com/watch?v=mbyzgeee2mg) — embedded via YouTube |
-| Doge | 2013 | abce | Kabosu side-eye. Such meme. Very classic. Wow. | 0:07 | Know Your Meme | [link only](https://knowyourmeme.com/memes/doge) — link only |
-| Grumpy Cat | 2012 | abc | Tardar Sauce's permanent frown. No. | 0:07 | Know Your Meme | [link only](https://knowyourmeme.com/memes/grumpy-cat) — link only |
-| Bad Luck Brian | 2012 | abcd | A school photo that guaranteed everything goes wrong. | 0:07 | Know Your Meme | [link only](https://knowyourmeme.com/memes/bad-luck-brian) — link only |
+| Doge | 2013 | abce | Kabosu side-eye. Such meme. Very classic. Wow. | 0:07 | Know Your Meme | [image, not official](https://i.kym-cdn.com/entries/icons/original/000/013/564/doge.jpg) — image from its public source |
+| Grumpy Cat | 2012 | abc | Tardar Sauce's permanent frown. No. | 0:07 | Know Your Meme | [image, not official](https://i.kym-cdn.com/entries/icons/original/000/011/365/GRUMPYCAT.jpg) — image from its public source |
+| Bad Luck Brian | 2012 | abcd | A school photo that guaranteed everything goes wrong. | 0:07 | Know Your Meme | [image, not official](https://i.kym-cdn.com/entries/icons/original/000/009/515/BadLuckBryan.jpg) — image from its public source |
 
 ## Filing a tape
 

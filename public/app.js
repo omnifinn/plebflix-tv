@@ -81,6 +81,10 @@ let sourceAt = 0;
 let ytRefusals = 0;
 /** Fires when an archive.org stream has not started in time. */
 let streamTimer = 0;
+/** Fires when YouTube has not reached PLAYING in time. */
+let ytWatch = 0;
+/** Fires to try a NO SIGNAL tape's sources again. */
+let signalRetry = 0;
 /** The tape loadCurrent last asked the embed to play. */
 let currentItem = null;
 /** True while the deck is on the post-intro shuffle run (top tape, then onward). */
@@ -413,7 +417,9 @@ function updateChrome(spot) {
     source.href = url;
     source.removeAttribute("aria-disabled");
     source.removeAttribute("tabindex");
-    $("source-host").textContent = sourceLabel(url);
+    // The pill links the tape's original page. Its label says what is on the glass right now.
+    const onAir = $("stage").dataset.source?.split(":")[0];
+    $("source-host").textContent = onAir === "archive" ? "archive.org" : onAir === "wayback" ? "web.archive.org" : onAir === "youtube" ? "youtube.com" : sourceLabel(url);
   } else {
     source.href = "/RESOURCES.md";
     source.setAttribute("aria-disabled", "true");
@@ -592,6 +598,16 @@ function showNoSignal(item) {
   $("card-sub").textContent = "NO SIGNAL";
   playerKind = "none";
   markSource("none");
+  // A busy archive node or a slow start can clear. The tape keeps its slot, so try its sources again.
+  clearTimeout(signalRetry);
+  signalRetry = setTimeout(() => {
+    if (item !== currentItem || playerKind !== "none" || mode === "stopped") return;
+    hideCard();
+    sourceAt = 0;
+    showPoster(item);
+    const spot = spotAt(playlist(), mode === "paused" ? pausePos : position());
+    startSource(item, spot?.item.id === item.id ? spot.offset : 0, loadGen);
+  }, 20000);
 }
 
 /** What is on the glass right now: "youtube:<id>", "archive:<id>", "image:<url>", "none", or empty while it starts. */
@@ -681,6 +697,7 @@ function destroySwf() {
 }
 
 function destroyYoutube() {
+  clearTimeout(ytWatch);
   const dying = player;
   player = null;
   playerKind = "";
@@ -755,6 +772,8 @@ function playArchive(item, source, offset, attempt = 0) {
   destroySwf();
   playerKind = "archive";
   vid.hidden = false;
+  // The element paints black until its first frame after the seek. The poster stays up until the stream plays.
+  vid.style.opacity = "0";
   vid.muted = !soundOn;
   vid.onloadedmetadata = () => {
     vid.onloadedmetadata = null;
@@ -762,6 +781,7 @@ function playArchive(item, source, offset, attempt = 0) {
   };
   vid.onplaying = () => {
     clearTimeout(streamTimer);
+    vid.style.opacity = "1";
     $("poster").style.opacity = "0";
     markSource(`${source.kind}:${source.id}`);
   };
@@ -769,8 +789,9 @@ function playArchive(item, source, offset, attempt = 0) {
     if (mode !== "paused" && mode !== "stopped") advance("end");
   };
   vid.onerror = () => {
-    // archive.org answers an occasional 500 from a busy node. The next request usually lands on a good one.
-    if (attempt < 2) {
+    // A decode error repeats at the same frame every time, so only the next source can help. Chrome raises it on some
+    // archive.org derivatives after a second or two of picture. A network error is usually a busy archive node: retry.
+    if (vid.error?.code === 2 && attempt < 2) {
       clearTimeout(streamTimer);
       streamTimer = setTimeout(() => {
         const spot = spotAt(playlist(), mode === "paused" ? pausePos : position());
@@ -821,6 +842,21 @@ function nextSource(item, why) {
   startSource(item, spot?.item === item || spot?.item.id === item.id ? spot.offset : 0, loadGen);
 }
 
+/**
+ * A sign-in wall does not always raise onError. No PLAYING within 6 seconds hands the slot to the next source.
+ * The last source keeps trying: a slow start is better than no signal.
+ */
+function watchYoutube(item) {
+  clearTimeout(ytWatch);
+  if (sourceAt >= sourceList.length - 1 || mode === "paused") return;
+  ytWatch = setTimeout(() => {
+    if (playerKind !== "youtube" || item !== currentItem || mode === "paused") return;
+    ytRefusals += 1;
+    destroyYoutube();
+    nextSource(item, "YouTube did not start within 6 seconds");
+  }, 6000);
+}
+
 async function startSource(item, offset, gen) {
   const source = sourceList[sourceAt];
   if (!source) {
@@ -848,6 +884,7 @@ async function startSource(item, offset, gen) {
   if (gen !== loadGen || mode === "stopped") return;
   ensureYtDiv();
   const start = Math.max(0, Math.floor(offset));
+  watchYoutube(item);
   if (player && typeof player.loadVideoById === "function") {
     player.loadVideoById({ videoId: source.id, startSeconds: start });
     if (soundOn) {
@@ -893,6 +930,7 @@ function onState(event) {
     $("poster").style.opacity = "0";
     streak = 0;
     ytRefusals = 0;
+    clearTimeout(ytWatch);
     markSource(`youtube:${sourceList[sourceAt]?.id || ""}`);
   }
   if (event.data === ended && mode !== "paused" && mode !== "stopped") advance("end");

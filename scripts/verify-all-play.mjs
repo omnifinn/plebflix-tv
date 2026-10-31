@@ -60,7 +60,12 @@ async function proveTape(browser, tape) {
   });
   await page.addInitScript(HOOK);
   await page.route(/\/channels\/[^/]+\.json/, async (route) => {
-    const response = await route.fetch();
+    // The shelf file comes from the site under test. One slow answer must not fail a tape.
+    let response;
+    for (let attempt = 0; attempt < 3 && !response; attempt += 1) {
+      response = await route.fetch({ timeout: 30000 }).catch(() => undefined);
+    }
+    if (!response) return route.abort();
     const doc = await response.json();
     if (Array.isArray(doc.items)) {
       // Long enough that the clock is always inside the tape, never on the end of a short one.
