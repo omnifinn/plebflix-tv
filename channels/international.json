@@ -684,6 +684,12 @@
           "id_or_url": "wCF3ywukQYA",
           "official": true,
           "uploader": "LiamKyleSullivan"
+        },
+        {
+          "kind": "vimeo",
+          "id_or_url": "50973673",
+          "official": false,
+          "uploader": "Kate Ledesma"
         }
       ],
       "duration": 241,
@@ -3698,6 +3704,12 @@
           "id_or_url": "6zlViU5PBPY",
           "official": true,
           "uploader": "arfenhousefan"
+        },
+        {
+          "kind": "vimeo",
+          "id_or_url": "61816777",
+          "official": false,
+          "uploader": "Jonathan Ward"
         }
       ],
       "duration": 235,
@@ -3760,6 +3772,12 @@
           "id_or_url": "BKpyt4KWrc4",
           "official": false,
           "uploader": "unknown"
+        },
+        {
+          "kind": "vimeo",
+          "id_or_url": "4207784",
+          "official": true,
+          "uploader": "Dave Sowerby"
         }
       ],
       "duration": 337,
@@ -3952,6 +3970,12 @@
           "id_or_url": "1NAdtu7JsBk",
           "official": false,
           "uploader": "unknown"
+        },
+        {
+          "kind": "vimeo",
+          "id_or_url": "393900315",
+          "official": false,
+          "uploader": "pisga 4"
         }
       ],
       "duration": 281,
@@ -4985,6 +5009,12 @@
           "id_or_url": "EzNhaLUT520",
           "official": true,
           "uploader": "Crazy Laugh Action"
+        },
+        {
+          "kind": "vimeo",
+          "id_or_url": "13844379",
+          "official": false,
+          "uploader": "TeriandJosh"
         }
       ],
       "duration": 123,

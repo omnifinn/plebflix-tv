@@ -77,12 +77,14 @@ const brokenEmbeds = new Set();
 /** The current tape's sources, in the order they are being tried, and which one is up. */
 let sourceList = [];
 let sourceAt = 0;
-/** YouTube refused this many tapes in a row. Two means it is refusing this viewer, so other sources go first. */
-let ytRefusals = 0;
 /** Fires when an archive.org stream has not started in time. */
 let streamTimer = 0;
 /** Fires when YouTube has not reached PLAYING in time. */
 let ytWatch = 0;
+/** The Vimeo source on the glass, its tape, and the last second it reported. */
+let vimeoSource = null;
+let vimeoItem = null;
+let vimeoClock = 0;
 /** Fires to try a NO SIGNAL tape's sources again. */
 let signalRetry = 0;
 /** The tape loadCurrent last asked the embed to play. */
@@ -419,7 +421,7 @@ function updateChrome(spot) {
     source.removeAttribute("tabindex");
     // The pill links the tape's original page. Its label says what is on the glass right now.
     const onAir = $("stage").dataset.source?.split(":")[0];
-    $("source-host").textContent = onAir === "archive" ? "archive.org" : onAir === "wayback" ? "web.archive.org" : onAir === "youtube" ? "youtube.com" : sourceLabel(url);
+    $("source-host").textContent = onAir === "archive" ? "archive.org" : onAir === "wayback" ? "web.archive.org" : onAir === "youtube" ? "youtube.com" : onAir === "vimeo" ? "vimeo.com" : sourceLabel(url);
   } else {
     source.href = "/RESOURCES.md";
     source.setAttribute("aria-disabled", "true");
@@ -748,6 +750,10 @@ function unlockSound() {
     player.setVolume(100);
   }
   if (playerKind === "archive" && vid) vid.muted = false;
+  if (playerKind === "vimeo") {
+    vimeoSend("setMuted", false);
+    vimeoSend("setVolume", 1);
+  }
 }
 
 const vid = $("vid");
@@ -818,6 +824,64 @@ function startStream(item) {
   });
 }
 
+/** Sends one command to the Vimeo player. */
+function vimeoSend(method, value) {
+  const target = $("embed").contentWindow;
+  if (!target) return;
+  target.postMessage(JSON.stringify(value === undefined ? { method } : { method, value }), "https://player.vimeo.com");
+}
+
+/**
+ * Vimeo's player, driven over postMessage. No "playing" message within 10 seconds means it refused this viewer
+ * (its security page sends nothing), so the slot goes to the next source.
+ */
+function playVimeo(item, source, offset) {
+  stopVideo();
+  destroyYoutube();
+  destroySwf();
+  playerKind = "vimeo";
+  vimeoClock = Math.max(0, offset);
+  clearTimeout(streamTimer);
+  streamTimer = setTimeout(() => {
+    if (playerKind === "vimeo") {
+      hideEmbed();
+      nextSource(item, "Vimeo did not start within 10 seconds");
+    }
+  }, 10000);
+  const frame = $("embed");
+  vimeoSource = source;
+  vimeoItem = item;
+  frame.hidden = false;
+  frame.src = `https://player.vimeo.com/video/${encodeURIComponent(source.id)}?autoplay=${mode === "paused" ? 0 : 1}&muted=${soundOn ? 0 : 1}&controls=0&autopause=0&dnt=1#t=${Math.floor(offset)}s`;
+}
+
+window.addEventListener("message", (event) => {
+  if (event.origin !== "https://player.vimeo.com" || playerKind !== "vimeo") return;
+  let data = event.data;
+  try {
+    if (typeof data === "string") data = JSON.parse(data);
+  } catch {
+    return;
+  }
+  if (data?.event === "ready") {
+    for (const value of ["playing", "finish", "error", "playProgress"]) vimeoSend("addEventListener", value);
+    if (mode !== "paused") vimeoSend("play");
+  }
+  // A player that started before we subscribed never says "playing", but its clock still reports.
+  if (data?.event === "playing" || data?.event === "playProgress") {
+    clearTimeout(streamTimer);
+    $("poster").style.opacity = "0";
+    markSource(`vimeo:${vimeoSource?.id || ""}`);
+  }
+  if (data?.event === "playProgress" && typeof data.data?.seconds === "number") vimeoClock = data.data.seconds;
+  if (data?.event === "finish" && mode !== "paused" && mode !== "stopped") advance("end");
+  if (data?.event === "error" && !$("stage").dataset.source) {
+    clearTimeout(streamTimer);
+    hideEmbed();
+    nextSource(vimeoItem, "Vimeo error");
+  }
+});
+
 /** A still from its public host. It holds its slot, as the 7-second loops did. */
 function showStill(item, source) {
   stopVideo();
@@ -851,7 +915,6 @@ function watchYoutube(item) {
   if (sourceAt >= sourceList.length - 1 || mode === "paused") return;
   ytWatch = setTimeout(() => {
     if (playerKind !== "youtube" || item !== currentItem || mode === "paused") return;
-    ytRefusals += 1;
     destroyYoutube();
     nextSource(item, "YouTube did not start within 6 seconds");
   }, 6000);
@@ -872,6 +935,10 @@ async function startSource(item, offset, gen) {
     playArchive(item, source, offset);
     return;
   }
+  if (source.kind === "vimeo") {
+    playVimeo(item, source, offset);
+    return;
+  }
   stopVideo();
   destroySwf();
   hideEmbed();
@@ -885,7 +952,7 @@ async function startSource(item, offset, gen) {
   ensureYtDiv();
   const start = Math.max(0, Math.floor(offset));
   watchYoutube(item);
-  if (player && typeof player.loadVideoById === "function") {
+  if (player && typeof player.loadVideoById === "function" && player.ytHost === source.host) {
     player.loadVideoById({ videoId: source.id, startSeconds: start });
     if (soundOn) {
       player.unMute?.();
@@ -896,7 +963,10 @@ async function startSource(item, offset, gen) {
     if (mode === "paused") setTimeout(() => mode === "paused" && player?.pauseVideo?.(), 250);
     return;
   }
-  mountYoutube(source.id, start, "https://www.youtube-nocookie.com");
+  destroyYoutube();
+  ensureYtDiv();
+  mountYoutube(source.id, start, source.host || "https://www.youtube-nocookie.com");
+  watchYoutube(item);
 }
 
 function onReady(event) {
@@ -929,7 +999,6 @@ function onState(event) {
   if (event.data === playing) {
     $("poster").style.opacity = "0";
     streak = 0;
-    ytRefusals = 0;
     clearTimeout(ytWatch);
     markSource(`youtube:${sourceList[sourceAt]?.id || ""}`);
   }
@@ -945,7 +1014,6 @@ function onError(event) {
   console.warn(`[plebflix] embed error ${code} on ${item?.id || "?"} (${item?.title || ""}) ${sourceList[sourceAt]?.id || ""}`);
   if (code === 2 || code === 5 || code === 100 || code === 101 || code === 150 || code === 153) {
     if (item?.id) brokenEmbeds.add(item.id);
-    ytRefusals += 1;
     destroyYoutube();
     nextSource(item, `YouTube error ${code}`);
   }
@@ -970,9 +1038,11 @@ function mountYoutube(videoId, start, host) {
       playsinline: 1,
       iv_load_policy: 3,
       origin: location.origin,
+      widget_referrer: location.href,
     },
     events: { onReady, onError, onStateChange: onState },
   });
+  player.ytHost = host;
 }
 
 async function loadCurrent(force) {
@@ -1015,12 +1085,20 @@ async function loadCurrent(force) {
     else startStream(spot.item);
     return;
   }
+  if (same && force && playerKind === "vimeo") {
+    ignoreUntil = Date.now() + 1500;
+    vimeoSend("setCurrentTime", Math.max(0, spot.offset));
+    vimeoSend(mode === "paused" ? "pause" : "play");
+    return;
+  }
   if (same && force && (playerKind === "image" || playerKind === "none")) return;
 
   loadedKey = key;
   currentItem = spot.item;
   sourceList = sources(spot.item);
-  if (ytRefusals >= 2) sourceList = [...sourceList.filter((source) => source.kind !== "youtube"), ...sourceList.filter((source) => source.kind === "youtube")];
+  // YouTube stays first on every tape that has it. Each upload gets its nocookie embed, then www.youtube.com, because a
+  // viewer's own sign-in only counts on www. The other sources are fallbacks. (Niko, 2026-11-01)
+  sourceList = sourceList.flatMap((source) => (source.kind === "youtube" ? [{ ...source, host: "https://www.youtube-nocookie.com" }, { ...source, host: "https://www.youtube.com" }] : [source]));
   sourceAt = 0;
   markSource("");
   noteImpression(spot.item);
@@ -1035,6 +1113,14 @@ async function loadCurrent(force) {
 }
 
 function syncDrift(spot) {
+  if (playerKind === "vimeo") {
+    if (mode === "paused" || mode === "stopped" || Date.now() < ignoreUntil) return;
+    if (Math.abs(vimeoClock - spot.offset) > 4) {
+      vimeoSend("setCurrentTime", spot.offset);
+      ignoreUntil = Date.now() + 3000;
+    }
+    return;
+  }
   if (playerKind === "archive") {
     if (mode === "paused" || mode === "stopped" || Date.now() < ignoreUntil || vid.readyState < 1) return;
     if (vid.paused && !vid.ended) vid.play().catch(() => {});
@@ -1304,6 +1390,7 @@ function onPause() {
   mode = "paused";
   player?.pauseVideo?.();
   if (playerKind === "archive") vid.pause();
+  if (playerKind === "vimeo") vimeoSend("pause");
   updateChrome(spotAt(playlist(), pausePos));
 }
 

@@ -3,13 +3,13 @@
  * youtube is the IFrame player, archive is a file streamed from archive.org, wayback is the Internet Archive's copy
  * of that YouTube upload, image is a still from its public host.
  * @param {any} item
- * @returns {Array<{ kind: "youtube" | "archive" | "wayback" | "image", id: string, file: string, at: string, official: boolean, uploader: string }>}
+ * @returns {Array<{ kind: "youtube" | "vimeo" | "archive" | "wayback" | "image", id: string, file: string, at: string, official: boolean, uploader: string }>}
  */
 export function sources(item) {
   const list = Array.isArray(item?.play) ? item.play : item?.play ? [item.play] : [];
   const out = [];
   for (const play of list) {
-    if (!["youtube", "archive", "wayback", "image"].includes(play?.kind)) continue;
+    if (!["youtube", "vimeo", "archive", "wayback", "image"].includes(play?.kind)) continue;
     out.push({
       kind: play.kind,
       id: String(play.id_or_url || ""),
@@ -47,6 +47,7 @@ export function rightsLine(item) {
   if (typeof item?.license === "string" && item.license) return item.license;
   const kind = playback(item).kind;
   if (kind === "youtube") return "embedded via YouTube";
+  if (kind === "vimeo") return "embedded via Vimeo";
   if (kind === "archive" || kind === "wayback") return "streamed from Internet Archive";
   if (kind === "image") return "image from its public source";
   return "no source";

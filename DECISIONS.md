@@ -2,6 +2,18 @@
 
 Newest first. One entry per decision: date · who · decision · why · source.
 
+## 2026-11-01 · Niko via Page · YouTube stays first on every tape that has it; other sources are fallbacks only
+
+- **Decision:** every YouTube upload is tried first, on `youtube-nocookie.com` then `www.youtube.com`, with `origin`,
+  `widget_referrer`, `playsinline` and a muted start. This reverses the "`www` retry is gone" call in the entry below and
+  removes the rule that moved other sources ahead after two refusals. Clips that exist only on YouTube stay on the shelf.
+  Vimeo is added as a fallback source. No proxy, YouTube front-end, shared login or other way round YouTube's check.
+- **Why:** Niko: "YouTube must stay included and stay FIRST"; "Some clips exist ONLY on YouTube ... no dropping them."
+- **Measured:** in real signed-in Chrome on a connection YouTube refuses, `www`, `origin`, `widget_referrer` and a
+  full-size player did not change the answer on five tapes while the control upload played beside them with the same
+  settings. YouTube decides this per video and connection. Not measured: the same tapes on a connection it does not refuse.
+- **Source:** Niko via Page, 2026-11-01. `public/app.js`.
+
 ## 2026-10-31 · Niko via Page, Claude (session) · Every tape plays in-site; no link-outs; this reverses the retry-then-link-out entry below
 
 - **Decision (Niko):** no link-out cards, ever. Skipping a tape is a failure, not a fallback. Done means every tape PLAYING

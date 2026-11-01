@@ -2,7 +2,7 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
-  Content-Security-Policy: script-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://s.ytimg.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com https://archive.org; img-src 'self' data: https://i.ytimg.com https://*.ytimg.com https://archive.org https://*.archive.org https://upload.wikimedia.org https://i.kym-cdn.com https://i.imgur.com
+  Content-Security-Policy: script-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://s.ytimg.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; frame-src https://www.youtube-nocookie.com https://www.youtube.com https://archive.org https://player.vimeo.com; img-src 'self' data: https://i.ytimg.com https://*.ytimg.com https://archive.org https://*.archive.org https://upload.wikimedia.org https://i.kym-cdn.com https://i.imgur.com
 
 /channels/*
   Cache-Control: public, max-age=60

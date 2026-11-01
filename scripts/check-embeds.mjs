@@ -35,6 +35,7 @@ export async function checkTape(item, fetchImpl = fetch) {
 async function sourceAlive(source, fetchImpl) {
   if (source.kind === "youtube") return youtubeAlive(source.id, fetchImpl);
   if (source.kind === "archive") return archiveAlive(source.id, source.file, fetchImpl);
+  if (source.kind === "vimeo") return imageAlive(`https://vimeo.com/api/oembed.json?url=https://vimeo.com/${source.id}`, fetchImpl);
   if (source.kind === "wayback") return imageAlive(archiveFile(source), fetchImpl);
   if (source.kind === "image") return imageAlive(source.id, fetchImpl);
   return { ok: false, detail: "unknown kind" };
