@@ -1,0 +1,738 @@
+{
+ "blocks": {
+  "hacker-classics": [
+   "mongodb-web-scale",
+   "retro-encabulator",
+   "ballmer-laughs-iphone",
+   "elevated-demo",
+   "bel-air-vs-malibu",
+   "ballmer-developers",
+   "today-show-what-is-internet",
+   "nuclear-explosions-map",
+   "bigdog-robot",
+   "chain-of-fools-windows",
+   "animusic-pipe-dream",
+   "bill-gates-bsod"
+  ],
+  "ads-that-went-viral": [
+   "united-breaks-guitars",
+   "flea-market-montgomery",
+   "dollar-shave-club",
+   "honda-cog",
+   "sony-bravia-balls",
+   "kxvo-pumpkin-dance"
+  ],
+  "early-web-comedy": [
+   "old-gregg",
+   "jon-stewart-crossfire",
+   "max-headroom-incident",
+   "louis-ck-everything-amazing",
+   "plinkett-phantom-menace",
+   "alamo-drafthouse-voicemail",
+   "powerthirst",
+   "front-fell-off",
+   "between-two-ferns-hamm",
+   "troops-star-wars",
+   "reporter-swallows-fly"
+  ],
+  "remix-and-music": [
+   "four-chord-song",
+   "prisencolinensinainciusol",
+   "code-monkey",
+   "bieber-800-slower",
+   "caruso-one-liners",
+   "hitler-downfall-parodies",
+   "mitt-romney-style"
+  ],
+  "flash-era": [
+   "nope-avi",
+   "do-you-like-waffles",
+   "here-comes-pacman",
+   "strong-bad-email-22",
+   "ballad-of-the-sneak",
+   "professor-brothers-jfk",
+   "xiao-xiao",
+   "weebl-and-bob-pie",
+   "stone-trek-2",
+   "we-drink-ritalin",
+   "tokyo-plastic-drum-machine"
+  ],
+  "game-shows": [
+   "golden-balls-split-steal"
+  ],
+  "gaming-legends": [
+   "wombo-combo",
+   "morshu"
+  ],
+  "suomi-netti": [
+   "darude-sandstorm",
+   "tsajajajaja"
+  ]
+ },
+ "tapes": [
+  {
+   "id": "mongodb-web-scale",
+   "title": "Episode 1 - MongoDB Is Web Scale",
+   "channel": "international",
+   "year": 2010,
+   "block": "hacker-classics",
+   "score": 31,
+   "mentions": 25,
+   "sourceKinds": [
+    "comments",
+    "links"
+   ],
+   "first": "wayback"
+  },
+  {
+   "id": "retro-encabulator",
+   "title": "Rockwell Retro Encabulator",
+   "channel": "international",
+   "year": 1977,
+   "block": "hacker-classics",
+   "score": 25,
+   "mentions": 22,
+   "sourceKinds": [
+    "links"
+   ],
+   "first": "archive"
+  },
+  {
+   "id": "ballmer-laughs-iphone",
+   "title": "Ballmer Laughs at iPhone",
+   "channel": "international",
+   "year": 2007,
+   "block": "hacker-classics",
+   "score": 14,
+   "mentions": 11,
+   "sourceKinds": [
+    "links"
+   ],
+   "first": "archive"
+  },
+  {
+   "id": "united-breaks-guitars",
+   "title": "United Breaks Guitars",
+   "channel": "international",
+   "year": 2009,
+   "block": "ads-that-went-viral",
+   "score": 13,
+   "mentions": 4,
+   "sourceKinds": [
+    "links",
+    "listicles",
+    "wiki"
+   ],
+   "first": "archive"
+  },
+  {
+   "id": "flea-market-montgomery",
+   "title": "Flea Market Montgomery (Long Version)",
+   "channel": "international",
+   "year": 2006,
+   "block": "ads-that-went-viral",
+   "score": 12,
+   "mentions": 3,
+   "sourceKinds": [
+    "kym",
+    "links",
+    "listicles"
+   ],
+   "first": "archive"
+  },
+  {
+   "id": "old-gregg",
+   "title": "Old Gregg (Full Version)",
+   "channel": "international",
+   "year": 2005,
+   "block": "early-web-comedy",
+   "score": 12,
+   "mentions": 3,
+   "sourceKinds": [
+    "comments",
+    "kym",
+    "links"
+   ],
+   "first": "wayback"
+  },
+  {
+   "id": "elevated-demo",
+   "title": "Elevated by RGBA and TBC (4k intro)",
+   "channel": "international",
+   "year": 2009,
+   "block": "hacker-classics",
+   "score": 11,
+   "mentions": 8,
+   "sourceKinds": [
+    "links"
+   ],
+   "first": "wayback"
+  },
+  {
+   "id": "bel-air-vs-malibu",
+   "title": "1959 Chevrolet Bel Air vs. 2009 Chevrolet Malibu Crash Test",
+   "channel": "international",
+   "year": 2009,
+   "block": "hacker-classics",
+   "score": 11,
+   "mentions": 8,
+   "sourceKinds": [
+    "links"
+   ],
+   "first": "archive"
+  },
+  {
+   "id": "four-chord-song",
+   "title": "Axis of Awesome: Four Chord Song",
+   "channel": "international",
+   "year": 2009,
+   "block": "remix-and-music",
+   "score": 10,
+   "mentions": 7,
+   "sourceKinds": [
+    "links"
+   ],
+   "first": "archive"
+  },
+  {
+   "id": "ballmer-developers",
+   "title": "Steve Ballmer: Developers",
+   "channel": "international",
+   "year": 2000,
+   "block": "hacker-classics",
+   "score": 8,
+   "mentions": 5,
+   "sourceKinds": [
+    "links"
+   ],
+   "first": "archive"
+  },
+  {
+   "id": "today-show-what-is-internet",
+   "title": "1994 Today Show: What Is the Internet, Anyway?",
+   "channel": "international",
+   "year": 1994,
+   "block": "hacker-classics",
+   "score": 8,
+   "mentions": 5,
+   "sourceKinds": [
+    "links"
+   ],
+   "first": "wayback"
+  },
+  {
+   "id": "nope-avi",
+   "title": "nope.avi",
+   "channel": "international",
+   "year": 2006,
+   "block": "flash-era",
+   "score": 8,
+   "mentions": 2,
+   "sourceKinds": [
+    "kym",
+    "links"
+   ],
+   "first": "archive"
+  },
+  {
+   "id": "do-you-like-waffles",
+   "title": "Parry Gripp: Do You Like Waffles?",
+   "channel": "international",
+   "year": 2005,
+   "block": "flash-era",
+   "score": 8,
+   "mentions": 2,
+   "sourceKinds": [
+    "kym",
+    "links"
+   ],
+   "first": "archive"
+  },
+  {
+   "id": "here-comes-pacman",
+   "title": "Here Comes Pacman",
+   "channel": "international",
+   "year": 2001,
+   "block": "flash-era",
+   "score": 8,
+   "mentions": 2,
+   "sourceKinds": [
+    "kym",
+    "links"
+   ],
+   "first": "wayback"
+  },
+  {
+   "id": "nuclear-explosions-map",
+   "title": "A Time-Lapse Map of Every Nuclear Explosion Since 1945",
+   "channel": "international",
+   "year": 2003,
+   "block": "hacker-classics",
+   "score": 7,
+   "mentions": 4,
+   "sourceKinds": [
+    "links"
+   ],
+   "first": "archive"
+  },
+  {
+   "id": "bigdog-robot",
+   "title": "Boston Dynamics BigDog (March 2008)",
+   "channel": "international",
+   "year": 2008,
+   "block": "hacker-classics",
+   "score": 7,
+   "mentions": 4,
+   "sourceKinds": [
+    "links"
+   ],
+   "first": "archive"
+  },
+  {
+   "id": "chain-of-fools-windows",
+   "title": "Chain of Fools: Upgrading Through Every Version of Windows",
+   "channel": "international",
+   "year": 2011,
+   "block": "hacker-classics",
+   "score": 6,
+   "mentions": 3,
+   "sourceKinds": [
+    "links"
+   ],
+   "first": "archive"
+  },
+  {
+   "id": "animusic-pipe-dream",
+   "title": "Pipe Dream - Animusic",
+   "channel": "international",
+   "year": 2001,
+   "block": "hacker-classics",
+   "score": 6,
+   "mentions": 3,
+   "sourceKinds": [
+    "links"
+   ],
+   "first": "archive"
+  },
+  {
+   "id": "jon-stewart-crossfire",
+   "title": "Jon Stewart on Crossfire",
+   "channel": "international",
+   "year": 2004,
+   "block": "early-web-comedy",
+   "score": 6,
+   "mentions": 3,
+   "sourceKinds": [
+    "links"
+   ],
+   "first": "archive"
+  },
+  {
+   "id": "max-headroom-incident",
+   "title": "Max Headroom WTTW Pirating Incident",
+   "channel": "international",
+   "year": 1987,
+   "block": "early-web-comedy",
+   "score": 6,
+   "mentions": 3,
+   "sourceKinds": [
+    "links"
+   ],
+   "first": "archive"
+  },
+  {
+   "id": "bill-gates-bsod",
+   "title": "Bill Gates, Windows 98, Blue Screen of Death",
+   "channel": "international",
+   "year": 1998,
+   "block": "hacker-classics",
+   "score": 5,
+   "mentions": 2,
+   "sourceKinds": [
+    "links"
+   ],
+   "first": "archive"
+  },
+  {
+   "id": "dollar-shave-club",
+   "title": "DollarShaveClub.com: Our Blades Are F***ing Great",
+   "channel": "international",
+   "year": 2012,
+   "block": "ads-that-went-viral",
+   "score": 5,
+   "mentions": 2,
+   "sourceKinds": [
+    "links"
+   ],
+   "first": "archive"
+  },
+  {
+   "id": "honda-cog",
+   "title": "Honda: The Cog",
+   "channel": "international",
+   "year": 2003,
+   "block": "ads-that-went-viral",
+   "score": 5,
+   "mentions": 2,
+   "sourceKinds": [
+    "links"
+   ],
+   "first": "wayback"
+  },
+  {
+   "id": "sony-bravia-balls",
+   "title": "Sony BRAVIA: Balls",
+   "channel": "international",
+   "year": 2005,
+   "block": "ads-that-went-viral",
+   "score": 5,
+   "mentions": 2,
+   "sourceKinds": [
+    "links"
+   ],
+   "first": "archive"
+  },
+  {
+   "id": "louis-ck-everything-amazing",
+   "title": "Louis CK: Everything Is Amazing and Nobody Is Happy",
+   "channel": "international",
+   "year": 2008,
+   "block": "early-web-comedy",
+   "score": 5,
+   "mentions": 2,
+   "sourceKinds": [
+    "links"
+   ],
+   "first": "wayback"
+  },
+  {
+   "id": "plinkett-phantom-menace",
+   "title": "Star Wars: The Phantom Menace Review (Part 1)",
+   "channel": "international",
+   "year": 2009,
+   "block": "early-web-comedy",
+   "score": 5,
+   "mentions": 2,
+   "sourceKinds": [
+    "links"
+   ],
+   "first": "archive"
+  },
+  {
+   "id": "prisencolinensinainciusol",
+   "title": "Adriano Celentano: Prisencolinensinainciusol",
+   "channel": "international",
+   "year": 1972,
+   "block": "remix-and-music",
+   "score": 5,
+   "mentions": 2,
+   "sourceKinds": [
+    "links"
+   ],
+   "first": "archive"
+  },
+  {
+   "id": "golden-balls-split-steal",
+   "title": "Golden Balls: The Weirdest Split or Steal Ever",
+   "channel": "international",
+   "year": 2008,
+   "block": "game-shows",
+   "score": 5,
+   "mentions": 2,
+   "sourceKinds": [
+    "links"
+   ],
+   "first": "archive"
+  },
+  {
+   "id": "code-monkey",
+   "title": "Code Monkey",
+   "channel": "international",
+   "year": 2006,
+   "block": "remix-and-music",
+   "score": 5,
+   "mentions": 2,
+   "sourceKinds": [
+    "links"
+   ],
+   "first": "wayback"
+  },
+  {
+   "id": "kxvo-pumpkin-dance",
+   "title": "KXVO Pumpkin Dance",
+   "channel": "international",
+   "year": 2003,
+   "block": "ads-that-went-viral",
+   "score": 4,
+   "mentions": 1,
+   "sourceKinds": [
+    "links"
+   ],
+   "first": "archive"
+  },
+  {
+   "id": "alamo-drafthouse-voicemail",
+   "title": "Angry Voicemail We Got From an Alamo Drafthouse Customer",
+   "channel": "international",
+   "year": 2011,
+   "block": "early-web-comedy",
+   "score": 4,
+   "mentions": 1,
+   "sourceKinds": [
+    "links"
+   ],
+   "first": "archive"
+  },
+  {
+   "id": "strong-bad-email-22",
+   "title": "Strong Bad Email #22",
+   "channel": "international",
+   "year": 2001,
+   "block": "flash-era",
+   "score": 4,
+   "mentions": 1,
+   "sourceKinds": [
+    "links"
+   ],
+   "first": "archive"
+  },
+  {
+   "id": "bieber-800-slower",
+   "title": "Justin Bieber 800% Slower",
+   "channel": "international",
+   "year": 2010,
+   "block": "remix-and-music",
+   "score": 4,
+   "mentions": 1,
+   "sourceKinds": [
+    "links"
+   ],
+   "first": "archive"
+  },
+  {
+   "id": "caruso-one-liners",
+   "title": "CSI Miami: Endless Caruso One-Liners",
+   "channel": "international",
+   "year": 2006,
+   "block": "remix-and-music",
+   "score": 4,
+   "mentions": 1,
+   "sourceKinds": [
+    "links"
+   ],
+   "first": "archive"
+  },
+  {
+   "id": "wombo-combo",
+   "title": "WOMBO COMBO!!!!",
+   "channel": "international",
+   "year": 2008,
+   "block": "gaming-legends",
+   "score": 4,
+   "mentions": 1,
+   "sourceKinds": [
+    "links"
+   ],
+   "first": "archive"
+  },
+  {
+   "id": "ballad-of-the-sneak",
+   "title": "Ballad of The Sneak",
+   "channel": "international",
+   "year": 2002,
+   "block": "flash-era",
+   "score": 4,
+   "mentions": 1,
+   "sourceKinds": [
+    "links"
+   ],
+   "first": "wayback"
+  },
+  {
+   "id": "professor-brothers-jfk",
+   "title": "The Professor Brothers: History Lesson (JFK)",
+   "channel": "international",
+   "year": 2009,
+   "block": "flash-era",
+   "score": 4,
+   "mentions": 1,
+   "sourceKinds": [
+    "links"
+   ],
+   "first": "wayback"
+  },
+  {
+   "id": "hitler-downfall-parodies",
+   "title": "Hitler Rants About the Downfall Parodies",
+   "channel": "international",
+   "year": 2010,
+   "block": "remix-and-music",
+   "score": 4,
+   "mentions": 1,
+   "sourceKinds": [
+    "links"
+   ],
+   "first": "wayback"
+  },
+  {
+   "id": "morshu",
+   "title": "Morshu (Zelda CD-i)",
+   "channel": "international",
+   "year": 1993,
+   "block": "gaming-legends",
+   "score": 4,
+   "mentions": 1,
+   "sourceKinds": [
+    "links"
+   ],
+   "first": "wayback"
+  },
+  {
+   "id": "darude-sandstorm",
+   "title": "Darude - Sandstorm",
+   "channel": "suomi",
+   "year": 1999,
+   "block": "suomi-netti",
+   "score": 4,
+   "mentions": 1,
+   "sourceKinds": [
+    "kym"
+   ],
+   "first": "archive"
+  },
+  {
+   "id": "tsajajajaja",
+   "title": "Tsajajajaja (alkuperäinen)",
+   "channel": "suomi",
+   "year": 2011,
+   "block": "suomi-netti",
+   "score": 4,
+   "mentions": 1,
+   "sourceKinds": [
+    "fi"
+   ],
+   "first": "wayback"
+  },
+  {
+   "id": "powerthirst",
+   "title": "Powerthirst",
+   "channel": "international",
+   "year": 2007,
+   "block": "early-web-comedy",
+   "score": 0,
+   "mentions": 0,
+   "sourceKinds": [],
+   "first": "archive"
+  },
+  {
+   "id": "front-fell-off",
+   "title": "Clarke and Dawe: The Front Fell Off",
+   "channel": "international",
+   "year": 1991,
+   "block": "early-web-comedy",
+   "score": 0,
+   "mentions": 0,
+   "sourceKinds": [],
+   "first": "archive"
+  },
+  {
+   "id": "between-two-ferns-hamm",
+   "title": "Between Two Ferns: Jon Hamm",
+   "channel": "international",
+   "year": 2008,
+   "block": "early-web-comedy",
+   "score": 0,
+   "mentions": 0,
+   "sourceKinds": [],
+   "first": "wayback"
+  },
+  {
+   "id": "troops-star-wars",
+   "title": "Troops (1997)",
+   "channel": "international",
+   "year": 1997,
+   "block": "early-web-comedy",
+   "score": 0,
+   "mentions": 0,
+   "sourceKinds": [],
+   "first": "archive"
+  },
+  {
+   "id": "reporter-swallows-fly",
+   "title": "News Reporter Swallows Fly",
+   "channel": "international",
+   "year": 2009,
+   "block": "early-web-comedy",
+   "score": 0,
+   "mentions": 0,
+   "sourceKinds": [],
+   "first": "wayback"
+  },
+  {
+   "id": "xiao-xiao",
+   "title": "Xiao Xiao 1",
+   "channel": "international",
+   "year": 2001,
+   "block": "flash-era",
+   "score": 0,
+   "mentions": 0,
+   "sourceKinds": [],
+   "first": "wayback"
+  },
+  {
+   "id": "weebl-and-bob-pie",
+   "title": "Weebl and Bob: Pie",
+   "channel": "international",
+   "year": 2002,
+   "block": "flash-era",
+   "score": 0,
+   "mentions": 0,
+   "sourceKinds": [],
+   "first": "wayback"
+  },
+  {
+   "id": "stone-trek-2",
+   "title": "Stone Trek: 20001 BC, A Space Oddity",
+   "channel": "international",
+   "year": 2006,
+   "block": "flash-era",
+   "score": 0,
+   "mentions": 0,
+   "sourceKinds": [],
+   "first": "wayback"
+  },
+  {
+   "id": "we-drink-ritalin",
+   "title": "Animutation: We Drink Ritalin",
+   "channel": "international",
+   "year": 2002,
+   "block": "flash-era",
+   "score": 0,
+   "mentions": 0,
+   "sourceKinds": [],
+   "first": "wayback"
+  },
+  {
+   "id": "tokyo-plastic-drum-machine",
+   "title": "Tokyo Plastic: Drum Machine",
+   "channel": "international",
+   "year": 2003,
+   "block": "flash-era",
+   "score": 0,
+   "mentions": 0,
+   "sourceKinds": [],
+   "first": "wayback"
+  },
+  {
+   "id": "mitt-romney-style",
+   "title": "Mitt Romney Style",
+   "channel": "international",
+   "year": 2012,
+   "block": "remix-and-music",
+   "score": 0,
+   "mentions": 0,
+   "sourceKinds": [],
+   "first": "wayback"
+  }
+ ]
+}

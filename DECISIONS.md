@@ -2,6 +2,16 @@
 
 Newest first. One entry per decision: date · who · decision · why · source.
 
+## 2026-11-01 · Niko's brief, Claude (session) · New curated tapes play non-YouTube first; old tapes keep YouTube first
+
+- **Decision (brief):** tapes added from list curation put a non-YouTube copy first and keep YouTube as a later source. This
+  narrows, for new tapes only, the entry "YouTube stays first on every tape that has it" below. Existing tapes are unchanged.
+- **Decision (Claude):** a tape is filed only after it plays in Chrome and WebKit from a connection YouTube refuses, with 9s of
+  sustained playback. Six clips failed and are held in `data/curation/picks.json`, with four Finnish clips whose oldest upload
+  evidence does not prove a date before 2014.
+- **Why:** the brief asks for sources that actually play in-site; `CLASSIC.md` requires 2013 or earlier.
+- **Source:** the curation brief, 2026-11-01; `data/curation/`.
+
 ## 2026-11-01 · Niko via Page, Claude (session) · Every YouTube-only tape stays; a fallback goes in only once it has played
 
 - **Decision (Niko):** keep all the YouTube-only tapes, never drop, never rehost. Find non-YouTube copies and alternate

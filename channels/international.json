@@ -5827,6 +5827,1917 @@
       "why": "A school photo that guaranteed everything goes wrong.",
       "original_url": "https://knowyourmeme.com/memes/bad-luck-brian",
       "kind": "meme"
+    },
+    {
+      "id": "mongodb-web-scale",
+      "title": "Episode 1 - MongoDB Is Web Scale",
+      "year": 2010,
+      "source": "youtube",
+      "embedId": "b2F-DItXtZs",
+      "play": [
+        {
+          "kind": "wayback",
+          "id_or_url": "b2F-DItXtZs",
+          "official": false,
+          "uploader": "Internet Archive",
+          "at": "20110831142026"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "b2F-DItXtZs",
+          "official": false,
+          "uploader": "gar1t"
+        }
+      ],
+      "duration": 336,
+      "note": "Xtranormal rant that every developer forum passed around; still the shorthand for hype-driven tech.",
+      "credit": "https://www.youtube.com/watch?v=b2F-DItXtZs",
+      "signals": [
+        "a",
+        "b",
+        "c",
+        "e"
+      ],
+      "why": "Xtranormal rant that every developer forum passed around; still the shorthand for hype-driven tech.",
+      "original_url": "https://www.youtube.com/watch?v=b2F-DItXtZs",
+      "tags": [
+        "hacker-classics"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "retro-encabulator",
+      "title": "Rockwell Retro Encabulator",
+      "year": 1977,
+      "source": "archive.org",
+      "embedId": "youtube-RXJKdh1KZ0w",
+      "play": [
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-RXJKdh1KZ0w",
+          "file": "RXJKdh1KZ0w.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "RXJKdh1KZ0w",
+          "official": false,
+          "uploader": "rlcarnes"
+        }
+      ],
+      "duration": 120,
+      "note": "Deadpan engineering nonsense from an industrial film; a staple of forums and the top link on Hacker News threads.",
+      "credit": "https://www.youtube.com/watch?v=RXJKdh1KZ0w",
+      "signals": [
+        "b",
+        "c",
+        "e"
+      ],
+      "why": "Deadpan engineering nonsense from an industrial film; a staple of forums and the top link on Hacker News threads.",
+      "original_url": "https://www.youtube.com/watch?v=RXJKdh1KZ0w",
+      "tags": [
+        "hacker-classics"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "ballmer-laughs-iphone",
+      "title": "Ballmer Laughs at iPhone",
+      "year": 2007,
+      "source": "archive.org",
+      "embedId": "youtube-eywi0h_Y5_U",
+      "play": [
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-eywi0h_Y5_U",
+          "file": "Ballmer_Laughs_at_iPhone-eywi0h_Y5_U.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "eywi0h_Y5_U",
+          "official": false,
+          "uploader": "smugmacgeek"
+        }
+      ],
+      "duration": 143,
+      "note": "Steve Ballmer laughing off the iPhone, passed around ever since as the classic bad tech call.",
+      "credit": "https://www.youtube.com/watch?v=eywi0h_Y5_U",
+      "signals": [
+        "b",
+        "c",
+        "e"
+      ],
+      "why": "Steve Ballmer laughing off the iPhone, passed around ever since as the classic bad tech call.",
+      "original_url": "https://www.youtube.com/watch?v=eywi0h_Y5_U",
+      "tags": [
+        "hacker-classics"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "ballmer-developers",
+      "title": "Steve Ballmer: Developers",
+      "year": 2000,
+      "source": "archive.org",
+      "embedId": "youtube-Vhh_GeBPOhs",
+      "play": [
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-Vhh_GeBPOhs",
+          "file": "Steve_Ballmer_-_Developers-Vhh_GeBPOhs.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "Vhh_GeBPOhs",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "Vhh_GeBPOhs",
+          "official": false,
+          "uploader": "MrWueb007"
+        }
+      ],
+      "duration": 24,
+      "note": "Ballmer chanting developers on stage: one of the earliest corporate clips remixed across the web.",
+      "credit": "https://www.youtube.com/watch?v=Vhh_GeBPOhs",
+      "signals": [
+        "b",
+        "c",
+        "e"
+      ],
+      "why": "Ballmer chanting developers on stage: one of the earliest corporate clips remixed across the web.",
+      "original_url": "https://www.youtube.com/watch?v=Vhh_GeBPOhs",
+      "tags": [
+        "hacker-classics"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "today-show-what-is-internet",
+      "title": "1994 Today Show: What Is the Internet, Anyway?",
+      "year": 1994,
+      "source": "youtube",
+      "embedId": "UlJku_CSyNg",
+      "play": [
+        {
+          "kind": "wayback",
+          "id_or_url": "UlJku_CSyNg",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "UlJku_CSyNg",
+          "official": false,
+          "uploader": "Chrissy Miklacic"
+        }
+      ],
+      "duration": 86,
+      "note": "Anchors puzzling over the at sign; the clip the web shares about itself.",
+      "credit": "https://www.youtube.com/watch?v=UlJku_CSyNg",
+      "signals": [
+        "b",
+        "c",
+        "e"
+      ],
+      "why": "Anchors puzzling over the at sign; the clip the web shares about itself.",
+      "original_url": "https://www.youtube.com/watch?v=UlJku_CSyNg",
+      "tags": [
+        "hacker-classics"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "bill-gates-bsod",
+      "title": "Bill Gates, Windows 98, Blue Screen of Death",
+      "year": 1998,
+      "source": "archive.org",
+      "embedId": "youtube-IW7Rqwwth84",
+      "play": [
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-IW7Rqwwth84",
+          "file": "Bill_Gates_Windows_98_Blue_Screen_of_Death-IW7Rqwwth84.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "IW7Rqwwth84",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "IW7Rqwwth84",
+          "official": false,
+          "uploader": "failednation"
+        }
+      ],
+      "duration": 30,
+      "note": "The Windows 98 demo crash in front of Gates; the most-shared computer failure of the dial-up years.",
+      "credit": "https://www.youtube.com/watch?v=IW7Rqwwth84",
+      "signals": [
+        "b",
+        "c",
+        "e"
+      ],
+      "why": "The Windows 98 demo crash in front of Gates; the most-shared computer failure of the dial-up years.",
+      "original_url": "https://www.youtube.com/watch?v=IW7Rqwwth84",
+      "tags": [
+        "hacker-classics"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "chain-of-fools-windows",
+      "title": "Chain of Fools: Upgrading Through Every Version of Windows",
+      "year": 2011,
+      "source": "archive.org",
+      "embedId": "youtube-vPnehDhGa14",
+      "play": [
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-vPnehDhGa14",
+          "file": "Chain of Fools  - Upgrading through every version of windows (HQ) - vPnehDhGa14.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "vPnehDhGa14",
+          "official": false,
+          "uploader": "TheRasteri"
+        }
+      ],
+      "duration": 589,
+      "note": "One person's homemade upgrade run from Windows 1 onward, shared widely on tech sites.",
+      "credit": "https://www.youtube.com/watch?v=vPnehDhGa14",
+      "signals": [
+        "a",
+        "b",
+        "d"
+      ],
+      "why": "One person's homemade upgrade run from Windows 1 onward, shared widely on tech sites.",
+      "original_url": "https://www.youtube.com/watch?v=vPnehDhGa14",
+      "tags": [
+        "hacker-classics"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "elevated-demo",
+      "title": "Elevated by RGBA and TBC (4k intro)",
+      "year": 2009,
+      "source": "youtube",
+      "embedId": "jB0vBmiTr6o",
+      "play": [
+        {
+          "kind": "wayback",
+          "id_or_url": "jB0vBmiTr6o",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "jB0vBmiTr6o",
+          "official": false,
+          "uploader": "Demoscene High-Quality Videos (Annikras)"
+        }
+      ],
+      "duration": 215,
+      "note": "The 4-kilobyte demo that made the demoscene's point to the wider web.",
+      "credit": "https://www.youtube.com/watch?v=jB0vBmiTr6o",
+      "signals": [
+        "a",
+        "b",
+        "d",
+        "e"
+      ],
+      "why": "The 4-kilobyte demo that made the demoscene's point to the wider web.",
+      "original_url": "https://www.youtube.com/watch?v=jB0vBmiTr6o",
+      "tags": [
+        "hacker-classics"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "nuclear-explosions-map",
+      "title": "A Time-Lapse Map of Every Nuclear Explosion Since 1945",
+      "year": 2003,
+      "source": "archive.org",
+      "embedId": "youtube-LLCF7vPanrY",
+      "play": [
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-LLCF7vPanrY",
+          "file": "A_Time-Lapse_Map_of_Every_Nuclear_Explosion_Since_1945_-_by_Isao_Hashimoto-LLCF7vPanrY.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "LLCF7vPanrY",
+          "official": false,
+          "uploader": "aConcernedHuman"
+        }
+      ],
+      "duration": 864,
+      "note": "Isao Hashimoto's art piece, one artist's own work, that went viral through forums years later.",
+      "credit": "https://www.youtube.com/watch?v=LLCF7vPanrY",
+      "signals": [
+        "b",
+        "c",
+        "d"
+      ],
+      "why": "Isao Hashimoto's art piece, one artist's own work, that went viral through forums years later.",
+      "original_url": "https://www.youtube.com/watch?v=LLCF7vPanrY",
+      "tags": [
+        "hacker-classics"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "bigdog-robot",
+      "title": "Boston Dynamics BigDog (March 2008)",
+      "year": 2008,
+      "source": "archive.org",
+      "embedId": "youtube-W1czBcnX1Ww",
+      "play": [
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-W1czBcnX1Ww",
+          "file": "Boston_Dynamics_Big_Dog_new_video_March_2008-W1czBcnX1Ww.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "W1czBcnX1Ww",
+          "official": false,
+          "uploader": "olinerd"
+        }
+      ],
+      "duration": 209,
+      "note": "The robot that keeps its footing when kicked: an engineering clip that went everywhere.",
+      "credit": "https://www.youtube.com/watch?v=W1czBcnX1Ww",
+      "signals": [
+        "a",
+        "b",
+        "c"
+      ],
+      "why": "The robot that keeps its footing when kicked: an engineering clip that went everywhere.",
+      "original_url": "https://www.youtube.com/watch?v=W1czBcnX1Ww",
+      "tags": [
+        "hacker-classics"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "bel-air-vs-malibu",
+      "title": "1959 Chevrolet Bel Air vs. 2009 Chevrolet Malibu Crash Test",
+      "year": 2009,
+      "source": "archive.org",
+      "embedId": "youtube-C_r5UJrxcck",
+      "play": [
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-C_r5UJrxcck",
+          "file": "C_r5UJrxcck.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "C_r5UJrxcck",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "C_r5UJrxcck",
+          "official": false,
+          "uploader": "IIHS"
+        }
+      ],
+      "duration": 73,
+      "note": "The crash-test comparison that keeps coming back in comment threads.",
+      "credit": "https://www.youtube.com/watch?v=C_r5UJrxcck",
+      "signals": [
+        "b",
+        "c",
+        "e"
+      ],
+      "why": "The crash-test comparison that keeps coming back in comment threads.",
+      "original_url": "https://www.youtube.com/watch?v=C_r5UJrxcck",
+      "tags": [
+        "hacker-classics"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "animusic-pipe-dream",
+      "title": "Pipe Dream - Animusic",
+      "year": 2001,
+      "source": "archive.org",
+      "embedId": "youtube-hyCIpKAIFyo",
+      "play": [
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-hyCIpKAIFyo",
+          "file": "Pipe_Dream_-_Animusic.com-hyCIpKAIFyo.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "hyCIpKAIFyo",
+          "official": false,
+          "uploader": "AnimusicLLC"
+        }
+      ],
+      "duration": 208,
+      "note": "Computer-animated ball-and-pipe music that circulated by email for years.",
+      "credit": "https://www.youtube.com/watch?v=hyCIpKAIFyo",
+      "signals": [
+        "b",
+        "c",
+        "d"
+      ],
+      "why": "Computer-animated ball-and-pipe music that circulated by email for years.",
+      "original_url": "https://www.youtube.com/watch?v=hyCIpKAIFyo",
+      "tags": [
+        "hacker-classics"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "dollar-shave-club",
+      "title": "DollarShaveClub.com: Our Blades Are F***ing Great",
+      "year": 2012,
+      "source": "archive.org",
+      "embedId": "youtube-ZUG9qYTJMsI",
+      "play": [
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-ZUG9qYTJMsI",
+          "file": "DollarShaveClub.com_-_Our_Blades_Are_F_ing_Great-ZUG9qYTJMsI.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "ZUG9qYTJMsI",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "ZUG9qYTJMsI",
+          "official": false,
+          "uploader": "Dollar Shave Club"
+        }
+      ],
+      "duration": 93,
+      "note": "A homemade startup pitch that became a viral hit.",
+      "credit": "https://www.youtube.com/watch?v=ZUG9qYTJMsI",
+      "signals": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "why": "A homemade startup pitch that became a viral hit.",
+      "original_url": "https://www.youtube.com/watch?v=ZUG9qYTJMsI",
+      "tags": [
+        "ads-that-went-viral"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "flea-market-montgomery",
+      "title": "Flea Market Montgomery (Long Version)",
+      "year": 2006,
+      "source": "archive.org",
+      "embedId": "youtube-FJ3oHpup-pk",
+      "play": [
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-FJ3oHpup-pk",
+          "file": "FJ3oHpup-pk.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "FJ3oHpup-pk",
+          "official": false,
+          "uploader": "teedadawg"
+        }
+      ],
+      "duration": 123,
+      "note": "A local Alabama TV spot that became a YouTube favourite and a quoted jingle.",
+      "credit": "https://www.youtube.com/watch?v=FJ3oHpup-pk",
+      "signals": [
+        "b",
+        "c",
+        "d",
+        "e"
+      ],
+      "why": "A local Alabama TV spot that became a YouTube favourite and a quoted jingle.",
+      "original_url": "https://www.youtube.com/watch?v=FJ3oHpup-pk",
+      "tags": [
+        "ads-that-went-viral"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "honda-cog",
+      "title": "Honda: The Cog",
+      "year": 2003,
+      "source": "youtube",
+      "embedId": "bl2U1p3fVRk",
+      "play": [
+        {
+          "kind": "wayback",
+          "id_or_url": "bl2U1p3fVRk",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "bl2U1p3fVRk",
+          "official": false,
+          "uploader": "amadaras"
+        }
+      ],
+      "duration": 121,
+      "note": "The chain-reaction ad mailed around offices in the early web years.",
+      "credit": "https://www.youtube.com/watch?v=bl2U1p3fVRk",
+      "signals": [
+        "b",
+        "c",
+        "e"
+      ],
+      "why": "The chain-reaction ad mailed around offices in the early web years.",
+      "original_url": "https://www.youtube.com/watch?v=bl2U1p3fVRk",
+      "tags": [
+        "ads-that-went-viral"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "sony-bravia-balls",
+      "title": "Sony BRAVIA: Balls",
+      "year": 2005,
+      "source": "archive.org",
+      "embedId": "youtube-0_bx8bnCoiU",
+      "play": [
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-0_bx8bnCoiU",
+          "file": "Sony_Bravia_Bouncy_Balls_Full_HD_1080p-0_bx8bnCoiU.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "0_bx8bnCoiU",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "0_bx8bnCoiU",
+          "official": false,
+          "uploader": "32cn32"
+        }
+      ],
+      "duration": 150,
+      "note": "Bouncy balls down a San Francisco hill: one of the first ads shared for pleasure.",
+      "credit": "https://www.youtube.com/watch?v=0_bx8bnCoiU",
+      "signals": [
+        "b",
+        "c",
+        "e"
+      ],
+      "why": "Bouncy balls down a San Francisco hill: one of the first ads shared for pleasure.",
+      "original_url": "https://www.youtube.com/watch?v=0_bx8bnCoiU",
+      "tags": [
+        "ads-that-went-viral"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "kxvo-pumpkin-dance",
+      "title": "KXVO Pumpkin Dance",
+      "year": 2003,
+      "source": "archive.org",
+      "embedId": "youtube-v4IC7qaNr7I",
+      "play": [
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-v4IC7qaNr7I",
+          "file": "KXVO_Pumpkin_Dance-v4IC7qaNr7I.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "v4IC7qaNr7I",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "v4IC7qaNr7I",
+          "official": false,
+          "uploader": "CW 15 Omaha"
+        }
+      ],
+      "duration": 92,
+      "note": "A local-TV station's homemade Halloween bumper that became a meme.",
+      "credit": "https://www.youtube.com/watch?v=v4IC7qaNr7I",
+      "signals": [
+        "b",
+        "c",
+        "d"
+      ],
+      "why": "A local-TV station's homemade Halloween bumper that became a meme.",
+      "original_url": "https://www.youtube.com/watch?v=v4IC7qaNr7I",
+      "tags": [
+        "ads-that-went-viral"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "united-breaks-guitars",
+      "title": "United Breaks Guitars",
+      "year": 2009,
+      "source": "archive.org",
+      "embedId": "youtube-5YGc4zOqozo",
+      "play": [
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-5YGc4zOqozo",
+          "file": "United_Breaks_Guitars-5YGc4zOqozo.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "5YGc4zOqozo",
+          "official": false,
+          "uploader": "sonsofmaxwell"
+        }
+      ],
+      "duration": 276,
+      "note": "Dave Carroll's song against an airline: the textbook case of a customer going viral.",
+      "credit": "https://www.youtube.com/watch?v=5YGc4zOqozo",
+      "signals": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "why": "Dave Carroll's song against an airline: the textbook case of a customer going viral.",
+      "original_url": "https://www.youtube.com/watch?v=5YGc4zOqozo",
+      "tags": [
+        "ads-that-went-viral"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "powerthirst",
+      "title": "Powerthirst",
+      "year": 2007,
+      "source": "archive.org",
+      "embedId": "youtube-qRuNxHqwazs",
+      "play": [
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-qRuNxHqwazs",
+          "file": "qRuNxHqwazs.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "qRuNxHqwazs",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "qRuNxHqwazs",
+          "official": false,
+          "uploader": "picnicface"
+        }
+      ],
+      "duration": 83,
+      "note": "CollegeHumor's energy-drink parody; quoted for years.",
+      "credit": "https://www.youtube.com/watch?v=qRuNxHqwazs",
+      "signals": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "why": "CollegeHumor's energy-drink parody; quoted for years.",
+      "original_url": "https://www.youtube.com/watch?v=qRuNxHqwazs",
+      "tags": [
+        "early-web-comedy"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "old-gregg",
+      "title": "Old Gregg (Full Version)",
+      "year": 2005,
+      "source": "youtube",
+      "embedId": "XxaP19pY1FI",
+      "play": [
+        {
+          "kind": "wayback",
+          "id_or_url": "XxaP19pY1FI",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "XxaP19pY1FI",
+          "official": false,
+          "uploader": "Eddie Moran"
+        }
+      ],
+      "duration": 644,
+      "note": "The Mighty Boosh sketch that spread far past its broadcast.",
+      "credit": "https://www.youtube.com/watch?v=XxaP19pY1FI",
+      "signals": [
+        "b",
+        "c",
+        "e"
+      ],
+      "why": "The Mighty Boosh sketch that spread far past its broadcast.",
+      "original_url": "https://www.youtube.com/watch?v=XxaP19pY1FI",
+      "tags": [
+        "early-web-comedy"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "front-fell-off",
+      "title": "Clarke and Dawe: The Front Fell Off",
+      "year": 1991,
+      "source": "archive.org",
+      "embedId": "youtube-3m5qxZm_JqM",
+      "play": [
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-3m5qxZm_JqM",
+          "file": "Clarke_and_Dawe_-_The_Front_Fell_Off-3m5qxZm_JqM.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "3m5qxZm_JqM",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "3m5qxZm_JqM",
+          "official": false,
+          "uploader": "ClarkeAndDawe"
+        }
+      ],
+      "duration": 128,
+      "note": "An Australian mock interview that found its global audience online.",
+      "credit": "https://www.youtube.com/watch?v=3m5qxZm_JqM",
+      "signals": [
+        "b",
+        "c",
+        "e"
+      ],
+      "why": "An Australian mock interview that found its global audience online.",
+      "original_url": "https://www.youtube.com/watch?v=3m5qxZm_JqM",
+      "tags": [
+        "early-web-comedy"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "between-two-ferns-hamm",
+      "title": "Between Two Ferns: Jon Hamm",
+      "year": 2008,
+      "source": "youtube",
+      "embedId": "gDwfQjxbFBM",
+      "play": [
+        {
+          "kind": "wayback",
+          "id_or_url": "gDwfQjxbFBM",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "gDwfQjxbFBM",
+          "official": false,
+          "uploader": "Funny Or Die"
+        }
+      ],
+      "duration": 207,
+      "note": "Funny or Die's awkward web talk show, watched and quoted online first.",
+      "credit": "https://www.youtube.com/watch?v=gDwfQjxbFBM",
+      "signals": [
+        "a",
+        "b",
+        "c"
+      ],
+      "why": "Funny or Die's awkward web talk show, watched and quoted online first.",
+      "original_url": "https://www.youtube.com/watch?v=gDwfQjxbFBM",
+      "tags": [
+        "early-web-comedy"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "louis-ck-everything-amazing",
+      "title": "Louis CK: Everything Is Amazing and Nobody Is Happy",
+      "year": 2008,
+      "source": "youtube",
+      "embedId": "nUBtKNzoKZ4",
+      "play": [
+        {
+          "kind": "wayback",
+          "id_or_url": "nUBtKNzoKZ4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "nUBtKNzoKZ4",
+          "official": false,
+          "uploader": "Lisa Zielinski"
+        }
+      ],
+      "duration": 254,
+      "note": "The Conan rant that became the internet's favourite speech about itself.",
+      "credit": "https://www.youtube.com/watch?v=nUBtKNzoKZ4",
+      "signals": [
+        "b",
+        "c",
+        "e"
+      ],
+      "why": "The Conan rant that became the internet's favourite speech about itself.",
+      "original_url": "https://www.youtube.com/watch?v=nUBtKNzoKZ4",
+      "tags": [
+        "early-web-comedy"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "alamo-drafthouse-voicemail",
+      "title": "Angry Voicemail We Got From an Alamo Drafthouse Customer",
+      "year": 2011,
+      "source": "archive.org",
+      "embedId": "youtube-1L3eeC2lJZs",
+      "play": [
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-1L3eeC2lJZs",
+          "file": "Angry_Voicemail_We_Got_From_an_Alamo_Drafthouse_Customer-1L3eeC2lJZs.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "1L3eeC2lJZs",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "1L3eeC2lJZs",
+          "official": false,
+          "uploader": "Alamo Drafthouse"
+        }
+      ],
+      "duration": 106,
+      "note": "A cinema made an ad of a customer's voicemail and it was shared everywhere.",
+      "credit": "https://www.youtube.com/watch?v=1L3eeC2lJZs",
+      "signals": [
+        "a",
+        "b",
+        "c"
+      ],
+      "why": "A cinema made an ad of a customer's voicemail and it was shared everywhere.",
+      "original_url": "https://www.youtube.com/watch?v=1L3eeC2lJZs",
+      "tags": [
+        "early-web-comedy"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "troops-star-wars",
+      "title": "Troops (1997)",
+      "year": 1997,
+      "source": "archive.org",
+      "embedId": "youtube-5HO70-Rk3jE",
+      "play": [
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-5HO70-Rk3jE",
+          "file": "5HO70-Rk3jE.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "5HO70-Rk3jE",
+          "official": false,
+          "uploader": "Alex' Stuff"
+        }
+      ],
+      "duration": 609,
+      "note": "Star Wars meets COPS; the fan film that started net-distributed fan films.",
+      "credit": "https://www.youtube.com/watch?v=5HO70-Rk3jE",
+      "signals": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ],
+      "why": "Star Wars meets COPS; the fan film that started net-distributed fan films.",
+      "original_url": "https://www.youtube.com/watch?v=5HO70-Rk3jE",
+      "tags": [
+        "early-web-comedy"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "plinkett-phantom-menace",
+      "title": "Star Wars: The Phantom Menace Review (Part 1)",
+      "year": 2009,
+      "source": "archive.org",
+      "embedId": "youtube-FxKtZmQgxrI",
+      "play": [
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-FxKtZmQgxrI",
+          "file": "FxKtZmQgxrI.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "FxKtZmQgxrI",
+          "official": false,
+          "uploader": "RedLetterMedia"
+        }
+      ],
+      "duration": 599,
+      "note": "RedLetterMedia's long review that forums passed along and still cite.",
+      "credit": "https://www.youtube.com/watch?v=FxKtZmQgxrI",
+      "signals": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ],
+      "why": "RedLetterMedia's long review that forums passed along and still cite.",
+      "original_url": "https://www.youtube.com/watch?v=FxKtZmQgxrI",
+      "tags": [
+        "early-web-comedy"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "jon-stewart-crossfire",
+      "title": "Jon Stewart on Crossfire",
+      "year": 2004,
+      "source": "archive.org",
+      "embedId": "youtube-aFQFB5YpDZE",
+      "play": [
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-aFQFB5YpDZE",
+          "file": "Jon_Stewart_on_Crossfire-aFQFB5YpDZE.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "aFQFB5YpDZE",
+          "official": false,
+          "uploader": "Alex Felker"
+        }
+      ],
+      "duration": 853,
+      "note": "One of the clips that pushed video sharing into the mainstream.",
+      "credit": "https://www.youtube.com/watch?v=aFQFB5YpDZE",
+      "signals": [
+        "b",
+        "c",
+        "e"
+      ],
+      "why": "One of the clips that pushed video sharing into the mainstream.",
+      "original_url": "https://www.youtube.com/watch?v=aFQFB5YpDZE",
+      "tags": [
+        "early-web-comedy"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "max-headroom-incident",
+      "title": "Max Headroom WTTW Pirating Incident",
+      "year": 1987,
+      "source": "archive.org",
+      "embedId": "youtube-tWdgAMYjYSs",
+      "play": [
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-tWdgAMYjYSs",
+          "file": "Max_Headroom_WTTW_Pirating_Incident_-_11_22_87_Subtitled-tWdgAMYjYSs.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "tWdgAMYjYSs",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "tWdgAMYjYSs",
+          "official": false,
+          "uploader": "jonrev"
+        }
+      ],
+      "duration": 126,
+      "note": "The broadcast hijack that lives on as a web legend.",
+      "credit": "https://www.youtube.com/watch?v=tWdgAMYjYSs",
+      "signals": [
+        "b",
+        "c",
+        "e"
+      ],
+      "why": "The broadcast hijack that lives on as a web legend.",
+      "original_url": "https://www.youtube.com/watch?v=tWdgAMYjYSs",
+      "tags": [
+        "early-web-comedy"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "strong-bad-email-22",
+      "title": "Strong Bad Email #22",
+      "year": 2001,
+      "source": "archive.org",
+      "embedId": "youtube-XPGJMno18kI",
+      "play": [
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-XPGJMno18kI",
+          "file": "Strong_Bad_Email_22_-_sb_email_22-XPGJMno18kI.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "XPGJMno18kI",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "XPGJMno18kI",
+          "official": false,
+          "uploader": "homestarrunnerdotcom"
+        }
+      ],
+      "duration": 66,
+      "note": "Homestar Runner's email series in its early, defining run.",
+      "credit": "https://www.youtube.com/watch?v=XPGJMno18kI",
+      "signals": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ],
+      "why": "Homestar Runner's email series in its early, defining run.",
+      "original_url": "https://www.youtube.com/watch?v=XPGJMno18kI",
+      "tags": [
+        "flash-era"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "nope-avi",
+      "title": "nope.avi",
+      "year": 2006,
+      "source": "archive.org",
+      "embedId": "youtube-gvdf5n-zI14",
+      "play": [
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-gvdf5n-zI14",
+          "file": "nope.avi-gvdf5n-zI14.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "gvdf5n-zI14",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "gvdf5n-zI14",
+          "official": false,
+          "uploader": "Jimbomcb"
+        }
+      ],
+      "duration": 9,
+      "note": "One word, one short clip: the reply format of a generation of forums.",
+      "credit": "https://www.youtube.com/watch?v=gvdf5n-zI14",
+      "signals": [
+        "a",
+        "b",
+        "d"
+      ],
+      "why": "One word, one short clip: the reply format of a generation of forums.",
+      "original_url": "https://www.youtube.com/watch?v=gvdf5n-zI14",
+      "tags": [
+        "flash-era"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "do-you-like-waffles",
+      "title": "Parry Gripp: Do You Like Waffles?",
+      "year": 2005,
+      "source": "archive.org",
+      "embedId": "youtube-UtlaTNI1TaU",
+      "play": [
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-UtlaTNI1TaU",
+          "file": "UtlaTNI1TaU.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "UtlaTNI1TaU",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "UtlaTNI1TaU",
+          "official": false,
+          "uploader": "Oglio"
+        }
+      ],
+      "duration": 35,
+      "note": "The waffle song and its Flash cartoon, on every portal.",
+      "credit": "https://www.youtube.com/watch?v=UtlaTNI1TaU",
+      "signals": [
+        "a",
+        "b",
+        "d"
+      ],
+      "why": "The waffle song and its Flash cartoon, on every portal.",
+      "original_url": "https://www.youtube.com/watch?v=UtlaTNI1TaU",
+      "tags": [
+        "flash-era"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "bieber-800-slower",
+      "title": "Justin Bieber 800% Slower",
+      "year": 2010,
+      "source": "archive.org",
+      "embedId": "youtube-QspuCt1FM9M",
+      "play": [
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-QspuCt1FM9M",
+          "file": "1282023719 ~ Justin Bieber 800% Slower [QspuCt1FM9M].mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "QspuCt1FM9M",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "QspuCt1FM9M",
+          "official": false,
+          "uploader": "turinpt2"
+        }
+      ],
+      "duration": 590,
+      "note": "A homemade slowdown that started a whole remix genre.",
+      "credit": "https://www.youtube.com/watch?v=QspuCt1FM9M",
+      "signals": [
+        "a",
+        "b",
+        "d"
+      ],
+      "why": "A homemade slowdown that started a whole remix genre.",
+      "original_url": "https://www.youtube.com/watch?v=QspuCt1FM9M",
+      "tags": [
+        "remix-and-music"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "four-chord-song",
+      "title": "Axis of Awesome: Four Chord Song",
+      "year": 2009,
+      "source": "archive.org",
+      "embedId": "youtube-5pidokakU4I",
+      "play": [
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-5pidokakU4I",
+          "file": "Axis_of_Awesome_-_4_Four_Chord_Song_with_song_titles-5pidokakU4I.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "5pidokakU4I",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "5pidokakU4I",
+          "official": false,
+          "uploader": "random804"
+        }
+      ],
+      "duration": 331,
+      "note": "The comedy band's medley that every music forum linked.",
+      "credit": "https://www.youtube.com/watch?v=5pidokakU4I",
+      "signals": [
+        "a",
+        "b",
+        "c"
+      ],
+      "why": "The comedy band's medley that every music forum linked.",
+      "original_url": "https://www.youtube.com/watch?v=5pidokakU4I",
+      "tags": [
+        "remix-and-music"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "prisencolinensinainciusol",
+      "title": "Adriano Celentano: Prisencolinensinainciusol",
+      "year": 1972,
+      "source": "archive.org",
+      "embedId": "youtube--VsmF9m_Nt8",
+      "play": [
+        {
+          "kind": "archive",
+          "id_or_url": "youtube--VsmF9m_Nt8",
+          "file": "-VsmF9m_Nt8.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "-VsmF9m_Nt8",
+          "official": false,
+          "uploader": "Le Pietre Rotolanti"
+        }
+      ],
+      "duration": 219,
+      "note": "A 1970s Italian TV clip in fake English, rediscovered and spread by the web.",
+      "credit": "https://www.youtube.com/watch?v=-VsmF9m_Nt8",
+      "signals": [
+        "b",
+        "c",
+        "e"
+      ],
+      "why": "A 1970s Italian TV clip in fake English, rediscovered and spread by the web.",
+      "original_url": "https://www.youtube.com/watch?v=-VsmF9m_Nt8",
+      "tags": [
+        "remix-and-music"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "caruso-one-liners",
+      "title": "CSI Miami: Endless Caruso One-Liners",
+      "year": 2006,
+      "source": "archive.org",
+      "embedId": "youtube-_sarYH0z948",
+      "play": [
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-_sarYH0z948",
+          "file": "_sarYH0z948.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "_sarYH0z948",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "_sarYH0z948",
+          "official": false,
+          "uploader": "stewmurray47"
+        }
+      ],
+      "duration": 437,
+      "note": "A supercut of the sunglasses move; a key early fan edit.",
+      "credit": "https://www.youtube.com/watch?v=_sarYH0z948",
+      "signals": [
+        "a",
+        "b",
+        "d"
+      ],
+      "why": "A supercut of the sunglasses move; a key early fan edit.",
+      "original_url": "https://www.youtube.com/watch?v=_sarYH0z948",
+      "tags": [
+        "remix-and-music"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "wombo-combo",
+      "title": "WOMBO COMBO!!!!",
+      "year": 2008,
+      "source": "archive.org",
+      "embedId": "youtube-pD_imYhNoQ4",
+      "play": [
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-pD_imYhNoQ4",
+          "file": "WOMBO_COMBO-pD_imYhNoQ4.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "pD_imYhNoQ4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "pD_imYhNoQ4",
+          "official": false,
+          "uploader": "Lumpycpu"
+        }
+      ],
+      "duration": 49,
+      "note": "Melee's fan-filmed combo and its commentary; a phrase across gaming.",
+      "credit": "https://www.youtube.com/watch?v=pD_imYhNoQ4",
+      "signals": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ],
+      "why": "Melee's fan-filmed combo and its commentary; a phrase across gaming.",
+      "original_url": "https://www.youtube.com/watch?v=pD_imYhNoQ4",
+      "tags": [
+        "gaming-legends"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "golden-balls-split-steal",
+      "title": "Golden Balls: The Weirdest Split or Steal Ever",
+      "year": 2008,
+      "source": "archive.org",
+      "embedId": "youtube-S0qjK3TWZE8",
+      "play": [
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-S0qjK3TWZE8",
+          "file": "S0qjK3TWZE8.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "S0qjK3TWZE8",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "S0qjK3TWZE8",
+          "official": false,
+          "uploader": "spinout3"
+        }
+      ],
+      "duration": 385,
+      "note": "The UK game-show round that game theorists and everyone else keep linking.",
+      "credit": "https://www.youtube.com/watch?v=S0qjK3TWZE8",
+      "signals": [
+        "b",
+        "c",
+        "e"
+      ],
+      "why": "The UK game-show round that game theorists and everyone else keep linking.",
+      "original_url": "https://www.youtube.com/watch?v=S0qjK3TWZE8",
+      "tags": [
+        "game-shows"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "reporter-swallows-fly",
+      "title": "News Reporter Swallows Fly",
+      "year": 2009,
+      "source": "youtube",
+      "embedId": "4vb52e-CBSQ",
+      "play": [
+        {
+          "kind": "wayback",
+          "id_or_url": "4vb52e-CBSQ",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "4vb52e-CBSQ",
+          "official": false,
+          "uploader": "John Teddy"
+        }
+      ],
+      "duration": 40,
+      "note": "A live-TV blooper that did the rounds of every clip site.",
+      "credit": "https://www.youtube.com/watch?v=4vb52e-CBSQ",
+      "signals": [
+        "b",
+        "c",
+        "d"
+      ],
+      "why": "A live-TV blooper that did the rounds of every clip site.",
+      "original_url": "https://www.youtube.com/watch?v=4vb52e-CBSQ",
+      "tags": [
+        "early-web-comedy"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "xiao-xiao",
+      "title": "Xiao Xiao 1",
+      "year": 2001,
+      "source": "youtube",
+      "embedId": "xNLU0oMG3ZU",
+      "play": [
+        {
+          "kind": "wayback",
+          "id_or_url": "xNLU0oMG3ZU",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "xNLU0oMG3ZU",
+          "official": false,
+          "uploader": "bobote"
+        }
+      ],
+      "duration": 76,
+      "note": "Zhu Zhiqiang's stick-figure Flash fights, a touchstone of the portals.",
+      "credit": "https://www.youtube.com/watch?v=xNLU0oMG3ZU",
+      "signals": [
+        "a",
+        "b",
+        "d",
+        "e"
+      ],
+      "why": "Zhu Zhiqiang's stick-figure Flash fights, a touchstone of the portals.",
+      "original_url": "https://www.youtube.com/watch?v=xNLU0oMG3ZU",
+      "tags": [
+        "flash-era"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "here-comes-pacman",
+      "title": "Here Comes Pacman",
+      "year": 2001,
+      "source": "youtube",
+      "embedId": "vaduxxx61z8",
+      "play": [
+        {
+          "kind": "wayback",
+          "id_or_url": "vaduxxx61z8",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "vaduxxx61z8",
+          "official": false,
+          "uploader": "shibuwave"
+        }
+      ],
+      "duration": 33,
+      "note": "An early Flash loop that bounced through portals and forwards.",
+      "credit": "https://www.youtube.com/watch?v=vaduxxx61z8",
+      "signals": [
+        "a",
+        "b",
+        "d"
+      ],
+      "why": "An early Flash loop that bounced through portals and forwards.",
+      "original_url": "https://www.youtube.com/watch?v=vaduxxx61z8",
+      "tags": [
+        "flash-era"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "weebl-and-bob-pie",
+      "title": "Weebl and Bob: Pie",
+      "year": 2002,
+      "source": "youtube",
+      "embedId": "s3Gdezyt8eY",
+      "play": [
+        {
+          "kind": "wayback",
+          "id_or_url": "s3Gdezyt8eY",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "s3Gdezyt8eY",
+          "official": false,
+          "uploader": "Weebl And Bob"
+        }
+      ],
+      "duration": 72,
+      "note": "The first episode of the British Flash series about pie.",
+      "credit": "https://www.youtube.com/watch?v=s3Gdezyt8eY",
+      "signals": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ],
+      "why": "The first episode of the British Flash series about pie.",
+      "original_url": "https://www.youtube.com/watch?v=s3Gdezyt8eY",
+      "tags": [
+        "flash-era"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "ballad-of-the-sneak",
+      "title": "Ballad of The Sneak",
+      "year": 2002,
+      "source": "youtube",
+      "embedId": "SEkqtMw4aYs",
+      "play": [
+        {
+          "kind": "wayback",
+          "id_or_url": "SEkqtMw4aYs",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "SEkqtMw4aYs",
+          "official": false,
+          "uploader": "homestarrunnerdotcom"
+        }
+      ],
+      "duration": 131,
+      "note": "A short Homestar Runner song that fans quote to this day.",
+      "credit": "https://www.youtube.com/watch?v=SEkqtMw4aYs",
+      "signals": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "why": "A short Homestar Runner song that fans quote to this day.",
+      "original_url": "https://www.youtube.com/watch?v=SEkqtMw4aYs",
+      "tags": [
+        "flash-era"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "stone-trek-2",
+      "title": "Stone Trek: 20001 BC, A Space Oddity",
+      "year": 2006,
+      "source": "youtube",
+      "embedId": "PfPth2GqkTk",
+      "play": [
+        {
+          "kind": "wayback",
+          "id_or_url": "PfPth2GqkTk",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "PfPth2GqkTk",
+          "official": false,
+          "uploader": "Jonathan Lane (Fan Film Factor)"
+        }
+      ],
+      "duration": 644,
+      "note": "A Flash mash of the Flintstones and Star Trek that ran on the portals.",
+      "credit": "https://www.youtube.com/watch?v=PfPth2GqkTk",
+      "signals": [
+        "a",
+        "b",
+        "d"
+      ],
+      "why": "A Flash mash of the Flintstones and Star Trek that ran on the portals.",
+      "original_url": "https://www.youtube.com/watch?v=PfPth2GqkTk",
+      "tags": [
+        "flash-era"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "we-drink-ritalin",
+      "title": "Animutation: We Drink Ritalin",
+      "year": 2002,
+      "source": "youtube",
+      "embedId": "PffpCsDmZPI",
+      "play": [
+        {
+          "kind": "wayback",
+          "id_or_url": "PffpCsDmZPI",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "PffpCsDmZPI",
+          "official": false,
+          "uploader": "Bluetailvappy"
+        }
+      ],
+      "duration": 190,
+      "note": "Neil Cicierega's animutation form at its height.",
+      "credit": "https://www.youtube.com/watch?v=PffpCsDmZPI",
+      "signals": [
+        "a",
+        "b",
+        "d",
+        "e"
+      ],
+      "why": "Neil Cicierega's animutation form at its height.",
+      "original_url": "https://www.youtube.com/watch?v=PffpCsDmZPI",
+      "tags": [
+        "flash-era"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "tokyo-plastic-drum-machine",
+      "title": "Tokyo Plastic: Drum Machine",
+      "year": 2003,
+      "source": "youtube",
+      "embedId": "EZ7k5jNVsuA",
+      "play": [
+        {
+          "kind": "wayback",
+          "id_or_url": "EZ7k5jNVsuA",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "EZ7k5jNVsuA",
+          "official": false,
+          "uploader": "KiraraKunoichi"
+        }
+      ],
+      "duration": 101,
+      "note": "An animated drum loop passed around Flash sites.",
+      "credit": "https://www.youtube.com/watch?v=EZ7k5jNVsuA",
+      "signals": [
+        "a",
+        "b",
+        "d"
+      ],
+      "why": "An animated drum loop passed around Flash sites.",
+      "original_url": "https://www.youtube.com/watch?v=EZ7k5jNVsuA",
+      "tags": [
+        "flash-era"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "professor-brothers-jfk",
+      "title": "The Professor Brothers: History Lesson (JFK)",
+      "year": 2009,
+      "source": "youtube",
+      "embedId": "K7y2xPucnAo",
+      "play": [
+        {
+          "kind": "wayback",
+          "id_or_url": "K7y2xPucnAo",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "K7y2xPucnAo",
+          "official": false,
+          "uploader": "TheRealBradNeely"
+        }
+      ],
+      "duration": 163,
+      "note": "The Professor Brothers' homemade animated comedy, shared across the web.",
+      "credit": "https://www.youtube.com/watch?v=K7y2xPucnAo",
+      "signals": [
+        "a",
+        "b",
+        "d"
+      ],
+      "why": "The Professor Brothers' homemade animated comedy, shared across the web.",
+      "original_url": "https://www.youtube.com/watch?v=K7y2xPucnAo",
+      "tags": [
+        "flash-era"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "code-monkey",
+      "title": "Code Monkey",
+      "year": 2006,
+      "source": "youtube",
+      "embedId": "v4Wy7gRGgeA",
+      "play": [
+        {
+          "kind": "wayback",
+          "id_or_url": "v4Wy7gRGgeA",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "v4Wy7gRGgeA",
+          "official": false,
+          "uploader": "spiffworld"
+        }
+      ],
+      "duration": 229,
+      "note": "Jonathan Coulton's programmer anthem, passed around developer forums for years.",
+      "credit": "https://www.youtube.com/watch?v=v4Wy7gRGgeA",
+      "signals": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "why": "Jonathan Coulton's programmer anthem, passed around developer forums for years.",
+      "original_url": "https://www.youtube.com/watch?v=v4Wy7gRGgeA",
+      "tags": [
+        "remix-and-music"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "mitt-romney-style",
+      "title": "Mitt Romney Style",
+      "year": 2012,
+      "source": "youtube",
+      "embedId": "TKSMOAgaeBw",
+      "play": [
+        {
+          "kind": "wayback",
+          "id_or_url": "TKSMOAgaeBw",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "TKSMOAgaeBw",
+          "official": false,
+          "uploader": "ahmedshawkey2120922"
+        }
+      ],
+      "duration": 147,
+      "note": "The parody that went viral in its own right in the Gangnam wave.",
+      "credit": "https://www.youtube.com/watch?v=TKSMOAgaeBw",
+      "signals": [
+        "a",
+        "b",
+        "d"
+      ],
+      "why": "The parody that went viral in its own right in the Gangnam wave.",
+      "original_url": "https://www.youtube.com/watch?v=TKSMOAgaeBw",
+      "tags": [
+        "remix-and-music"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "hitler-downfall-parodies",
+      "title": "Hitler Rants About the Downfall Parodies",
+      "year": 2010,
+      "source": "youtube",
+      "embedId": "5fAQKa8rU_4",
+      "play": [
+        {
+          "kind": "wayback",
+          "id_or_url": "5fAQKa8rU_4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "5fAQKa8rU_4",
+          "official": false,
+          "uploader": "Hitler Rants Parodies"
+        }
+      ],
+      "duration": 173,
+      "note": "A remix of the Downfall scene about its own takedown; the remix itself is what spread.",
+      "credit": "https://www.youtube.com/watch?v=5fAQKa8rU_4",
+      "signals": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ],
+      "why": "A remix of the Downfall scene about its own takedown; the remix itself is what spread.",
+      "original_url": "https://www.youtube.com/watch?v=5fAQKa8rU_4",
+      "tags": [
+        "remix-and-music"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "morshu",
+      "title": "Morshu (Zelda CD-i)",
+      "year": 1993,
+      "source": "youtube",
+      "embedId": "en5Kgc9Be3g",
+      "play": [
+        {
+          "kind": "wayback",
+          "id_or_url": "en5Kgc9Be3g",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "en5Kgc9Be3g",
+          "official": false,
+          "uploader": "Kingcharted3"
+        }
+      ],
+      "duration": 16,
+      "note": "The CD-i shopkeeper, a cornerstone of YouTube Poop.",
+      "credit": "https://www.youtube.com/watch?v=en5Kgc9Be3g",
+      "signals": [
+        "b",
+        "c",
+        "e"
+      ],
+      "why": "The CD-i shopkeeper, a cornerstone of YouTube Poop.",
+      "original_url": "https://www.youtube.com/watch?v=en5Kgc9Be3g",
+      "tags": [
+        "gaming-legends"
+      ],
+      "added": "2026-11-01"
     }
   ]
 }

@@ -2784,6 +2784,83 @@
       "why": "The Finnish board bear with the broken grin: ebin :DDD",
       "original_url": "https://knowyourmeme.com/memes/spurdo-sparde",
       "kind": "meme"
+    },
+    {
+      "id": "darude-sandstorm",
+      "title": "Darude - Sandstorm",
+      "year": 1999,
+      "source": "archive.org",
+      "embedId": "youtube-y6120QOlsfU",
+      "play": [
+        {
+          "kind": "archive",
+          "id_or_url": "youtube-y6120QOlsfU",
+          "file": "Darude_-_Sandstorm-y6120QOlsfU.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "y6120QOlsfU",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "y6120QOlsfU",
+          "official": false,
+          "uploader": "Darude"
+        }
+      ],
+      "duration": 232,
+      "note": "Suomen tunnetuin konemusiikkihitti, josta tuli maailmanlaajuinen meemi (Wikipedian luettelo internetilmiöistä).",
+      "credit": "https://www.youtube.com/watch?v=y6120QOlsfU",
+      "signals": [
+        "b",
+        "c",
+        "e"
+      ],
+      "why": "Suomen tunnetuin konemusiikkihitti, josta tuli maailmanlaajuinen meemi (Wikipedian luettelo internetilmiöistä).",
+      "original_url": "https://www.youtube.com/watch?v=y6120QOlsfU",
+      "tags": [
+        "suomi-netti"
+      ],
+      "added": "2026-11-01"
+    },
+    {
+      "id": "tsajajajaja",
+      "title": "Tsajajajaja (alkuperäinen)",
+      "year": 2011,
+      "source": "youtube",
+      "embedId": "UZMcLnccE-I",
+      "play": [
+        {
+          "kind": "wayback",
+          "id_or_url": "UZMcLnccE-I",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "youtube",
+          "id_or_url": "UZMcLnccE-I",
+          "official": false,
+          "uploader": "jonnees98"
+        }
+      ],
+      "duration": 27,
+      "note": "MTV Uutisten listaama suomalainen viraaliklassikko.",
+      "credit": "https://www.youtube.com/watch?v=UZMcLnccE-I",
+      "signals": [
+        "a",
+        "b",
+        "d"
+      ],
+      "why": "MTV Uutisten listaama suomalainen viraaliklassikko.",
+      "original_url": "https://www.youtube.com/watch?v=UZMcLnccE-I",
+      "tags": [
+        "suomi-netti"
+      ],
+      "added": "2026-11-01"
     }
   ]
 }

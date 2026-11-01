@@ -1,0 +1,731 @@
+{
+ "note": "Hand-judged from scored.json against CLASSIC.md. block = program theme; cats = categories.json ids.",
+ "international": [
+  [
+   "mongodb-web-scale",
+   "Episode 1 - MongoDB Is Web Scale",
+   "b2F-DItXtZs",
+   2010,
+   "hacker-classics",
+   [
+    "komedia"
+   ],
+   "abce",
+   "Xtranormal rant that every developer forum passed around; still the shorthand for hype-driven tech."
+  ],
+  [
+   "retro-encabulator",
+   "Rockwell Retro Encabulator",
+   "RXJKdh1KZ0w",
+   1977,
+   "hacker-classics",
+   [
+    "komedia"
+   ],
+   "bce",
+   "Deadpan engineering nonsense from an industrial film; a staple of forums and the top link on Hacker News threads."
+  ],
+  [
+   "ballmer-laughs-iphone",
+   "Ballmer Laughs at iPhone",
+   "eywi0h_Y5_U",
+   2007,
+   "hacker-classics",
+   [
+    "komedia",
+    "fails"
+   ],
+   "bce",
+   "Steve Ballmer laughing off the iPhone, passed around ever since as the classic bad tech call."
+  ],
+  [
+   "ballmer-developers",
+   "Steve Ballmer: Developers",
+   "Vhh_GeBPOhs",
+   2000,
+   "hacker-classics",
+   [
+    "komedia"
+   ],
+   "bce",
+   "Ballmer chanting developers on stage: one of the earliest corporate clips remixed across the web."
+  ],
+  [
+   "today-show-what-is-internet",
+   "1994 Today Show: What Is the Internet, Anyway?",
+   "UlJku_CSyNg",
+   1994,
+   "hacker-classics",
+   [
+    "komedia"
+   ],
+   "bce",
+   "Anchors puzzling over the at sign; the clip the web shares about itself."
+  ],
+  [
+   "bill-gates-bsod",
+   "Bill Gates, Windows 98, Blue Screen of Death",
+   "IW7Rqwwth84",
+   1998,
+   "hacker-classics",
+   [
+    "fails",
+    "komedia"
+   ],
+   "bce",
+   "The Windows 98 demo crash in front of Gates; the most-shared computer failure of the dial-up years."
+  ],
+  [
+   "chain-of-fools-windows",
+   "Chain of Fools: Upgrading Through Every Version of Windows",
+   "vPnehDhGa14",
+   2011,
+   "hacker-classics",
+   [
+    "gaming"
+   ],
+   "abd",
+   "One person's homemade upgrade run from Windows 1 onward, shared widely on tech sites."
+  ],
+  [
+   "elevated-demo",
+   "Elevated by RGBA and TBC (4k intro)",
+   "jB0vBmiTr6o",
+   2009,
+   "hacker-classics",
+   [
+    "animaatio"
+   ],
+   "abde",
+   "The 4-kilobyte demo that made the demoscene's point to the wider web."
+  ],
+  [
+   "nuclear-explosions-map",
+   "A Time-Lapse Map of Every Nuclear Explosion Since 1945",
+   "LLCF7vPanrY",
+   2003,
+   "hacker-classics",
+   [
+    "dokkarit"
+   ],
+   "bcd",
+   "Isao Hashimoto's art piece, one artist's own work, that went viral through forums years later."
+  ],
+  [
+   "bigdog-robot",
+   "Boston Dynamics BigDog (March 2008)",
+   "W1czBcnX1Ww",
+   2008,
+   "hacker-classics",
+   [
+    "dokkarit"
+   ],
+   "abc",
+   "The robot that keeps its footing when kicked: an engineering clip that went everywhere."
+  ],
+  [
+   "bel-air-vs-malibu",
+   "1959 Chevrolet Bel Air vs. 2009 Chevrolet Malibu Crash Test",
+   "C_r5UJrxcck",
+   2009,
+   "hacker-classics",
+   [
+    "fails"
+   ],
+   "bc e",
+   "The crash-test comparison that keeps coming back in comment threads."
+  ],
+  [
+   "animusic-pipe-dream",
+   "Pipe Dream - Animusic",
+   "hyCIpKAIFyo",
+   2001,
+   "hacker-classics",
+   [
+    "animaatio",
+    "mtv"
+   ],
+   "bcd",
+   "Computer-animated ball-and-pipe music that circulated by email for years."
+  ],
+  [
+   "dollar-shave-club",
+   "DollarShaveClub.com: Our Blades Are F***ing Great",
+   "ZUG9qYTJMsI",
+   2012,
+   "ads-that-went-viral",
+   [
+    "komedia"
+   ],
+   "abcd",
+   "A homemade startup pitch that became a viral hit."
+  ],
+  [
+   "flea-market-montgomery",
+   "Flea Market Montgomery (Long Version)",
+   "FJ3oHpup-pk",
+   2006,
+   "ads-that-went-viral",
+   [
+    "komedia"
+   ],
+   "bcde",
+   "A local Alabama TV spot that became a YouTube favourite and a quoted jingle."
+  ],
+  [
+   "honda-cog",
+   "Honda: The Cog",
+   "bl2U1p3fVRk",
+   2003,
+   "ads-that-went-viral",
+   [
+    "dokkarit"
+   ],
+   "bce",
+   "The chain-reaction ad mailed around offices in the early web years."
+  ],
+  [
+   "sony-bravia-balls",
+   "Sony BRAVIA: Balls",
+   "0_bx8bnCoiU",
+   2005,
+   "ads-that-went-viral",
+   [
+    "komedia"
+   ],
+   "bce",
+   "Bouncy balls down a San Francisco hill: one of the first ads shared for pleasure."
+  ],
+  [
+   "kxvo-pumpkin-dance",
+   "KXVO Pumpkin Dance",
+   "v4IC7qaNr7I",
+   2003,
+   "ads-that-went-viral",
+   [
+    "komedia"
+   ],
+   "bcd",
+   "A local-TV station's homemade Halloween bumper that became a meme."
+  ],
+  [
+   "united-breaks-guitars",
+   "United Breaks Guitars",
+   "5YGc4zOqozo",
+   2009,
+   "ads-that-went-viral",
+   [
+    "mtv",
+    "fails"
+   ],
+   "abcd",
+   "Dave Carroll's song against an airline: the textbook case of a customer going viral."
+  ],
+  [
+   "powerthirst",
+   "Powerthirst",
+   "qRuNxHqwazs",
+   2007,
+   "early-web-comedy",
+   [
+    "komedia"
+   ],
+   "abcd",
+   "CollegeHumor's energy-drink parody; quoted for years."
+  ],
+  [
+   "old-gregg",
+   "Old Gregg (Full Version)",
+   "XxaP19pY1FI",
+   2005,
+   "early-web-comedy",
+   [
+    "komedia"
+   ],
+   "bce",
+   "The Mighty Boosh sketch that spread far past its broadcast."
+  ],
+  [
+   "front-fell-off",
+   "Clarke and Dawe: The Front Fell Off",
+   "3m5qxZm_JqM",
+   1991,
+   "early-web-comedy",
+   [
+    "komedia",
+    "asiaa"
+   ],
+   "bce",
+   "An Australian mock interview that found its global audience online."
+  ],
+  [
+   "between-two-ferns-hamm",
+   "Between Two Ferns: Jon Hamm",
+   "gDwfQjxbFBM",
+   2008,
+   "early-web-comedy",
+   [
+    "komedia",
+    "asiaa"
+   ],
+   "abc",
+   "Funny or Die's awkward web talk show, watched and quoted online first."
+  ],
+  [
+   "louis-ck-everything-amazing",
+   "Louis CK: Everything Is Amazing and Nobody Is Happy",
+   "nUBtKNzoKZ4",
+   2008,
+   "early-web-comedy",
+   [
+    "komedia",
+    "asiaa"
+   ],
+   "bce",
+   "The Conan rant that became the internet's favourite speech about itself."
+  ],
+  [
+   "reporter-swallows-fly",
+   "News Reporter Swallows Fly",
+   "4vb52e-CBSQ",
+   2009,
+   "early-web-comedy",
+   [
+    "fails"
+   ],
+   "bc d",
+   "A live-TV blooper that did the rounds of every clip site."
+  ],
+  [
+   "alamo-drafthouse-voicemail",
+   "Angry Voicemail We Got From an Alamo Drafthouse Customer",
+   "1L3eeC2lJZs",
+   2011,
+   "early-web-comedy",
+   [
+    "komedia"
+   ],
+   "abc",
+   "A cinema made an ad of a customer's voicemail and it was shared everywhere."
+  ],
+  [
+   "troops-star-wars",
+   "Troops (1997)",
+   "5HO70-Rk3jE",
+   1997,
+   "early-web-comedy",
+   [
+    "komedia",
+    "dokkarit"
+   ],
+   "abcde",
+   "Star Wars meets COPS; the fan film that started net-distributed fan films."
+  ],
+  [
+   "plinkett-phantom-menace",
+   "Star Wars: The Phantom Menace Review (Part 1)",
+   "FxKtZmQgxrI",
+   2009,
+   "early-web-comedy",
+   [
+    "dokkarit",
+    "komedia"
+   ],
+   "abcde",
+   "RedLetterMedia's long review that forums passed along and still cite."
+  ],
+  [
+   "jon-stewart-crossfire",
+   "Jon Stewart on Crossfire",
+   "aFQFB5YpDZE",
+   2004,
+   "early-web-comedy",
+   [
+    "asiaa"
+   ],
+   "bce",
+   "One of the clips that pushed video sharing into the mainstream."
+  ],
+  [
+   "max-headroom-incident",
+   "Max Headroom WTTW Pirating Incident",
+   "tWdgAMYjYSs",
+   1987,
+   "early-web-comedy",
+   [
+    "asiaa",
+    "fails"
+   ],
+   "bce",
+   "The broadcast hijack that lives on as a web legend."
+  ],
+  [
+   "xiao-xiao",
+   "Xiao Xiao 1",
+   "xNLU0oMG3ZU",
+   2001,
+   "flash-era",
+   [
+    "animaatio"
+   ],
+   "abde",
+   "Zhu Zhiqiang's stick-figure Flash fights, a touchstone of the portals."
+  ],
+  [
+   "here-comes-pacman",
+   "Here Comes Pacman",
+   "vaduxxx61z8",
+   2001,
+   "flash-era",
+   [
+    "animaatio",
+    "gaming"
+   ],
+   "abd",
+   "An early Flash loop that bounced through portals and forwards."
+  ],
+  [
+   "weebl-and-bob-pie",
+   "Weebl and Bob: Pie",
+   "s3Gdezyt8eY",
+   2002,
+   "flash-era",
+   [
+    "animaatio"
+   ],
+   "abcde",
+   "The first episode of the British Flash series about pie."
+  ],
+  [
+   "strong-bad-email-22",
+   "Strong Bad Email #22",
+   "XPGJMno18kI",
+   2001,
+   "flash-era",
+   [
+    "animaatio"
+   ],
+   "abcde",
+   "Homestar Runner's email series in its early, defining run."
+  ],
+  [
+   "ballad-of-the-sneak",
+   "Ballad of The Sneak",
+   "SEkqtMw4aYs",
+   2002,
+   "flash-era",
+   [
+    "animaatio",
+    "mtv"
+   ],
+   "abcd",
+   "A short Homestar Runner song that fans quote to this day."
+  ],
+  [
+   "stone-trek-2",
+   "Stone Trek: 20001 BC, A Space Oddity",
+   "PfPth2GqkTk",
+   2006,
+   "flash-era",
+   [
+    "animaatio"
+   ],
+   "abd",
+   "A Flash mash of the Flintstones and Star Trek that ran on the portals."
+  ],
+  [
+   "we-drink-ritalin",
+   "Animutation: We Drink Ritalin",
+   "PffpCsDmZPI",
+   2002,
+   "flash-era",
+   [
+    "animaatio",
+    "mtv"
+   ],
+   "abde",
+   "Neil Cicierega's animutation form at its height."
+  ],
+  [
+   "tokyo-plastic-drum-machine",
+   "Tokyo Plastic: Drum Machine",
+   "EZ7k5jNVsuA",
+   2003,
+   "flash-era",
+   [
+    "animaatio",
+    "mtv"
+   ],
+   "abd",
+   "An animated drum loop passed around Flash sites."
+  ],
+  [
+   "professor-brothers-jfk",
+   "The Professor Brothers: History Lesson (JFK)",
+   "K7y2xPucnAo",
+   2009,
+   "flash-era",
+   [
+    "animaatio",
+    "komedia"
+   ],
+   "abd",
+   "The Professor Brothers' homemade animated comedy, shared across the web."
+  ],
+  [
+   "nope-avi",
+   "nope.avi",
+   "gvdf5n-zI14",
+   2006,
+   "flash-era",
+   [
+    "memes",
+    "komedia"
+   ],
+   "abd",
+   "One word, one short clip: the reply format of a generation of forums."
+  ],
+  [
+   "do-you-like-waffles",
+   "Parry Gripp: Do You Like Waffles?",
+   "UtlaTNI1TaU",
+   2005,
+   "flash-era",
+   [
+    "mtv",
+    "animaatio"
+   ],
+   "abd",
+   "The waffle song and its Flash cartoon, on every portal."
+  ],
+  [
+   "bieber-800-slower",
+   "Justin Bieber 800% Slower",
+   "QspuCt1FM9M",
+   2010,
+   "remix-and-music",
+   [
+    "mtv"
+   ],
+   "abd",
+   "A homemade slowdown that started a whole remix genre."
+  ],
+  [
+   "four-chord-song",
+   "Axis of Awesome: Four Chord Song",
+   "5pidokakU4I",
+   2009,
+   "remix-and-music",
+   [
+    "mtv",
+    "komedia"
+   ],
+   "abc",
+   "The comedy band's medley that every music forum linked."
+  ],
+  [
+   "prisencolinensinainciusol",
+   "Adriano Celentano: Prisencolinensinainciusol",
+   "-VsmF9m_Nt8",
+   1972,
+   "remix-and-music",
+   [
+    "mtv"
+   ],
+   "bce",
+   "A 1970s Italian TV clip in fake English, rediscovered and spread by the web."
+  ],
+  [
+   "code-monkey",
+   "Code Monkey",
+   "v4Wy7gRGgeA",
+   2006,
+   "remix-and-music",
+   [
+    "mtv",
+    "animaatio"
+   ],
+   "abcd",
+   "Jonathan Coulton's programmer anthem, passed around developer forums for years."
+  ],
+  [
+   "mitt-romney-style",
+   "Mitt Romney Style",
+   "TKSMOAgaeBw",
+   2012,
+   "remix-and-music",
+   [
+    "mtv",
+    "komedia"
+   ],
+   "abd",
+   "The parody that went viral in its own right in the Gangnam wave."
+  ],
+  [
+   "hitler-downfall-parodies",
+   "Hitler Rants About the Downfall Parodies",
+   "5fAQKa8rU_4",
+   2010,
+   "remix-and-music",
+   [
+    "komedia"
+   ],
+   "abcde",
+   "A remix of the Downfall scene about its own takedown; the remix itself is what spread."
+  ],
+  [
+   "caruso-one-liners",
+   "CSI Miami: Endless Caruso One-Liners",
+   "_sarYH0z948",
+   2006,
+   "remix-and-music",
+   [
+    "komedia"
+   ],
+   "abd",
+   "A supercut of the sunglasses move; a key early fan edit."
+  ],
+  [
+   "macys-rickroll",
+   "Macy's Thanksgiving Parade RickRoll",
+   "wL-hNMJvcyI",
+   2008,
+   "remix-and-music",
+   [
+    "mtv",
+    "komedia"
+   ],
+   "bce",
+   "The moment the meme reached prime-time television."
+  ],
+  [
+   "wombo-combo",
+   "WOMBO COMBO!!!!",
+   "pD_imYhNoQ4",
+   2008,
+   "gaming-legends",
+   [
+    "gaming"
+   ],
+   "abcde",
+   "Melee's fan-filmed combo and its commentary; a phrase across gaming."
+  ],
+  [
+   "fus-ro-dah",
+   "FUS RO DAH",
+   "1j-EyBNZozE",
+   2011,
+   "gaming-legends",
+   [
+    "gaming",
+    "komedia"
+   ],
+   "abcd",
+   "A Skyrim gag that made every console player shout along."
+  ],
+  [
+   "morshu",
+   "Morshu (Zelda CD-i)",
+   "en5Kgc9Be3g",
+   1993,
+   "gaming-legends",
+   [
+    "gaming",
+    "komedia"
+   ],
+   "bce",
+   "The CD-i shopkeeper, a cornerstone of YouTube Poop."
+  ],
+  [
+   "golden-balls-split-steal",
+   "Golden Balls: The Weirdest Split or Steal Ever",
+   "S0qjK3TWZE8",
+   2008,
+   "game-shows",
+   [
+    "visailut"
+   ],
+   "bce",
+   "The UK game-show round that game theorists and everyone else keep linking."
+  ]
+ ],
+ "suomi": [
+  [
+   "darude-sandstorm",
+   "Darude - Sandstorm",
+   "y6120QOlsfU",
+   1999,
+   "suomi-netti",
+   [
+    "mtv",
+    "memes"
+   ],
+   "bce",
+   "Suomen tunnetuin konemusiikkihitti, josta tuli maailmanlaajuinen meemi (Wikipedian luettelo internetilmiöistä)."
+  ],
+  [
+   "tsajajajaja",
+   "Tsajajajaja (alkuperäinen)",
+   "UZMcLnccE-I",
+   2011,
+   "suomi-netti",
+   [
+    "komedia"
+   ],
+   "abd",
+   "MTV Uutisten listaama suomalainen viraaliklassikko."
+  ]
+ ],
+ "held": [
+  {
+   "id": "perkele-siihen-et-koske",
+   "yt": "08fUSda0ONA",
+   "why": "oldest upload evidence is 2017 or later, or none; pre-2014 not proven"
+  },
+  {
+   "id": "turo-puhuu-siansaksaa",
+   "yt": "sVpe-_uhEZw",
+   "why": "oldest upload evidence is 2017 or later, or none; pre-2014 not proven"
+  },
+  {
+   "id": "annin-lempielain-pupu",
+   "yt": "clQkI3M_EBE",
+   "why": "oldest upload evidence is 2017 or later, or none; pre-2014 not proven"
+  },
+  {
+   "id": "ei-se-virpominen",
+   "yt": "Hm2I1nJ95A4",
+   "why": "oldest upload evidence is 2017 or later, or none; pre-2014 not proven"
+  },
+  {
+   "id": "second-reality",
+   "yt": "iw17c70uJes",
+   "why": "no stream played in either browser"
+  },
+  {
+   "id": "keynes-vs-hayek",
+   "yt": "d0nERTFo-Sk",
+   "why": "failed one browser in each of two runs"
+  },
+  {
+   "id": "old-spice-man",
+   "yt": "owGykVbfgUE",
+   "why": "WebKit: stream failed, fallback silent, two runs"
+  },
+  {
+   "id": "gymkhana-five",
+   "yt": "LuDN2bCIyus",
+   "why": "WebKit failed two runs"
+  },
+  {
+   "id": "benny-lava",
+   "yt": "sdyC1BrQd6g",
+   "why": "Wayback copy has no sound; flv otherwise"
+  },
+  {
+   "id": "caines-arcade",
+   "yt": "faIFNkdq96U",
+   "why": "no stream played in either browser on the 9s run"
+  }
+ ]
+}

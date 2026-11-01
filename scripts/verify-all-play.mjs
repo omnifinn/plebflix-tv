@@ -17,6 +17,7 @@ const browsers = String(arg("browsers", "chrome,webkit")).split(",");
 const only = arg("only", "") ? new Set(String(arg("only", "")).split(",")) : null;
 const workers = Number(arg("concurrency", 4));
 const budgetMs = Number(arg("timeout", 40000));
+const holdMs = Number(arg("hold", 0)) * 1000; // --hold 9: a stream must keep running this long after it starts
 const META = new Set(["categories.json", "schedule.json", "index.json"]);
 
 const tapes = [];
@@ -109,7 +110,17 @@ async function proveTape(browser, tape) {
           const tracks = vid.audioTracks?.length ?? -1;
           return { time: vid.currentTime, sound: audio > 0 || tracks > 0 };
         });
-        if (after.time > before && after.sound) result.status = "PLAYING";
+        if (after.time > before && after.sound) {
+          result.status = "PLAYING";
+          if (holdMs) {
+            await page.waitForTimeout(holdMs);
+            const later = await page.evaluate(() => document.querySelector("#vid")?.currentTime ?? -1);
+            if (later <= after.time) {
+              result.status = "FAILED";
+              notes.push(`stalled within ${holdMs / 1000}s`);
+            }
+          }
+        }
         else if (after.time > before) notes.push("picture but no sound");
       }
       if (result.status === "PLAYING") break;
