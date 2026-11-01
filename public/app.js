@@ -410,7 +410,7 @@ function updateChrome(spot) {
   $("tally-down").textContent = counts ? String(counts.down) : "-";
   $("tally").setAttribute("aria-label", counts ? `${counts.up} up, ${counts.down} down` : "Nothing to vote on");
 
-  $("sound-hint").hidden = soundOn || mode === "stopped";
+  $("sound-hint").hidden = soundAllowed() || mode === "stopped";
 
   // SOURCE pill → the tape's original_url
   const source = $("source");
@@ -780,7 +780,7 @@ function playArchive(item, source, offset, attempt = 0) {
   vid.hidden = false;
   // The element paints black until its first frame after the seek. The poster stays up until the stream plays.
   vid.style.opacity = "0";
-  vid.muted = !soundOn;
+  vid.muted = !soundAllowed();
   vid.onloadedmetadata = () => {
     vid.onloadedmetadata = null;
     if (offset > 1 && Number.isFinite(vid.duration)) vid.currentTime = Math.min(offset, Math.max(0, vid.duration - 1));
@@ -974,14 +974,35 @@ async function startSource(item, offset, gen) {
   watchYoutube(item);
 }
 
+/**
+ * Sound is remembered for the tab, but a new page has had no tap yet and the browser refuses unmuted autoplay, which
+ * leaves YouTube's big play button up. Until this page has been tapped, a tape starts muted.
+ */
+function soundAllowed() {
+  return soundOn && (navigator.userActivation?.hasBeenActive ?? true);
+}
+
+/** Muted autoplay always runs. If a start was refused anyway, go muted, try again, and offer the tap. */
+function ensureStarted(target) {
+  setTimeout(() => {
+    if (target !== player || mode === "paused" || mode === "stopped") return;
+    const state = target.getPlayerState?.();
+    if (state === 1 || state === 3) return;
+    target.mute?.();
+    target.playVideo?.();
+    $("sound-hint").hidden = false;
+  }, 1500);
+}
+
 function onReady(event) {
   player = event?.target || player;
   if (mode === "paused") player?.pauseVideo?.();
-  if (soundOn) {
+  if (soundAllowed()) {
     player?.unMute?.();
     player?.setVolume?.(100);
   } else {
     player?.mute?.();
+    if (mode !== "paused") $("sound-hint").hidden = false;
   }
   if (mode === "paused") return;
   // Safari and others ignore the autoplay param, and start= is stale once the player has loaded. Mute comes first.
@@ -991,6 +1012,7 @@ function onReady(event) {
     player?.seekTo?.(spot.offset, true);
   }
   player?.playVideo?.();
+  ensureStarted(player);
 }
 
 function currentPlayer(event) {
@@ -1120,8 +1142,8 @@ async function loadCurrent(force) {
 
 /* ── The next tape, loaded ahead (A/B players) ────────────────────────────────────────────────────────────────── */
 
-/** Start loading this many seconds before the cut. A slow archive start is about 15 seconds. */
-const PRELOAD_SECONDS = 30;
+/** The next tape starts loading this long after this one starts, so SKIP cuts as cleanly as a natural end. */
+const PRELOAD_AFTER_SECONDS = 3;
 /** How long a source being prepared gets to prove it plays before the next one is tried. */
 const PREPARE_TIMEOUT_MS = 20000;
 /** Seconds a prepared stream plays, muted and hidden, so a decode fault shows before the cut. */
@@ -1145,7 +1167,7 @@ function orderedSources(item) {
 function prepareNext(spot, items) {
   if (mode !== "live" && mode !== "timeshift") return;
   if (playMode !== "live" || document.hidden) return;
-  if (spot.item.duration - spot.offset > PRELOAD_SECONDS) return;
+  if (spot.offset < PRELOAD_AFTER_SECONDS && spot.item.duration - spot.offset > PRELOAD_AFTER_SECONDS) return;
   const index = (spot.index + 1) % items.length;
   const item = items[index];
   if (!item || item.kind === "ident" || item.id === spot.item.id) return;
@@ -1317,7 +1339,7 @@ function cancelPrepared() {
  */
 function cutToPrepared(key, offset) {
   const job = prepared;
-  if (!job || !job.ready || job.key !== key || !key) return false;
+  if (!job || !job.ready || job.key !== key || !key || mode === "paused") return false;
   const source = job.source;
   clearTimeout(prepareTimer);
   prepared = null;
@@ -1351,11 +1373,12 @@ function cutToPrepared(key, offset) {
     player = nextPlayer;
     playerKind = "youtube";
     if (start > 1) player.seekTo(start, true);
-    if (soundOn) {
+    if (soundAllowed()) {
       player.unMute?.();
       player.setVolume?.(100);
     }
     player.playVideo();
+    ensureStarted(player);
   } else if (source.kind === "vimeo") {
     const old = $("embed");
     const frame = document.getElementById("embed-next");
@@ -1386,7 +1409,7 @@ function cutToPrepared(key, offset) {
     vid.ontimeupdate = null;
     vid.style.opacity = "1";
     vid.hidden = false;
-    vid.muted = !soundOn;
+    vid.muted = !soundAllowed();
     if (start > 1 && Number.isFinite(vid.duration)) vid.currentTime = Math.min(start, Math.max(0, vid.duration - 1));
     vid.play().catch(() => {
       vid.muted = true;
@@ -2342,7 +2365,10 @@ export function seekTo(pos, opts = {}) {
   shiftKind = kind;
   if (mode === "paused") pausePos = next;
   else setTimeshift(next, kind);
-  if (!opts.quiet) glitch();
+  // A prepared target cuts in at once, so the tuning static would only hide it.
+  const target = spotAt(items, next);
+  const ready = prepared?.ready && target && prepared.key === `${channelId}:${broadcastCache?.day || dayKey(now())}:${target.index}:${target.item.id}`;
+  if (!opts.quiet && !ready) glitch();
   loadCurrent(true);
 }
 function currentSpot() {

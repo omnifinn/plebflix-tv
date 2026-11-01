@@ -8,8 +8,8 @@ Newest first. One entry per decision: date · who · decision · why · source.
   source walk run ahead of time, then swapped in at the cut.
 - **Decision (Claude):** the 8-second gap was the scheduled station ident, so `channels/schedule.json` sets
   `idents: false`. This takes the idents out of the broadcast and changes today's running order on every device. Set
-  `idents: true` to restore them. Fixed slots still land exactly. Preloading starts 30 seconds before the cut, and only
-  in a visible tab, because that costs the viewer data.
+  `idents: true` to restore them. Fixed slots still land exactly. Preloading starts 3 seconds into each tape, so SKIP is
+  instant too (Page, 2026-11-01), and only in a visible tab. The hidden player costs the viewer extra data on every tape.
 - **Why:** Niko: "there is an ~8 second empty gap between clips. Transitions must be 100% seamless."
 - **Source:** `public/app.js` (`prepareNext`, `cutToPrepared`), `public/schedule.js`.
 
