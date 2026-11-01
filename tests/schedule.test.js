@@ -216,3 +216,20 @@ test("the checked-in schedule.json resolves for every channel and keeps the line
     assert.ok(totalDuration(broadcast) >= 24 * 3600, `${id} covers the day`);
   }
 });
+
+test("idents: false airs clips back to back, and a slot gap is still landed", async () => {
+  const { resolveDefinition } = await import("../public/schedule.js");
+  const channel = { id: "suomi", number: 1, name: "Suomi", items: Array.from({ length: 30 }, (_, i) => ({ id: `t${i}`, duration: 60 + i })) };
+  const day = Date.UTC(2026, 9, 26);
+  const plain = buildBroadcast(channel, day, {}, resolveDefinition({ defaults: { idents: false } }, "suomi"));
+  assert.equal(plain.filter((entry) => entry.kind === "ident").length, 0);
+  assert.ok(plain.reduce((sum, entry) => sum + entry.duration, 0) >= 86400);
+  const slot = buildBroadcast(channel, day, {}, resolveDefinition({ defaults: { idents: false, slots: [{ at: "12:00", tape: "t3" }] } }, "suomi"));
+  let at = 0;
+  let landed = false;
+  for (const entry of slot) {
+    if (entry.id === "t3" && at === 43200) landed = true;
+    at += entry.duration;
+  }
+  assert.equal(landed, true);
+});

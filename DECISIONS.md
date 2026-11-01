@@ -2,6 +2,17 @@
 
 Newest first. One entry per decision: date · who · decision · why · source.
 
+## 2026-11-01 · Niko via Page, Claude (session) · Tapes air back to back through A/B players
+
+- **Decision (Niko):** transitions are 100% seamless: the next tape is preloaded in a hidden second player with the
+  source walk run ahead of time, then swapped in at the cut.
+- **Decision (Claude):** the 8-second gap was the scheduled station ident, so `channels/schedule.json` sets
+  `idents: false`. This takes the idents out of the broadcast and changes today's running order on every device. Set
+  `idents: true` to restore them. Fixed slots still land exactly. Preloading starts 30 seconds before the cut, and only
+  in a visible tab, because that costs the viewer data.
+- **Why:** Niko: "there is an ~8 second empty gap between clips. Transitions must be 100% seamless."
+- **Source:** `public/app.js` (`prepareNext`, `cutToPrepared`), `public/schedule.js`.
+
 ## 2026-11-01 · Niko via Page · YouTube stays first on every tape that has it; other sources are fallbacks only
 
 - **Decision:** every YouTube upload is tried first, on `youtube-nocookie.com` then `www.youtube.com`, with `origin`,

@@ -756,7 +756,7 @@ function unlockSound() {
   }
 }
 
-const vid = $("vid");
+let vid = $("vid");
 
 function stopVideo() {
   clearTimeout(streamTimer);
@@ -856,7 +856,12 @@ function playVimeo(item, source, offset) {
 }
 
 window.addEventListener("message", (event) => {
-  if (event.origin !== "https://player.vimeo.com" || playerKind !== "vimeo") return;
+  if (event.origin !== "https://player.vimeo.com") return;
+  if (prepared?.kind === "vimeo" && event.source === document.getElementById("embed-next")?.contentWindow) {
+    onPreparedVimeo(event);
+    return;
+  }
+  if (playerKind !== "vimeo" || event.source !== $("embed").contentWindow) return;
   let data = event.data;
   try {
     if (typeof data === "string") data = JSON.parse(data);
@@ -1092,13 +1097,14 @@ async function loadCurrent(force) {
     return;
   }
   if (same && force && (playerKind === "image" || playerKind === "none")) return;
+  if (cutToPrepared(key, spot.offset)) return;
+  cancelPrepared();
 
   loadedKey = key;
   currentItem = spot.item;
-  sourceList = sources(spot.item);
   // YouTube stays first on every tape that has it. Each upload gets its nocookie embed, then www.youtube.com, because a
   // viewer's own sign-in only counts on www. The other sources are fallbacks. (Niko, 2026-11-01)
-  sourceList = sourceList.flatMap((source) => (source.kind === "youtube" ? [{ ...source, host: "https://www.youtube-nocookie.com" }, { ...source, host: "https://www.youtube.com" }] : [source]));
+  sourceList = orderedSources(spot.item);
   sourceAt = 0;
   markSource("");
   noteImpression(spot.item);
@@ -1110,6 +1116,284 @@ async function loadCurrent(force) {
   showPoster(spot.item);
   stopVideo();
   await startSource(spot.item, spot.offset, gen);
+}
+
+/* ── The next tape, loaded ahead (A/B players) ────────────────────────────────────────────────────────────────── */
+
+/** Start loading this many seconds before the cut. A slow archive start is about 15 seconds. */
+const PRELOAD_SECONDS = 30;
+/** How long a source being prepared gets to prove it plays before the next one is tried. */
+const PREPARE_TIMEOUT_MS = 20000;
+/** Seconds a prepared stream plays, muted and hidden, so a decode fault shows before the cut. */
+const STREAM_PROBE_SECONDS = 2.5;
+
+/**
+ * The tape after this one, being made ready underneath: { key, item, list, at, kind, source, ready, player }.
+ * The same source walk the player uses runs here, ahead of time, so a dead source is gone before the cut.
+ */
+let prepared = null;
+let prepareTimer = 0;
+
+function orderedSources(item) {
+  return sources(item).flatMap((source) =>
+    source.kind === "youtube"
+      ? [{ ...source, host: "https://www.youtube-nocookie.com" }, { ...source, host: "https://www.youtube.com" }]
+      : [source],
+  );
+}
+
+function prepareNext(spot, items) {
+  if (mode !== "live" && mode !== "timeshift") return;
+  if (playMode !== "live" || document.hidden) return;
+  if (spot.item.duration - spot.offset > PRELOAD_SECONDS) return;
+  const index = (spot.index + 1) % items.length;
+  const item = items[index];
+  if (!item || item.kind === "ident" || item.id === spot.item.id) return;
+  const key = `${channelId}:${broadcastCache?.day || dayKey(now())}:${index}:${item.id}`;
+  if (prepared?.key === key) return;
+  cancelPrepared();
+  prepared = { key, item, list: orderedSources(item), at: -1, kind: "", source: null, ready: false, player: null };
+  prepareSource(prepared);
+}
+
+/** Try the next source for the tape being prepared. Out of sources: the cut falls back to the normal load. */
+function prepareSource(job) {
+  if (job !== prepared) return;
+  clearPreparedPlayers();
+  job.at += 1;
+  job.ready = false;
+  const source = job.list[job.at];
+  job.source = source || null;
+  job.kind = source?.kind || "";
+  if (!source) return;
+  clearTimeout(prepareTimer);
+  prepareTimer = setTimeout(() => prepareSource(job), PREPARE_TIMEOUT_MS);
+  if (source.kind === "image") prepareImage(job, source);
+  else if (source.kind === "vimeo") prepareVimeo(job, source);
+  else if (source.kind === "youtube") prepareYoutube(job, source);
+  else prepareStream(job, source);
+}
+
+function preparedReady(job) {
+  if (job !== prepared) return;
+  clearTimeout(prepareTimer);
+  job.ready = true;
+}
+
+function prepareImage(job, source) {
+  const image = new Image();
+  image.onload = () => preparedReady(job);
+  image.onerror = () => prepareSource(job);
+  image.src = source.id;
+}
+
+function prepareStream(job, source) {
+  const next = $("vid-next");
+  next.hidden = false;
+  next.muted = true;
+  next.onerror = () => prepareSource(job);
+  const proven = () => {
+    next.ontimeupdate = next.onended = null;
+    next.pause();
+    next.currentTime = 0;
+    preparedReady(job);
+  };
+  // A tape shorter than the probe proves itself by reaching its end.
+  next.ontimeupdate = () => {
+    if (next.currentTime >= Math.min(STREAM_PROBE_SECONDS, (next.duration || Infinity) / 2)) proven();
+  };
+  next.onended = proven;
+  next.src = archiveFile(source);
+  next.play().catch(() => prepareSource(job));
+}
+
+function prepareVimeo(job, source) {
+  let frame = document.getElementById("embed-next");
+  if (!frame) {
+    frame = document.createElement("iframe");
+    frame.id = "embed-next";
+    frame.title = "Next embedded video";
+    frame.allow = "autoplay; fullscreen; picture-in-picture";
+    frame.referrerPolicy = "strict-origin-when-cross-origin";
+    $("embed").after(frame);
+  }
+  frame.src = `https://player.vimeo.com/video/${encodeURIComponent(source.id)}?autoplay=1&muted=1&controls=0&autopause=0&dnt=1`;
+}
+
+function onPreparedVimeo(event) {
+  const job = prepared;
+  const frame = document.getElementById("embed-next");
+  let data = event.data;
+  try {
+    if (typeof data === "string") data = JSON.parse(data);
+  } catch {
+    return;
+  }
+  const send = (method, value) => frame.contentWindow.postMessage(JSON.stringify(value === undefined ? { method } : { method, value }), "https://player.vimeo.com");
+  if (data?.event === "ready") {
+    for (const value of ["playing", "finish", "error", "playProgress"]) send("addEventListener", value);
+    send("play");
+  }
+  if (job.ready) return;
+  if (data?.event === "playing" || data?.event === "playProgress") {
+    send("pause");
+    send("setCurrentTime", 0);
+    preparedReady(job);
+  }
+  if (data?.event === "error") prepareSource(job);
+}
+
+function prepareYoutube(job, source) {
+  if (!window.YT?.Player) {
+    loadApi().then(() => prepareYoutube(job, source)).catch(() => prepareSource(job));
+    return;
+  }
+  if (job !== prepared || job.source !== source) return;
+  const mount = document.createElement("div");
+  mount.id = "yt-next";
+  $("poster").after(mount);
+  job.player = new window.YT.Player(mount, {
+    host: source.host,
+    width: "100%",
+    height: "100%",
+    videoId: source.id,
+    playerVars: { autoplay: 1, mute: 1, start: 0, controls: 0, disablekb: 1, fs: 0, modestbranding: 1, rel: 0, playsinline: 1, iv_load_policy: 3, origin: location.origin, widget_referrer: location.href },
+    events: {
+      onReady: (event) => {
+        event.target.mute();
+        event.target.playVideo();
+      },
+      onStateChange: (event) => {
+        if (event.target === player) {
+          onState(event);
+          return;
+        }
+        if (job === prepared && !job.ready && event.data === window.YT?.PlayerState?.PLAYING) {
+          event.target.pauseVideo();
+          event.target.seekTo(0, true);
+          preparedReady(job);
+        }
+      },
+      onError: (event) => {
+        if (event.target === player) onError(event);
+        else if (job === prepared) prepareSource(job);
+      },
+    },
+  });
+  job.player.ytHost = source.host;
+}
+
+/** Empties the hidden players, keeping the job. */
+function clearPreparedPlayers() {
+  clearTimeout(prepareTimer);
+  const next = $("vid-next");
+  next.onerror = next.ontimeupdate = next.onended = null;
+  next.hidden = true;
+  if (next.getAttribute("src")) {
+    next.removeAttribute("src");
+    next.load();
+  }
+  document.getElementById("embed-next")?.remove();
+  if (prepared?.player) {
+    try {
+      prepared.player.destroy();
+    } catch {
+      /* the iframe may already be gone */
+    }
+    prepared.player = null;
+  }
+  document.getElementById("yt-next")?.remove();
+}
+
+function cancelPrepared() {
+  if (!prepared) return;
+  clearPreparedPlayers();
+  prepared = null;
+}
+
+/**
+ * The cut. The next tape is already loaded and proven, so it takes the glass within this one task: no frame of poster
+ * or black is painted in between. False when nothing is ready, and the normal load runs instead.
+ */
+function cutToPrepared(key, offset) {
+  const job = prepared;
+  if (!job || !job.ready || job.key !== key || !key) return false;
+  const source = job.source;
+  clearTimeout(prepareTimer);
+  prepared = null;
+  const start = Math.max(0, offset);
+  const nextPlayer = job.player;
+  // Retire what was on the glass.
+  stopVideo();
+  destroyYoutube();
+  hideEmbed();
+  destroySwf();
+  hideCard();
+  clearTimeout(signalRetry);
+  loadedKey = key;
+  currentItem = job.item;
+  sourceList = job.list;
+  sourceAt = job.at;
+  loadGen += 1;
+  ignoreUntil = Date.now() + 3000;
+  noteImpression(job.item);
+  announceTape(job.item);
+  document.title = `${job.item.title} · Plebflix TV`;
+  markSource(`${source.kind}:${source.id}`);
+  if (source.kind === "image") {
+    showStill(job.item, source);
+    return true;
+  }
+  $("poster").style.opacity = "0";
+  if (source.kind === "youtube") {
+    const frame = document.getElementById("yt-next");
+    if (frame) frame.id = "yt";
+    player = nextPlayer;
+    playerKind = "youtube";
+    if (start > 1) player.seekTo(start, true);
+    if (soundOn) {
+      player.unMute?.();
+      player.setVolume?.(100);
+    }
+    player.playVideo();
+  } else if (source.kind === "vimeo") {
+    const old = $("embed");
+    const frame = document.getElementById("embed-next");
+    old.remove();
+    frame.id = "embed";
+    playerKind = "vimeo";
+    vimeoSource = source;
+    vimeoItem = job.item;
+    vimeoClock = start;
+    if (start > 1) vimeoSend("setCurrentTime", start);
+    if (soundOn) {
+      vimeoSend("setMuted", false);
+      vimeoSend("setVolume", 1);
+    }
+    vimeoSend("play");
+  } else {
+    // The two <video> elements trade names, so everything that looks for #vid finds the one on air.
+    const old = vid;
+    const next = $("vid-next");
+    old.id = "vid-next";
+    next.id = "vid";
+    vid = next;
+    playerKind = "archive";
+    vid.onerror = () => nextSource(job.item, "archive.org stream failed");
+    vid.onended = () => {
+      if (mode !== "paused" && mode !== "stopped") advance("end");
+    };
+    vid.ontimeupdate = null;
+    vid.style.opacity = "1";
+    vid.hidden = false;
+    vid.muted = !soundOn;
+    if (start > 1 && Number.isFinite(vid.duration)) vid.currentTime = Math.min(start, Math.max(0, vid.duration - 1));
+    vid.play().catch(() => {
+      vid.muted = true;
+      vid.play().catch(() => {});
+    });
+  }
+  return true;
 }
 
 function syncDrift(spot) {
@@ -1173,6 +1457,8 @@ function advance(reason) {
     if (mode === "live") {
       // The file ran out a moment before the broadcast clock does (durations are whole seconds). Cover the last
       // frame and let tick() cross the boundary on the shared clock; jumping ahead would turn LIVE into a timeshift.
+      // A next tape already loaded cuts in now: it is under a second early, inside the drift tolerance.
+      if (cutToPrepared(prepared?.key, 0)) return;
       $("poster").style.opacity = "1";
       return;
     }
@@ -1396,6 +1682,7 @@ function onPause() {
 
 function onStop() {
   mode = "stopped";
+  cancelPrepared();
   loadedKey = "";
   loadGen += 1;
   introActive = false;
@@ -1649,6 +1936,7 @@ function tick() {
   else {
     updateChrome(spot);
     syncDrift(spot);
+    prepareNext(spot, items);
   }
 }
 

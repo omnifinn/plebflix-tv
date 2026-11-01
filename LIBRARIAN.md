@@ -66,7 +66,7 @@ changed (CI checks `RESOURCES.md` is current).
 
 ```json
 {
-  "defaults": { "order": "seeded", "hold_out_hours": 6, "ident_seconds": 8, "slots": [] },
+  "defaults": { "order": "seeded", "hold_out_hours": 6, "ident_seconds": 8, "idents": false, "slots": [] },
   "channels": {
     "suomi":         { "slots": [{ "at": "19:00", "tape": "b5mies" }] },
     "suomi-dokkarit": { "order": "catalog", "hold_out_hours": 0 }
@@ -79,7 +79,8 @@ changed (CI checks `RESOURCES.md` is current).
 | `channels.<id>` | `suomi` / `international` (CH 1 of that TV) or `<lang>-<category>` (`international-mtv`, `suomi-komedia`, …). A category channel without its own block inherits its TV's block; `defaults` fills whatever is left. |
 | `order` | `seeded` (default): a deterministic weighted draw per UTC day, votes count. `catalog`: the shelf's file order, round and round, the same every day. |
 | `hold_out_hours` | 0–24: a tape does not return inside this window (seeded order). |
-| `ident_seconds` | 1–60: the station ident between tapes. |
+| `idents` | `false` airs tapes back to back (the setting since 2026-11-01). `true` puts a station ident between tapes. |
+| `ident_seconds` | 1–60: the length of that ident, and of an ident that carries a gap before a fixed slot. |
 | `slots` | `[{ "at": "HH:MM", "tape": "<id>" }]`, **UTC** (Helsinki = UTC+2 in winter, UTC+3 in summer). The tape starts at that second every day; the gap before it is filled with tapes that fit, then an ident. The tape must be on that shelf (and, for a category channel, assigned to that category), slots must not overlap. |
 
 ### Playback

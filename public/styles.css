@@ -285,6 +285,10 @@ button.lamp { background: none; border: 0; padding: 0; margin: 0; cursor: pointe
   border: 0; background: #000;
 }
 #yt, #embed { pointer-events: none; }
+/* the next tape, loading underneath: full size so its player runs normally, invisible until the cut */
+#yt-next, #embed-next, #vid-next {
+  position: absolute; inset: 0; width: 100%; height: 100%; border: 0; opacity: 0; pointer-events: none;
+}
 #snow { position: absolute; inset: 0; width: 100%; height: 100%; display: none; image-rendering: pixelated; z-index: 3; opacity: .85; }
 #snow.on { display: block; }
 .shield { position: absolute; inset: 0; z-index: 1; }

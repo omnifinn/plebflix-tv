@@ -4,6 +4,7 @@
     "order": "seeded",
     "hold_out_hours": 6,
     "ident_seconds": 8,
+    "idents": false,
     "slots": []
   },
   "channels": {}

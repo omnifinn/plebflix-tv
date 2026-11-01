@@ -140,6 +140,7 @@ export const DEFAULT_DEFINITION = Object.freeze({
   order: "seeded",
   hold_out_hours: NO_REPEAT_SECONDS / 3600,
   ident_seconds: IDENT_SECONDS,
+  idents: true,
   slots: Object.freeze([]),
 });
 
@@ -166,6 +167,7 @@ export function resolveDefinition(doc, channelId) {
     if (layer.order === "seeded" || layer.order === "catalog") out.order = layer.order;
     if (Number.isFinite(layer.hold_out_hours) && layer.hold_out_hours >= 0 && layer.hold_out_hours <= 24) out.hold_out_hours = layer.hold_out_hours;
     if (Number.isInteger(layer.ident_seconds) && layer.ident_seconds >= 1 && layer.ident_seconds <= 60) out.ident_seconds = layer.ident_seconds;
+    if (typeof layer.idents === "boolean") out.idents = layer.idents;
     if (Array.isArray(layer.slots)) {
       out.slots = layer.slots
         .filter((slot) => slot && typeof slot === "object" && typeof slot.tape === "string" && Number.isFinite(slotSeconds(slot.at)))
@@ -180,7 +182,7 @@ export function resolveDefinition(doc, channelId) {
  * One UTC day's broadcast. Same catalog, day, vote snapshot and definition always produce the same order, on
  * every device. `order: "seeded"` draws clips by weight and holds each out for `hold_out_hours`; `order: "catalog"`
  * plays the file order round and round. Fixed `slots` (UTC) are landed exactly: the gap before one is filled with
- * clips that fit, then a longer ident. A station ident sits between clips.
+ * clips that fit, then a longer ident. A station ident sits between clips unless `idents` is false.
  */
 export function buildBroadcast(channel, epochMs, statsById = {}, definition = DEFAULT_DEFINITION) {
   const def = definition === DEFAULT_DEFINITION ? definition : { ...DEFAULT_DEFINITION, ...definition };
@@ -206,6 +208,9 @@ export function buildBroadcast(channel, epochMs, statsById = {}, definition = DE
     out.push(identFor(channel, Math.floor(rand() * 3), seconds));
     cursor += seconds;
   };
+  const between = () => {
+    if (def.idents !== false) ident();
+  };
   while (cursor < DAY_SECONDS && items.length && guard < 8000) {
     guard += 1;
     // Skip slots the fill has already passed (a tape longer than the gap can overrun the next slot).
@@ -214,7 +219,7 @@ export function buildBroadcast(channel, epochMs, statsById = {}, definition = DE
     if (slot && slot.at === cursor) {
       place(byId.get(slot.tape));
       slotIndex += 1;
-      ident();
+      between();
       continue;
     }
     const room = slot ? slot.at - cursor - identSeconds : Infinity;
@@ -243,7 +248,7 @@ export function buildBroadcast(channel, epochMs, statsById = {}, definition = DE
       ident(Math.max(1, slot.at - cursor));
       continue;
     }
-    ident();
+    between();
   }
   return out;
 }
