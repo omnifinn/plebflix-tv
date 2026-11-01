@@ -240,6 +240,12 @@ async function verify() {
   const html = await (await fetch(verifyUrl(base, "/"))).text();
   const appUrl = (html.match(/src="(\/app\.js\?v=[a-f0-9]+)"/) || [])[1];
   check(Boolean(appUrl), `shell references a versioned app.js (${appUrl || "none"})`);
+  // The catalog stamp below only moves with the channel files. This one moves with the code.
+  const localShell = path.join(ASSETS, "index.html");
+  if (fs.existsSync(localShell)) {
+    const builtApp = (fs.readFileSync(localShell, "utf8").match(/src="(\/app\.js\?v=[a-f0-9]+)"/) || [])[1] || "";
+    check(appUrl === builtApp, `live ${appUrl || "none"} / built here ${builtApp || "none"}`);
+  }
   if (appUrl) {
     const app = await (await fetch(base + appUrl)).text();
     check(app.includes('$("screen").addEventListener("click"'), "live app.js: a click on the glass pauses and plays on");

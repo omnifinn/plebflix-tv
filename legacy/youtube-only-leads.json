@@ -1,0 +1,367 @@
+{
+ "note": "Leads for YouTube-only tapes, not added: none could be played in WebKit from a connection YouTube refuses (2026-11-01). Dailymotion answered 403 Forbidden; every alternate upload answered error 150 and has no Wayback copy. Add one only after it plays in WebKit and the footage is checked.",
+ "dailymotion": [
+  {
+   "tape": "surprised-kitty",
+   "host": "dailymotion",
+   "id_or_url": "xf2z40",
+   "embed_url": "https://geo.dailymotion.com/player.html?video=xf2z40",
+   "title_seen": "Surprised Kitty (Original)",
+   "duration_seen": 17,
+   "uploader": "ParlonsTV",
+   "confidence": "exact",
+   "evidence_url": "https://api.dailymotion.com/video/xf2z40?fields=id,title,duration,allow_embed,private,owner.username,description"
+  },
+  {
+   "tape": "surprised-kitty",
+   "host": "dailymotion",
+   "id_or_url": "x3un8km",
+   "embed_url": "https://geo.dailymotion.com/player.html?video=x3un8km",
+   "title_seen": "Surprised Kitty (Original)",
+   "duration_seen": 17,
+   "uploader": "mihnea-badea",
+   "confidence": "exact",
+   "evidence_url": "https://api.dailymotion.com/video/x3un8km?fields=id,title,duration,allow_embed,private,owner.username,description"
+  },
+  {
+   "tape": "surprised-kitty",
+   "host": "dailymotion",
+   "id_or_url": "x6c8py6",
+   "embed_url": "https://geo.dailymotion.com/player.html?video=x6c8py6",
+   "title_seen": "Surprised Kitty (Original) - Funny Cat Videos #3",
+   "duration_seen": 17,
+   "uploader": "HilariousHarry",
+   "confidence": "likely",
+   "evidence_url": "https://api.dailymotion.com/video/x6c8py6?fields=id,title,duration,allow_embed,private,owner.username,description"
+  },
+  {
+   "tape": "surprised-kitty",
+   "host": "dailymotion",
+   "id_or_url": "x19sam6",
+   "embed_url": "https://geo.dailymotion.com/player.html?video=x19sam6",
+   "title_seen": "Surprised Kitty",
+   "duration_seen": 16,
+   "uploader": "cezmikalorifer",
+   "confidence": "likely",
+   "evidence_url": "https://api.dailymotion.com/video/x19sam6?fields=id,title,duration,allow_embed,private,owner.username,description"
+  },
+  {
+   "tape": "dont-tase-me-bro",
+   "host": "dailymotion",
+   "id_or_url": "x30fvp",
+   "embed_url": "https://geo.dailymotion.com/player.html?video=x30fvp",
+   "title_seen": "University of Florida student Tasered at Kerry forum",
+   "duration_seen": 143,
+   "uploader": "allcurious",
+   "confidence": "likely",
+   "evidence_url": "https://api.dailymotion.com/video/x30fvp?fields=id,title,duration,allow_embed,private,owner.username,description"
+  },
+  {
+   "tape": "dont-tase-me-bro",
+   "host": "dailymotion",
+   "id_or_url": "x31lmg",
+   "embed_url": "https://geo.dailymotion.com/player.html?video=x31lmg",
+   "title_seen": "Etudiant maitrisé au Taser - John Kerry",
+   "duration_seen": 143,
+   "uploader": "buzzeur",
+   "confidence": "likely",
+   "evidence_url": "https://api.dailymotion.com/video/x31lmg?fields=id,title,duration,allow_embed,private,owner.username,description"
+  },
+  {
+   "tape": "stalking-cat",
+   "host": "dailymotion",
+   "id_or_url": "xf9ghf",
+   "embed_url": "https://geo.dailymotion.com/player.html?video=xf9ghf",
+   "title_seen": "Stalking Cat : Chat qui marche discrètement  [Hilarant]",
+   "duration_seen": 73,
+   "uploader": "ParlonsTV",
+   "confidence": "exact",
+   "evidence_url": "https://api.dailymotion.com/video/xf9ghf?fields=id,title,duration,allow_embed,private,owner.username,description"
+  },
+  {
+   "tape": "skateboarding-dog",
+   "host": "dailymotion",
+   "id_or_url": "xh3yhd",
+   "embed_url": "https://geo.dailymotion.com/player.html?video=xh3yhd",
+   "title_seen": "Skateboarding Dog",
+   "duration_seen": 88,
+   "uploader": "broadbandsports",
+   "confidence": "exact",
+   "evidence_url": "https://api.dailymotion.com/video/xh3yhd?fields=id,title,duration,allow_embed,private,owner.username,description"
+  },
+  {
+   "tape": "skateboarding-dog",
+   "host": "dailymotion",
+   "id_or_url": "x3zsea",
+   "embed_url": "https://geo.dailymotion.com/player.html?video=x3zsea",
+   "title_seen": "Skateboarding Dog",
+   "duration_seen": 88,
+   "uploader": "lasoucoupe2",
+   "confidence": "exact",
+   "evidence_url": "https://api.dailymotion.com/video/x3zsea?fields=id,title,duration,allow_embed,private,owner.username,description"
+  },
+  {
+   "tape": "otters-holding-hands",
+   "host": "dailymotion",
+   "id_or_url": "x327ha",
+   "embed_url": "https://geo.dailymotion.com/player.html?video=x327ha",
+   "title_seen": "Otters Holding Hands",
+   "duration_seen": 101,
+   "uploader": "scalitti",
+   "confidence": "exact",
+   "evidence_url": "https://api.dailymotion.com/video/x327ha?fields=id,title,duration,allow_embed,private,owner.username,description"
+  },
+  {
+   "tape": "otters-holding-hands",
+   "host": "dailymotion",
+   "id_or_url": "x1tojs",
+   "embed_url": "https://geo.dailymotion.com/player.html?video=x1tojs",
+   "title_seen": "Otters Holding Hands",
+   "duration_seen": 100,
+   "uploader": "zirgohcam",
+   "confidence": "exact",
+   "evidence_url": "https://api.dailymotion.com/video/x1tojs?fields=id,title,duration,allow_embed,private,owner.username,description"
+  },
+  {
+   "tape": "otters-holding-hands",
+   "host": "dailymotion",
+   "id_or_url": "x1nakn",
+   "embed_url": "https://geo.dailymotion.com/player.html?video=x1nakn",
+   "title_seen": "Otters holding hands  cute Loutre zoo",
+   "duration_seen": 100,
+   "uploader": "yokatai",
+   "confidence": "likely",
+   "evidence_url": "https://api.dailymotion.com/video/x1nakn?fields=id,title,duration,allow_embed,private,owner.username,description"
+  },
+  {
+   "tape": "otters-holding-hands",
+   "host": "dailymotion",
+   "id_or_url": "x1liij",
+   "embed_url": "https://geo.dailymotion.com/player.html?video=x1liij",
+   "title_seen": "Loutres main ds  main Otters hold hands",
+   "duration_seen": 100,
+   "uploader": "astre",
+   "confidence": "likely",
+   "evidence_url": "https://api.dailymotion.com/video/x1liij?fields=id,title,duration,allow_embed,private,owner.username,description"
+  },
+  {
+   "tape": "battle-at-kruger",
+   "host": "dailymotion",
+   "id_or_url": "x38a32",
+   "embed_url": "https://geo.dailymotion.com/player.html?video=x38a32",
+   "title_seen": "Log TV: News Log – Battle at Kruger",
+   "duration_seen": 112,
+   "uploader": "LogTV",
+   "confidence": "likely",
+   "evidence_url": "https://api.dailymotion.com/video/x38a32?fields=id,title,duration,allow_embed,private,owner.username,description"
+  },
+  {
+   "tape": "facebook-parenting",
+   "host": "dailymotion",
+   "id_or_url": "xoosps",
+   "embed_url": "https://geo.dailymotion.com/player.html?video=xoosps",
+   "title_seen": "Un père explique pourquoi il tire sur l'ordinateur de sa fille",
+   "duration_seen": 502,
+   "uploader": "nouvelobs",
+   "confidence": "exact",
+   "evidence_url": "https://api.dailymotion.com/video/xoosps?fields=id,title,duration,allow_embed,private,owner.username,description"
+  },
+  {
+   "tape": "facebook-parenting",
+   "host": "dailymotion",
+   "id_or_url": "x282r9j",
+   "embed_url": "https://geo.dailymotion.com/player.html?video=x282r9j",
+   "title_seen": "Excédé par sa fille, il tire neuf coups de feu sur son ordinateur",
+   "duration_seen": 502,
+   "uploader": "lnradio",
+   "confidence": "likely",
+   "evidence_url": "https://api.dailymotion.com/video/x282r9j?fields=id,title,duration,allow_embed,private,owner.username,description"
+  },
+  {
+   "tape": "backflip-into-jeans",
+   "host": "dailymotion",
+   "id_or_url": "x5csfu",
+   "embed_url": "https://geo.dailymotion.com/player.html?video=x5csfu",
+   "title_seen": "Guys backflip into jeans",
+   "duration_seen": 106,
+   "uploader": "unbuttonedfilms",
+   "confidence": "exact",
+   "evidence_url": "https://api.dailymotion.com/video/x5csfu?fields=id,title,duration,allow_embed,private,owner.username,description"
+  },
+  {
+   "tape": "backflip-into-jeans",
+   "host": "dailymotion",
+   "id_or_url": "x5cip0",
+   "embed_url": "https://geo.dailymotion.com/player.html?video=x5cip0",
+   "title_seen": "Backflip dans son Jeans !",
+   "duration_seen": 106,
+   "uploader": "BriKO",
+   "confidence": "likely",
+   "evidence_url": "https://api.dailymotion.com/video/x5cip0?fields=id,title,duration,allow_embed,private,owner.username,description"
+  },
+  {
+   "tape": "backflip-into-jeans",
+   "host": "dailymotion",
+   "id_or_url": "x5ondo",
+   "embed_url": "https://geo.dailymotion.com/player.html?video=x5ondo",
+   "title_seen": "Backflip dans un jeans",
+   "duration_seen": 106,
+   "uploader": "angesitael",
+   "confidence": "likely",
+   "evidence_url": "https://api.dailymotion.com/video/x5ondo?fields=id,title,duration,allow_embed,private,owner.username,description"
+  },
+  {
+   "tape": "backflip-into-jeans",
+   "host": "dailymotion",
+   "id_or_url": "x5cu72",
+   "embed_url": "https://geo.dailymotion.com/player.html?video=x5cu72",
+   "title_seen": "Backflip-jeans http://ch0c.free.fr",
+   "duration_seen": 106,
+   "uploader": "ch0c",
+   "confidence": "likely",
+   "evidence_url": "https://api.dailymotion.com/video/x5cu72?fields=id,title,duration,allow_embed,private,owner.username,description"
+  },
+  {
+   "tape": "backflip-into-jeans",
+   "host": "dailymotion",
+   "id_or_url": "x5l443",
+   "embed_url": "https://geo.dailymotion.com/player.html?video=x5l443",
+   "title_seen": "Stuntman Salto in his jeans with Backflip",
+   "duration_seen": 106,
+   "uploader": "hd-ludolf",
+   "confidence": "likely",
+   "evidence_url": "https://api.dailymotion.com/video/x5l443?fields=id,title,duration,allow_embed,private,owner.username,description"
+  },
+  {
+   "tape": "kummeli-kreikkalainen-tarjoilija",
+   "host": "dailymotion",
+   "id_or_url": "x2q04ng",
+   "embed_url": "https://www.dailymotion.com/embed/video/x2q04ng",
+   "title_seen": "Kummeli -Kreikkalainen tarjoilija-",
+   "duration_seen": 131,
+   "uploader": "TaishaBoatwright",
+   "confidence": "exact",
+   "evidence_url": "https://api.dailymotion.com/video/x2q04ng?fields=id,title,duration,allow_embed,private,owner.username,status,geoblocking,mode"
+  },
+  {
+   "tape": "aromipesa",
+   "host": "dailymotion",
+   "id_or_url": "x4jz4jn",
+   "embed_url": "https://www.dailymotion.com/embed/video/x4jz4jn",
+   "title_seen": "Ostoskanava: Aromipesä (toukokuulta 2000) (Re-Upload) (Kondick)",
+   "duration_seen": 187,
+   "uploader": "kunkku-kuningas",
+   "confidence": "likely",
+   "evidence_url": "https://api.dailymotion.com/video/x4jz4jn?fields=id,title,duration,allow_embed,private,owner.username,status,geoblocking,mode"
+  }
+ ],
+ "alternate_youtube": [
+  {
+   "tape": "surprised-kitty",
+   "v": "elmc9AP1cIU",
+   "yt": "err150",
+   "t": 0,
+   "d": 17,
+   "wayback": "no(404)"
+  },
+  {
+   "tape": "surprised-kitty",
+   "v": "TEA-V3sTfeM",
+   "yt": "err150",
+   "t": 0,
+   "d": 17,
+   "wayback": "no(404)"
+  },
+  {
+   "tape": "ninja-cat",
+   "v": "Xwgg9-AKWc4",
+   "yt": "err150",
+   "t": 0,
+   "d": 75,
+   "wayback": "no(404)"
+  },
+  {
+   "tape": "stalking-cat",
+   "v": "PKkAaDhCoa0",
+   "yt": "err150",
+   "t": 0,
+   "d": 76,
+   "wayback": "no(404)"
+  },
+  {
+   "tape": "stalking-cat",
+   "v": "3KBUZzxJP14",
+   "yt": "err150",
+   "t": 0,
+   "d": 74,
+   "wayback": "no(404)"
+  },
+  {
+   "tape": "stalking-cat",
+   "v": "jZs3ayY-K_0",
+   "yt": "err150",
+   "t": 0,
+   "d": 74,
+   "wayback": "no(404)"
+  },
+  {
+   "tape": "facebook-parenting",
+   "v": "B_iFRYfMEqw",
+   "yt": "err150",
+   "t": 0,
+   "d": 503,
+   "wayback": "no(404)"
+  },
+  {
+   "tape": "facebook-parenting",
+   "v": "qqWngoTVXWM",
+   "yt": "err150",
+   "t": 0,
+   "d": 503,
+   "wayback": "no(404)"
+  },
+  {
+   "tape": "pertus",
+   "v": "iszyFUjnqKQ",
+   "yt": "err150",
+   "t": 0,
+   "d": 179,
+   "wayback": "no(404)"
+  },
+  {
+   "tape": "nyt-vituttaa",
+   "v": "ulT0rk_9eE8",
+   "yt": "err150",
+   "t": 0,
+   "d": 16,
+   "wayback": "no(404)"
+  },
+  {
+   "tape": "mopoauto",
+   "v": "IkuZTtBjybE",
+   "yt": "err150",
+   "t": 0,
+   "d": 177,
+   "wayback": "no(404)"
+  },
+  {
+   "tape": "taistelu-jaska-pilot",
+   "v": "WT8mZOpV5Gk",
+   "yt": "err150",
+   "t": 0,
+   "d": 253,
+   "wayback": "no(404)"
+  },
+  {
+   "tape": "mtv3-loppukevennys-moka",
+   "v": "Am9H3NzrHs4",
+   "yt": "err150",
+   "t": 0,
+   "d": 30,
+   "wayback": "no(404)"
+  }
+ ],
+ "rejected": {
+  "funny_or_die_video_ab4e1b1d60": "archive.org item matches stalking-cat by length but answers 401 (access-restricted)"
+ }
+}

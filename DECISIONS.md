@@ -2,6 +2,18 @@
 
 Newest first. One entry per decision: date · who · decision · why · source.
 
+## 2026-11-01 · Niko via Page, Claude (session) · Every YouTube-only tape stays; a fallback goes in only once it has played
+
+- **Decision (Niko):** keep all the YouTube-only tapes, never drop, never rehost. Find non-YouTube copies and alternate
+  uploads as fallbacks after YouTube.
+- **Decision (Claude):** a new source goes on the shelf only after it plays in WebKit and its footage is checked, as Page
+  asked. That admitted one: `dont-tase-me-bro` on archive.org. The rest are kept in `legacy/youtube-only-leads.json`.
+- **Decision (Claude):** Dailymotion stays out (reaffirms the 2026-10-31 entry). Its player still answers 403 Forbidden on
+  a connection YouTube refuses, so it could not be verified and no player code was written for it.
+- **Why:** on that connection all 13 alternate uploads answered error 150 while the control played, so the refusal is not
+  per-video there, and none has a Wayback copy. Unverified sources would have lowered the count without making anything play.
+- **Source:** Page's brief, 2026-11-01; `channels/international.json`; `legacy/youtube-only-leads.json`.
+
 ## 2026-11-01 · Claude (session), asked by Page · npm run smoke watches only the tape on air
 
 - **Decision:** smoke reads YouTube state only from the on-air frame (`iframe#yt`), and it recognises a tape running on
