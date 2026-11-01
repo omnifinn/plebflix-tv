@@ -852,7 +852,7 @@ function playVimeo(item, source, offset) {
   vimeoSource = source;
   vimeoItem = item;
   frame.hidden = false;
-  frame.src = `https://player.vimeo.com/video/${encodeURIComponent(source.id)}?autoplay=${mode === "paused" ? 0 : 1}&muted=${soundOn ? 0 : 1}&controls=0&autopause=0&dnt=1#t=${Math.floor(offset)}s`;
+  frame.src = `https://player.vimeo.com/video/${encodeURIComponent(source.id)}?autoplay=${mode === "paused" ? 0 : 1}&muted=${soundAllowed() ? 0 : 1}&controls=0&autopause=0&dnt=1#t=${Math.floor(offset)}s`;
 }
 
 window.addEventListener("message", (event) => {
@@ -959,7 +959,7 @@ async function startSource(item, offset, gen) {
   watchYoutube(item);
   if (player && typeof player.loadVideoById === "function" && player.ytHost === source.host) {
     player.loadVideoById({ videoId: source.id, startSeconds: start });
-    if (soundOn) {
+    if (soundAllowed()) {
       player.unMute?.();
       player.setVolume?.(100);
     } else {
@@ -1055,7 +1055,7 @@ function mountYoutube(videoId, start, host) {
     videoId,
     playerVars: {
       autoplay: 1,
-      mute: soundOn ? 0 : 1,
+      mute: soundAllowed() ? 0 : 1,
       start,
       controls: 0,
       disablekb: 1,
@@ -1389,7 +1389,7 @@ function cutToPrepared(key, offset) {
     vimeoItem = job.item;
     vimeoClock = start;
     if (start > 1) vimeoSend("setCurrentTime", start);
-    if (soundOn) {
+    if (soundAllowed()) {
       vimeoSend("setMuted", false);
       vimeoSend("setVolume", 1);
     }

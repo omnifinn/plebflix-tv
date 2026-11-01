@@ -2,7 +2,8 @@
 // Live-schedule playback proof: the real page, whatever is on air now, in Chrome and WebKit.
 //   npm run smoke
 //   npm run smoke -- --url http://localhost:8787 --browsers chrome --paths /suomi --timeout 45000 --headed
-// PLAYING means YouTube reports state 1 with time moving, the archive.org stream's clock is moving, or a still loaded.
+// PLAYING means the on-air YouTube frame reports state 1 with time moving, the on-air Vimeo frame's or archive.org
+// stream's clock is moving, or a still loaded. The next tape's hidden player never counts.
 // Exit 0 only when every page plays. npm run verify-all-play is the per-tape proof.
 import { chromium, webkit } from "playwright";
 
@@ -18,9 +19,27 @@ const headed = process.argv.includes("--headed");
 
 const HOOK = () => {
   // The IFrame API posts its state to the embedding page. Reading those messages needs no change to the app.
-  window.__yt = { last: null, times: [] };
+  // Only the on-air frame counts: the next tape's hidden player (#yt-next) posts too, and it ends up paused.
+  window.__yt = { last: null, times: [], frame: null };
+  window.__vimeo = { times: [], frame: null };
   window.addEventListener("message", (event) => {
+    if (/vimeo/.test(event.origin)) {
+      const onAir = document.querySelector("iframe#embed")?.contentWindow;
+      if (!onAir || event.source !== onAir) return;
+      if (window.__vimeo.frame !== onAir) window.__vimeo = { times: [], frame: onAir };
+      let data = event.data;
+      try {
+        if (typeof data === "string") data = JSON.parse(data);
+      } catch {
+        return;
+      }
+      if (data?.event === "playProgress" && typeof data.data?.seconds === "number") window.__vimeo.times.push(data.data.seconds);
+      return;
+    }
     if (!/youtube/.test(event.origin)) return;
+    const onAir = document.querySelector("iframe#yt")?.contentWindow;
+    if (!onAir || event.source !== onAir) return;
+    if (window.__yt.frame !== onAir) window.__yt = { last: null, times: [], frame: onAir };
     let data = event.data;
     try {
       if (typeof data === "string") data = JSON.parse(data);
@@ -53,22 +72,24 @@ async function probe(browser, path) {
   while (Date.now() < deadline) {
     await page.waitForTimeout(1000);
     state = await page.evaluate(() => {
-      const box = document.querySelector("#vid:not([hidden]), iframe#yt, #poster:not([hidden])")?.getBoundingClientRect();
+      const box = document.querySelector("#vid:not([hidden]), iframe#yt, iframe#embed, #poster:not([hidden])")?.getBoundingClientRect();
       const vid = document.querySelector("#vid");
       const times = window.__yt.times.slice(-6);
+      const vimeo = window.__vimeo.times.slice(-6);
       return {
         title: document.title,
         live: document.querySelector(".osd__live")?.dataset.state,
         source: document.querySelector("#stage")?.dataset.source || "",
         visible: Boolean(box && box.width > 0 && box.height > 0),
         youtube: window.__yt.last === 1 && times.length > 1 && times[times.length - 1] > times[0],
+        vimeo: vimeo.length > 1 && vimeo[vimeo.length - 1] > vimeo[0],
         clock: vid && !vid.hidden && !vid.paused ? vid.currentTime : -1,
         still: Boolean(document.querySelector("#poster")?.naturalWidth),
       };
     });
     titles.add(state.title);
     const kind = state.source.split(":")[0];
-    if (state.visible && ((kind === "youtube" && state.youtube) || ((kind === "archive" || kind === "wayback") && state.clock > clock && clock >= 0) || (kind === "image" && state.still))) {
+    if (state.visible && ((kind === "youtube" && state.youtube) || (kind === "vimeo" && state.vimeo) || ((kind === "archive" || kind === "wayback") && state.clock > clock && clock >= 0) || (kind === "image" && state.still))) {
       status = "PLAYING";
       break;
     }

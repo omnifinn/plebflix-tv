@@ -2,6 +2,18 @@
 
 Newest first. One entry per decision: date · who · decision · why · source.
 
+## 2026-11-01 · Claude (session), asked by Page · npm run smoke watches only the tape on air
+
+- **Decision:** smoke reads YouTube state only from the on-air frame (`iframe#yt`), and it recognises a tape running on
+  its Vimeo fallback. The hidden next-tape player no longer counts. The player stays as it was.
+- **Why:** Page held 39c0e1f because smoke failed 4 of 12 loads on `/`. The hidden player, which 39c0e1f starts 3 seconds
+  into every tape, ends up paused, and its state overwrote the on-air one. A per-frame probe saw the on-air player playing
+  within about 3 seconds on all 16 loads, including the ones smoke called broken (3 of 8 in WebKit over its full 45 seconds).
+- **Decision:** a tape loaded with remembered sound but no tap in this page also starts muted on the four paths 39c0e1f
+  missed (a reused YouTube player, a new YouTube mount, a Vimeo start, a Vimeo cut).
+- **Why:** the browser refuses unmuted autoplay until a tap, which is what left YouTube's play button up on /suomi.
+- **Source:** Page's report of 2026-11-01; `scripts/smoke.mjs`; `public/app.js`.
+
 ## 2026-11-01 · Niko via Page, Claude (session) · Tapes air back to back through A/B players
 
 - **Decision (Niko):** transitions are 100% seamless: the next tape is preloaded in a hidden second player with the
