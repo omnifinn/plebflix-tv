@@ -329,6 +329,7 @@ The ones you emailed to the whole lab.
 | Mitt Romney Style | 2012 | abd | The parody that went viral in its own right in the Gangnam wave. | 2:27 | Internet Archive | streamed from Internet Archive |
 | Hitler Rants About the Downfall Parodies | 2010 | abcde | A remix of the Downfall scene about its own takedown; the remix itself is what spread. | 2:53 | Internet Archive | streamed from Internet Archive |
 | Morshu (Zelda CD-i) | 1993 | bce | The CD-i shopkeeper, a cornerstone of YouTube Poop. | 0:16 | Internet Archive | streamed from Internet Archive |
+| Super Mario Brothers - Frustration | 2007 | abcd | A homemade Super Mario rage clip, born on YouTube in 2007, that spread widely and is still recognized as one of the site's early viral hits. | 23:41 | bob smith (@freeacdcbootlegs) | [YouTube, official](https://www.youtube.com/watch?v=in6RZzdGki8) — embedded via YouTube |
 
 ## Filing a tape
 

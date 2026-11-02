@@ -7738,6 +7738,33 @@
         "gaming-legends"
       ],
       "added": "2026-11-01"
+    },
+    {
+      "id": "super-mario-frustration",
+      "title": "Super Mario Brothers - Frustration",
+      "year": 2007,
+      "source": "youtube",
+      "embedId": "in6RZzdGki8",
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "in6RZzdGki8",
+          "official": true,
+          "uploader": "bob smith (@freeacdcbootlegs)"
+        }
+      ],
+      "duration": 1421,
+      "note": "Original 2007 upload by bob smith (@freeacdcbootlegs).",
+      "credit": "https://www.youtube.com/watch?v=in6RZzdGki8",
+      "signals": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "why": "A homemade Super Mario rage clip, born on YouTube in 2007, that spread widely and is still recognized as one of the site's early viral hits.",
+      "original_url": "https://www.youtube.com/watch?v=in6RZzdGki8",
+      "added": "2026-11-02"
     }
   ]
 }
