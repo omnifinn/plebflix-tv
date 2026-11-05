@@ -1,0 +1,2 @@
+/* The same Plebflix skin, with a visible focus ring from the sofa. */
+:focus-visible,:focus{outline:3px solid #ffb547!important;outline-offset:3px}
