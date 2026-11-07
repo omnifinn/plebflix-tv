@@ -133,7 +133,7 @@ UPDATE submissions SET status = 'rejected', review_note = ?, reviewed_at = datet
 Classifier (`CLASSIC.md`): at least 10 years old (hard rule) **and** at least 3 of 5 signals
 (a born online, b spread widely, c still quoted, d amateur/DIY, e defined its scene).
 The REC card is a link only (since 2026-10-30): title, year, duration and uploader come from the link
-(`yt-dlp -j --skip-download URL`), you judge the signals and the channel (the deck sends the TV that was on). Check the link exists, the year is real, it isn't a duplicate
+(`yt-dlp -j --skip-download URL`), you judge the signals and the channel (the deck sends the TV that was on). The deck also opens a review pull request (`rec-inbox/<id>.json`, not a shelf edit) and stores `pr_url` when GitHub accepts it. A row with no `pr_url` is retried by filing the same link again; do not insert a second row. Check the link exists, the year is real, it isn't a duplicate
 (`grep` the channel JSONs for the video id / original URL), and it isn't hateful, sexual, or cruel to a private person.
 ÄM-IRK is on air (Niko asked for it). Apply the CLASSIC.md rule: viral/meme online, peak in 2013 or earlier, originals only (no remixes, compilations or cartoon versions unless the remix itself went viral). Recommend accept / reject / block to Niko with one line each.
 

@@ -12,12 +12,21 @@ function fakeDb() {
         bind(...a) { args = a; return stmt; },
         async first() {
           if (sql.startsWith("SELECT COUNT")) return { n: rows.filter((r) => r.ip_hash === args[0] && r.created_at > args[1]).length };
-          if (sql.startsWith("SELECT id")) return rows.find((r) => r.url === args[0]) || null;
           return null;
         },
+        async all() {
+          if (!sql.startsWith("SELECT id")) return { results: [] };
+          const video = args[1];
+          return { results: rows.filter((r) => r.url === args[0] || (video && r.url.includes(video))) };
+        },
         async run() {
+          if (sql.startsWith("UPDATE")) {
+            const row = rows.find((r) => r.id === args[1]);
+            if (row && !row.pr_url) row.pr_url = args[0];
+            return { success: true };
+          }
           const [id, url, title, channel, year, note, why, signals, submitter, ip_hash, created_at] = args;
-          rows.push({ id, url, title, channel, year, note, why, signals, submitter, ip_hash, created_at, status: "pending" });
+          rows.push({ id, url, title, channel, year, note, why, signals, submitter, ip_hash, created_at, status: "pending", pr_url: null });
           return { success: true };
         },
       };
@@ -44,10 +53,19 @@ test("a submission lands in D1 as pending, duplicates are folded", async () => {
   const env = { DB: fakeDb() };
   const r = await handleSubmit(post({ channel: "international", url: "https://youtu.be/dQw4w9WgXcQ", year: 1987, submitter: "Niko", signals: ["b", "c", "a"] }), env);
   assert.equal(r.status, 201);
-  assert.match((await r.json()).message, /Tape received/);
+  const saved = await r.json();
+  assert.equal(saved.saved, true);
+  assert.equal(saved.prOpened, false);
+  assert.equal(saved.prUrl, null);
+  assert.match(saved.message, /No pull request was opened/);
+  assert.doesNotMatch(saved.message, /pull request is open/);
   assert.equal(env.DB.rows[0].signals, "a,b,c");
+  assert.equal(env.DB.rows[0].status, "pending");
   const d = await handleSubmit(post({ channel: "international", url: "https://youtu.be/dQw4w9WgXcQ" }), env);
-  assert.equal((await d.json()).duplicate, true);
+  const again = await d.json();
+  assert.equal(again.duplicate, true);
+  assert.equal(again.prOpened, false);
+  assert.match(again.message, /No pull request was opened/);
   assert.equal(env.DB.rows.length, 1);
 });
 

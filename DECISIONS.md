@@ -2,6 +2,14 @@
 
 Newest first. One entry per decision: date · who · decision · why · source.
 
+## 2026-11-07 · Page, Grok · REC opens a review pull request after the D1 save, and does not edit the shelf
+
+- **Decision:** `POST /api/recommend` still inserts one pending `submissions` row first. It then opens a GitHub pull request that adds only `rec-inbox/<id>.json` (`approved: false`, `on_air: false`). It does not edit `channels/`. The same link, or the same YouTube / Vimeo / archive.org id, does not insert a second row. If that row has no `pr_url`, the same request retries the pull request and stores the URL. A row that already has a `https://github.com/omnifinn/plebflix-tv/pull/N` URL is returned as-is. A row already `accepted` or `rejected` stays that way: sending the link again does not open another pull request. The row is the record. There is no separate notification ledger. The token is sent only to `api.github.com`, and only when `GITHUB_REPO` is unset or exactly `omnifinn/plebflix-tv`. The submitted URL is not fetched. The response says a pull request is open only when that URL came back. No token, or a GitHub failure, still keeps the row and says no pull request was opened.
+- **Decision:** The REC sheet has one scrollport (the body). The entrance animation is on the form, not on the dialog element. Opening the sheet hides overflow on the desk and ignores wheel and touch moves that start outside the sheet. Eject, the stud, Escape, and browser Back put the scroll position back in the same turn.
+- **Why:** Two International rows from 2026-11-07 were saved in D1 with no `pr_url`. The handler never called GitHub, and the success line said a pull request would be opened. The live worker has plain-text `GITHUB_REPO` = `omnifinn/plebflix-tv` and no `GITHUB_TOKEN` secret. On a phone the dialog and its body were both scrollports, so a gesture stuck between them. An animation on `dialog[open]` also holds Chrome's close event until `animationend`, and removing `[open]` cancels that animation, so the desk never unlocked.
+- **Not in this change:** playback. Like a Boss is a separate catalog pull request. Too Many Dicks stays off the shelf: the McTezTube upload is not an official original, and a third CLASSIC signal is not established.
+- **Source:** `lib/submissions.mjs`, `lib/rec-pr.mjs`, `public/app.js`, `public/styles.css`.
+
 ## 2026-11-07 · Page, Grok · Like a Boss goes on International
 
 - **Decision:** File `like-a-boss` on International. Title `SNL Digital Short: Like a Boss`, year 2009, duration 147, official Saturday Night Live upload `vH-KXk8PZc8` (posted 28 Oct 2013). Signals `b`, `c`, `e`. Categories komedia and memes. `added` is 2026-11-07, so it joins the lineup on the next UTC day after this is merged and deployed. It is not on air from this pull request.

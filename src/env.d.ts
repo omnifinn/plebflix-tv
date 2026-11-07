@@ -19,7 +19,10 @@ interface RecommendationKv {
 }
 
 interface Env {
+  /** Secret. Fine-grained contents + pull requests on omnifinn/plebflix-tv. Never a request field. */
   GITHUB_TOKEN?: string;
+  /** Plain text. The worker only accepts omnifinn/plebflix-tv; any other value refuses to open a pull request. */
+  GITHUB_REPO?: string;
   RATE_LIMIT?: RecommendationKv;
   /** Optional secret: salts the stored address hashes on votes and submissions. */
   IP_SALT?: string;
