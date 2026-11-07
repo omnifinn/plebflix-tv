@@ -129,11 +129,18 @@ if (typeof document !== "undefined") {
   };
   const pick = (id) => {
     if (!id) return;
-    window.plebflix?.playTape(id);
-    input.value = "";
-    hits = [];
-    close();
-    input.blur();
+    const played = window.plebflix?.playTape(id);
+    if (played) {
+      input.value = "";
+      hits = [];
+      close();
+      input.blur();
+      return;
+    }
+    const note = window.plebflix?.tapeNotice(id) || "That tape is not on today's programme.";
+    list.innerHTML = `<li class="search__none">${esc(note)}</li>`;
+    list.hidden = false;
+    input.setAttribute("aria-expanded", "true");
   };
   input.addEventListener("input", () => {
     if (!ensure()) return;
@@ -164,6 +171,8 @@ if (typeof document !== "undefined") {
     pick(li.dataset.id);
   });
   document.addEventListener("pointerdown", (e) => {
-    if (!e.target.closest?.("#search")) close();
+    // composedPath, not target.closest: pick() replaces the row before this bubbles, and a
+    // detached target has no parent, so the "outside" check would hide the notice it just wrote.
+    if (!e.composedPath().some((node) => node instanceof Element && node.id === "search")) close();
   });
 }

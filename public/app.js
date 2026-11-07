@@ -1,6 +1,6 @@
 import { syncFavicon } from "./favicon-mode.js";
 import { archiveFile, sources, youtubePoster } from "./play.js";
-import { buildBroadcast, dayKey, dayStartSeconds, liveItems, liveSeconds, resolveDefinition, spotAt, shiftFromLive, totalDuration, DAY_SECONDS } from "./schedule.js";
+import { airDate, buildBroadcast, chooseAirChannel, dayKey, dayStartSeconds, liveItems, liveSeconds, resolveDefinition, spotAt, shiftFromLive, totalDuration, DAY_SECONDS } from "./schedule.js";
 
 /* Plebflix TV — PLEBAMP skin (design: Iris). Rocker order follows the design: International, then Suomi. */
 let ORDER = ["international", "suomi"];
@@ -2530,11 +2530,45 @@ function categoriesOf(item) {
 function announceTape(item) {
   window.dispatchEvent(new CustomEvent("plebflix:tape", { detail: { item, channel: channelId, cat: META.get(channelId)?.cat || "all", cats: categoriesOf(item) } }));
 }
-/** Play a tape by id: stay on this channel if it carries it, else go to the tape's language channel. */
+function shelfItem(id) {
+  for (const cid of ORDER) {
+    const item = (channels.get(cid)?.items || []).find((entry) => entry.id === id && entry.kind !== "ident");
+    if (item) return item;
+  }
+  return null;
+}
+/** Why a search hit cannot be played. Empty when the tape is on today's programme. */
+export function tapeNotice(id) {
+  const item = shelfItem(id);
+  if (!item) return "That tape is not on the shelf.";
+  const today = dayKey(now());
+  if (typeof item.added === "string" && item.added >= today) {
+    return `${item.title} joins the programme on ${airDate(item.added)}. It is not on today's broadcast.`;
+  }
+  return `${item.title} is not on today's programme.`;
+}
+/**
+ * Play a tape from search. The seek is inside today's programme (CONTINUOUS), on the channel that
+ * actually airs it. A tape filed today is not in that programme until tomorrow: leave the dial and
+ * the film that is on exactly as they are.
+ */
 export function playTape(id) {
-  const has = (cid) => (channels.get(cid)?.items || []).some((item) => item.id === id);
-  let target = has(channelId) ? channelId : has(langOf()) ? langOf() : LANGS.find(has) || ORDER.find(has);
+  const airsOn = (cid, tapeId) => playlist(cid).some((item) => item.kind !== "ident" && item.id === tapeId);
+  const target = chooseAirChannel(id, { current: channelId, order: ORDER, langOf, airsOn });
   if (!target) return false;
+  const items = playlist(target);
+  const total = totalDuration(items);
+  const here = mode === "live" || mode === "stopped" ? liveSeconds(items, now()) : position();
+  let at = 0;
+  let best = null;
+  for (const item of items) {
+    if (item.id === id && item.kind !== "ident") {
+      const ahead = (at - here + total) % total;
+      if (best === null || ahead < best.ahead) best = { at, ahead };
+    }
+    at += item.duration;
+  }
+  if (!best) return false;
   if (target !== channelId) {
     channelId = target;
     try {
@@ -2547,25 +2581,13 @@ export function playTape(id) {
     tune();
   }
   if (mode === "stopped") mode = "live";
-  const items = playlist();
-  const total = totalDuration(items);
-  const here = position();
-  let at = 0;
-  let best = null;
-  for (const item of items) {
-    if (item.id === id) {
-      const ahead = (at - here + total) % total;
-      if (best === null || ahead < best.ahead) best = { at, ahead };
-    }
-    at += item.duration;
-  }
-  if (!best) return false;
   seekTo(best.at);
   return true;
 }
 window.plebflix = {
   seekTo,
   playTape,
+  tapeNotice,
   skip: (d) => skip(d),
   catalog: () => ORDER.map((id) => ({ id, name: channels.get(id)?.name, short: SHORT[id], items: channels.get(id)?.items || [] })),
   state: () => ({ mode, channelId, spot: currentSpot(), introActive, build: buildStamp, shift: shiftKind }),
