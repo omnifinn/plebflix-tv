@@ -196,8 +196,37 @@ test("a transient GitHub 502 is retried once inside the same filing", async () =
   assert.equal(shelf.rows.length, 1);
 });
 
+test("a rejected row stays rejected and does not open another pull request", async () => {
+  resetSubmissionLimiterForTests();
+  const gh = githubMock();
+  const shelf = db();
+  shelf.rows.push({
+    id: "0694b785-373a-4ddb-a3e4-ddf6e1f2432c",
+    url: "https://youtu.be/z3LuqU-9bx8?is=_5qERn4yzvJM2GOz",
+    channel: "international",
+    created_at: "2026-11-07T13:35:47.430Z",
+    status: "rejected",
+    pr_url: null,
+    ip_hash: "old",
+  });
+  const response = await handleSubmit(post({ url: "https://www.youtube.com/watch?v=z3LuqU-9bx8", channel: "international" }, "9.9.9.9"), env(shelf, gh));
+  const body = await response.json();
+  assert.equal(response.status, 200);
+  assert.equal(body.saved, true);
+  assert.equal(body.duplicate, true);
+  assert.equal(body.prOpened, false);
+  assert.equal(body.prUrl, null);
+  assert.equal(body.retryable, false);
+  assert.match(body.message, /Already reviewed/);
+  assert.doesNotMatch(body.message, /pull request is open/);
+  assert.equal(shelf.rows.length, 1);
+  assert.equal(shelf.rows[0].status, "rejected");
+  assert.equal(shelf.rows[0].pr_url, null);
+  assert.equal(gh.calls.length, 0);
+});
+
 test("status copy never claims a pull request that was not opened", () => {
-  for (const reason of ["no-token", "repo", "github"]) {
+  for (const reason of ["no-token", "repo", "github", "decided"]) {
     const message = recStatusMessage({ reason }, { duplicate: false });
     assert.doesNotMatch(message, /pull request is open/);
     assert.match(message, /No pull request was opened|did not open a pull request/);
