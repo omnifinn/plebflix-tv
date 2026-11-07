@@ -1993,9 +1993,20 @@ function hostVerdict(raw) {
   return { host, ok };
 }
 
-function setRecStatus(text, state = "") {
+const REC_PR = /^https:\/\/github\.com\/omnifinn\/plebflix-tv\/pull\/\d+$/;
+
+function setRecStatus(text, state = "", prUrl = "") {
   const status = $("form-status");
-  status.textContent = text;
+  status.replaceChildren(document.createTextNode(text));
+  if (REC_PR.test(prUrl)) {
+    status.append(document.createTextNode(" "));
+    const link = document.createElement("a");
+    link.href = prUrl;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.textContent = prUrl;
+    status.append(link);
+  }
   status.parentElement.dataset.state = state;
 }
 
@@ -2032,19 +2043,90 @@ function wireRec() {
     }, 0);
   });
 
+  // The sheet locks the page itself. showModal does not put that lock back on close or Back,
+  // and a phone was left unable to scroll the desk.
+  let recLock = null;
+  let recHistory = false;
+  let recFromPop = false;
+  // position:fixed on body makes the modal dialog a descendant of a fixed box. Chrome then drops
+  // the open state on the next tap and never fires close, so the page stays locked. Overflow hidden
+  // plus a gesture guard keeps the desk still without that ancestor.
+  const blockRecBackground = (event) => {
+    if (dialog.contains(event.target)) return;
+    event.preventDefault();
+  };
+  const lockRecScroll = () => {
+    if (recLock) return;
+    const y = window.scrollY || document.documentElement.scrollTop || 0;
+    recLock = {
+      y,
+      htmlOverflow: document.documentElement.style.overflow,
+      bodyOverflow: document.body.style.overflow,
+    };
+    document.documentElement.classList.add("rec-open");
+    document.body.classList.add("rec-open");
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+    document.addEventListener("touchmove", blockRecBackground, { passive: false });
+    document.addEventListener("wheel", blockRecBackground, { passive: false });
+  };
+  const unlockRecScroll = () => {
+    document.removeEventListener("touchmove", blockRecBackground);
+    document.removeEventListener("wheel", blockRecBackground);
+    if (!recLock) return;
+    const saved = recLock;
+    recLock = null;
+    document.documentElement.classList.remove("rec-open");
+    document.body.classList.remove("rec-open");
+    document.documentElement.style.overflow = saved.htmlOverflow;
+    document.body.style.overflow = saved.bodyOverflow;
+    window.scrollTo(0, saved.y);
+  };
   const open = () => {
+    if (dialog.open) return;
     syncEcho();
     setRecStatus("INSERT TAPE · PASTE A LINK TO A 10+ YEAR OLD CLASSIC");
+    lockRecScroll();
     dialog.showModal();
+    if (!recHistory) {
+      history.pushState({ plebflixRec: true }, "");
+      recHistory = true;
+    }
     $("btn-rec").setAttribute("aria-pressed", "true");
     urlInput.focus();
   };
+  const shut = () => {
+    // Restore the desk in this turn. The dialog's close event is dispatched later.
+    unlockRecScroll();
+    if (dialog.open) dialog.close();
+  };
   $("btn-rec").addEventListener("click", open);
-  $("rec-cancel").addEventListener("click", () => dialog.close());
-  $("rec-close").addEventListener("click", () => dialog.close());
+  $("rec-cancel").addEventListener("click", shut);
+  $("rec-close").addEventListener("click", shut);
   dialog.addEventListener("close", () => {
+    unlockRecScroll();
     $("btn-rec").setAttribute("aria-pressed", "false");
-    $("btn-rec").focus();
+    if (recHistory && !recFromPop) {
+      recHistory = false;
+      history.back();
+    } else {
+      recHistory = false;
+    }
+    $("btn-rec").focus({ preventScroll: true });
+  });
+  dialog.addEventListener("cancel", (event) => {
+    event.preventDefault();
+    shut();
+  });
+  window.addEventListener("popstate", () => {
+    recFromPop = true;
+    recHistory = false;
+    unlockRecScroll();
+    if (dialog.open) dialog.close();
+    recFromPop = false;
+  });
+  window.addEventListener("pageshow", () => {
+    if (!dialog.open) unlockRecScroll();
   });
 
   form.addEventListener("submit", async (event) => {
@@ -2063,8 +2145,11 @@ function wireRec() {
         body: JSON.stringify({ url: data.url, channel: langOf(), company: data.company }),
       });
       const body = await response.json().catch(() => ({}));
-      if (body.ok) {
-        setRecStatus(String(body.message || "Tape received ✓"));
+      if (body.saved) {
+        setRecStatus(String(body.message || ""), body.prOpened ? "filed" : "saved", body.prUrl || "");
+        if (body.prOpened) form.reset();
+      } else if (body.ok) {
+        setRecStatus(String(body.message || "Got it."));
         form.reset();
       } else {
         setRecStatus(String(body.error || "THE DECK JAMMED").toUpperCase(), "error");

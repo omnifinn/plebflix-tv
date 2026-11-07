@@ -70,7 +70,7 @@ npx wrangler deploy
 | `plebflix-tv` | D1 database name. Binding `DB`. |
 | `migrations/*.sql` | Apply before votes and REC will stick. |
 | `IP_SALT` | Optional secret. Salts the address hashes stored on votes and submissions. |
-| `GITHUB_REPO`, `GITHUB_TOKEN` | Shell variables for `npm run curate -- --pr` only (repo defaults to `omnifinn/plebflix-tv`). The Worker never talks to GitHub and has no such bindings. |
+| `GITHUB_REPO`, `GITHUB_TOKEN` | `npm run curate -- --pr` reads both from the shell (repo defaults to `omnifinn/plebflix-tv`). REC also reads them on the Worker: `GITHUB_TOKEN` is a secret, `GITHUB_REPO` is plain text and must be `omnifinn/plebflix-tv`. Without the secret the row is still saved and the deck says no pull request was opened. |
 | `RATE_LIMIT` | Optional KV namespace. Without it, the per-isolate limiter stays in memory; the Rate Limiting bindings (`REC_RL`, `VOTE_RL`, `PLAY_RL`) count at the edge either way. |
 | `plebflix.com`, `www.plebflix.com` | Custom domains in `wrangler.jsonc`. |
 
@@ -97,7 +97,7 @@ The Worker name is `plebflix-tv`. Custom domains on the existing zone: `plebflix
 | `DB` | D1 database. The name is `plebflix-tv`. The binding is `DB`. Migrations live in `migrations/`. |
 | `IP_SALT` | Optional secret. Without it the address hashes use a fixed salt. |
 
-`POST /api/recommend` files a suggestion into the D1 `submissions` table (status `pending`). Nothing reaches GitHub from the Worker; the librarian routine vets the row and opens the pull request. Every API response also carries the `_headers` security headers (`X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy`, and a `Content-Security-Policy` that allows scripts from this origin and YouTube's IFrame API, and frames from YouTube and archive.org).
+`POST /api/recommend` files a suggestion into the D1 `submissions` table (status `pending`) and, when `GITHUB_TOKEN` is set, opens a review pull request (`rec-inbox/<id>.json`). That pull request does not edit the shelf and does not approve the tape. The same link retries a missing pull request instead of inserting another row. Every API response also carries the `_headers` security headers (`X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy`, and a `Content-Security-Policy` that allows scripts from this origin and YouTube's IFrame API, and frames from YouTube and archive.org).
 
 ## Votes
 
@@ -153,8 +153,7 @@ The mode key cycles LIVE → LOOP (repeat this tape) → SHUFFLE (random, no rep
 the scrubber put you on TIMESHIFT ±mm:ss; Skip, Back, a schedule click or a search hit on CONTINUOUS; GO LIVE returns to
 the broadcast. Deploys: `scripts/deploy.mjs` and `LIBRARIAN.md`.
 
-REC now stores suggestions in D1 `submissions` (migration `0002_submissions.sql`, 8 per IP per hour); the daily librarian
-routine vets them and opens the pull requests, so the Worker needs no GitHub token.
+REC stores suggestions in D1 `submissions` (migration `0002_submissions.sql`, 8 per IP per hour) and opens a review pull request when the Worker has `GITHUB_TOKEN`. The librarian still vets the link before anything is added to a shelf. The token needs contents and pull-request access to `omnifinn/plebflix-tv` only: `npx wrangler secret put GITHUB_TOKEN` on account `f7b1f5882ab68d7dfd785ad6942b2db2`. Do not put the token in the repo. `GITHUB_REPO` stays the plain-text value `omnifinn/plebflix-tv`.
 
 ## Candidate checks
 
@@ -201,7 +200,7 @@ Each item:
 
 Press REC, or edit a channel file and open a pull request.
 
-The card is one field: paste a link (YouTube, Vimeo, Internet Archive, Wayback, or any page with the video) and it files itself. The deck sends the TV that is on as the channel. Submit calls `POST /api/recommend`. The Worker checks the origin, the body size, a honeypot field, and a per-address rate limit (8 an hour), validates the URL, folds duplicates, and stores the row in D1 `submissions` as `pending`. The librarian routine (`LIBRARIAN.md`) takes title, year and duration from the link (`yt-dlp`), judges the signals, files the tape with `play`, and opens the pull request.
+The card is one field: paste a link (YouTube, Vimeo, Internet Archive, Wayback, or any page with the video) and it files itself. The deck sends the TV that is on as the channel. Submit calls `POST /api/recommend`. The Worker checks the origin, the body size, a honeypot field, and a per-address rate limit (8 an hour), validates the URL, folds duplicates, and stores the row in D1 `submissions` as `pending`. When `GITHUB_TOKEN` is set it then opens a review pull request that adds only `rec-inbox/<id>.json`. That request does not edit a shelf. A person still takes title, year and duration from the link, judges the signals, and files the tape (`LIBRARIAN.md`).
 
 Before you push a hand-edited list:
 

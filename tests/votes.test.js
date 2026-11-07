@@ -9,6 +9,7 @@ import {
   memoryStore,
   resetVoteLimitersForTests,
 } from "../lib/votes.mjs";
+import { dayKey } from "../public/schedule.js";
 
 function post(path, body, extra = {}) {
   return new Request(`https://plebflix.test${path}`, {
@@ -68,14 +69,15 @@ test("a viewer can vote once, and yesterday's plays show up in today's stats", a
     day: "2020-01-01",
     createdAt: yesterday,
   });
+  const day = dayKey(Date.now() - 86400000);
   await shelf.addVote({
     viewerId: "33333333-3333-4333-8333-333333333333",
     itemId: "b5mies",
     channel: "suomi",
     vote: 1,
-    createdAt: "2026-10-29T01:00:00.000Z",
+    createdAt: `${day}T01:00:00.000Z`,
   });
-  const stats = await handleStats(new Request("https://plebflix.test/api/stats?channel=suomi&day=2026-10-29"), {
+  const stats = await handleStats(new Request(`https://plebflix.test/api/stats?channel=suomi&day=${day}`), {
     VOTE_STORE: shelf,
   });
   const body = await stats.json();
