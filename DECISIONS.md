@@ -2,6 +2,12 @@
 
 Newest first. One entry per decision: date · who · decision · why · source.
 
+## 2026-11-07 · Page, Grok · Search plays the tape that is on today's programme, or it says when it joins
+
+- **Decision:** Choosing a search hit seeks that exact tape inside today's programme, on the channel that airs it (stay put when the channel that is on already has it, otherwise that TV's CH 1, then the tape's own language channel). A tape whose `added` day is still today is not in the programme. The dial, the saved channel, and the film that is on stay as they are, and the open search list says the UTC day it joins. Replacing the clicked row does not count as a click outside the search. `added` is not rewritten.
+- **Why:** Like a Boss is on the International shelf with `added` 2026-11-07, so it is searchable and absent from 7 Nov's lineup. The old seek looked the tape up on the shelf, moved the TV, then looked for it in the lineup and found nothing. The deck stayed on LIVE and kept whatever film was already running. From Suomi that move landed on International's live tape. The outside-click check then used the detached row and hid the line that said so.
+- **Source:** `public/app.js` (`playTape`), `public/schedule.js` (`chooseAirChannel`), `public/search.js`.
+
 ## 2026-11-07 · Page, Grok · REC opens a review pull request after the D1 save, and does not edit the shelf
 
 - **Decision:** `POST /api/recommend` still inserts one pending `submissions` row first. It then opens a GitHub pull request that adds only `rec-inbox/<id>.json` (`approved: false`, `on_air: false`). It does not edit `channels/`. The same link, or the same YouTube / Vimeo / archive.org id, does not insert a second row. If that row has no `pr_url`, the same request retries the pull request and stores the URL. A row that already has a `https://github.com/omnifinn/plebflix-tv/pull/N` URL is returned as-is. A row already `accepted` or `rejected` stays that way: sending the link again does not open another pull request. The row is the record. There is no separate notification ledger. The token is sent only to `api.github.com`, and only when `GITHUB_REPO` is unset or exactly `omnifinn/plebflix-tv`. The submitted URL is not fetched. The response says a pull request is open only when that URL came back. No token, or a GitHub failure, still keeps the row and says no pull request was opened.

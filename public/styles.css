@@ -116,6 +116,7 @@
 
 /* ── REC dialog ─────────────────────────────────────── */
 .rec { width: min(560px, calc(100vw - 24px)); padding: 0; color: var(--ink); margin-top: 72px; display: flex; flex-direction: column; overflow: hidden; overscroll-behavior: none; }
+.rec:not([open]) { display: none; }
 .rec__form { display: flex; flex-direction: column; min-height: 0; max-height: min(640px, calc(100dvh - 48px)); overflow: hidden; }
 .rec__body { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; touch-action: pan-y; }
 .rec::backdrop { background: rgba(5,7,9,.72); backdrop-filter: blur(2px); }

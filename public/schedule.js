@@ -6,6 +6,29 @@ export function liveItems(channel, epochMs = Date.now()) {
   );
 }
 
+/** UTC day a filed tape joins the broadcast. The day named by `added` itself stays off the programme. */
+export function airDate(added) {
+  if (typeof added !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(added)) return null;
+  const [year, month, day] = added.split("-").map(Number);
+  return new Date(Date.UTC(year, month - 1, day + 1)).toISOString().slice(0, 10);
+}
+
+/**
+ * Channel whose programme today contains `id`.
+ * Stay on the channel that is on when it already has the tape. Otherwise use that TV's CH 1, then any
+ * language channel, then a category. A tape that is not in any programme today is not a target.
+ * @param {string} id
+ * @param {{ current: string, order: string[], langOf: (id: string) => string, airsOn: (channelId: string, tapeId: string) => boolean }} ctx
+ */
+export function chooseAirChannel(id, { current, order, langOf, airsOn }) {
+  const hits = order.filter((cid) => airsOn(cid, id));
+  if (!hits.length) return null;
+  if (hits.includes(current)) return current;
+  const lang = langOf(current);
+  const allChannel = (cid) => cid === langOf(cid);
+  return hits.find((cid) => cid === lang) || hits.find((cid) => langOf(cid) === lang && allChannel(cid)) || hits.find(allChannel) || hits[0];
+}
+
 export function totalDuration(items) {
   return items.reduce((sum, item) => sum + item.duration, 0);
 }
