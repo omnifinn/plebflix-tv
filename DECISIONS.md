@@ -2,6 +2,12 @@
 
 Newest first. One entry per decision: date · who · decision · why · source.
 
+## 2026-11-07 · Page, Grok · The search click test proves the player load, not the live iframe URL
+
+- **Decision:** `tests/search-click.test.js` serves its own YouTube IFrame API. The stand-in records every `new YT.Player` and `loadVideoById` for `iframe#yt` and writes that video id into the frame it owns. Real YouTube, ytimg, and googlevideo requests are aborted. Playback on the real service stays `npm run smoke`.
+- **Why:** Ship on `f2bcd9f` failed twice at the b5mies check, an 8s wait for `iframe#yt.src` to contain `f-lnF5eNFFY`, after the deck had already selected that tape. `loadVideoById` does not change the iframe's src; it commands the player that is already there. Where that player is ready, the src stays on the previous tape and the wait expires. Where YouTube answers 150 first, the player is destroyed and a new frame happens to carry the id, so the same wait passes. The deck selection was already right.
+- **Source:** `tests/search-click.test.js`.
+
 ## 2026-11-07 · Page, Grok · Search plays the tape that is on today's programme, or it says when it joins
 
 - **Decision:** Choosing a search hit seeks that exact tape inside today's programme, on the channel that airs it (stay put when the channel that is on already has it, otherwise that TV's CH 1, then the tape's own language channel). A tape whose `added` day is still today is not in the programme. The dial, the saved channel, and the film that is on stay as they are, and the open search list says the UTC day it joins. Replacing the clicked row does not count as a click outside the search. `added` is not rewritten.
