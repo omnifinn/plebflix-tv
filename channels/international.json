@@ -7765,6 +7765,32 @@
       "why": "A homemade Super Mario rage clip, born on YouTube in 2007, that spread widely and is still recognized as one of the site's early viral hits.",
       "original_url": "https://www.youtube.com/watch?v=in6RZzdGki8",
       "added": "2026-11-02"
+    },
+    {
+      "id": "like-a-boss",
+      "title": "SNL Digital Short: Like a Boss",
+      "year": 2009,
+      "source": "youtube",
+      "embedId": "vH-KXk8PZc8",
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "vH-KXk8PZc8",
+          "official": true,
+          "uploader": "Saturday Night Live"
+        }
+      ],
+      "duration": 147,
+      "note": "Official Saturday Night Live upload (28 Oct 2013) of the 4 Apr 2009 digital short. Adult sexual lyrics, a clothed prop-fish gag, a staged gun-in-mouth joke (0:54-0:57), a jump (1:04), and a fake bloody nose (1:11-1:15). No nudity, graphic gore, hate, or doxxing.",
+      "credit": "https://www.youtube.com/watch?v=vH-KXk8PZc8",
+      "signals": [
+        "b",
+        "c",
+        "e"
+      ],
+      "why": "The April 2009 SNL short spread widely, is still quoted, and 'like a boss' became the image-macro catchphrase.",
+      "original_url": "https://www.youtube.com/watch?v=vH-KXk8PZc8",
+      "added": "2026-11-07"
     }
   ]
 }

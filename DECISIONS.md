@@ -2,6 +2,13 @@
 
 Newest first. One entry per decision: date · who · decision · why · source.
 
+## 2026-11-07 · Page, Grok · Like a Boss goes on International
+
+- **Decision:** File `like-a-boss` on International. Title `SNL Digital Short: Like a Boss`, year 2009, duration 147, official Saturday Night Live upload `vH-KXk8PZc8` (posted 28 Oct 2013). Signals `b`, `c`, `e`. Categories komedia and memes. `added` is 2026-11-07, so it joins the lineup on the next UTC day after this is merged and deployed. It is not on air from this pull request.
+- **Why:** Parent reviewed the exact upload. No nudity, graphic gore, hate, doxxing, or spam. Adult sexual lyrics, a clothed prop-fish gag, a staged gun-in-mouth joke (0:54–0:57), a jump (1:04), and a fake bloody nose (1:11–1:15). Know Your Meme (confirmed, 2009, image macros) and the Wikipedia page for the song record the wide spread and the catchphrase the short named. Not born online and not DIY, so `a` and `d` stay off.
+- **Held:** `z3LuqU-9bx8`, Too Many Dicks on the Dance Floor. Visual safety passes (sexual language, clothed costumes, no explicit act). The HBO episode is February 2009. The submitted file is McTezTube, 20 Jun 2013, 127 seconds, not an official upload. Wide spread and still quoted can be argued. A third signal cannot: it is a TV sketch (`a` and `d` are false), and no documented scene of its own turned up beyond the song being quoted and used as remix audio (Sloane's 2009 Star Trek fanvid, recorded by Georgetown's Gnovis). Not filed.
+- **Source:** Saturday Night Live upload, Know Your Meme "Like A Boss", Wikipedia "Like a Boss".
+
 ## 2026-11-01 · Niko's brief, Claude (session) · New curated tapes play non-YouTube first; old tapes keep YouTube first
 
 - **Decision (brief):** tapes added from list curation put a non-YouTube copy first and keep YouTube as a later source. This
