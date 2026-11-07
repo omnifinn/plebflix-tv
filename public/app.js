@@ -1,6 +1,6 @@
 import { syncFavicon } from "./favicon-mode.js";
 import { archiveFile, sources, youtubePoster } from "./play.js";
-import { airDate, buildBroadcast, chooseAirChannel, dayKey, dayStartSeconds, liveItems, liveSeconds, resolveDefinition, spotAt, shiftFromLive, totalDuration, DAY_SECONDS } from "./schedule.js";
+import { buildBroadcast, chooseAirChannel, dayKey, dayStartSeconds, liveItems, liveSeconds, resolveDefinition, spotAt, shiftFromLive, totalDuration, DAY_SECONDS } from "./schedule.js";
 
 /* Plebflix TV — PLEBAMP skin (design: Iris). Rocker order follows the design: International, then Suomi. */
 let ORDER = ["international", "suomi"];
@@ -40,6 +40,13 @@ let mode = "live";
  * schedule row, search — CONTINUOUS: the programme plays on from the tape you picked). GO LIVE clears it.
  */
 let shiftKind = "";
+/**
+ * A search pick playing from the start on this browser, off the shared clock.
+ * The lineup still omits a tape until the UTC day after `added`. GO LIVE clears this.
+ * When the tape ends, CONTINUOUS continues at the next item of today's programme.
+ * @type {null | { item: object, channelId: string, anchorWall: number, pauseOffset: number }}
+ */
+let demand = null;
 let anchorPos = 0;
 let anchorWall = 0;
 let pausePos = 0;
@@ -115,6 +122,10 @@ function noteServerClock(response) {
 
 function wallSec() {
   return Math.floor(now() / 1000);
+}
+/** This browser's clock. A search pick is paced by it, so a broadcast-clock correction does not skip the tape. */
+function deviceSec() {
+  return Math.floor(Date.now() / 1000);
 }
 
 const randomId = () =>
@@ -225,12 +236,77 @@ function setTimeshift(seconds, kind = shiftKind || "seek") {
 }
 
 function goLive() {
+  demand = null;
   shuffleRun = false;
   lastClip = null;
   mode = "live";
   shiftKind = "";
   brokenHold = false;
   streak = 0;
+}
+
+function demandOffset() {
+  if (!demand) return 0;
+  if (mode === "paused") return demand.pauseOffset;
+  return Math.max(0, deviceSec() - demand.anchorWall);
+}
+
+/** The search pick, while it is still playing on this channel. Null once it has run out. */
+function demandSpot() {
+  if (!demand || demand.channelId !== channelId || mode === "stopped") return null;
+  const offset = demandOffset();
+  if (offset >= demand.item.duration) return null;
+  return { item: demand.item, index: -1, offset, start: 0, total: demand.item.duration, demand: true };
+}
+
+function demandExpired() {
+  return Boolean(demand && demand.channelId === channelId && mode !== "stopped" && mode !== "paused" && deviceSec() - demand.anchorWall >= demand.item.duration);
+}
+
+/** What the glass is showing: the search pick, or the broadcast position. */
+function viewedSpot() {
+  const picked = demandSpot();
+  if (picked) return picked;
+  const items = playlist();
+  if (!items.length) return null;
+  return spotAt(items, mode === "paused" ? pausePos : position());
+}
+
+/** The picked tape ended. LOOP plays it again. Otherwise CONTINUOUS moves to the next item of today's programme. */
+function finishDemand() {
+  const item = demand?.item;
+  if (playMode === "loop" && item && item.kind !== "ident") {
+    demand.anchorWall = deviceSec();
+    demand.pauseOffset = 0;
+    mode = "timeshift";
+    shiftKind = "skip";
+    loadedKey = "";
+    loadCurrent(true);
+    return;
+  }
+  demand = null;
+  const items = playlist();
+  const live = items.length ? spotAt(items, liveSeconds(items, now())) : null;
+  if (!live) {
+    goLive();
+    loadCurrent(true);
+    return;
+  }
+  setTimeshift(neighbourStart(items, live, 1), "skip");
+  glitch();
+  loadCurrent(true);
+}
+
+function beginDemand(item) {
+  demand = { item, channelId, anchorWall: deviceSec(), pauseOffset: 0 };
+  mode = "timeshift";
+  shiftKind = "skip";
+  brokenHold = false;
+  userSeeked = true;
+  lastClip = null;
+  loadedKey = "";
+  glitch();
+  loadCurrent(true);
 }
 
 const pad = (n) => String(n).padStart(2, "0");
@@ -1006,7 +1082,7 @@ function onReady(event) {
   }
   if (mode === "paused") return;
   // Safari and others ignore the autoplay param, and start= is stale once the player has loaded. Mute comes first.
-  const spot = spotAt(playlist(), position());
+  const spot = viewedSpot();
   if (spot && spot.item.id === currentItem?.id && spot.offset > 1) {
     ignoreUntil = Date.now() + 1500;
     player?.seekTo?.(spot.offset, true);
@@ -1079,14 +1155,20 @@ async function loadCurrent(force) {
     stopVideo();
   }
   if (mode === "stopped" || brokenHold) return;
-  const spot = spotAt(playlist(), position());
+  if (demandExpired()) {
+    finishDemand();
+    return;
+  }
+  const spot = viewedSpot();
   if (!spot) {
     showCard("NO TAPE");
     updateChrome(null);
     return;
   }
   updateChrome(spot);
-  const key = `${channelId}:${broadcastCache?.day || dayKey(now())}:${spot.index}:${spot.item.id}`;
+  const key = spot.demand
+    ? `demand:${channelId}:${spot.item.id}`
+    : `${channelId}:${broadcastCache?.day || dayKey(now())}:${spot.index}:${spot.item.id}`;
   if (spot.item.kind === "ident") {
     if (key === loadedKey && !force) return;
     loadedKey = key;
@@ -1119,7 +1201,7 @@ async function loadCurrent(force) {
     return;
   }
   if (same && force && (playerKind === "image" || playerKind === "none")) return;
-  if (cutToPrepared(key, spot.offset)) return;
+  if (!spot.demand && cutToPrepared(key, spot.offset)) return;
   cancelPrepared();
 
   loadedKey = key;
@@ -1449,6 +1531,10 @@ function syncDrift(spot) {
 }
 
 function advance(reason) {
+  if (demand && demand.channelId === channelId && (reason === "end" || reason === "error")) {
+    finishDemand();
+    return;
+  }
   const items = playlist();
   if (items.length < 2) {
     showCard("SIGNAL LOST");
@@ -1509,6 +1595,20 @@ function advance(reason) {
 }
 
 function nudge(delta) {
+  if (demand && demand.channelId === channelId && mode !== "stopped") {
+    const offset = demandOffset();
+    const next = Math.max(0, offset + delta);
+    if (next >= demand.item.duration) {
+      finishDemand();
+      return;
+    }
+    if (mode === "paused") demand.pauseOffset = next;
+    else demand.anchorWall = deviceSec() - next;
+    shiftKind = "seek";
+    userSeeked = true;
+    loadCurrent(true);
+    return;
+  }
   const items = playlist();
   const total = totalDuration(items);
   if (!total) return;
@@ -1615,7 +1715,7 @@ function storeVotes(votes) {
 }
 
 async function castVote(direction) {
-  const spot = mode === "stopped" ? null : spotAt(playlist(), position());
+  const spot = mode === "stopped" ? null : viewedSpot();
   const item = spot?.item;
   if (!item || item.kind === "ident") {
     flashVote("NOT A TAPE");
@@ -1664,6 +1764,20 @@ async function castVote(direction) {
 
 function onPlay() {
   unlockSound();
+  if (demand && demand.channelId === channelId && mode !== "stopped") {
+    if (mode === "paused") {
+      demand.anchorWall = deviceSec() - demand.pauseOffset;
+    } else {
+      demand.anchorWall = deviceSec();
+      demand.pauseOffset = 0;
+      loadedKey = "";
+    }
+    mode = "timeshift";
+    shiftKind = "skip";
+    player?.playVideo?.();
+    loadCurrent(true);
+    return;
+  }
   if (mode === "stopped") {
     goLive();
     snow.classList.remove("on");
@@ -1695,15 +1809,19 @@ function onPlay() {
 function onPause() {
   if (mode === "stopped") return;
   if (introActive) finishIntro();
-  pausePos = position();
+  if (demand && demand.channelId === channelId) {
+    demand.pauseOffset = demandOffset();
+    pausePos = demand.pauseOffset;
+  } else pausePos = position();
   mode = "paused";
   player?.pauseVideo?.();
   if (playerKind === "archive") vid.pause();
   if (playerKind === "vimeo") vimeoSend("pause");
-  updateChrome(spotAt(playlist(), pausePos));
+  updateChrome(viewedSpot());
 }
 
 function onStop() {
+  demand = null;
   mode = "stopped";
   cancelPrepared();
   loadedKey = "";
@@ -1930,14 +2048,23 @@ function tick() {
     updateChrome(mode === "stopped" ? null : spotAt(playlist(), position()));
     return;
   }
+  if (demandExpired()) {
+    finishDemand();
+    return;
+  }
   const items = playlist();
-  if (!items.length) {
+  if (!items.length && !demandSpot()) {
     showCard("NO TAPE");
     updateChrome(null);
     return;
   }
-  let spot = spotAt(items, position());
-  if (lastClip && !userSeeked && mode !== "paused" && spot.index !== lastClip.index && playMode !== "live") {
+  let spot = viewedSpot();
+  if (!spot) {
+    showCard("NO TAPE");
+    updateChrome(null);
+    return;
+  }
+  if (!spot.demand && lastClip && !userSeeked && mode !== "paused" && spot.index !== lastClip.index && playMode !== "live") {
     // the tape that was on just ended by itself
     if (playMode === "loop") {
       setTimeshift(lastClip.start);
@@ -1952,14 +2079,16 @@ function tick() {
     spot = spotAt(items, position());
   }
   userSeeked = false;
-  if (spot.item.kind !== "ident") lastClip = { index: spot.index, start: spot.start, duration: spot.item.duration, id: spot.item.id };
-  else if (playMode === "live") lastClip = null;
-  const key = `${channelId}:${broadcastCache?.day || dayKey(now())}:${spot.index}:${spot.item.id}`;
+  if (!spot.demand && spot.item.kind !== "ident") lastClip = { index: spot.index, start: spot.start, duration: spot.item.duration, id: spot.item.id };
+  else if (!spot.demand && playMode === "live") lastClip = null;
+  const key = spot.demand
+    ? `demand:${channelId}:${spot.item.id}`
+    : `${channelId}:${broadcastCache?.day || dayKey(now())}:${spot.index}:${spot.item.id}`;
   if (key !== loadedKey) loadCurrent(false);
   else {
     updateChrome(spot);
     syncDrift(spot);
-    prepareNext(spot, items);
+    if (!spot.demand) prepareNext(spot, items);
   }
 }
 
@@ -2431,6 +2560,21 @@ boot();
 /* ── v3: absolute seeking — skip/back, schedule rows, scrubbable progress ── */
 let scrubbing = false;
 export function seekTo(pos, opts = {}) {
+  if (opts.withinDemand && demand && demand.channelId === channelId) {
+    const offset = Math.max(0, Math.min(demand.item.duration - 0.05, pos));
+    if (mode === "paused") demand.pauseOffset = offset;
+    else {
+      demand.anchorWall = deviceSec() - offset;
+      mode = "timeshift";
+    }
+    shiftKind = opts.seek ? "seek" : "skip";
+    userSeeked = true;
+    lastClip = null;
+    hideCard();
+    loadCurrent(true);
+    return;
+  }
+  demand = null;
   const items = playlist();
   const total = totalDuration(items);
   if (!total) return;
@@ -2457,8 +2601,7 @@ export function seekTo(pos, opts = {}) {
   loadCurrent(true);
 }
 function currentSpot() {
-  const items = playlist();
-  return items.length ? spotAt(items, position()) : null;
+  return viewedSpot();
 }
 /** Start of the n-th clip (skipping idents) after (dir 1) or before (dir -1) the current one. */
 export function neighbourStart(items, spot, dir) {
@@ -2478,6 +2621,26 @@ export function neighbourStart(items, spot, dir) {
   return spot.start;
 }
 function skip(dir) {
+  if (demand && demand.channelId === channelId && mode !== "stopped") {
+    const offset = demandOffset();
+    if (dir < 0 && offset > 4) {
+      demand.anchorWall = deviceSec();
+      demand.pauseOffset = 0;
+      if (mode === "paused") mode = "timeshift";
+      shiftKind = "skip";
+      loadedKey = "";
+      loadCurrent(true);
+      return;
+    }
+    const items = playlist();
+    const live = items.length ? spotAt(items, liveSeconds(items, now())) : null;
+    demand = null;
+    if (live) {
+      if (mode === "stopped") mode = "timeshift";
+      seekTo(neighbourStart(items, live, dir));
+      return;
+    }
+  }
   const items = playlist();
   const spot = currentSpot();
   if (!spot) return;
@@ -2507,7 +2670,7 @@ function scrubTo(frac, commit) {
   $("scrub").style.setProperty("--p", `${(frac * 100).toFixed(2)}%`);
   $("lcd-tc").textContent = `${tc(frac * spot.item.duration)} / ${tc(spot.item.duration)}`;
   showTip(frac);
-  if (commit) seekTo(spot.start + frac * spot.item.duration, { quiet: true, shuffle: shuffleRun, seek: true });
+  if (commit) seekTo(spot.start + frac * spot.item.duration, { quiet: true, shuffle: shuffleRun, seek: true, withinDemand: Boolean(spot.demand) });
 }
 /** Hover / drag time preview above the scrubber. */
 function showTip(frac) {
@@ -2530,45 +2693,32 @@ function categoriesOf(item) {
 function announceTape(item) {
   window.dispatchEvent(new CustomEvent("plebflix:tape", { detail: { item, channel: channelId, cat: META.get(channelId)?.cat || "all", cats: categoriesOf(item) } }));
 }
-function shelfItem(id) {
-  for (const cid of ORDER) {
-    const item = (channels.get(cid)?.items || []).find((entry) => entry.id === id && entry.kind !== "ident");
-    if (item) return item;
-  }
-  return null;
+function approvedItem(cid, tapeId) {
+  return (
+    (channels.get(cid)?.items || []).find(
+      (entry) => entry.id === tapeId && entry.kind !== "ident" && entry.duration > 0 && entry.status !== "pending" && entry.status !== "rejected",
+    ) || null
+  );
 }
-/** Why a search hit cannot be played. Empty when the tape is on today's programme. */
+/** Why a search hit cannot be played. Approved shelf tapes play at once; this is only for a tape that is not there. */
 export function tapeNotice(id) {
-  const item = shelfItem(id);
-  if (!item) return "That tape is not on the shelf.";
-  const today = dayKey(now());
-  if (typeof item.added === "string" && item.added >= today) {
-    return `${item.title} joins the programme on ${airDate(item.added)}. It is not on today's broadcast.`;
-  }
-  return `${item.title} is not on today's programme.`;
+  if (ORDER.some((cid) => approvedItem(cid, id))) return "";
+  return "That tape is not on the shelf.";
 }
 /**
- * Play a tape from search. The seek is inside today's programme (CONTINUOUS), on the channel that
- * actually airs it. A tape filed today is not in that programme until tomorrow: leave the dial and
- * the film that is on exactly as they are.
+ * Play a shelf tape from the start. The channel is the one that carries it (stay, else that TV's CH 1,
+ * else its language channel). Today's lineup is not consulted: `added` still keeps it off the shared
+ * clock until the next UTC day, and GO LIVE is what returns there.
  */
 export function playTape(id) {
-  const airsOn = (cid, tapeId) => playlist(cid).some((item) => item.kind !== "ident" && item.id === tapeId);
-  const target = chooseAirChannel(id, { current: channelId, order: ORDER, langOf, airsOn });
-  if (!target) return false;
-  const items = playlist(target);
-  const total = totalDuration(items);
-  const here = mode === "live" || mode === "stopped" ? liveSeconds(items, now()) : position();
-  let at = 0;
-  let best = null;
-  for (const item of items) {
-    if (item.id === id && item.kind !== "ident") {
-      const ahead = (at - here + total) % total;
-      if (best === null || ahead < best.ahead) best = { at, ahead };
-    }
-    at += item.duration;
-  }
-  if (!best) return false;
+  const target = chooseAirChannel(id, {
+    current: channelId,
+    order: ORDER,
+    langOf,
+    airsOn: (cid, tapeId) => Boolean(approvedItem(cid, tapeId)),
+  });
+  const item = target ? approvedItem(target, id) : null;
+  if (!item) return false;
   if (target !== channelId) {
     channelId = target;
     try {
@@ -2580,8 +2730,7 @@ export function playTape(id) {
     applyChannelChrome();
     tune();
   }
-  if (mode === "stopped") mode = "live";
-  seekTo(best.at);
+  beginDemand(item);
   return true;
 }
 window.plebflix = {
@@ -2591,6 +2740,18 @@ window.plebflix = {
   skip: (d) => skip(d),
   catalog: () => ORDER.map((id) => ({ id, name: channels.get(id)?.name, short: SHORT[id], items: channels.get(id)?.items || [] })),
   state: () => ({ mode, channelId, spot: currentSpot(), introActive, build: buildStamp, shift: shiftKind }),
+  /** Move the shared broadcast clock without skipping a search pick. Tests only. */
+  debugClock(ms) {
+    clockSkew = Number(ms) || 0;
+  },
+  /** Put the search pick at `seconds` from its start. Tests only. */
+  debugDemandAt(seconds) {
+    if (!demand) return false;
+    const at = Math.max(0, Number(seconds) || 0);
+    demand.anchorWall = deviceSec() - at;
+    demand.pauseOffset = at;
+    return true;
+  },
   /** Re-read channels/*.json now if a deploy changed them (the librarian's check after a deploy; the deck does it every 5 min). */
   refresh: () => pollBuild(),
 };

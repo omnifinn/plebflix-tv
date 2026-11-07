@@ -14,9 +14,9 @@ export function airDate(added) {
 }
 
 /**
- * Channel whose programme today contains `id`.
+ * Channel the caller says contains `id`.
  * Stay on the channel that is on when it already has the tape. Otherwise use that TV's CH 1, then any
- * language channel, then a category. A tape that is not in any programme today is not a target.
+ * language channel, then a category. No hit is not a target. Search passes the shelf; the lineup passes today's programme.
  * @param {string} id
  * @param {{ current: string, order: string[], langOf: (id: string) => string, airsOn: (channelId: string, tapeId: string) => boolean }} ctx
  */

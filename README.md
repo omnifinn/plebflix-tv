@@ -15,7 +15,7 @@ npm run dev
 
 `npm run dev` builds, then runs `wrangler dev`. The set is at <http://localhost:8787>.
 
-PLAY, PAUSE, REW, FWD, STOP, and REC sit on the deck. CH+ / CH− and the tapes on the shelf switch between Suomi and International. LIVE is one broadcast: everyone on a channel sees the same tape at the same second, so a friend can tune in to the same show. PAUSE holds this browser (press it again, click the glass again, or Space, to play on). REW and FWD put this browser on TIMESHIFT (the broadcast, shifted). Skip, Back, a schedule row or a search hit put it on CONTINUOUS (the programme plays on from the tape you picked). PLAY, GO LIVE and the LIVE lamp return to the broadcast. STOP is snow and a test card; the programme guide stays readable.
+PLAY, PAUSE, REW, FWD, STOP, and REC sit on the deck. CH+ / CH− and the tapes on the shelf switch between Suomi and International. LIVE is one broadcast: everyone on a channel sees the same tape at the same second, so a friend can tune in to the same show. PAUSE holds this browser (press it again, click the glass again, or Space, to play on). REW and FWD put this browser on TIMESHIFT (the broadcast, shifted). Skip, Back, a schedule row or a search hit put it on CONTINUOUS. A search hit starts that shelf tape from the beginning, even before it has joined the day's programme, and holds it until the tape ends. PLAY during that pick starts it again. GO LIVE and the LIVE lamp return to the broadcast. STOP is snow and a test card; the programme guide stays readable.
 
 ## Build output
 
@@ -117,7 +117,7 @@ The day’s lineup uses that snapshot, so votes cast today change tomorrow’s d
 
 The broadcast is one UTC day, built from the channel, the date, the stats from before midnight and the channel's block in `channels/schedule.json` (`order` seeded or catalog, `hold_out_hours`, `ident_seconds`, fixed UTC `slots`; format in `LIBRARIAN.md`). With the defaults a seeded shuffle draws clips by weight, then holds each clip out for six hours. A short shelf cannot fill that window, so the deck falls back to the least-recently aired quarter and keeps going. An eight-second station ident airs between clips. It is drawn on the glass. It is not an embed. A fixed slot lands at its second: the gap before it is filled with tapes that fit, then a longer ident.
 
-A tape with `added: YYYY-MM-DD` joins the programme from the next UTC day. The set waits up to four seconds for stats and keeps retrying a failed fetch every 30 s; a late reply rebuilds the lineup once so this viewer joins everyone else. Open tabs poll `channels/index.json` every five minutes and re-read the shelves when its `build` stamp changed, so a deploy does not leave old tabs on an old programme.
+A tape with `added: YYYY-MM-DD` joins the programme from the next UTC day. Search still plays it from the start on the day it is filed; that play is this browser only, and when the tape ends CONTINUOUS continues at the next item of today's programme. GO LIVE returns to the shared clock. The set waits up to four seconds for stats and keeps retrying a failed fetch every 30 s; a late reply rebuilds the lineup once so this viewer joins everyone else. Open tabs poll `channels/index.json` every five minutes and re-read the shelves when its `build` stamp changed, so a deploy does not leave old tabs on an old programme.
 
 The schedule window is the day's programme guide: every tape of the UTC day at local wall-clock times, the inverse row ON AIR, an outlined row where this viewer is when off the broadcast. Clicking the ON AIR row joins the broadcast; any other row plays on from there (CONTINUOUS).
 
@@ -150,7 +150,7 @@ wall-clock broadcast of the current channel. The TV language defaults from the v
 choice in localStorage win. Channels are categories (CH 1 = all tapes, then MTV, Komedia, Asiaa, Dokkarit, Visailut,
 Meemit, Animaatio, Pelit, Eläimet, Mokat); the TV switch picks the language and the names follow it.
 The mode key cycles LIVE → LOOP (repeat this tape) → SHUFFLE (random, no repeats until all have played). REW, FWD and
-the scrubber put you on TIMESHIFT ±mm:ss; Skip, Back, a schedule click or a search hit on CONTINUOUS; GO LIVE returns to
+the scrubber put you on TIMESHIFT ±mm:ss; Skip, Back, a schedule click or a search hit on CONTINUOUS. A search hit starts that shelf tape from the beginning, including one that joins the programme tomorrow; GO LIVE returns to
 the broadcast. Deploys: `scripts/deploy.mjs` and `LIBRARIAN.md`.
 
 REC stores suggestions in D1 `submissions` (migration `0002_submissions.sql`, 8 per IP per hour) and opens a review pull request when the Worker has `GITHUB_TOKEN`. The librarian still vets the link before anything is added to a shelf. The token needs contents and pull-request access to `omnifinn/plebflix-tv` only: `npx wrangler secret put GITHUB_TOKEN` on account `f7b1f5882ab68d7dfd785ad6942b2db2`. Do not put the token in the repo. `GITHUB_REPO` stays the plain-text value `omnifinn/plebflix-tv`.

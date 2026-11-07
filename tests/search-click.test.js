@@ -31,11 +31,11 @@ window.YT.Player = function Player(el, opts) {
   const iframe = document.createElement("iframe");
   iframe.id = (node && node.id) || "yt";
   const host = opts.host || "https://www.youtube-nocookie.com";
-  const note = (op, videoId) => {
-    window.__ytLoads.push({ op: op, videoId: videoId, host: host, id: iframe.id });
-    iframe.src = host + "/embed/" + videoId;
+  const note = (op, videoId, start) => {
+    window.__ytLoads.push({ op: op, videoId: videoId, host: host, id: iframe.id, start: Number(start) || 0 });
+    iframe.src = host + "/embed/" + videoId + "?start=" + (Number(start) || 0);
   };
-  note("new", opts.videoId);
+  note("new", opts.videoId, opts.playerVars && opts.playerVars.start);
   this.iframe = iframe;
   this.ytHost = host;
   if (node && node.parentNode) node.replaceWith(iframe);
@@ -43,7 +43,7 @@ window.YT.Player = function Player(el, opts) {
     if (opts.events && opts.events.onStateChange) opts.events.onStateChange({ target: this, data: window.YT.PlayerState.PLAYING });
   };
   this.loadVideoById = (arg) => {
-    note("load", arg && arg.videoId ? arg.videoId : arg);
+    note("load", arg && arg.videoId ? arg.videoId : arg, arg && arg.startSeconds);
     queueMicrotask(playing);
   };
   this.destroy = () => iframe.remove();
@@ -104,6 +104,13 @@ async function installPlayer(context) {
   });
 }
 
+/** GO LIVE is the deck key on a desktop and the lamp on a phone. */
+async function clickLive(page) {
+  const button = page.locator("#btn-live");
+  if (await button.isVisible()) await button.click();
+  else await page.locator("button.lamp").first().click();
+}
+
 /** The load the on-screen player was last asked for. Preload uses iframe#yt-next and does not count. */
 async function onScreenLoad(page) {
   return page.evaluate(() => {
@@ -112,7 +119,90 @@ async function onScreenLoad(page) {
   });
 }
 
-test("a search click plays the chosen tape and channel, and a future tape stays put", { timeout: 90000 }, async (t) => {
+async function pick(page, query, id) {
+  await page.fill("#search-q", query);
+  await page.waitForSelector(`#search-list [data-id='${id}']`);
+  await page.click(`#search-list [data-id='${id}']`);
+  return page.evaluate((tape) => window.plebflix.state().spot?.item?.id === tape, id);
+}
+
+async function expectPick(page, { id, embed, channel }) {
+  try {
+    await page.waitForFunction(({ id: tape, embed: video, channel: cid }) => {
+      const state = window.plebflix.state();
+      const spot = state.spot;
+      if (state.channelId !== cid || spot?.item?.id !== tape || spot.item.embedId !== video || spot.demand !== true || spot.offset >= 2 || state.mode !== "timeshift") return false;
+      const first = spot.item.play?.[0]?.kind || spot.item.source;
+      if (first === "youtube") {
+        const load = (window.__ytLoads || []).filter((row) => row.id === "yt").at(-1);
+        return load?.videoId === video && load.start === 0;
+      }
+      const src = document.querySelector("video")?.getAttribute("src") || "";
+      return src.includes(video);
+    }, { id, embed, channel }, { timeout: 3000 });
+  } catch (error) {
+    const dump = await page.evaluate(() => ({
+      id: window.plebflix.state().spot?.item?.id,
+      mode: window.plebflix.state().mode,
+      demand: window.plebflix.state().spot?.demand,
+      offset: window.plebflix.state().spot?.offset,
+      loads: (window.__ytLoads || []).filter((row) => row.id === "yt").slice(-3),
+      video: document.querySelector("video")?.getAttribute("src") || "",
+      note: document.querySelector(".search__none")?.textContent || "",
+    }));
+    throw new Error(`${id} ${JSON.stringify(dump)} ${error.message}`);
+  }
+  const got = await page.evaluate(() => {
+    const state = window.plebflix.state();
+    const load = (window.__ytLoads || []).filter((row) => row.id === "yt").at(-1);
+    return {
+      channel: state.channelId,
+      body: document.body.dataset.channel,
+      ch: document.body.dataset.ch,
+      id: state.spot.item.id,
+      embed: state.spot.item.embedId,
+      offset: state.spot.offset,
+      mode: state.mode,
+      shift: state.shift,
+      demand: state.spot.demand,
+      saved: localStorage.getItem("plebflix-channel"),
+      note: document.querySelector(".search__none")?.textContent || "",
+      hidden: document.querySelector("#search-list").hidden,
+      query: document.querySelector("#search-q").value,
+      load,
+      src: document.querySelector("iframe#yt")?.src || "",
+      video: document.querySelector("video")?.getAttribute("src") || "",
+      playKind: state.spot.item.play?.[0]?.kind || "",
+      source: state.spot.item.source || "",
+    };
+  });
+  assert.equal(got.channel, channel);
+  assert.equal(got.body, channel);
+  assert.equal(got.ch, channel);
+  assert.equal(got.id, id);
+  assert.equal(got.embed, embed);
+  assert.equal(got.mode, "timeshift");
+  assert.equal(got.shift, "skip");
+  assert.equal(got.demand, true);
+  assert.equal(got.saved, channel);
+  assert.equal(got.note, "");
+  assert.equal(got.hidden, true);
+  assert.equal(got.query, "");
+  const first = got.playKind || got.source;
+  if (first === "youtube") {
+    assert.equal(got.load.op === "load" || got.load.op === "new", true);
+    assert.equal(got.load.videoId, embed);
+    assert.equal(got.load.start, 0);
+    assert.match(got.load.host, /youtube/);
+    assert.match(got.src, new RegExp(`/embed/${embed}\\?start=0`));
+  } else {
+    assert.match(got.video, new RegExp(embed));
+  }
+  assert.ok(got.offset < 2, `offset ${got.offset}`);
+  return got;
+}
+
+test("a search click plays the chosen tape from the start, including one filed today", { timeout: 120000 }, async (t) => {
   const { chromium } = await import("playwright");
   let browser;
   let server;
@@ -145,118 +235,119 @@ test("a search click plays the chosen tape and channel, and a future tape stays 
       await page.waitForFunction(() => window.plebflix?.state && window.plebflix.catalog && Array.isArray(window.__ytLoads), { timeout: 20000 });
       await page.waitForFunction(() => window.plebflix.state().spot?.item?.id, { timeout: 20000 });
       const before = await page.evaluate(() => {
-        const spot = window.plebflix.state();
         const item = window.plebflix.catalog().flatMap((ch) => ch.items).find((entry) => entry.id === "like-a-boss");
-        const today = new Date().toISOString().slice(0, 10);
-        return { channel: spot.channelId, tape: spot.spot.item.id, added: item.added, embed: item.embedId, today, saved: localStorage.getItem("plebflix-channel"), loads: window.__ytLoads.length };
+        return { added: item.added, embed: item.embedId, today: new Date().toISOString().slice(0, 10) };
       });
-      assert.equal(before.channel, "suomi");
-      assert.equal(before.saved, "suomi");
+      assert.equal(before.added, "2026-11-07");
       assert.equal(before.embed, "vH-KXk8PZc8");
-      await page.fill("#search-q", "like a boss");
-      await page.waitForSelector("#search-list [data-id='like-a-boss']");
-      await page.click("#search-list [data-id='like-a-boss']");
-      const held = await page.evaluate(() => ({
-        channel: document.body.dataset.channel,
-        ch: document.body.dataset.ch,
-        tape: window.plebflix.state().spot?.item?.id,
-        embed: window.plebflix.state().spot?.item?.embedId,
-        mode: window.plebflix.state().mode,
-        note: document.querySelector(".search__none")?.textContent || "",
-        query: document.querySelector("#search-q").value,
-        saved: localStorage.getItem("plebflix-channel"),
-        box: document.querySelector(".search__none")?.getBoundingClientRect().toJSON() || null,
-        asked: (window.__ytLoads || []).some((row) => row.videoId === "vH-KXk8PZc8"),
-      }));
-      const eligible = typeof before.added !== "string" || before.added < before.today;
-      if (!eligible) {
-        assert.ok(held.box && held.box.height > 8 && held.box.width > 40, JSON.stringify(held.box));
-        assert.equal(held.channel, "suomi");
-        assert.equal(held.ch, "suomi");
-        assert.equal(held.tape, before.tape);
-        assert.equal(held.mode, "live");
-        assert.equal(held.saved, "suomi");
-        assert.match(held.query, /like a boss/);
-        assert.match(held.note, /joins the programme on \d{4}-\d{2}-\d{2}/);
-        assert.match(held.note, /not on today's broadcast/);
-        assert.equal(held.asked, false);
-      } else {
-        assert.equal(held.channel, "international");
-        assert.equal(held.ch, "international");
-        assert.equal(held.tape, "like-a-boss");
-        assert.equal(held.embed, "vH-KXk8PZc8");
-        assert.equal(held.saved, "international");
-        await page.waitForFunction(() => (window.__ytLoads || []).some((row) => row.id === "yt" && row.videoId === "vH-KXk8PZc8"), { timeout: 2000 });
-        const load = await onScreenLoad(page);
-        assert.equal(load.videoId, "vH-KXk8PZc8");
-        const src = await page.evaluate(() => document.querySelector("iframe#yt")?.src || "");
-        assert.match(src, /vH-KXk8PZc8/);
-      }
-      await page.screenshot({ path: `/opt/cursor/artifacts/search-${viewport.name}-held.png` });
-      shots.push({ viewport: viewport.name, held, eligible });
-
-      await page.fill("#search-q", "numa numa");
-      await page.waitForSelector("#search-list [data-id='numa-numa']");
-      await page.click("#search-list [data-id='numa-numa']");
-      await page.waitForFunction(() => {
-        const load = (window.__ytLoads || []).filter((row) => row.id === "yt").at(-1);
-        return window.plebflix.state().spot?.item?.id === "numa-numa" && load?.videoId === "Cqd1Gvq-RBY";
-      }, { timeout: 2000 });
-      const numa = await page.evaluate(() => {
-        const state = window.plebflix.state();
-        const load = (window.__ytLoads || []).filter((row) => row.id === "yt").at(-1);
-        return {
-          channel: state.channelId,
-          id: state.spot.item.id,
-          embed: state.spot.item.embedId,
-          mode: state.mode,
-          shift: state.shift,
-          src: document.querySelector("iframe#yt")?.src || "",
-          saved: localStorage.getItem("plebflix-channel"),
-          body: document.body.dataset.channel,
-          load,
-        };
+      assert.equal(await pick(page, "like a boss", "like-a-boss"), true);
+      const held = await expectPick(page, { id: "like-a-boss", embed: "vH-KXk8PZc8", channel: "international" });
+      await page.waitForTimeout(700);
+      const ticked = await page.evaluate(() => window.plebflix.state());
+      assert.equal(ticked.spot.item.id, "like-a-boss");
+      assert.equal(ticked.spot.item.embedId, "vH-KXk8PZc8");
+      assert.equal(ticked.spot.demand, true);
+      assert.equal(ticked.channelId, "international");
+      assert.ok(ticked.spot.offset < 147);
+      const lastLoad = await onScreenLoad(page);
+      assert.equal(lastLoad.videoId, "vH-KXk8PZc8");
+      assert.equal(lastLoad.start, 0);
+      const beforeFwd = ticked.spot.offset;
+      await page.locator("#btn-fwd").press("Enter");
+      const forwarded = await page.evaluate(() => window.plebflix.state());
+      assert.equal(forwarded.spot.item.id, "like-a-boss");
+      assert.equal(forwarded.spot.item.embedId, "vH-KXk8PZc8");
+      assert.equal(forwarded.spot.demand, true);
+      assert.equal(forwarded.shift, "seek");
+      assert.ok(forwarded.spot.offset >= beforeFwd + 10, `fwd offset ${forwarded.spot.offset}`);
+      await page.click("#btn-pause");
+      const paused = await page.evaluate(() => window.plebflix.state());
+      assert.equal(paused.mode, "paused");
+      assert.equal(paused.spot.item.id, "like-a-boss");
+      const heldOffset = paused.spot.offset;
+      await page.waitForTimeout(400);
+      const pausedStill = await page.evaluate(() => window.plebflix.state());
+      assert.equal(pausedStill.mode, "paused");
+      assert.equal(pausedStill.spot.item.id, "like-a-boss");
+      assert.ok(Math.abs(pausedStill.spot.offset - heldOffset) < 0.01);
+      await page.click("#btn-pause");
+      await page.waitForFunction(() => window.plebflix.state().mode === "timeshift" && window.plebflix.state().spot.item.id === "like-a-boss");
+      await page.evaluate(() => window.plebflix.debugDemandAt(12));
+      const playBox = await page.evaluate(() => {
+        const button = document.querySelector("#btn-play");
+        const style = getComputedStyle(button);
+        return { w: innerWidth, display: style.display, hidden: button.hidden };
       });
-      assert.equal(numa.channel, "international");
-      assert.equal(numa.body, "international");
-      assert.equal(numa.id, "numa-numa");
-      assert.equal(numa.embed, "Cqd1Gvq-RBY");
-      assert.equal(numa.shift, "skip");
-      assert.equal(numa.saved, "international");
-      assert.equal(numa.load.videoId, "Cqd1Gvq-RBY");
-      assert.match(numa.load.host, /youtube/);
-      assert.match(numa.src, /\/embed\/Cqd1Gvq-RBY/);
+      if (playBox.display === "none") await page.evaluate(() => document.querySelector("#btn-play").click());
+      else await page.click("#btn-play");
+      await page.waitForFunction(() => window.plebflix.state().spot.item.id === "like-a-boss" && window.plebflix.state().spot.offset < 2);
+      const replay = await onScreenLoad(page);
+      assert.equal(replay.videoId, "vH-KXk8PZc8");
+      assert.equal(replay.start, 0);
+      await page.evaluate(() => window.plebflix.debugDemandAt(12));
+      await page.click("#btn-prev");
+      await page.waitForFunction(() => window.plebflix.state().spot.item.id === "like-a-boss" && window.plebflix.state().spot.offset < 2);
+      await page.evaluate(() => window.plebSkins.set("neon"));
+      const skinned = await page.evaluate(() => ({ id: window.plebflix.state().spot.item.id, demand: window.plebflix.state().spot.demand, skin: document.documentElement.dataset.skin }));
+      assert.equal(skinned.id, "like-a-boss");
+      assert.equal(skinned.demand, true);
+      assert.equal(skinned.skin, "neon");
+      const skew = Date.parse("2026-11-08T00:00:05.000Z") - Date.now();
+      await page.evaluate((ms) => window.plebflix.debugClock(ms), skew);
+      await page.waitForTimeout(500);
+      const midnight = await page.evaluate(() => window.plebflix.state());
+      assert.equal(midnight.spot.item.id, "like-a-boss");
+      assert.equal(midnight.spot.item.embedId, "vH-KXk8PZc8");
+      assert.equal(midnight.spot.demand, true);
+      assert.equal(midnight.channelId, "international");
+      await page.evaluate(() => window.plebflix.debugClock(0));
+      await page.evaluate(() => window.plebflix.debugDemandAt(147));
+      await page.waitForFunction(() => {
+        const state = window.plebflix.state();
+        return state.mode === "timeshift" && state.shift === "skip" && state.spot?.demand !== true && state.spot?.item?.id !== "like-a-boss";
+      }, { timeout: 3000 });
+      await clickLive(page);
+      await page.waitForFunction(() => window.plebflix.state().mode === "live" && window.plebflix.state().shift === "");
+      const returned = await page.evaluate(() => window.plebflix.state());
+      assert.notEqual(returned.spot.demand, true);
+      await page.screenshot({ path: `/opt/cursor/artifacts/search-${viewport.name}-held.png` });
+      shots.push({ viewport: viewport.name, held, today: before.today });
+
+      await pick(page, "numa numa", "numa-numa");
+      const numa = await expectPick(page, { id: "numa-numa", embed: "Cqd1Gvq-RBY", channel: "international" });
       await page.screenshot({ path: `/opt/cursor/artifacts/search-${viewport.name}-numa.png` });
 
-      await page.fill("#search-q", "b5mies");
-      await page.waitForSelector("#search-list [data-id='b5mies']");
-      await page.click("#search-list [data-id='b5mies']");
-      await page.waitForFunction(() => {
-        const load = (window.__ytLoads || []).filter((row) => row.id === "yt").at(-1);
-        return window.plebflix.state().spot?.item?.id === "b5mies" && load?.videoId === "f-lnF5eNFFY";
-      }, { timeout: 2000 });
-      const suomi = await page.evaluate(() => {
-        const state = window.plebflix.state();
-        const load = (window.__ytLoads || []).filter((row) => row.id === "yt").at(-1);
-        return {
-          channel: state.channelId,
-          id: state.spot.item.id,
-          embed: state.spot.item.embedId,
-          src: document.querySelector("iframe#yt")?.src || "",
-          saved: localStorage.getItem("plebflix-channel"),
-          load,
-        };
-      });
-      assert.equal(suomi.channel, "suomi");
-      assert.equal(suomi.id, "b5mies");
-      assert.equal(suomi.embed, "f-lnF5eNFFY");
-      assert.equal(suomi.saved, "suomi");
+      await pick(page, "b5mies", "b5mies");
+      const suomi = await expectPick(page, { id: "b5mies", embed: "f-lnF5eNFFY", channel: "suomi" });
       assert.equal(suomi.load.op, "load");
-      assert.equal(suomi.load.videoId, "f-lnF5eNFFY");
-      assert.match(suomi.load.host, /youtube/);
-      assert.match(suomi.src, /\/embed\/f-lnF5eNFFY/);
-      shots[shots.length - 1].numa = numa;
-      shots[shots.length - 1].suomi = suomi;
+
+      await pick(page, "mongodb", "mongodb-web-scale");
+      const older = await expectPick(page, { id: "mongodb-web-scale", embed: "b2F-DItXtZs", channel: "international" });
+
+      await pick(page, "like a boss", "like-a-boss");
+      await expectPick(page, { id: "like-a-boss", embed: "vH-KXk8PZc8", channel: "international" });
+      await page.click("#tv-switch [data-lang='suomi']");
+      await page.waitForFunction(() => {
+        const state = window.plebflix.state();
+        return state.channelId === "suomi" && state.mode === "live" && state.spot?.demand !== true && state.spot?.item?.id !== "like-a-boss";
+      }, { timeout: 3000 });
+      const switched = await page.evaluate(() => {
+        const item = window.plebflix.state().spot.item;
+        const load = (window.__ytLoads || []).filter((row) => row.id === "yt").at(-1);
+        return { first: item.play?.[0]?.kind || item.source, embed: item.embedId, load: load?.videoId || "" };
+      });
+      if (switched.first === "youtube") assert.equal(switched.load, switched.embed);
+
+      const missing = await page.evaluate(() => {
+        const beforeId = window.plebflix.state().spot.item.id;
+        return { played: window.plebflix.playTape("not-a-real-tape"), beforeId, afterId: window.plebflix.state().spot.item.id, note: window.plebflix.tapeNotice("not-a-real-tape") };
+      });
+      assert.equal(missing.played, false);
+      assert.equal(missing.afterId, missing.beforeId);
+      assert.equal(missing.note, "That tape is not on the shelf.");
+      shots[shots.length - 1].numa = { id: numa.id, start: numa.load.start };
+      shots[shots.length - 1].older = { id: older.id, start: older.load.start };
+      shots[shots.length - 1].suomi = { id: suomi.id, op: suomi.load.op, start: suomi.load.start };
       await context.close();
 
       context = await browser.newContext({
@@ -272,40 +363,28 @@ test("a search click plays the chosen tape and channel, and a future tape stays 
       await intl.goto(base, { waitUntil: "domcontentloaded" });
       await intl.waitForFunction(() => window.plebflix?.state && window.plebflix.catalog && Array.isArray(window.__ytLoads), { timeout: 20000 });
       await intl.waitForFunction(() => window.plebflix.state().spot?.item?.id, { timeout: 20000 });
-      const intlBefore = await intl.evaluate(() => window.plebflix.state().spot.item.id);
-      await intl.fill("#search-q", "like a boss");
-      await intl.waitForSelector("#search-list [data-id='like-a-boss']");
-      await intl.click("#search-list [data-id='like-a-boss']");
-      const intlHeld = await intl.evaluate(() => ({
-        channel: document.body.dataset.channel,
-        tape: window.plebflix.state().spot?.item?.id,
-        embed: window.plebflix.state().spot?.item?.embedId,
-        mode: window.plebflix.state().mode,
-        note: document.querySelector(".search__none")?.textContent || "",
-        query: document.querySelector("#search-q").value,
-        saved: localStorage.getItem("plebflix-channel"),
-        box: document.querySelector(".search__none")?.getBoundingClientRect().toJSON() || null,
-        asked: (window.__ytLoads || []).some((row) => row.videoId === "vH-KXk8PZc8"),
-      }));
-      if (!eligible) {
-        assert.equal(intlHeld.channel, "international");
-        assert.equal(intlHeld.tape, intlBefore);
-        assert.equal(intlHeld.mode, "live");
-        assert.equal(intlHeld.saved, "international");
-        assert.match(intlHeld.query, /like a boss/);
-        assert.match(intlHeld.note, /joins the programme on \d{4}-\d{2}-\d{2}/);
-        assert.ok(intlHeld.box && intlHeld.box.height > 8, JSON.stringify(intlHeld.box));
-        assert.equal(intlHeld.asked, false);
-      } else {
-        assert.equal(intlHeld.channel, "international");
-        assert.equal(intlHeld.tape, "like-a-boss");
-        assert.equal(intlHeld.embed, "vH-KXk8PZc8");
-        assert.equal(intlHeld.saved, "international");
-        const load = await onScreenLoad(intl);
-        assert.equal(load.videoId, "vH-KXk8PZc8");
-      }
+      await pick(intl, "like a boss", "like-a-boss");
+      await expectPick(intl, { id: "like-a-boss", embed: "vH-KXk8PZc8", channel: "international" });
+      await intl.click("#btn-next");
+      await intl.waitForFunction(() => {
+        const state = window.plebflix.state();
+        return state.mode === "timeshift" && state.shift === "skip" && state.spot?.demand !== true && state.spot?.item?.id !== "like-a-boss";
+      }, { timeout: 3000 });
+      await pick(intl, "like a boss", "like-a-boss");
+      const intlHeld = await expectPick(intl, { id: "like-a-boss", embed: "vH-KXk8PZc8", channel: "international" });
+      await intl.waitForTimeout(500);
+      const intlTick = await intl.evaluate(() => window.plebflix.state());
+      assert.equal(intlTick.spot.item.id, "like-a-boss");
+      assert.equal(intlTick.spot.demand, true);
+      assert.equal(intlTick.channelId, "international");
+      await intl.click("#btn-pause");
+      const intlPaused = await intl.evaluate(() => window.plebflix.state());
+      assert.equal(intlPaused.mode, "paused");
+      assert.equal(intlPaused.spot.item.id, "like-a-boss");
+      await clickLive(intl);
+      await intl.waitForFunction(() => window.plebflix.state().mode === "live" && window.plebflix.state().spot?.demand !== true);
       await intl.screenshot({ path: `/opt/cursor/artifacts/search-${viewport.name}-held-intl.png` });
-      shots[shots.length - 1].intlHeld = intlHeld;
+      shots[shots.length - 1].intlHeld = { id: intlHeld.id, start: intlHeld.load.start };
       await context.close();
       context = null;
     }

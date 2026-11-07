@@ -20,21 +20,23 @@ test("a tape filed today is off the programme until the next UTC day", () => {
   assert.equal(airDate("soon"), null);
 });
 
-test("search chooses the channel that airs the tape today and refuses one that does not", () => {
+test("search chooses the shelf channel that carries the tape", () => {
   const order = ["international", "international-komedia", "suomi", "suomi-komedia"];
   const langOf = (id) => (id.startsWith("suomi") ? "suomi" : "international");
-  const airs = {
-    international: ["numa-numa"],
-    "international-komedia": ["numa-numa"],
+  const shelf = {
+    international: ["numa-numa", "like-a-boss"],
+    "international-komedia": ["numa-numa", "like-a-boss"],
     suomi: ["b5mies"],
     "suomi-komedia": ["b5mies"],
   };
-  const airsOn = (cid, id) => (airs[cid] || []).includes(id);
+  const airsOn = (cid, id) => (shelf[cid] || []).includes(id);
   const ctx = (current) => ({ current, order, langOf, airsOn });
   assert.equal(chooseAirChannel("numa-numa", ctx("suomi")), "international");
   assert.equal(chooseAirChannel("b5mies", ctx("international")), "suomi");
   assert.equal(chooseAirChannel("numa-numa", ctx("international-komedia")), "international-komedia");
   assert.equal(chooseAirChannel("numa-numa", ctx("international")), "international");
-  assert.equal(chooseAirChannel("like-a-boss", ctx("suomi")), null);
-  assert.equal(chooseAirChannel("like-a-boss", ctx("international")), null);
+  assert.equal(chooseAirChannel("like-a-boss", ctx("suomi")), "international");
+  assert.equal(chooseAirChannel("like-a-boss", ctx("international")), "international");
+  assert.equal(chooseAirChannel("like-a-boss", ctx("international-komedia")), "international-komedia");
+  assert.equal(chooseAirChannel("missing", ctx("suomi")), null);
 });

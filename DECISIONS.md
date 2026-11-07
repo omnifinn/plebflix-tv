@@ -2,6 +2,12 @@
 
 Newest first. One entry per decision: date · who · decision · why · source.
 
+## 2026-11-07 · Page, Grok · Search plays any approved shelf tape from the start
+
+- **Decision:** A search hit plays that tape from second 0 on the channel that carries it (stay if this channel has it, otherwise that TV's CH 1, then its language channel). The shared lineup is not consulted and `added` is not rewritten: a tape filed today still joins the broadcast on the next UTC day. The pick is this browser's clock. Ticks stay on it. Pause holds it, PLAY starts it again, Back inside it returns to its start, a skin does not drop it. Skip, the tape ending, or a schedule row continues today's programme (CONTINUOUS, the next item after what the broadcast is on). LOOP plays the pick again. GO LIVE, STOP, and a channel change return to the shared clock. A tape that is not an approved shelf row does not play.
+- **Why:** The day-after-`added` rule was also refusing the search click, with the line "joins the programme on 2026-11-08". The broadcast stays shared. Choosing a tape is not the broadcast.
+- **Source:** `public/app.js` (`playTape`, `beginDemand`), `public/schedule.js` (`liveItems`, `chooseAirChannel`).
+
 ## 2026-11-07 · Page, Grok · The search click test proves the player load, not the live iframe URL
 
 - **Decision:** `tests/search-click.test.js` serves its own YouTube IFrame API. The stand-in records every `new YT.Player` and `loadVideoById` for `iframe#yt` and writes that video id into the frame it owns. Real YouTube, ytimg, and googlevideo requests are aborted. Playback on the real service stays `npm run smoke`.
