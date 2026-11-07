@@ -137,7 +137,7 @@ if (typeof document !== "undefined") {
       input.blur();
       return;
     }
-    const note = window.plebflix?.tapeNotice(id) || "That tape is not on today's programme.";
+    const note = window.plebflix?.tapeNotice(id) || "That tape is not on the shelf.";
     list.innerHTML = `<li class="search__none">${esc(note)}</li>`;
     list.hidden = false;
     input.setAttribute("aria-expanded", "true");
