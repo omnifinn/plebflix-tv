@@ -120,7 +120,6 @@ The ones you emailed to the whole lab.
 | --- | ---: | --- | --- | ---: | --- | --- |
 | Numa Numa | 2004 | abcd | Gary Brolsma's Numa Numa Dance, filmed on a webcam. | 1:40 | Gary Brolsma | [YouTube, official](https://www.youtube.com/watch?v=Cqd1Gvq-RBY) — embedded via YouTube |
 | Badgers | 2003 | abcde | Weebl's animated badger loop. | 1:13 | Weebl's Stuff | [YouTube, official](https://www.youtube.com/watch?v=EIyixC9NsLI) — embedded via YouTube |
-| Star Wars Kid | 2003 | abcde | The 2002 practice tape, as it spread in 2003. | 1:49 | Jimi Love | [YouTube, official](https://www.youtube.com/watch?v=HPPj6viIBmU) — embedded via YouTube |
 | Peanut Butter Jelly Time | 2002 | abcd | The dancing banana. The Shockwave file does not play, so this is the YouTube copy. | 1:46 | AlbinoBlackSheep | [YouTube, official](https://www.youtube.com/watch?v=Z3ZAGBL6UBA) — embedded via YouTube |
 | Keyboard Cat | 2007 | abcde | The original upload that hit in 2007. Charlie Schmidt filmed the cat in 1984. | 0:54 | Keyboard Cat! | [YouTube, official](https://www.youtube.com/watch?v=J---aiyznGQ) — embedded via YouTube |
 | Dramatic Chipmunk | 2007 | abcde | Five seconds and a zoom. The whole joke. | 0:05 | libertycityemergency | [YouTube, official](https://www.youtube.com/watch?v=mfhBM_Yay6w) — embedded via YouTube |
