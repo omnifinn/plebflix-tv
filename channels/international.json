@@ -79,47 +79,6 @@
       "original_url": "https://web.archive.org/web/20050523232618/http://www.weebls-stuff.com:80/toons/badgers/"
     },
     {
-      "id": "star-wars-kid",
-      "title": "Star Wars Kid",
-      "year": 2003,
-      "source": "youtube",
-      "embedId": "HPPj6viIBmU",
-      "play": [
-        {
-          "kind": "youtube",
-          "id_or_url": "HPPj6viIBmU",
-          "official": true,
-          "uploader": "Jimi Love"
-        },
-        {
-          "kind": "archive",
-          "id_or_url": "youtube-HPPj6viIBmU",
-          "file": "Star_Wars_Kid-HPPj6viIBmU.mp4",
-          "official": false,
-          "uploader": "Internet Archive"
-        },
-        {
-          "kind": "archive",
-          "id_or_url": "youtube-HPPj6viIBmU",
-          "file": "Star_Wars_Kid-HPPj6viIBmU.webm",
-          "official": false,
-          "uploader": "Internet Archive"
-        }
-      ],
-      "duration": 109,
-      "note": "The 2002 practice tape, as it spread in 2003.",
-      "credit": "https://www.youtube.com/watch?v=HPPj6viIBmU",
-      "signals": [
-        "a",
-        "b",
-        "c",
-        "d",
-        "e"
-      ],
-      "why": "The 2002 practice tape, as it spread in 2003.",
-      "original_url": "https://www.youtube.com/watch?v=HPPj6viIBmU"
-    },
-    {
       "id": "peanut-butter-jelly-time",
       "title": "Peanut Butter Jelly Time",
       "year": 2002,
