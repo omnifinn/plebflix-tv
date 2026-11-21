@@ -1061,6 +1061,11 @@ function ensureStarted(target) {
     if (target !== player || mode === "paused" || mode === "stopped") return;
     const state = target.getPlayerState?.();
     if (state === 1 || state === 3) return;
+    // The TV app may play sound without a tap; its embeds are just slow to start. Muting there would stick.
+    if (ON_TV) {
+      target.playVideo?.();
+      return;
+    }
     target.mute?.();
     target.playVideo?.();
     $("sound-hint").hidden = false;
@@ -1112,6 +1117,10 @@ function onState(event) {
     streak = 0;
     clearTimeout(ytWatch);
     markSource(`youtube:${sourceList[sourceAt]?.id || ""}`);
+    if (ON_TV && soundAllowed() && player?.isMuted?.()) {
+      player.unMute?.();
+      player.setVolume?.(100);
+    }
   }
   if (event.data === ended && mode !== "paused" && mode !== "stopped") advance("end");
 }
