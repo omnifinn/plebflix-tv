@@ -161,8 +161,10 @@ function back() {
     document.activeElement.blur();
     return;
   }
-  // Watching: leave. The launcher page under this one closes the app when it is shown again.
-  if (history.length > 1) history.back();
+  // Watching: leave. In the Samsung app window.close() ends the app (the launcher's history entry is replaced by the
+  // deck, so there is nothing to go back to). In a browser tab that cannot close, step back instead.
+  window.close();
+  setTimeout(() => history.length > 1 && history.back(), 300);
 }
 
 function onKey(event) {
