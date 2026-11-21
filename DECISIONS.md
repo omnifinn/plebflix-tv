@@ -1,3 +1,12 @@
+## 2026-11-21 — TV player origin and logging
+
+- The TV returned YouTube error 153 for direct widget embeds. Use a hosted, player-only YouTube shim on plebflix.com, controlled by postMessage; keep the TV experience packaged. Archive playback reached playing in 3.644 seconds on the TV. The TV default script policy blocked inline diagnostic scripts; use a packaged early logger for testing.
+
+## 2026-11-21 — Native TV v2
+
+- Package the TV interface and a catalog snapshot in the widget; reuse the site schedule generator and fetch its daily statistics to match the shared broadcast. Permit cross-origin reads of the public catalog and statistics for the packaged app. This requires a site deployment.
+- Preserve the old launcher in `legacy/tizen-v1`. Keep the hosted `/tv/` deck for now because its removal has independent site and test implications; the new widget does not use it.
+
 # Decisions — plebflix-tv
 
 Newest first. One entry per decision: date · who · decision · why · source.
