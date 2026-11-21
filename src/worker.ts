@@ -30,7 +30,11 @@ export default {
       });
     }
     if (url.pathname === "/api/stats") {
-      return handleStats(request, env);
+      const response = await handleStats(request, env);
+      const headers = new Headers(response.headers);
+      headers.set("access-control-allow-origin", "*");
+      headers.set("access-control-expose-headers", "date");
+      return new Response(response.body, { status: response.status, headers });
     }
     if (url.pathname.startsWith("/api/")) {
       return new Response(JSON.stringify({ ok: false, error: "No such tape slot." }), {

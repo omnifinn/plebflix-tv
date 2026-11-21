@@ -1,3 +1,8 @@
+## 2026-11-21 — Native TV v2
+
+- Package the TV interface and a catalog snapshot in the widget; reuse the site schedule generator and fetch its daily statistics to match the shared broadcast. Permit cross-origin reads of the public catalog and statistics for the packaged app. This requires a site deployment.
+- Preserve the old launcher in `legacy/tizen-v1`. Keep the hosted `/tv/` deck for now because its removal has independent site and test implications; the new widget does not use it.
+
 # Decisions — plebflix-tv
 
 Newest first. One entry per decision: date · who · decision · why · source.

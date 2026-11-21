@@ -1,0 +1,10 @@
+import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import * as esbuild from 'esbuild';
+import { buildLineup } from '../lib/lineup.mjs';
+const read = async f => JSON.parse(await readFile(f, 'utf8'));
+const docs = { international: await read('channels/international.json'), suomi: await read('channels/suomi.json') };
+const lineup = buildLineup(docs, await read('channels/categories.json'));
+const snapshot = { index: {channels: lineup.index}, docs: {...docs, ...lineup.cats}, schedule: await read('channels/schedule.json') };
+await mkdir('dist/tizen/stage', {recursive:true});
+await writeFile('dist/tizen/stage/snapshot.js', 'window.SNAPSHOT='+JSON.stringify(snapshot)+';');
+await esbuild.build({entryPoints:['tizen/tv.js'], bundle:true, format:'iife', target:'chrome69', outfile:'dist/tizen/stage/bundle.js'});
