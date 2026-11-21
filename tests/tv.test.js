@@ -19,11 +19,11 @@ test("the /tv/ deck is one classic script with syntax an old TV browser parses",
   assert.match(css, /is-tv/);
 });
 
-test("the Tizen launcher opens the hosted deck and registers the channel keys", async () => {
+test("the packaged TV app keeps its upgrade identity and local shell", async () => {
   const config = await readFile("tizen/config.xml", "utf8");
   assert.match(config, /<tizen:application id="PlbFlx2026\.PlebflixTV" package="PlbFlx2026"/);
   assert.match(config, /privilege\/tv\.inputdevice/);
-  const launcher = await readFile("tizen/launcher.js", "utf8");
-  assert.match(launcher, /https:\/\/plebflix\.com\/tv\//);
-  for (const key of ["ChannelUp", "ChannelDown", "MediaPlayPause", "ColorF0Red"]) assert.ok(launcher.includes(`"${key}"`), key);
+  const html = await readFile("tizen/index.html", "utf8");
+  assert.match(html, /src="bundle.js"/);
+  assert.doesNotMatch(html, /https:\/\/plebflix\.com\/tv/);
 });
