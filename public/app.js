@@ -980,9 +980,13 @@ function nextSource(item, why) {
   startSource(item, spot?.item === item || spot?.item.id === item.id ? spot.offset : 0, loadGen);
 }
 
+/** The Samsung TV app (Chromium 69): nocookie embeds never get ready there, and every start is slower. */
+const ON_TV = document.documentElement.classList.contains("is-tv");
+const YT_START_MS = ON_TV ? 15000 : 6000;
+
 /**
- * A sign-in wall does not always raise onError. No PLAYING within 6 seconds hands the slot to the next source.
- * The last source keeps trying: a slow start is better than no signal.
+ * A sign-in wall does not always raise onError. No PLAYING within 6 seconds (15 on the TV app) hands the slot to the
+ * next source. The last source keeps trying: a slow start is better than no signal.
  */
 function watchYoutube(item) {
   clearTimeout(ytWatch);
@@ -990,8 +994,8 @@ function watchYoutube(item) {
   ytWatch = setTimeout(() => {
     if (playerKind !== "youtube" || item !== currentItem || mode === "paused") return;
     destroyYoutube();
-    nextSource(item, "YouTube did not start within 6 seconds");
-  }, 6000);
+    nextSource(item, `YouTube did not start within ${YT_START_MS / 1000} seconds`);
+  }, YT_START_MS);
 }
 
 async function startSource(item, offset, gen) {
@@ -1244,9 +1248,11 @@ let prepareTimer = 0;
 
 function orderedSources(item) {
   return sources(item).flatMap((source) =>
-    source.kind === "youtube"
-      ? [{ ...source, host: "https://www.youtube-nocookie.com" }, { ...source, host: "https://www.youtube.com" }]
-      : [source],
+    source.kind !== "youtube"
+      ? [source]
+      : ON_TV
+        ? [{ ...source, host: "https://www.youtube.com" }]
+        : [{ ...source, host: "https://www.youtube-nocookie.com" }, { ...source, host: "https://www.youtube.com" }],
   );
 }
 

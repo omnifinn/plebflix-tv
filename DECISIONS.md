@@ -7,6 +7,7 @@ Newest first. One entry per decision: date · who · decision · why · source.
 - **Decision:** A Tizen web app (`tizen/`, id `PlbFlx2026.PlebflixTV`, "Plebflix TV") that registers the remote keys and opens `https://plebflix.com/tv/`. `/tv/` is the same deck built for the TV's old Chromium (one bundled classic script, polyfills, one lowered stylesheet, fixed 1080p sizes) with a remote driver: CH±/▲▼ change channel, digits tune, OK shows the controls, BACK hides them or closes the app, media and colour keys work.
 - **Why:** Niko, 2026-11-21: "can you create a native app version of plebflix that would run natively on my samsung tv". Hosting the deck keeps YouTube's origin/referrer checks happy (a packaged `file://` page fails them) and lets every site deploy update the TV.
 - **Source:** `tizen/`, `public/tv/`, `scripts/build.mjs` (`buildTv`).
+- **On the TV (UE55TU7005, Tizen 5.5, Chromium 69):** youtube-nocookie embeds never become ready there (their script needs `queueMicrotask`), while www.youtube.com embeds play. The TV app goes straight to www and gives a YouTube start 15 seconds instead of 6 before the archive copy takes over. The website is unchanged. `sdb install` does not install on this TV; `tizen install` does.
 
 ## 2026-11-21 · Niko (via Page) · No wall clock in the player
 
