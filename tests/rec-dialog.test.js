@@ -3,8 +3,11 @@ import { createServer } from "node:http";
 import { readFile, mkdir, writeFile } from "node:fs/promises";
 import { extname, join } from "node:path";
 import test from "node:test";
+import { tmpdir } from "node:os";
 
 const ROOT = new URL("..", import.meta.url).pathname;
+/** Screenshots land here: PLEBFLIX_ARTIFACTS, else the temp dir. */
+const ARTIFACTS = process.env.PLEBFLIX_ARTIFACTS || join(tmpdir(), "plebflix-artifacts");
 const css = await readFile(new URL("../public/styles.css", import.meta.url), "utf8");
 
 test("the REC sheet has one scrollport", () => {
@@ -100,8 +103,8 @@ test("mobile REC scrolls inside the sheet and restores the page on close and Bac
 
     await page.click("#btn-rec");
     await page.waitForSelector("#rec-dialog[open]");
-    await mkdir("/opt/cursor/artifacts", { recursive: true });
-    await page.screenshot({ path: "/opt/cursor/artifacts/rec-mobile-sheet.png" });
+    await mkdir(ARTIFACTS, { recursive: true });
+    await page.screenshot({ path: `${ARTIFACTS}/rec-mobile-sheet.png` });
     const open = await page.evaluate(() => {
       const dialog = document.getElementById("rec-dialog");
       const body = dialog.querySelector(".rec__body");
@@ -139,7 +142,7 @@ test("mobile REC scrolls inside the sheet and restores the page on close and Bac
     assert.equal(guard.outside, true);
     assert.equal(guard.inside, false);
     assert.ok(Math.abs(guard.scrollY - before) < 3, `the page scrolled behind the sheet (${guard.scrollY})`);
-    await page.screenshot({ path: "/opt/cursor/artifacts/rec-mobile-scrolled.png" });
+    await page.screenshot({ path: `${ARTIFACTS}/rec-mobile-scrolled.png` });
 
     await page.click("#rec-cancel");
     // open flips off inside close(); the close event (and the scroll restore) follows it.
@@ -168,7 +171,7 @@ test("mobile REC scrolls inside the sheet and restores the page on close and Bac
     assert.equal(afterBack.locked, false);
     assert.equal(afterBack.overflow, "");
     assert.ok(Math.abs(afterBack.scrollY - before) < 3, `Back left the page at ${afterBack.scrollY}`);
-    await page.screenshot({ path: "/opt/cursor/artifacts/rec-mobile-restored.png" });
+    await page.screenshot({ path: `${ARTIFACTS}/rec-mobile-restored.png` });
     await mkdir("/tmp/rec-mobile", { recursive: true });
     await writeFile("/tmp/rec-mobile/result.json", JSON.stringify({ before, restored, afterBack }));
   } catch (error) {

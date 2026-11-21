@@ -7750,6 +7750,38 @@
       "why": "The April 2009 SNL short spread widely, is still quoted, and 'like a boss' became the image-macro catchphrase.",
       "original_url": "https://www.youtube.com/watch?v=vH-KXk8PZc8",
       "added": "2026-11-07"
+    },
+    {
+      "id": "iphone-bill",
+      "title": "iJustine – 300-page iPhone bill",
+      "year": 2007,
+      "source": "youtube",
+      "embedId": "UdULhkh6yeA",
+      "play": [
+        {
+          "kind": "youtube",
+          "id_or_url": "UdULhkh6yeA",
+          "official": true,
+          "uploader": "iJustine"
+        }
+      ],
+      "duration": 67,
+      "note": "iJustine's own upload.",
+      "credit": "https://www.youtube.com/watch?v=UdULhkh6yeA",
+      "creator": "iJustine",
+      "signals": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "why": "iJustine unboxed AT&T's 300-page iPhone bill and the clip pushed the carrier to change the format.",
+      "original_url": "https://www.youtube.com/watch?v=UdULhkh6yeA",
+      "tags": [
+        "youtube",
+        "gadget"
+      ],
+      "added": "2026-11-21"
     }
   ]
 }

@@ -311,12 +311,6 @@ function beginDemand(item) {
 
 const pad = (n) => String(n).padStart(2, "0");
 
-function clock(withSeconds = true) {
-  const now = new Date();
-  const hm = `${pad(now.getHours())}:${pad(now.getMinutes())}`;
-  return withSeconds ? `${hm}:${pad(now.getSeconds())}` : hm;
-}
-
 function hhmm(epochMs) {
   const at = new Date(epochMs);
   return `${pad(at.getHours())}:${pad(at.getMinutes())}`;
@@ -414,7 +408,6 @@ function updateChrome(spot) {
   document.body.dataset.channel = langOf();
   $("osd-ch").textContent = `CH ${number}`;
   $("lcd-ch").textContent = `CH ${number} ${short}`;
-  $("lcd-clock").textContent = clock();
   $("lcd-year").textContent = isClip && item.year ? String(item.year) : "----";
 
   // marquee + screen-reader twin
@@ -1089,6 +1082,17 @@ function onReady(event) {
   }
   player?.playVideo?.();
   ensureStarted(player);
+}
+
+/** True when a YouTube embed is up but has not reached playing or buffering. */
+function youtubeIdle() {
+  if (playerKind !== "youtube" || typeof player?.getPlayerState !== "function") return false;
+  try {
+    const state = player.getPlayerState();
+    return state !== 1 && state !== 3;
+  } catch {
+    return false;
+  }
 }
 
 function currentPlayer(event) {
@@ -2042,7 +2046,6 @@ function cycleMode() {
 }
 
 function tick() {
-  $("lcd-clock").textContent = clock();
   if (introActive) return;
   if (mode === "stopped" || brokenHold) {
     updateChrome(mode === "stopped" ? null : spotAt(playlist(), position()));
@@ -2311,6 +2314,13 @@ function wire() {
   // The glass is the biggest key on the deck: a tap pauses, the next tap plays on (or wakes a stopped set).
   $("screen").addEventListener("click", (event) => {
     if (event.target.closest("button, a, input, [role=button]")) return;
+    // A YouTube embed the browser never started (iOS low-power mode refuses even muted autoplay) has no visible
+    // controls, so the first tap is the play gesture, not a pause of a tape that is not running.
+    if ((mode === "live" || mode === "timeshift") && youtubeIdle()) {
+      unlockSound();
+      player?.playVideo?.();
+      return;
+    }
     if (mode === "live" || mode === "timeshift") onPause();
     else onPlay();
   });

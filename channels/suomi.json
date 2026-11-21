@@ -2861,6 +2861,54 @@
         "suomi-netti"
       ],
       "added": "2026-11-01"
+    },
+    {
+      "id": "niilin-hanhet",
+      "title": "Pensseli-setä – Niilin hanhet",
+      "year": 2009,
+      "source": "archive.org",
+      "embedId": "pensseli-seta-niilin-hanhet",
+      "play": [
+        {
+          "kind": "archive",
+          "id_or_url": "pensseli-seta-niilin-hanhet",
+          "file": "Pensseli-setä - Niilin hanhet [[Finnish Misheard Lyrics] Uncle Paintbrush - The Geese of the Nile]-Lo_edXUlrT8.ia.mp4",
+          "official": false,
+          "uploader": "Internet Archive (TheKassitus original, Lo_edXUlrT8)"
+        },
+        {
+          "kind": "wayback",
+          "id_or_url": "Lo_edXUlrT8",
+          "official": false,
+          "uploader": "Internet Archive"
+        },
+        {
+          "kind": "archive",
+          "id_or_url": "pensseli-seta-niilin-hanhet_202503",
+          "file": "PENSSELI-SETA-_Niilin_hanhet.mp4",
+          "official": false,
+          "uploader": "Internet Archive"
+        }
+      ],
+      "duration": 122,
+      "note": "TheKassitus's 2009 misheard-lyrics subtitles on Ebdo Mihemed's Kurdish wedding song Pinsedî Zêde. The YouTube original (Lo_edXUlrT8) is gone; this is the archived copy of that upload.",
+      "credit": "https://archive.org/details/pensseli-seta-niilin-hanhet",
+      "creator": "TheKassitus / Ebdo Mihemed",
+      "signals": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ],
+      "why": "Suomi-netin legendaarisin misheard-video: 600 000 katselua kuukaudessa 2009, HS ja Hymy uutisoivat, Pensseli-setä keikkaili Suomessa.",
+      "original_url": "https://web.archive.org/web/20130729092350/http://www.youtube.com/watch?v=Lo_edXUlrT8",
+      "tags": [
+        "suomi-netti",
+        "pensseli-seta",
+        "misheard"
+      ],
+      "added": "2026-11-21"
     }
   ]
 }

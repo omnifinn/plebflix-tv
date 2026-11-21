@@ -111,6 +111,7 @@ From Riemurasia nights to Euroviisut.
 | Spurdo Spärde | 2011 | abcde | The Finnish board bear with the broken grin: ebin :DDD | 0:07 | Know Your Meme | [image, not official](https://i.kym-cdn.com/entries/icons/original/000/008/001/Spurdo.jpg) — image from its public source |
 | Darude - Sandstorm | 1999 | bce | Suomen tunnetuin konemusiikkihitti, josta tuli maailmanlaajuinen meemi (Wikipedian luettelo internetilmiöistä). | 3:52 | Internet Archive | [archive.org, not official](https://archive.org/details/youtube-y6120QOlsfU) — streamed from Internet Archive |
 | Tsajajajaja (alkuperäinen) | 2011 | abd | MTV Uutisten listaama suomalainen viraaliklassikko. | 0:27 | Internet Archive | streamed from Internet Archive |
+| Pensseli-setä – Niilin hanhet | 2009 | abcde | Suomi-netin legendaarisin misheard-video: 600 000 katselua kuukaudessa 2009, HS ja Hymy uutisoivat, Pensseli-setä keikkaili Suomessa. | 2:02 | Internet Archive (TheKassitus original, Lo_edXUlrT8) | [archive.org, not official](https://archive.org/details/pensseli-seta-niilin-hanhet) — streamed from Internet Archive |
 
 ## 2. International
 
@@ -330,6 +331,7 @@ The ones you emailed to the whole lab.
 | Morshu (Zelda CD-i) | 1993 | bce | The CD-i shopkeeper, a cornerstone of YouTube Poop. | 0:16 | Internet Archive | streamed from Internet Archive |
 | Super Mario Brothers - Frustration | 2007 | abcd | A homemade Super Mario rage clip, born on YouTube in 2007, that spread widely and is still recognized as one of the site's early viral hits. | 23:41 | bob smith (@freeacdcbootlegs) | [YouTube, official](https://www.youtube.com/watch?v=in6RZzdGki8) — embedded via YouTube |
 | SNL Digital Short: Like a Boss | 2009 | bce | The April 2009 SNL short spread widely, is still quoted, and 'like a boss' became the image-macro catchphrase. | 2:27 | Saturday Night Live | [YouTube, official](https://www.youtube.com/watch?v=vH-KXk8PZc8) — embedded via YouTube |
+| iJustine – 300-page iPhone bill | 2007 | abcd | iJustine unboxed AT&T's 300-page iPhone bill and the clip pushed the carrier to change the format. | 1:07 | iJustine | [YouTube, official](https://www.youtube.com/watch?v=UdULhkh6yeA) — embedded via YouTube |
 
 ## Filing a tape
 
