@@ -1,0 +1,24 @@
+/* Plebflix TV on a television (/tv/): 1920×1080, ten-foot view, remote focus. Loaded after styles.css. */
+html.is-tv, html.is-tv body { overflow: hidden; cursor: none; }
+html.is-tv.tv-pointer, html.is-tv.tv-pointer body { cursor: default; }
+html.is-tv .app { max-width: none; height: 100vh; padding: 20px 28px 12px; box-sizing: border-box; }
+html.is-tv .win--eq, html.is-tv .win--fx, html.is-tv #click-toggle, html.is-tv .sound-hint,
+html.is-tv .app > .foot, html.is-tv .source-row { display: none !important; }
+html.is-tv :focus { outline: 4px solid #FFC94A !important; outline-offset: 3px; box-shadow: 0 0 0 8px rgba(255, 201, 74, .25), 0 0 24px rgba(255, 201, 74, .6) !important; }
+html.is-tv input:focus { outline-offset: 0; }
+html.is-tv .key { min-height: 52px; }
+html.is-tv .search__list { max-height: 60vh; }
+html.is-tv .search__hit.is-active, html.is-tv .search__hit:focus { outline: 4px solid #FFC94A; }
+.tv-flash { position: absolute; top: 24px; left: 28px; z-index: 30; padding: 8px 18px; font-size: 44px; line-height: 1;
+  color: #7CFF6B; background: rgba(0, 0, 0, .7); border-radius: 6px; letter-spacing: .06em; opacity: 0; transition: opacity .25s; pointer-events: none; }
+.tv-flash.is-on { opacity: 1; }
+/* The TV browser predates max()/min()/clamp(), container units and svh: give the deck fixed 1080p sizes. */
+html.is-tv body { min-height: 100vh; }
+html.is-tv .crt__glass { height: 690px !important; max-height: none; }
+html.is-tv .card-mark { font-size: 52px; }
+html.is-tv .card-sub { font-size: 28px; }
+html.is-tv .rec { width: 560px; max-height: 640px; }
+html.is-tv .rec__form { max-height: 640px; }
+html.is-tv .rocker { max-width: 900px; }
+html.is-tv .win--shelf { display: none !important; }
+html.is-tv .sched__well { height: 760px; flex: none; }

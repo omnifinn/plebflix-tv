@@ -2,6 +2,12 @@
 
 Newest first. One entry per decision: date · who · decision · why · source.
 
+## 2026-11-21 · Niko (via Page) · Plebflix TV as a Samsung TV app
+
+- **Decision:** A Tizen web app (`tizen/`, id `PlbFlx2026.PlebflixTV`, "Plebflix TV") that registers the remote keys and opens `https://plebflix.com/tv/`. `/tv/` is the same deck built for the TV's old Chromium (one bundled classic script, polyfills, one lowered stylesheet, fixed 1080p sizes) with a remote driver: CH±/▲▼ change channel, digits tune, OK shows the controls, BACK hides them or closes the app, media and colour keys work.
+- **Why:** Niko, 2026-11-21: "can you create a native app version of plebflix that would run natively on my samsung tv". Hosting the deck keeps YouTube's origin/referrer checks happy (a packaged `file://` page fails them) and lets every site deploy update the TV.
+- **Source:** `tizen/`, `public/tv/`, `scripts/build.mjs` (`buildTv`).
+
 ## 2026-11-21 · Niko (via Page) · No wall clock in the player
 
 - **Decision:** The LCD under the screen no longer shows the time of day (`#lcd-clock` and `clock()` are gone). The row keeps the channel and the tape's year. The schedule window still lists air times, which is where a viewer looks for them.
