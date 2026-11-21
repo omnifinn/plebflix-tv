@@ -54,11 +54,10 @@
 .source-row { display: flex; justify-content: center; padding: 6px 0 8px; }
 
 .player__lcd { margin-top: 2px; padding: 8px 16px 10px; }
-.lcd__row1 { display: grid; grid-template-columns: minmax(120px, auto) 1fr auto 1fr auto; align-items: center; gap: 12px; font-size: var(--fs-lcd-m); line-height: 1; letter-spacing: .04em; }
+.lcd__row1 { display: grid; grid-template-columns: minmax(120px, auto) 1fr auto; align-items: center; gap: 12px; font-size: var(--fs-lcd-m); line-height: 1; letter-spacing: .04em; }
 .lcd__live { font-size: var(--fs-lcd-m); color: var(--lcd); text-shadow: var(--glow-text); }
 .lcd__live::before { background: var(--rec-hot); }
-.lcd__clock { grid-column: 3; font-size: var(--fs-lcd-xl); letter-spacing: .05em; }
-.lcd__year { grid-column: 5; font-size: 28px; line-height: 34px; padding: 0 16px; }
+.lcd__year { grid-column: 3; font-size: 28px; line-height: 34px; padding: 0 16px; }
 .player__lcd .marquee { margin: 4px 0 6px; }
 .lcd__row3 { display: flex; align-items: center; gap: 16px; }
 .lcd__row3 .progress { flex: 1; }
@@ -211,10 +210,10 @@
   .sound-hint { display: inline-flex; bottom: 10px; height: 32px; font-size: 11px; }
 
   .player__lcd { padding: 8px 10px 10px; margin: 0; }
-  .lcd__row1 { grid-template-columns: auto 1fr auto 1fr auto; gap: 6px; font-size: 20px; }
+  .lcd__row1 { grid-template-columns: 1fr auto; gap: 6px; font-size: 20px; }
   .lcd__live { display: none; }
   .lcd__ch { grid-column: 1; }
-  .lcd__clock { font-size: 38px; }
+  .lcd__year { grid-column: 2; }
   .lcd__year { font-size: 22px; line-height: 28px; padding: 0 12px; }
   .player__lcd .marquee { font-size: 30px; margin: 6px 0; }
   .lcd__tc { font-size: 19px; }
@@ -341,7 +340,6 @@ button.lamp { background: none; border: 0; padding: 0; margin: 0; cursor: pointe
 }
 .sound-hint { display: inline-flex; }            /* desktop too, until the viewer unmutes */
 .pill[aria-disabled="true"] { pointer-events: none; opacity: .55; }
-.lcd__clock { white-space: nowrap; }
 .lcd__ch, .lcd__year { white-space: nowrap; }
 .marquee__track > span { white-space: nowrap; }
 .sched__row--ident { opacity: .7; font-style: normal; }

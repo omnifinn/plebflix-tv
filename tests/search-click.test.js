@@ -3,8 +3,11 @@ import { createServer } from "node:http";
 import { readFile, mkdir } from "node:fs/promises";
 import { extname, join } from "node:path";
 import test from "node:test";
+import { tmpdir } from "node:os";
 
 const ROOT = new URL("..", import.meta.url).pathname;
+/** Screenshots land here: PLEBFLIX_ARTIFACTS, else the temp dir. */
+const ARTIFACTS = process.env.PLEBFLIX_ARTIFACTS || join(tmpdir(), "plebflix-artifacts");
 const TYPES = {
   ".html": "text/html; charset=utf-8",
   ".js": "text/javascript; charset=utf-8",
@@ -23,7 +26,7 @@ const TYPES = {
  * Real playback stays npm run smoke.
  */
 const PLAYER = `
-window.__ytLoads = [];
+window.__ytLoads = window.__ytLoads || [];
 window.YT = window.YT || {};
 window.YT.PlayerState = { UNSTARTED: -1, ENDED: 0, PLAYING: 1, PAUSED: 2, BUFFERING: 3, CUED: 5 };
 window.YT.Player = function Player(el, opts) {
@@ -96,6 +99,10 @@ function start() {
 }
 
 async function installPlayer(context) {
+  // A page whose live tape is on archive.org never asks for the YouTube API; the load log still has to exist.
+  await context.addInitScript(() => {
+    window.__ytLoads = window.__ytLoads || [];
+  });
   await context.route(/youtube\.com|youtube-nocookie\.com|ytimg\.com|googlevideo\.com/, (route) => {
     if (route.request().url().includes("/iframe_api")) {
       return route.fulfill({ status: 200, contentType: "text/javascript; charset=utf-8", body: PLAYER });
@@ -215,7 +222,7 @@ test("a search click plays the chosen tape from the start, including one filed t
     }
     server = await start();
     const base = `http://127.0.0.1:${server.address().port}/`;
-    await mkdir("/opt/cursor/artifacts", { recursive: true });
+    await mkdir(ARTIFACTS, { recursive: true });
     const shots = [];
     for (const viewport of [
       { name: "desktop", width: 1280, height: 800, mobile: false },
@@ -310,12 +317,12 @@ test("a search click plays the chosen tape from the start, including one filed t
       await page.waitForFunction(() => window.plebflix.state().mode === "live" && window.plebflix.state().shift === "");
       const returned = await page.evaluate(() => window.plebflix.state());
       assert.notEqual(returned.spot.demand, true);
-      await page.screenshot({ path: `/opt/cursor/artifacts/search-${viewport.name}-held.png` });
+      await page.screenshot({ path: `${ARTIFACTS}/search-${viewport.name}-held.png` });
       shots.push({ viewport: viewport.name, held, today: before.today });
 
       await pick(page, "numa numa", "numa-numa");
       const numa = await expectPick(page, { id: "numa-numa", embed: "Cqd1Gvq-RBY", channel: "international" });
-      await page.screenshot({ path: `/opt/cursor/artifacts/search-${viewport.name}-numa.png` });
+      await page.screenshot({ path: `${ARTIFACTS}/search-${viewport.name}-numa.png` });
 
       await pick(page, "b5mies", "b5mies");
       const suomi = await expectPick(page, { id: "b5mies", embed: "f-lnF5eNFFY", channel: "suomi" });
@@ -383,7 +390,7 @@ test("a search click plays the chosen tape from the start, including one filed t
       assert.equal(intlPaused.spot.item.id, "like-a-boss");
       await clickLive(intl);
       await intl.waitForFunction(() => window.plebflix.state().mode === "live" && window.plebflix.state().spot?.demand !== true);
-      await intl.screenshot({ path: `/opt/cursor/artifacts/search-${viewport.name}-held-intl.png` });
+      await intl.screenshot({ path: `${ARTIFACTS}/search-${viewport.name}-held-intl.png` });
       shots[shots.length - 1].intlHeld = { id: intlHeld.id, start: intlHeld.load.start };
       await context.close();
       context = null;

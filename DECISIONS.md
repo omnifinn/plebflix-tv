@@ -2,6 +2,24 @@
 
 Newest first. One entry per decision: date · who · decision · why · source.
 
+## 2026-11-21 · Niko (via Page) · No wall clock in the player
+
+- **Decision:** The LCD under the screen no longer shows the time of day (`#lcd-clock` and `clock()` are gone). The row keeps the channel and the tape's year. The schedule window still lists air times, which is where a viewer looks for them.
+- **Why:** Niko, 2026-11-21: "plebflix.tv has the time for some odd reason in the player window. that should be removed."
+- **Source:** `public/index.html`, `public/app.js`, `public/styles.css`.
+
+## 2026-11-21 · Page, Grok · Polish pass
+
+- **Decision:** A tap on the glass starts a YouTube tape the browser never started (iOS low-power mode refuses even muted autoplay) instead of pausing it. Search hits name the category channel without repeating the language ("SUOMI · MTV", not "SUOMI · SUOMI-MTV"). The CSP allows Cloudflare's own Web Analytics beacon, which the zone injects and the old header blocked with a console error. Tests write screenshots to `PLEBFLIX_ARTIFACTS` or the temp dir instead of a cloud-agent-only path, and the search-click test no longer hangs when the live tape on International is an archive.org stream. Open PR #10 is superseded by the start/seek logic already on main.
+- **Why:** Niko asked for a general polish and bug-fix pass on 2026-11-21.
+- **Source:** `public/app.js` (`youtubeIdle`), `public/search.js` (`chanLabel`), `public/_headers`, `tests/`.
+
+## 2026-11-21 · Page, Grok · Niilin hanhet and the iPhone bill go on the shelves
+
+- **Decision:** Suomi gets `niilin-hanhet` (Pensseli-setä, TheKassitus 2009, MTV + KOMEDIA). The YouTube original `Lo_edXUlrT8` is gone, so it plays from the archive.org copy of that upload, then the Wayback copy, then a second archive.org copy. International gets `iphone-bill` (iJustine, 2007, KOMEDIA), the one open entry in `candidates/` that was not on the shelf yet. The pending REC row from 2026-11-18 (an X repost of a TikTok of a Yle TV sketch) is left pending, not filed: nothing shows a pre-2014 viral peak or an original upload (`CLASSIC.md`).
+- **Why:** Niko, 2026-11-21: "add niilin hanhet and other pr suggestions to the channels".
+- **Source:** `channels/suomi.json`, `channels/international.json`, `channels/categories.json`, D1 `submissions`.
+
 ## 2026-11-07 · Page, Grok · Search plays any approved shelf tape from the start
 
 - **Decision:** A search hit plays that tape from second 0 on the channel that carries it (stay if this channel has it, otherwise that TV's CH 1, then its language channel). The shared lineup is not consulted and `added` is not rewritten: a tape filed today still joins the broadcast on the next UTC day. The pick is this browser's clock. Ticks stay on it. Pause holds it, PLAY starts it again, Back inside it returns to its start, a skin does not drop it. Skip, the tape ending, or a schedule row continues today's programme (CONTINUOUS, the next item after what the broadcast is on). LOOP plays the pick again. GO LIVE, STOP, and a channel change return to the shared clock. A tape that is not an approved shelf row does not play.

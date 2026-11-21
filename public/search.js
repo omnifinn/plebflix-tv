@@ -30,6 +30,11 @@ export function editDistance(a, b, cap = 3) {
   }
   return prev[b.length];
 }
+/** "suomi-mtv" → "mtv": the language is already named by the shelf it sits on. */
+export function chanLabel(id) {
+  const at = String(id).indexOf("-");
+  return at > 0 ? String(id).slice(at + 1).replace(/-/g, " ") : String(id);
+}
 function wordScore(q, words) {
   let best = 0;
   for (const w of words) {
@@ -119,7 +124,7 @@ if (typeof document !== "undefined") {
     list.innerHTML = hits
       .map(
         (h, i) =>
-          `<li role="option" id="sr-${i}" class="search__hit${i === active ? " is-active" : ""}" aria-selected="${i === active}" data-id="${esc(h.item.id)}"><span class="search__t">${esc(h.item.title)}</span><span class="search__y">${esc(h.item.year)}</span><span class="search__c">${esc(h.chans.slice(0, 2).join(" · ").toUpperCase())}</span></li>`,
+          `<li role="option" id="sr-${i}" class="search__hit${i === active ? " is-active" : ""}" aria-selected="${i === active}" data-id="${esc(h.item.id)}"><span class="search__t">${esc(h.item.title)}</span><span class="search__y">${esc(h.item.year)}</span><span class="search__c">${esc(h.chans.slice(0, 2).map(chanLabel).join(" · ").toUpperCase())}</span></li>`,
       )
       .join("");
     list.hidden = false;
