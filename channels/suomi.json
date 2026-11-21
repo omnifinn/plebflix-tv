@@ -472,68 +472,6 @@
       "original_url": "https://www.youtube.com/watch?v=Gfdf2TiOXZ8"
     },
     {
-      "id": "kylla-muksu-tietaa",
-      "title": "Kyllä muksu tietää",
-      "year": 2010,
-      "source": "youtube",
-      "embedId": "Rf2meGb2sT8",
-      "play": [
-        {
-          "kind": "youtube",
-          "id_or_url": "Rf2meGb2sT8",
-          "official": true,
-          "uploader": "eetulaiho14"
-        }
-      ],
-      "duration": 33,
-      "note": "Archived copy of the linked upload.",
-      "credit": "https://www.youtube.com/watch?v=Rf2meGb2sT8",
-      "signals": [
-        "a",
-        "b",
-        "d"
-      ],
-      "why": "A kid knows best — short, homemade and endlessly reposted.",
-      "original_url": "https://www.youtube.com/watch?v=Rf2meGb2sT8"
-    },
-    {
-      "id": "pertus",
-      "title": "Pertus – älä aliarvioi lasta",
-      "year": 2010,
-      "source": "youtube",
-      "embedId": "reuPTLd9f1g",
-      "play": [
-        {
-          "kind": "youtube",
-          "id_or_url": "reuPTLd9f1g",
-          "official": true,
-          "uploader": "m4stern1nja4ss1nl33t"
-        },
-        {
-          "kind": "youtube",
-          "id_or_url": "LYB8yFgi0S0",
-          "official": false,
-          "uploader": "unknown"
-        },
-        {
-          "kind": "youtube",
-          "id_or_url": "AebBHtuBQcg",
-          "official": false,
-          "uploader": "unknown"
-        }
-      ],
-      "duration": 179,
-      "note": "Archived copy of the linked upload.",
-      "credit": "https://www.youtube.com/watch?v=reuPTLd9f1g",
-      "signals": [
-        "a",
-        "b",
-        "d"
-      ],
-      "why": "Don't underestimate the kid: an early Finnish YouTube kid star.",
-      "original_url": "https://www.youtube.com/watch?v=reuPTLd9f1g"
-    },
-    {
       "id": "jupe-laamanen",
       "title": "Jaksary haastattelee: Jupe Laamanen",
       "year": 2009,

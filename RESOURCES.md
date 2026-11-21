@@ -28,8 +28,6 @@ From Riemurasia nights to Euroviisut.
 | ES – Laulu | 2010 | abd | An energy-drink hymn from the ES-jonne era of Finnish forums. | 0:59 | MoraJonne | [YouTube, official](https://www.youtube.com/watch?v=qw-BjsmT1Q0) — embedded via YouTube |
 | Evoluutiomies – Lelutuokio | 2008 | ade | Kuvalauta's own toy-hour video, homemade and deeply weird. | 1:32 | Evoluutiomies | [YouTube, official](https://www.youtube.com/watch?v=dWR_TSF-QlE) — embedded via YouTube |
 | Erä-Koira | 2010 | abd | The wilderness dog video that became a meemi.info entry. | 0:55 | epola | [YouTube, official](https://www.youtube.com/watch?v=Gfdf2TiOXZ8) — embedded via YouTube |
-| Kyllä muksu tietää | 2010 | abd | A kid knows best — short, homemade and endlessly reposted. | 0:33 | eetulaiho14 | [YouTube, official](https://www.youtube.com/watch?v=Rf2meGb2sT8) — embedded via YouTube |
-| Pertus – älä aliarvioi lasta | 2010 | abd | Don't underestimate the kid: an early Finnish YouTube kid star. | 2:59 | m4stern1nja4ss1nl33t | [YouTube, official](https://www.youtube.com/watch?v=reuPTLd9f1g) — embedded via YouTube |
 | Jaksary haastattelee: Jupe Laamanen | 2009 | ade | A homemade interview that the Finnish boards adopted as lore. | 0:43 | Jaksary | [YouTube, official](https://www.youtube.com/watch?v=L3qMaZ5JeWs) — embedded via YouTube |
 | Avaruuskulttuuri | 2009 | ade | Kuvalauta's space-culture opus, a cult video of the board years. | 6:34 | AvaruusKulttuuri | [YouTube, official](https://www.youtube.com/watch?v=nM4aa8wpnIE) — embedded via YouTube |
 | Kimi Räikkönen – Ice cream, Malaysia 2009 | 2009 | bce | Red-flagged race, Kimi goes for an ice cream. Peak Iceman. | 0:23 | Kimiisland | [YouTube, official](https://www.youtube.com/watch?v=pivzf0kIomU) — embedded via YouTube |
