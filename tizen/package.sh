@@ -5,11 +5,11 @@ studio=${TIZEN_STUDIO:-$HOME/Developer/_tools/tizen-studio}
 profile=${TIZEN_PROFILE:-plebflix}
 tizen="$studio/tools/ide/bin/tizen"
 out="$root/dist/tizen"
-stage="$out/stage"
 cd "$root"
-mkdir -p "$stage"
-node tizen/build.mjs
-cp tizen/config.xml tizen/index.html tizen/tv.css tizen/icon.png "$stage/"
+mkdir -p "$out"
+stage=$(mktemp -d "$out/stage.XXXXXX")
+node tizen/build.mjs "$stage"
+cp tizen/config.xml tizen/index.html tizen/tv.css tizen/icon.png tizen/diagnostics.js "$stage/"
 "$tizen" package -t wgt -s "$profile" -- "$stage"
 cp "$stage"/*.wgt "$out/PlebflixTV.wgt"
 if [ "${1:-}" = install ]; then
