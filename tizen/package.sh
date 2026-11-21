@@ -20,6 +20,7 @@ mv "$stage"/*.wgt "$out/PlebflixTV.wgt"
 echo "built $out/PlebflixTV.wgt"
 if [ "${1:-}" = "install" ]; then
   serial=${2:?pass the sdb serial of the TV}
-  "$sdb" -s "$serial" install "$out/PlebflixTV.wgt"
-  "$sdb" -s "$serial" shell 0 execute PlbFlx2026.PlebflixTV
+  # `sdb install` pushes the file but does not install on this TV; the tizen CLI does.
+  (cd "$out" && "$tizen" install -n PlebflixTV.wgt -s "$serial")
+  "$tizen" run -p PlbFlx2026.PlebflixTV -s "$serial"
 fi
