@@ -37,55 +37,11 @@ export async function build() {
   for (const file of ["channels/suomi.json", "channels/international.json", "channels/categories.json", "channels/schedule.json", "public/schedule.js"]) stamp.update(await readFile(file));
   await writeFile("dist/assets/channels/index.json", JSON.stringify({ build: stamp.digest("hex").slice(0, 12), langs: lineup.langs, channels: lineup.index }));
   for (const [id, doc] of Object.entries(lineup.cats)) await writeFile(`dist/assets/channels/${id}.json`, JSON.stringify(doc));
-  await buildTv(shell);
   await cp("RESOURCES.md", "dist/assets/RESOURCES.md").catch(() => {});
   // The REC dialog checks pasted links against the archive shelf hosts.
   await cp("sources.json", "dist/assets/sources.json").catch(() => {});
   // Temporary source hand-off for a cloud agent (gitignored; remove the folder to stop serving it).
   if (existsSync(".handoff")) await cp(".handoff", "dist/assets/_handoff", { recursive: true });
-}
-
-/**
- * /tv/: the same deck for a Samsung (Tizen) TV app, whose browser is Chromium 56-69. Every module the shell loads is
- * bundled into one classic script with the syntax lowered (optional chaining, ??, class fields), runtime gaps filled by
- * public/tv/polyfills.js, and the remote driver public/tv/remote.js added. The page is served from plebflix.com, so
- * YouTube sees the site's own origin and referrer, exactly as in a desktop browser. tizen/ holds the launcher app.
- * @param {string} shell the built index.html
- */
-export async function buildTv(shell) {
-  await mkdir("dist/assets/tv", { recursive: true });
-  const entry = ["tv/polyfills.js", "app.js", "fx.js", "audio.js", "search.js", "skins.js", "tactile.js", "tv/remote.js"]
-    .map((file) => `import "./public/${file}";`)
-    .join("\n");
-  const out = await esbuild.build({
-    stdin: { contents: entry, resolveDir: ".", sourcefile: "tv-entry.js", loader: "js" },
-    bundle: true,
-    format: "iife",
-    target: "chrome56",
-    minify: true,
-    legalComments: "none",
-    write: false,
-  });
-  const js = out.outputFiles[0].text;
-  // One stylesheet, lowered for the TV (inset → top/right/bottom/left and the like); tv.css last so it wins.
-  const source = [
-    (await readFile("public/styles/tokens.css", "utf8")).replaceAll("../fonts/", "/fonts/"),
-    await readFile("public/styles.css", "utf8"),
-    await readFile("public/tv/tv.css", "utf8"),
-  ].join("\n");
-  const css = (await esbuild.transform(source, { loader: "css", target: "chrome56", minify: true })).code;
-  await writeFile("dist/assets/tv/tv.css", css);
-  const v = (text) => createHash("sha256").update(text).digest("hex").slice(0, 10);
-  await writeFile("dist/assets/tv/bundle.js", js);
-  let tv = shell
-    .replace(/\s*<script type="module" src="\/[a-z]+\.js(\?v=[0-9a-f]+)?"><\/script>/g, "")
-    .replace(/<link rel="canonical" href="[^"]*">/, '<link rel="canonical" href="https://plebflix.com/">')
-    .replace('<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">', '<meta name="viewport" content="width=1920, initial-scale=1">')
-    .replace(/<link rel="stylesheet" href="\/styles\/tokens\.css\?v=[0-9a-f]+">\s*<link rel="stylesheet" href="\/styles\.css\?v=[0-9a-f]+">/, `<link rel="stylesheet" href="/tv/tv.css?v=${v(css)}">`)
-    .replace("</body>", `<script defer src="/tv/bundle.js?v=${v(js)}"></script>\n</body>`);
-  if (/type="module"/.test(tv)) throw new Error("tv shell still loads a module script");
-  if (!tv.includes("/tv/tv.css?v=") || tv.includes('href="/styles.css')) throw new Error("tv shell did not swap in /tv/tv.css");
-  await writeFile("dist/assets/tv/index.html", tv);
 }
 
 /** Hash the shell's scripts and styles in dist/assets; rewrite app.js's own import first so its hash covers it. */

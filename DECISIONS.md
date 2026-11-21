@@ -1,3 +1,9 @@
+## 2026-11-21 — PLEBAMP TV presentation
+
+- Package the site's type, brand and gunmetal texture in the widget. Use a small generated snow sprite and station ident until playback begins, colour bars for a failed signal, and LCD/chrome windows for the guide, search, info and on-screen display. Keep scanlines out to avoid a permanent full-screen GPU layer on this TV.
+- Limit snow to a 480 × 270 animated layer scaled fourfold at two frames per second; omit permanent scanlines. The TV system CPU samples remain noisy and include the whole device.
+- Retire the unused hosted TV deck and preserve it under `legacy/hosted-tv-deck`; keep the hosted YouTube player shim and JSON CORS. This changes the site build and needs a site deployment.
+
 ## 2026-11-21 — TV player origin and logging
 
 - The TV returned YouTube error 153 for direct widget embeds. Use a hosted, player-only YouTube shim on plebflix.com, controlled by postMessage; keep the TV experience packaged. Archive playback reached playing in 3.644 seconds on the TV. The TV default script policy blocked inline diagnostic scripts; use a packaged early logger for testing.

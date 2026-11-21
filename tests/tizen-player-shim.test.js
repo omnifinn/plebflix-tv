@@ -26,6 +26,6 @@ test('player-only page replaces the site frame-ancestor policy', async () => {
   const headers=await readFile('public/_headers','utf8');
   assert.match(headers,/\/tv\/yt\n\s+! Content-Security-Policy\n\s+Content-Security-Policy:/);
   const app=await readFile('tizen/tv.js','utf8');
-  assert.match(app,/e\.origin!==['"]https:\/\/plebflix\.com['"]/);
-  assert.match(app,/e\.source!==yt\.frame\.contentWindow/);
+  assert.match(app,/e\.origin\s*!==\s*['"]https:\/\/plebflix\.com['"]/);
+  assert.match(app,/e\.source\s*!==\s*yt\.frame\.contentWindow/);
 });
